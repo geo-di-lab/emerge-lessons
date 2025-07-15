@@ -4,4 +4,4 @@ numpy
 pandas
 geopandas
 seaborn
-ee
+earthengine-api
