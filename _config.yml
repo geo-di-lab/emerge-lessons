@@ -26,7 +26,7 @@ repository:
   
 launch_buttons:
   thebe: true
-  # binderhub_url: "https://mybinder.org"
+  binderhub_url: "https://mybinder.org"
   colab_url: "https://colab.research.google.com"
 
 # Add GitHub buttons to your book
@@ -35,9 +35,4 @@ html:
   favicon: "GeoDI_Logo.png"
   use_issues_button: true
   use_repository_button: true
-
-sphinx:
-  config:
-    html_theme_options:
-      # Set the default color scheme to light
-      color_scheme: light
+  color_scheme: light
