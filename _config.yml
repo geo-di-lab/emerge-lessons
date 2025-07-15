@@ -21,12 +21,11 @@ bibtex_bibfiles:
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/geo-di-lab/emerge-lessons  # Online location of your book
-  path_to_book: docs  # Optional path to your book, relative to the repository root
-  branch: main  # Which branch of the repository should be used when creating links (optional)
-
+  url: https://github.com/geo-di-lab/emerge-lessons
+  branch: main
+  
 launch_buttons:
-  binderhub_url: "https://mybinder.org/v2/gh/geo-di-lab/emerge-lessons/HEAD"
+  binderhub_url: "https://mybinder.org"
   colab_url: "https://colab.research.google.com"
 
 # Add GitHub buttons to your book
