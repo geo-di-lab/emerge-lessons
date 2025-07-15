@@ -3,15 +3,15 @@ root: intro
 parts:
 - caption: Foundational Concepts
   chapters:
-  - file: ch1/1_citizen_science
-  - file: ch1/2_mosquitoes
-  - file: ch1/3_intro_globe
-  - file: ch1/4_intro_coding
-  - file: ch1/5_globe_data
+  - file: docs/ch1/1_citizen_science
+  - file: docs/ch1/2_mosquitoes
+  - file: docs/ch1/3_intro_globe
+  - file: docs/ch1/4_intro_coding
+  - file: docs/ch1/5_globe_data
 
 - caption: Explore the Data
   chapters:
-  - file: ch2/2_stats
+  - file: docs/ch2/2_stats
 
 # - caption: Data from Satellites
 #   chapters:
