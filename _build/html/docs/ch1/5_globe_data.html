@@ -245,24 +245,6 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/geo-di-lab/emerge-lessons/main?urlpath=tree/docs/ch1/5_globe_data.ipynb" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch on Binder"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
-  </span>
-<span class="btn__text-container">Binder</span>
-</a>
-</li>
-      
-      
-      
-      
       <li><a href="https://colab.research.google.com/github/geo-di-lab/emerge-lessons/blob/main/docs/ch1/5_globe_data.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
@@ -276,6 +258,24 @@
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
 </li>
       
   </ul>
@@ -457,8 +457,12 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-globe-data">
 <h1>Introduction to GLOBE Data<a class="headerlink" href="#introduction-to-globe-data" title="Link to this heading">#</a></h1>
 <p>We will examine two GLOBE datasets: <a class="reference external" href="https://observer.globe.gov/do-globe-observer/mosquito-habitats">Mosquito Habitat Mapper</a> and <a class="reference external" href="https://observer.globe.gov/do-globe-observer/land-cover">Land Cover</a>.</p>
-<p>You can view an <a class="reference internal" href="#"><span class="xref myst">interactive dashboard of this data</span></a>.</p>
-<p>You can run the following code using Google Colab, which runs on your browser (no installations required). If you run into any issues with the code, you can directly download the results (all the processed data) from <a class="reference internal" href="#"><span class="xref myst">this link</span></a>.</p>
+<p>You can view an <a class="reference external" href="https://experience.arcgis.com/experience/15c3e38176ec44d1a2f250c218343b4b">interactive dashboard of this data</a>.</p>
+<p>To run the code right here in this tab, click the rocket ship icon (<span class="fa fa-rocket"></span>) and choose <span class="fa fa-caret-right"></span> <strong>Live Code</strong>.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Alternatively, use Google Colab</p>
+<p>You can run the following code using Google Colab, which runs on your browser (no installations required). Click the rocket ship icon <span class="fa fa-rocket"></span> and choose Colab.</p>
+</div>
 <p>First, we’ll load the Python packages, which gives us more options with our code.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2021,13 +2025,9 @@ memory usage: 11.9+ MB
   </div>
 </div></div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download the data</span>
-<span class="c1"># data.to_file(&quot;../data/globe_mosquito.gpkg&quot;, driver=&quot;GPKG&quot;)</span>
-</pre></div>
-</div>
-</div>
+<div class="admonition-click-to-download-the-data-https-github-com-geo-di-lab-emerge-lessons-blob-main-docs-data-globe-mosquito-zip admonition">
+<p class="admonition-title"><a class="reference external" href="https://github.com/geo-di-lab/emerge-lessons/blob/main/docs/data/globe_mosquito.zip">Click to download the data</a></p>
+<p>We will use these in future lessons!</p>
 </div>
 <section id="explore-the-data">
 <h3>Explore the Data<a class="headerlink" href="#explore-the-data" title="Link to this heading">#</a></h3>
@@ -3963,13 +3963,9 @@ memory usage: 25.4+ MB
   </div>
 </div></div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download the data</span>
-<span class="c1"># data.to_file(&quot;../data/globe_land_cover.gpkg&quot;, driver=&quot;GPKG&quot;)</span>
-</pre></div>
-</div>
-</div>
+<div class="admonition-click-to-download-the-data-https-github-com-geo-di-lab-emerge-lessons-blob-main-docs-data-globe-land-cover-zip admonition">
+<p class="admonition-title"><a class="reference external" href="https://github.com/geo-di-lab/emerge-lessons/blob/main/docs/data/globe_land_cover.zip">Click to download the data</a></p>
+<p>We will use these in future lessons!</p>
 </div>
 <section id="id1">
 <h3>Explore the Data<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
@@ -4370,8 +4366,8 @@ WestPhotoUrl: https://data.globe.gov/system/photos/2024/12/31/4325697/original.j
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "geo-di-lab/emerge-lessons",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",

@@ -244,24 +244,6 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/geo-di-lab/emerge-lessons/main?urlpath=tree/docs/ch2/2_stats.ipynb" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch on Binder"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
-  </span>
-<span class="btn__text-container">Binder</span>
-</a>
-</li>
-      
-      
-      
-      
       <li><a href="https://colab.research.google.com/github/geo-di-lab/emerge-lessons/blob/main/docs/ch2/2_stats.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
@@ -275,6 +257,24 @@
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
 </li>
       
   </ul>
@@ -451,7 +451,12 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="mosquito-land-cover-stats">
 <h1>Mosquito &amp; Land Cover Stats<a class="headerlink" href="#mosquito-land-cover-stats" title="Link to this heading">#</a></h1>
 <p>Basic statistics (mean, median, max counts) and charting larvae numbers. Do counts vary by reported species or location?</p>
-<p>If you are working in Google Colab, click on the Folder icon to the very left. Then, click the Upload icon and choose where you downloaded the dataaset from the previous lesson (1.5: Intro to GLOBE Data). You can also drag and drop your downloaded data. You will get a warning saying “Warning: Ensure that your files are saved elsewhere.” This is because all data uploaded to Google Colab will be deleted once you close the browser. Since you have the files on your computer, you can click “OK.” It will take a few seconds for the data to finish uploading.</p>
+<p>To run the code right here in this tab, click the rocket ship icon (<span class="fa fa-rocket"></span>) and choose <span class="fa fa-caret-right"></span> <span class="guilabel">Live Code</span>.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Alternatively, use Google Colab</p>
+<p>You can run the following code using Google Colab, which runs on your browser (no installations required). Click the rocket ship icon <span class="fa fa-rocket"></span> and choose Colab.</p>
+<p>An additional step is needed for Google Colab to load the data. Click on the Folder icon to the very left. Then, click the Upload icon and choose where you downloaded the dataaset from the previous lesson (1.5: Intro to GLOBE Data). You can also drag and drop your downloaded data. You will get a warning saying “Warning: Ensure that your files are saved elsewhere.” This is because all data uploaded to Google Colab will be deleted once you close the browser. Since you have the files on your computer, you can click “OK.” It will take a few seconds for the data to finish uploading.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -3298,8 +3303,8 @@ memory usage: 25.4+ MB
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "geo-di-lab/emerge-lessons",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",

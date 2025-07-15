@@ -245,24 +245,6 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/geo-di-lab/emerge-lessons/main?urlpath=tree/docs/ch1/4_intro_coding.ipynb" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch on Binder"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
-  </span>
-<span class="btn__text-container">Binder</span>
-</a>
-</li>
-      
-      
-      
-      
       <li><a href="https://colab.research.google.com/github/geo-di-lab/emerge-lessons/blob/main/docs/ch1/4_intro_coding.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
@@ -276,6 +258,24 @@
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
 </li>
       
   </ul>
@@ -456,8 +456,13 @@ document.write(`
 <h1>What is Coding?<a class="headerlink" href="#what-is-coding" title="Link to this heading">#</a></h1>
 <section id="intro-to-python-and-google-colab">
 <h2>Intro to Python and Google Colab<a class="headerlink" href="#intro-to-python-and-google-colab" title="Link to this heading">#</a></h2>
+<p>To run the code right here in this tab, click the rocket ship icon <span class="fa fa-rocket"></span> and choose <span class="fa fa-caret-right"></span> Live Code.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Alternatively, use Google Colab</p>
+<p>You can run the following code using Google Colab, which runs on your browser (no installations required). Click the rocket ship icon <span class="fa fa-rocket"></span> and choose Colab.</p>
 <p>Note: When you run a block of code for the first time, Google Colab will say <code class="docutils literal notranslate"><span class="pre">Warning:</span> <span class="pre">This</span> <span class="pre">notebook</span> <span class="pre">was</span> <span class="pre">not</span> <span class="pre">authored</span> <span class="pre">by</span> <span class="pre">Google</span></code>. Please click <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">Anyway</span></code>.</p>
-<p>A great feature of Google Colab is that you are able to write Python code and see the output directly on your browser. Let’s go through the basics below:</p>
+</div>
+<p>Let’s go through the basics below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">)</span>
@@ -733,8 +738,8 @@ The rural  land surface temperature for the urban point is 26.56 °C
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "geo-di-lab/emerge-lessons",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",
