@@ -190,6 +190,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Explore the Data</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ch2/1_why_data.html">Why Analyze Data?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch2/2_stats.html">Mosquito &amp; Land Cover Stats</a></li>
 </ul>
 
@@ -245,24 +246,6 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/geo-di-lab/emerge-lessons/main?urlpath=tree/docs/ch1/2_mosquitoes.ipynb" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch on Binder"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
-  </span>
-<span class="btn__text-container">Binder</span>
-</a>
-</li>
-      
-      
-      
-      
       <li><a href="https://colab.research.google.com/github/geo-di-lab/emerge-lessons/blob/main/docs/ch1/2_mosquitoes.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
@@ -276,24 +259,6 @@
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
-</li>
-      
-      
-      
-      
-      <li>
-<button onclick="initThebeSBT()"
-  class="btn btn-sm btn-launch-thebe dropdown-item"
-  title="Launch Thebe"
-  data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-play"></i>
-  </span>
-<span class="btn__text-container">Live Code</span>
-</button>
 </li>
       
   </ul>
@@ -530,8 +495,8 @@ document.write(`
     {
         requestKernel: true,
         binderOptions: {
-            repo: "geo-di-lab/emerge-lessons",
-            ref: "main",
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
         },
         codeMirrorConfig: {
             theme: "abcdef",

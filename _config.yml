@@ -23,10 +23,10 @@ bibtex_bibfiles:
 repository:
   url: https://github.com/geo-di-lab/emerge-lessons
   branch: main
-  
+
 launch_buttons:
-  thebe: true
-  binderhub_url: "https://mybinder.org"
+  # thebe: true
+  # binderhub_url: "https://mybinder.org"
   colab_url: "https://colab.research.google.com"
 
 # Add GitHub buttons to your book

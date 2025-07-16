@@ -11,6 +11,7 @@ parts:
 
 - caption: Explore the Data
   chapters:
+  - file: docs/ch2/1_why_data
   - file: docs/ch2/2_stats
 
 # - caption: Data from Satellites

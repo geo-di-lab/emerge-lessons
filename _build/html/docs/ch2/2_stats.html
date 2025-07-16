@@ -61,7 +61,7 @@
     <link rel="icon" href="../../_static/GeoDI_Logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="Introduction to GLOBE Data" href="../ch1/5_globe_data.html" />
+    <link rel="prev" title="Why Analyze Data?" href="1_why_data.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -189,6 +189,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Explore the Data</span></p>
 <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1_why_data.html">Why Analyze Data?</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Mosquito &amp; Land Cover Stats</a></li>
 </ul>
 
@@ -244,24 +245,6 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/geo-di-lab/emerge-lessons/main?urlpath=tree/docs/ch2/2_stats.ipynb" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch on Binder"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
-  </span>
-<span class="btn__text-container">Binder</span>
-</a>
-</li>
-      
-      
-      
-      
       <li><a href="https://colab.research.google.com/github/geo-di-lab/emerge-lessons/blob/main/docs/ch2/2_stats.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
@@ -275,24 +258,6 @@
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
-</li>
-      
-      
-      
-      
-      <li>
-<button onclick="initThebeSBT()"
-  class="btn btn-sm btn-launch-thebe dropdown-item"
-  title="Launch Thebe"
-  data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-play"></i>
-  </span>
-<span class="btn__text-container">Live Code</span>
-</button>
 </li>
       
   </ul>
@@ -469,12 +434,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="mosquito-land-cover-stats">
 <h1>Mosquito &amp; Land Cover Stats<a class="headerlink" href="#mosquito-land-cover-stats" title="Link to this heading">#</a></h1>
 <p>Basic statistics (mean, median, max counts) and charting larvae numbers. Do counts vary by reported species or location?</p>
-<p>To run the code right here in this tab, click the rocket ship icon (<span class="fa fa-rocket"></span>) and choose <span class="fa fa-caret-right"></span> <strong>Live Code</strong>.</p>
-<div class="dropdown admonition">
-<p class="admonition-title">Alternatively, use Google Colab</p>
-<p>You can run the following code using Google Colab, which runs on your browser (no installations required). Click the rocket ship icon (<span class="fa fa-rocket"></span>) and choose Colab.</p>
-<p>An additional step is needed for Google Colab to load the data. Click on the Folder icon to the very left. Then, click the Upload icon and choose where you downloaded the dataaset from the previous lesson (1.5: Intro to GLOBE Data). You can also drag and drop your downloaded data. You will get a warning saying “Warning: Ensure that your files are saved elsewhere.” This is because all data uploaded to Google Colab will be deleted once you close the browser. Since you have the files on your computer, you can click “OK.” It will take a few seconds for the data to finish uploading.</p>
-</div>
+<p>To run the code, click the rocket ship icon (<span class="fa fa-rocket"></span>) and choose <strong>Colab</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -491,7 +451,7 @@ document.write(`
 <p>Let’s load the data. If you get a <code class="docutils literal notranslate"><span class="pre">DataSourceError</span></code>, it may be because the data has not finished uploading. Wait a few seconds (see the bottom left corner of your screen to know when the data has finished uploading) and then run the cell again.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mosquito</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;../data/globe_mosquito.zip&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">3087</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mosquito</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;https://github.com/geo-di-lab/emerge-lessons/raw/refs/heads/main/docs/data/globe_mosquito.zip&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">3087</span><span class="p">)</span>
 <span class="n">mosquito</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1211,7 +1171,7 @@ Data from the World Food Programme, downloaded from Opendatasoft: <a class="refe
 <h2>Land Cover<a class="headerlink" href="#land-cover" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">land_cover</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;../data/globe_land_cover.zip&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">3087</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">land_cover</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;https://github.com/geo-di-lab/emerge-lessons/raw/refs/heads/main/docs/data/globe_land_cover.zip&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">3087</span><span class="p">)</span>
 <span class="n">land_cover</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -3321,8 +3281,8 @@ memory usage: 25.4+ MB
     {
         requestKernel: true,
         binderOptions: {
-            repo: "geo-di-lab/emerge-lessons",
-            ref: "main",
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -3348,12 +3308,12 @@ memory usage: 25.4+ MB
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../ch1/5_globe_data.html"
+       href="1_why_data.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Introduction to GLOBE Data</p>
+        <p class="prev-next-title">Why Analyze Data?</p>
       </div>
     </a>
 </div>

@@ -190,6 +190,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Explore the Data</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ch2/1_why_data.html">Why Analyze Data?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch2/2_stats.html">Mosquito &amp; Land Cover Stats</a></li>
 </ul>
 
@@ -245,24 +246,6 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/geo-di-lab/emerge-lessons/main?urlpath=tree/docs/ch1/4_intro_coding.ipynb" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch on Binder"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
-  </span>
-<span class="btn__text-container">Binder</span>
-</a>
-</li>
-      
-      
-      
-      
       <li><a href="https://colab.research.google.com/github/geo-di-lab/emerge-lessons/blob/main/docs/ch1/4_intro_coding.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
@@ -276,24 +259,6 @@
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
-</li>
-      
-      
-      
-      
-      <li>
-<button onclick="initThebeSBT()"
-  class="btn btn-sm btn-launch-thebe dropdown-item"
-  title="Launch Thebe"
-  data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-play"></i>
-  </span>
-<span class="btn__text-container">Live Code</span>
-</button>
 </li>
       
   </ul>
@@ -474,11 +439,10 @@ document.write(`
 <h1>What is Coding?<a class="headerlink" href="#what-is-coding" title="Link to this heading">#</a></h1>
 <section id="intro-to-python-and-google-colab">
 <h2>Intro to Python and Google Colab<a class="headerlink" href="#intro-to-python-and-google-colab" title="Link to this heading">#</a></h2>
-<p>To run the code right here in this tab, click the rocket ship icon (<span class="fa fa-rocket"></span>) and choose <span class="fa fa-caret-right"></span> <strong>Live Code</strong>.</p>
-<div class="dropdown admonition">
-<p class="admonition-title">Alternatively, use Google Colab</p>
-<p>You can run the following code using Google Colab, which runs on your browser (no installations required). Click the rocket ship icon (<span class="fa fa-rocket"></span>) and choose Colab.</p>
-<p>Note: When you run a block of code for the first time, Google Colab will say <code class="docutils literal notranslate"><span class="pre">Warning:</span> <span class="pre">This</span> <span class="pre">notebook</span> <span class="pre">was</span> <span class="pre">not</span> <span class="pre">authored</span> <span class="pre">by</span> <span class="pre">Google</span></code>. Please click <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">Anyway</span></code>.</p>
+<div class="admonition-how-to-run-this-code admonition">
+<p class="admonition-title">How to run this code</p>
+<p>You can run the following code using Google Colab, which runs on your browser (no installations required). Click the rocket ship icon (<span class="fa fa-rocket"></span>) and choose <strong>Colab</strong>.</p>
+<p>When you run a block of code for the first time, Google Colab will say <code class="docutils literal notranslate"><span class="pre">Warning:</span> <span class="pre">This</span> <span class="pre">notebook</span> <span class="pre">was</span> <span class="pre">not</span> <span class="pre">authored</span> <span class="pre">by</span> <span class="pre">Google</span></code>. Please click <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">Anyway</span></code>.</p>
 </div>
 <p>Let’s go through the basics below:</p>
 <div class="cell docutils container">
@@ -756,8 +720,8 @@ The rural  land surface temperature for the urban point is 26.56 °C
     {
         requestKernel: true,
         binderOptions: {
-            repo: "geo-di-lab/emerge-lessons",
-            ref: "main",
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
         },
         codeMirrorConfig: {
             theme: "abcdef",
