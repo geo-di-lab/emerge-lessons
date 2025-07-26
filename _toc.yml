@@ -3,16 +3,17 @@ root: intro
 parts:
 - caption: Foundational Concepts
   chapters:
-  - file: docs/ch1/1_citizen_science
-  - file: docs/ch1/2_mosquitoes
-  - file: docs/ch1/3_intro_globe
-  - file: docs/ch1/4_intro_coding
-  - file: docs/ch1/5_globe_data
+  - file: docs/ch1/lesson1
+  - file: docs/ch1/lesson2
+  - file: docs/ch1/lesson3
+  - file: docs/ch1/lesson4
+  - file: docs/ch1/lesson5
+  - file: docs/ch1/lesson6
 
 - caption: Explore the Data
   chapters:
-  - file: docs/ch2/1_why_data
-  - file: docs/ch2/2_stats
+  - file: docs/ch2/lesson1
+  - file: docs/ch2/lesson2
 
 # - caption: Data from Satellites
 #   chapters:
@@ -21,4 +22,7 @@ parts:
 #   chapters:
 
 # - caption: Science Communication
+#   chapters:
+
+# - caption: Templates for Your Data Analysis
 #   chapters:
