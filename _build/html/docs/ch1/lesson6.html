@@ -193,6 +193,9 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ch2/lesson1.html">Why Analyze Data?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch2/lesson2.html">Mosquito &amp; Land Cover Stats</a></li>
+
+
+
 </ul>
 
     </div>
@@ -441,8 +444,8 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-globe-data">
 <h1>Introduction to GLOBE Data<a class="headerlink" href="#introduction-to-globe-data" title="Link to this heading">#</a></h1>
 <p>We will examine two GLOBE datasets: <a class="reference external" href="https://observer.globe.gov/do-globe-observer/mosquito-habitats">Mosquito Habitat Mapper</a> and <a class="reference external" href="https://observer.globe.gov/do-globe-observer/land-cover">Land Cover</a>.</p>
-<p>You can view an <a class="reference internal" href="#"><span class="xref myst">interactive dashboard of this data</span></a>.</p>
-<p>You can run the following code using Google Colab, which runs on your browser (no installations required). If you run into any issues with the code, you can directly download the results (all the processed data) from <a class="reference internal" href="#"><span class="xref myst">this link</span></a>.</p>
+<p>You can view an <a class="reference external" href="https://experience.arcgis.com/experience/15c3e38176ec44d1a2f250c218343b4b">interactive dashboard of this data</a>.</p>
+<p>You can run the following code using Google Colab, which runs on your browser (no installations required).</p>
 <p>First, we’ll load the Python packages, which gives us more options with our code.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -453,8 +456,8 @@ document.write(`
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>               <span class="c1"># For making graphs</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>                     <span class="c1"># For formatting dates</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>                         <span class="c1"># For getting and displaying images from links</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">io</span><span class="w"> </span><span class="kn">import</span> <span class="n">BytesIO</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>                               <span class="c1"># For getting information from links</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">io</span><span class="w"> </span><span class="kn">import</span> <span class="n">BytesIO</span>                        <span class="c1"># For working with types of input and output</span>
 </pre></div>
 </div>
 </div>
@@ -486,7 +489,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-5b42e55f-26a2-483d-af09-a5f917ffc84d" class="colab-df-container">
+  <div id="df-65e82aad-7e96-44f1-93e0-fe3d10fb5b11" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -929,7 +932,7 @@ document.write(`
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-5b42e55f-26a2-483d-af09-a5f917ffc84d')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-65e82aad-7e96-44f1-93e0-fe3d10fb5b11')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -981,12 +984,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-5b42e55f-26a2-483d-af09-a5f917ffc84d button.colab-df-convert');
+        document.querySelector('#df-65e82aad-7e96-44f1-93e0-fe3d10fb5b11 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-5b42e55f-26a2-483d-af09-a5f917ffc84d');
+        const element = document.querySelector('#df-65e82aad-7e96-44f1-93e0-fe3d10fb5b11');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1006,8 +1009,8 @@ document.write(`
   </div>
 
 
-    <div id="df-bbcd2260-7ed2-4f11-9fc3-d8f93fabe5d0">
-      <button class="colab-df-quickchart" onclick="quickchart('df-bbcd2260-7ed2-4f11-9fc3-d8f93fabe5d0')"
+    <div id="df-c7c3f9ca-0ce4-41b1-80c7-945268d46ea3">
+      <button class="colab-df-quickchart" onclick="quickchart('df-c7c3f9ca-0ce4-41b1-80c7-945268d46ea3')"
                 title="Suggest charts"
                 style="display:none;">
 
@@ -1126,7 +1129,7 @@ document.write(`
         }
         (() => {
           let quickchartButtonEl =
-            document.querySelector('#df-bbcd2260-7ed2-4f11-9fc3-d8f93fabe5d0 button');
+            document.querySelector('#df-c7c3f9ca-0ce4-41b1-80c7-945268d46ea3 button');
           quickchartButtonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
         })();
@@ -1273,7 +1276,7 @@ memory usage: 11.6+ MB
     <span class="s1">&#39;null&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
 <span class="p">})</span>
 
-<span class="c1"># If the LarvaeCount is very long (more than 10 characters), then it is likely an error, so we&#39;ll replace with null</span>
+<span class="c1"># If the LarvaeCount is very long (more than 10 characters), then it is likely an error, so we&#39;ll replace with NAN</span>
 <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;LarvaeCountProcessed&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;LarvaeCountProcessed&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
 
 <span class="n">numeric_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;LarvaeCountProcessed&#39;</span><span class="p">,</span> <span class="s1">&#39;MeasurementLatitude&#39;</span><span class="p">,</span> <span class="s1">&#39;MeasurementLongitude&#39;</span><span class="p">]</span>
@@ -1282,7 +1285,7 @@ memory usage: 11.6+ MB
 <span class="c1"># Drop the MosquitoEggCount column because it is all null</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;MosquitoEggCount&#39;</span><span class="p">])</span>
 
-<span class="c1"># Replace the word &#39;null&#39; with NA to ensure it is stored as an empty value instead of a word</span>
+<span class="c1"># Replace the word &#39;null&#39; with NAN to ensure it is stored as an empty value instead of a word</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;null&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
 
 <span class="n">data</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
@@ -1337,10 +1340,10 @@ memory usage: 11.9+ MB
 </div>
 </div>
 </div>
-<p>The final data cleaning step we will perform for now is to remove points that have invalid coordinates. Sometimes, the latitude and longitude may be incorrectly reported, placing the point at the middle of the ocean. We want to remove any points that are not on land. To do that, let’s load a publicly-available file of the country boundaries. The country boundaries were downloaded from <a class="reference external" href="https://hub.arcgis.com/datasets/esri::world-countries-generalized/explore">ArcGIS Hub</a>.</p>
+<p>The final data cleaning step we will perform for now is to remove points that have invalid coordinates. Sometimes, the latitude and longitude may be incorrectly reported, placing the point at the middle of the ocean. We want to remove any points that are not on land. To do that, let’s load a publicly-available file of country boundaries. The country boundaries (excluding Antarctica) were downloaded from <a class="reference external" href="https://hub.arcgis.com/datasets/esri::world-countries/explore">ArcGIS Hub</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">countries</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;world_countries.geojson&#39;</span><span class="p">)[[</span><span class="s1">&#39;COUNTRY&#39;</span><span class="p">,</span> <span class="s1">&#39;geometry&#39;</span><span class="p">]]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">countries</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;world_countries.zip&#39;</span><span class="p">)[[</span><span class="s1">&#39;COUNTRY&#39;</span><span class="p">,</span> <span class="s1">&#39;geometry&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="mi">4326</span><span class="p">)</span>
 <span class="n">countries</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1349,7 +1352,7 @@ memory usage: 11.9+ MB
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="../../_images/9bd0669c1e36333219031d16839c3a918f66dcaf23aa8e99160ea83bd8e608fc.png" src="../../_images/9bd0669c1e36333219031d16839c3a918f66dcaf23aa8e99160ea83bd8e608fc.png" />
+<img alt="../../_images/abcb57e9b28d475020312b6f399941ed46ec671e0b3c31b7dca15a4e7a0df3b2.png" src="../../_images/abcb57e9b28d475020312b6f399941ed46ec671e0b3c31b7dca15a4e7a0df3b2.png" />
 </div>
 </div>
 <p>We will use a <a class="reference external" href="https://geopandas.org/en/stable/docs/reference/api/geopandas.sjoin.html">spatial join</a> (<code class="docutils literal notranslate"><span class="pre">sjoin</span></code>) to get all of the data that “intersects” the countries layer, meaning it is either within or on the boundary of a country.</p>
@@ -1357,8 +1360,9 @@ memory usage: 11.9+ MB
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">set_geometry</span><span class="p">(</span><span class="s2">&quot;Geometry&quot;</span><span class="p">)</span> \
            <span class="o">.</span><span class="n">set_crs</span><span class="p">(</span><span class="mi">4326</span><span class="p">)</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">countries</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">predicate</span><span class="o">=</span><span class="s1">&#39;intersects&#39;</span><span class="p">)</span> \
-          <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;index_right&#39;</span><span class="p">,</span> <span class="s1">&#39;COUNTRY&#39;</span><span class="p">])</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">countries</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span> <span class="n">predicate</span><span class="o">=</span><span class="s1">&#39;intersects&#39;</span><span class="p">)</span> \
+          <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;index_right&#39;</span><span class="p">,</span> <span class="s1">&#39;COUNTRY&#39;</span><span class="p">])</span> \
+          <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1371,7 +1375,7 @@ memory usage: 11.9+ MB
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-820c5aa5-6025-4c02-a8d8-36b254c6a8a8" class="colab-df-container">
+  <div id="df-047041a6-efaf-428b-a207-1cf66d98a357" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1664,7 +1668,7 @@ memory usage: 11.9+ MB
       <td>...</td>
     </tr>
     <tr>
-      <th>43337</th>
+      <th>43004</th>
       <td>ISR</td>
       <td>Israel</td>
       <td>714.0</td>
@@ -1703,7 +1707,7 @@ memory usage: 11.9+ MB
       <td>13.0</td>
     </tr>
     <tr>
-      <th>43338</th>
+      <th>43005</th>
       <td>ISR</td>
       <td>Israel</td>
       <td>755.0</td>
@@ -1742,7 +1746,7 @@ memory usage: 11.9+ MB
       <td>13.0</td>
     </tr>
     <tr>
-      <th>43339</th>
+      <th>43006</th>
       <td>KOR</td>
       <td>South Korea</td>
       <td>287.5</td>
@@ -1781,7 +1785,7 @@ memory usage: 11.9+ MB
       <td>NaN</td>
     </tr>
     <tr>
-      <th>43340</th>
+      <th>43007</th>
       <td>KOR</td>
       <td>South Korea</td>
       <td>287.5</td>
@@ -1820,7 +1824,7 @@ memory usage: 11.9+ MB
       <td>0.0</td>
     </tr>
     <tr>
-      <th>43341</th>
+      <th>43008</th>
       <td>KOR</td>
       <td>South Korea</td>
       <td>287.5</td>
@@ -1860,12 +1864,12 @@ memory usage: 11.9+ MB
     </tr>
   </tbody>
 </table>
-<p>43342 rows × 36 columns</p>
+<p>43009 rows × 36 columns</p>
 </div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-820c5aa5-6025-4c02-a8d8-36b254c6a8a8')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-047041a6-efaf-428b-a207-1cf66d98a357')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -1917,12 +1921,12 @@ memory usage: 11.9+ MB
 
     <script>
       const buttonEl =
-        document.querySelector('#df-820c5aa5-6025-4c02-a8d8-36b254c6a8a8 button.colab-df-convert');
+        document.querySelector('#df-047041a6-efaf-428b-a207-1cf66d98a357 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-820c5aa5-6025-4c02-a8d8-36b254c6a8a8');
+        const element = document.querySelector('#df-047041a6-efaf-428b-a207-1cf66d98a357');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1942,8 +1946,8 @@ memory usage: 11.9+ MB
   </div>
 
 
-    <div id="df-77f0d02e-4d3b-4814-b315-1e85e118d15c">
-      <button class="colab-df-quickchart" onclick="quickchart('df-77f0d02e-4d3b-4814-b315-1e85e118d15c')"
+    <div id="df-ad81f3ab-7028-4886-b095-6261fbc7aaf8">
+      <button class="colab-df-quickchart" onclick="quickchart('df-ad81f3ab-7028-4886-b095-6261fbc7aaf8')"
                 title="Suggest charts"
                 style="display:none;">
 
@@ -2062,14 +2066,14 @@ memory usage: 11.9+ MB
         }
         (() => {
           let quickchartButtonEl =
-            document.querySelector('#df-77f0d02e-4d3b-4814-b315-1e85e118d15c button');
+            document.querySelector('#df-ad81f3ab-7028-4886-b095-6261fbc7aaf8 button');
           quickchartButtonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
         })();
       </script>
     </div>
 
-  <div id="id_494d7a2d-e2b4-48e2-9265-af59a421fa91">
+  <div id="id_6bb241f4-6751-4c91-aafe-28992f252746">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -2113,7 +2117,7 @@ memory usage: 11.9+ MB
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_494d7a2d-e2b4-48e2-9265-af59a421fa91 button.colab-df-generate');
+        document.querySelector('#id_6bb241f4-6751-4c91-aafe-28992f252746 button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -2128,14 +2132,7 @@ memory usage: 11.9+ MB
   </div>
 </div></div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download the data</span>
-<span class="n">data</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s2">&quot;globe_mosquito.gpkg&quot;</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s2">&quot;GPKG&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>The data has been downloaded and is available on GitHub <a class="reference external" href="https://github.com/geo-di-lab/emerge-lessons/tree/main/docs/data">at this link</a>. This data will be used in future lessons, but you do not need to download it to your computer. We will get the data directly using code in the future lessons.</p>
 <section id="explore-the-data">
 <h3>Explore the Data<a class="headerlink" href="#explore-the-data" title="Link to this heading">#</a></h3>
 <p>Let’s make a simple graph showing the number of contributions submitted by citizen scientists over time!</p>
@@ -2153,7 +2150,7 @@ memory usage: 11.9+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c2977b6cf38c4c9a6b15daf19c25452d3419ab342f1bd1a9ed0b93fcf564e7d0.png" src="../../_images/c2977b6cf38c4c9a6b15daf19c25452d3419ab342f1bd1a9ed0b93fcf564e7d0.png" />
+<img alt="../../_images/e55f1cd329e26dd64e038378a8b26c03e899e3839a1b0a667ca40a5121e46859.png" src="../../_images/e55f1cd329e26dd64e038378a8b26c03e899e3839a1b0a667ca40a5121e46859.png" />
 </div>
 </div>
 <p>Let’s plot the number of contributions by country:</p>
@@ -2170,7 +2167,7 @@ memory usage: 11.9+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3b4cc7904b12c4b102e71fb930f5caaee3bcae335f988c2374966525eae11a0a.png" src="../../_images/3b4cc7904b12c4b102e71fb930f5caaee3bcae335f988c2374966525eae11a0a.png" />
+<img alt="../../_images/4523807339face37d138b02b1b565d0efef027325e013bfdafea29270b3d6595.png" src="../../_images/4523807339face37d138b02b1b565d0efef027325e013bfdafea29270b3d6595.png" />
 </div>
 </div>
 </section>
@@ -2366,7 +2363,7 @@ memory usage: 25.0+ MB
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-bd94f3ed-306d-4327-97c5-c08bcd3ab1fe" class="colab-df-container">
+  <div id="df-ee1578d8-3d49-4208-b72e-7fb5a4c88e78" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -3128,7 +3125,7 @@ memory usage: 25.0+ MB
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-bd94f3ed-306d-4327-97c5-c08bcd3ab1fe')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-ee1578d8-3d49-4208-b72e-7fb5a4c88e78')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -3180,12 +3177,12 @@ memory usage: 25.0+ MB
 
     <script>
       const buttonEl =
-        document.querySelector('#df-bd94f3ed-306d-4327-97c5-c08bcd3ab1fe button.colab-df-convert');
+        document.querySelector('#df-ee1578d8-3d49-4208-b72e-7fb5a4c88e78 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-bd94f3ed-306d-4327-97c5-c08bcd3ab1fe');
+        const element = document.querySelector('#df-ee1578d8-3d49-4208-b72e-7fb5a4c88e78');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -3205,8 +3202,8 @@ memory usage: 25.0+ MB
   </div>
 
 
-    <div id="df-56bf34b4-f301-424f-903c-323ef8bc30c2">
-      <button class="colab-df-quickchart" onclick="quickchart('df-56bf34b4-f301-424f-903c-323ef8bc30c2')"
+    <div id="df-d0afee99-856e-450a-90a2-d4e94b7fa014">
+      <button class="colab-df-quickchart" onclick="quickchart('df-d0afee99-856e-450a-90a2-d4e94b7fa014')"
                 title="Suggest charts"
                 style="display:none;">
 
@@ -3325,7 +3322,7 @@ memory usage: 25.0+ MB
         }
         (() => {
           let quickchartButtonEl =
-            document.querySelector('#df-56bf34b4-f301-424f-903c-323ef8bc30c2 button');
+            document.querySelector('#df-d0afee99-856e-450a-90a2-d4e94b7fa014 button');
           quickchartButtonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
         })();
@@ -3427,655 +3424,14 @@ memory usage: 25.4+ MB
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-  <div id="df-20ca81e5-61dc-459e-aa1d-c65d379b0a43" class="colab-df-container">
-    <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>CountryCode</th>
-      <th>CountryName</th>
-      <th>Elevation</th>
-      <th>DataSource</th>
-      <th>DownwardCaption</th>
-      <th>DownwardExtraData</th>
-      <th>DownwardPhotoUrl</th>
-      <th>DryGround</th>
-      <th>EastCaption</th>
-      <th>EastClassifications</th>
-      <th>EastExtraData</th>
-      <th>EastPhotoUrl</th>
-      <th>Feature1Caption</th>
-      <th>Feature1ExtraData</th>
-      <th>Feature1PhotoUrl</th>
-      <th>Feature2Caption</th>
-      <th>Feature2ExtraData</th>
-      <th>Feature2PhotoUrl</th>
-      <th>Feature3Caption</th>
-      <th>Feature3ExtraData</th>
-      <th>Feature3PhotoUrl</th>
-      <th>Feature4Caption</th>
-      <th>Feature4ExtraData</th>
-      <th>Feature4PhotoUrl</th>
-      <th>FieldNotes</th>
-      <th>GlobeTeams</th>
-      <th>LandCoverId</th>
-      <th>LeavesOnTrees</th>
-      <th>LocationAccuracyM</th>
-      <th>LocationMethod</th>
-      <th>MeasuredAt</th>
-      <th>MeasurementElevation</th>
-      <th>MeasurementLatitude</th>
-      <th>MeasurementLongitude</th>
-      <th>MucCode</th>
-      <th>MucDescription</th>
-      <th>MucDetails</th>
-      <th>Muddy</th>
-      <th>NorthCaption</th>
-      <th>NorthClassifications</th>
-      <th>NorthExtraData</th>
-      <th>NorthPhotoUrl</th>
-      <th>RainingSnowing</th>
-      <th>SnowIce</th>
-      <th>SouthCaption</th>
-      <th>SouthClassifications</th>
-      <th>SouthExtraData</th>
-      <th>SouthPhotoUrl</th>
-      <th>StandingWater</th>
-      <th>UpwardCaption</th>
-      <th>UpwardExtraData</th>
-      <th>UpwardPhotoUrl</th>
-      <th>Userid</th>
-      <th>WestCaption</th>
-      <th>WestClassifications</th>
-      <th>WestExtraData</th>
-      <th>WestPhotoUrl</th>
-      <th>OrganizationId</th>
-      <th>OrganizationName</th>
-      <th>Protocol</th>
-      <th>SiteId</th>
-      <th>SiteName</th>
-      <th>Geometry</th>
-      <th>MeasuredDate</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>ITA</td>
-      <td>Italy</td>
-      <td>489.2</td>
-      <td>GLOBE Observer App</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>true</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>Snag C. sativa, 40 cm, cl 2, #01 #04 #12</td>
-      <td>((compassData.heading: 182, compassData.horizo...</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>Log 70 cm, C. sativa, cl 2, #04 #01 #12</td>
-      <td>((compassData.heading: 182, compassData.horizo...</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>Stump of C. sativa 230 cm</td>
-      <td>((compassData.heading: null, compassData.horiz...</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Old Coppice of Castanea sativa</td>
-      <td>[Conservazione Natura Universita Tuscia]</td>
-      <td>78608</td>
-      <td>false</td>
-      <td>8</td>
-      <td>automatic</td>
-      <td>2024-12-31 15:07:00.000</td>
-      <td>492.4</td>
-      <td>42.1818</td>
-      <td>12.1825</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td></td>
-      <td>false</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>false</td>
-      <td>false</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>false</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>128342138</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>17453129</td>
-      <td>Italy Citizen Science</td>
-      <td>land_covers</td>
-      <td>376869</td>
-      <td>33TTG673738</td>
-      <td>POINT (12.18229 42.18175)</td>
-      <td>2024-12-31</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>MDG</td>
-      <td>Madagascar</td>
-      <td>1350.1</td>
-      <td>GLOBE Observer App</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>true</td>
-      <td>NaN</td>
-      <td>90% MUC 01 (n) [Trees, Closely Spaced, Evergre...</td>
-      <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Arbres plantés par l'équipe GLOBE avec la comm...</td>
-      <td>[Africa 2024 Regional Meeting, Coordinating Of...</td>
-      <td>77695</td>
-      <td>true</td>
-      <td>10</td>
-      <td>automatic</td>
-      <td>2024-12-31 11:29:00.000</td>
-      <td>1340.6</td>
-      <td>-18.7576</td>
-      <td>47.5615</td>
-      <td>M01</td>
-      <td>Trees, Closely Spaced, Evergreen - Needle Leaved</td>
-      <td>n</td>
-      <td>false</td>
-      <td>NaN</td>
-      <td>90% MUC 01 (n) [Trees, Closely Spaced, Evergre...</td>
-      <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>false</td>
-      <td>false</td>
-      <td>NaN</td>
-      <td>90% MUC 01 (n) [Trees, Closely Spaced, Evergre...</td>
-      <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>false</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>2538037</td>
-      <td>NaN</td>
-      <td>90% MUC 01 (n) [Trees, Closely Spaced, Evergre...</td>
-      <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>6508873</td>
-      <td>Madagascar GLOBE v-School</td>
-      <td>land_covers</td>
-      <td>373647</td>
-      <td>38KQE700240</td>
-      <td>POINT (47.56096 -18.75807)</td>
-      <td>2024-12-31</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>MDG</td>
-      <td>Madagascar</td>
-      <td>1324.7</td>
-      <td>GLOBE Observer App</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>true</td>
-      <td>NaN</td>
-      <td>60% MUC 93 [Urban, Roads and Parking]</td>
-      <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>[Africa 2024 Regional Meeting, Coordinating Of...</td>
-      <td>77691</td>
-      <td>true</td>
-      <td>10</td>
-      <td>automatic</td>
-      <td>2024-12-31 12:07:00.000</td>
-      <td>1324.8</td>
-      <td>-18.7944</td>
-      <td>47.5799</td>
-      <td>M93</td>
-      <td>Urban, Roads and Parking</td>
-      <td></td>
-      <td>false</td>
-      <td>NaN</td>
-      <td>60% MUC 93 [Urban, Roads and Parking]</td>
-      <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>false</td>
-      <td>false</td>
-      <td>NaN</td>
-      <td>60% MUC 93 [Urban, Roads and Parking]</td>
-      <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>false</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>2538037</td>
-      <td>NaN</td>
-      <td>60% MUC 93 [Urban, Roads and Parking]</td>
-      <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>6508873</td>
-      <td>Madagascar GLOBE v-School</td>
-      <td>land_covers</td>
-      <td>373642</td>
-      <td>38KQE719199</td>
-      <td>POINT (47.57953 -18.79484)</td>
-      <td>2024-12-31</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>USA</td>
-      <td>United States</td>
-      <td>182.2</td>
-      <td>GLOBE Data Entry Site Definition</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>None</td>
-      <td>77689</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2024-12-31 16:12:03.111</td>
-      <td>None</td>
-      <td>None</td>
-      <td>None</td>
-      <td>M4</td>
-      <td>Herbaceous Vegetation</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>52107</td>
-      <td>Crestwood High School</td>
-      <td>land_covers</td>
-      <td>373628</td>
-      <td>Hillcrest Elementary Trail</td>
-      <td>POINT (-83.27705 42.3465)</td>
-      <td>2024-12-31</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>GRC</td>
-      <td>Greece</td>
-      <td>3.0</td>
-      <td>GLOBE Observer App</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>true</td>
-      <td>NaN</td>
-      <td>90% MUC 91 [Urban, Residential Property]; 10% ...</td>
-      <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>[tinycore lab, tinycorelab]</td>
-      <td>77683</td>
-      <td>false</td>
-      <td>NaN</td>
-      <td>manual</td>
-      <td>2024-12-31 11:45:00.000</td>
-      <td>3.2</td>
-      <td>37.939</td>
-      <td>23.697</td>
-      <td>M91</td>
-      <td>Urban, Residential Property</td>
-      <td></td>
-      <td>false</td>
-      <td>NaN</td>
-      <td>90% MUC 91 [Urban, Residential Property]; 10% ...</td>
-      <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>false</td>
-      <td>false</td>
-      <td>NaN</td>
-      <td>20% MUC 91 [Urban, Residential Property]; 80% ...</td>
-      <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>false</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>65209921</td>
-      <td>NaN</td>
-      <td>10% MUC 91 [Urban, Residential Property]; 90% ...</td>
-      <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>6508393</td>
-      <td>Greece GLOBE v-School</td>
-      <td>land_covers</td>
-      <td>373613</td>
-      <td>34SGH370024</td>
-      <td>POINT (23.6969 37.9383)</td>
-      <td>2024-12-31</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-    <div class="colab-df-buttons">
-
-  <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-20ca81e5-61dc-459e-aa1d-c65d379b0a43')"
-            title="Convert this dataframe to an interactive table."
-            style="display:none;">
-
-  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
-    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
-  </svg>
-    </button>
-
-  <style>
-    .colab-df-container {
-      display:flex;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    .colab-df-buttons div {
-      margin-bottom: 4px;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-    <script>
-      const buttonEl =
-        document.querySelector('#df-20ca81e5-61dc-459e-aa1d-c65d379b0a43 button.colab-df-convert');
-      buttonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-
-      async function convertToInteractive(key) {
-        const element = document.querySelector('#df-20ca81e5-61dc-459e-aa1d-c65d379b0a43');
-        const dataTable =
-          await google.colab.kernel.invokeFunction('convertToInteractive',
-                                                    [key], {});
-        if (!dataTable) return;
-
-        const docLinkHtml = 'Like what you see? Visit the ' +
-          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
-          + ' to learn more about interactive tables.';
-        element.innerHTML = '';
-        dataTable['output_type'] = 'display_data';
-        await google.colab.output.renderOutput(dataTable, element);
-        const docLink = document.createElement('div');
-        docLink.innerHTML = docLinkHtml;
-        element.appendChild(docLink);
-      }
-    </script>
-  </div>
-
-
-    <div id="df-77fb38e5-acff-4f99-b60e-fe67af7bca42">
-      <button class="colab-df-quickchart" onclick="quickchart('df-77fb38e5-acff-4f99-b60e-fe67af7bca42')"
-                title="Suggest charts"
-                style="display:none;">
-
-<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-     width="24px">
-    <g>
-        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-    </g>
-</svg>
-      </button>
-
-<style>
-  .colab-df-quickchart {
-      --bg-color: #E8F0FE;
-      --fill-color: #1967D2;
-      --hover-bg-color: #E2EBFA;
-      --hover-fill-color: #174EA6;
-      --disabled-fill-color: #AAA;
-      --disabled-bg-color: #DDD;
-  }
-
-  [theme=dark] .colab-df-quickchart {
-      --bg-color: #3B4455;
-      --fill-color: #D2E3FC;
-      --hover-bg-color: #434B5C;
-      --hover-fill-color: #FFFFFF;
-      --disabled-bg-color: #3B4455;
-      --disabled-fill-color: #666;
-  }
-
-  .colab-df-quickchart {
-    background-color: var(--bg-color);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-    fill: var(--fill-color);
-    height: 32px;
-    padding: 0;
-    width: 32px;
-  }
-
-  .colab-df-quickchart:hover {
-    background-color: var(--hover-bg-color);
-    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
-    fill: var(--button-hover-fill-color);
-  }
-
-  .colab-df-quickchart-complete:disabled,
-  .colab-df-quickchart-complete:disabled:hover {
-    background-color: var(--disabled-bg-color);
-    fill: var(--disabled-fill-color);
-    box-shadow: none;
-  }
-
-  .colab-df-spinner {
-    border: 2px solid var(--fill-color);
-    border-color: transparent;
-    border-bottom-color: var(--fill-color);
-    animation:
-      spin 1s steps(1) infinite;
-  }
-
-  @keyframes spin {
-    0% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-      border-left-color: var(--fill-color);
-    }
-    20% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    30% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-      border-right-color: var(--fill-color);
-    }
-    40% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    60% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-    }
-    80% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-bottom-color: var(--fill-color);
-    }
-    90% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-    }
-  }
-</style>
-
-      <script>
-        async function quickchart(key) {
-          const quickchartButtonEl =
-            document.querySelector('#' + key + ' button');
-          quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
-          quickchartButtonEl.classList.add('colab-df-spinner');
-          try {
-            const charts = await google.colab.kernel.invokeFunction(
-                'suggestCharts', [key], {});
-          } catch (error) {
-            console.error('Error during call to suggestCharts:', error);
-          }
-          quickchartButtonEl.classList.remove('colab-df-spinner');
-          quickchartButtonEl.classList.add('colab-df-quickchart-complete');
-        }
-        (() => {
-          let quickchartButtonEl =
-            document.querySelector('#df-77fb38e5-acff-4f99-b60e-fe67af7bca42 button');
-          quickchartButtonEl.style.display =
-            google.colab.kernel.accessAllowed ? 'block' : 'none';
-        })();
-      </script>
-    </div>
-
-    </div>
-  </div>
-</div></div>
-</div>
+<p>Similar to the mosquito dataset, we will filter out any points that do not fall within country boundaries. If the point is over water, then we assume the coordinates were incorrectly reported and remove it from the final dataset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">set_geometry</span><span class="p">(</span><span class="s2">&quot;Geometry&quot;</span><span class="p">)</span> \
            <span class="o">.</span><span class="n">set_crs</span><span class="p">(</span><span class="mi">4326</span><span class="p">)</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">countries</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">predicate</span><span class="o">=</span><span class="s1">&#39;intersects&#39;</span><span class="p">)</span> \
-          <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;index_right&#39;</span><span class="p">,</span> <span class="s1">&#39;COUNTRY&#39;</span><span class="p">])</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">countries</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span> <span class="n">predicate</span><span class="o">=</span><span class="s1">&#39;intersects&#39;</span><span class="p">)</span> \
+          <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;index_right&#39;</span><span class="p">,</span> <span class="s1">&#39;COUNTRY&#39;</span><span class="p">])</span> \
+          <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -4088,7 +3444,7 @@ memory usage: 25.4+ MB
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-4ac63fc2-6a87-4787-bb34-8d3e48138eac" class="colab-df-container">
+  <div id="df-ba4d6b26-3a47-4dbb-a1ec-6e6806c506ba" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -4577,7 +3933,7 @@ memory usage: 25.4+ MB
       <td>...</td>
     </tr>
     <tr>
-      <th>52016</th>
+      <th>50761</th>
       <td>OMN</td>
       <td>Oman</td>
       <td>584.0</td>
@@ -4644,7 +4000,7 @@ memory usage: 25.4+ MB
       <td>2018-01-16</td>
     </tr>
     <tr>
-      <th>52017</th>
+      <th>50762</th>
       <td>HRV</td>
       <td>Croatia</td>
       <td>153.0</td>
@@ -4711,7 +4067,7 @@ memory usage: 25.4+ MB
       <td>2018-01-16</td>
     </tr>
     <tr>
-      <th>52018</th>
+      <th>50763</th>
       <td>OMN</td>
       <td>Oman</td>
       <td>27.0</td>
@@ -4778,7 +4134,7 @@ memory usage: 25.4+ MB
       <td>2018-01-03</td>
     </tr>
     <tr>
-      <th>52019</th>
+      <th>50764</th>
       <td>OMN</td>
       <td>Oman</td>
       <td>27.0</td>
@@ -4845,7 +4201,7 @@ memory usage: 25.4+ MB
       <td>2018-01-03</td>
     </tr>
     <tr>
-      <th>52020</th>
+      <th>50765</th>
       <td>OMN</td>
       <td>Oman</td>
       <td>0.0</td>
@@ -4913,12 +4269,12 @@ memory usage: 25.4+ MB
     </tr>
   </tbody>
 </table>
-<p>52021 rows × 64 columns</p>
+<p>50766 rows × 64 columns</p>
 </div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-4ac63fc2-6a87-4787-bb34-8d3e48138eac')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-ba4d6b26-3a47-4dbb-a1ec-6e6806c506ba')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -4970,12 +4326,12 @@ memory usage: 25.4+ MB
 
     <script>
       const buttonEl =
-        document.querySelector('#df-4ac63fc2-6a87-4787-bb34-8d3e48138eac button.colab-df-convert');
+        document.querySelector('#df-ba4d6b26-3a47-4dbb-a1ec-6e6806c506ba button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-4ac63fc2-6a87-4787-bb34-8d3e48138eac');
+        const element = document.querySelector('#df-ba4d6b26-3a47-4dbb-a1ec-6e6806c506ba');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -4995,8 +4351,8 @@ memory usage: 25.4+ MB
   </div>
 
 
-    <div id="df-1e61c9d3-90bb-4dde-818d-9caa92a7e8e9">
-      <button class="colab-df-quickchart" onclick="quickchart('df-1e61c9d3-90bb-4dde-818d-9caa92a7e8e9')"
+    <div id="df-d66fa99d-7799-440c-8fd1-0775acde1ff2">
+      <button class="colab-df-quickchart" onclick="quickchart('df-d66fa99d-7799-440c-8fd1-0775acde1ff2')"
                 title="Suggest charts"
                 style="display:none;">
 
@@ -5115,14 +4471,14 @@ memory usage: 25.4+ MB
         }
         (() => {
           let quickchartButtonEl =
-            document.querySelector('#df-1e61c9d3-90bb-4dde-818d-9caa92a7e8e9 button');
+            document.querySelector('#df-d66fa99d-7799-440c-8fd1-0775acde1ff2 button');
           quickchartButtonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
         })();
       </script>
     </div>
 
-  <div id="id_8b4e623f-4a33-4e16-ad0e-bc50685a417f">
+  <div id="id_f2d7af83-5032-4073-815c-20487d9389b0">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -5166,7 +4522,7 @@ memory usage: 25.4+ MB
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_8b4e623f-4a33-4e16-ad0e-bc50685a417f button.colab-df-generate');
+        document.querySelector('#id_f2d7af83-5032-4073-815c-20487d9389b0 button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -5180,14 +4536,6 @@ memory usage: 25.4+ MB
     </div>
   </div>
 </div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download the data</span>
-<span class="n">data</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s2">&quot;globe_land_cover.gpkg&quot;</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s2">&quot;GPKG&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
 </div>
 <section id="id1">
 <h3>Explore the Data<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
@@ -5205,7 +4553,7 @@ memory usage: 25.4+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/12b96225655d538a509837b70d19e40ecf07e16baeb4f3cb2321492d3b48cf72.png" src="../../_images/12b96225655d538a509837b70d19e40ecf07e16baeb4f3cb2321492d3b48cf72.png" />
+<img alt="../../_images/bee409b07ac1d0d01cd86620bea2dd6940bc7d3502b78889817ff6523496d50d.png" src="../../_images/bee409b07ac1d0d01cd86620bea2dd6940bc7d3502b78889817ff6523496d50d.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -5221,13 +4569,14 @@ memory usage: 25.4+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/450f62d5a046ecc10b446ebdd91552cf86b90978d695c6b18d4d746cbbe61ec7.png" src="../../_images/450f62d5a046ecc10b446ebdd91552cf86b90978d695c6b18d4d746cbbe61ec7.png" />
+<img alt="../../_images/3d6355e562fda2f465bad95b900228eb9ebf9d4dd0f007cc98c31587af1bbcdc.png" src="../../_images/3d6355e562fda2f465bad95b900228eb9ebf9d4dd0f007cc98c31587af1bbcdc.png" />
 </div>
 </div>
 <p>A powerful feature of the Land Cover dataset is that users submit pictures of the area. Let’s view some these images.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">entry</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;DownwardPhotoUrl&#39;</span><span class="p">,</span> <span class="s1">&#39;EastPhotoUrl&#39;</span><span class="p">,</span> <span class="s1">&#39;NorthPhotoUrl&#39;</span><span class="p">,</span> <span class="s1">&#39;SouthPhotoUrl&#39;</span><span class="p">,</span> <span class="s1">&#39;WestPhotoUrl&#39;</span><span class="p">,</span> <span class="s1">&#39;UpwardPhotoUrl&#39;</span><span class="p">,</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the first observation where all photos were submitted</span>
+<span class="n">entry</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;DownwardPhotoUrl&#39;</span><span class="p">,</span> <span class="s1">&#39;EastPhotoUrl&#39;</span><span class="p">,</span> <span class="s1">&#39;NorthPhotoUrl&#39;</span><span class="p">,</span> <span class="s1">&#39;SouthPhotoUrl&#39;</span><span class="p">,</span> <span class="s1">&#39;WestPhotoUrl&#39;</span><span class="p">,</span> <span class="s1">&#39;UpwardPhotoUrl&#39;</span><span class="p">,</span>
                             <span class="s1">&#39;Feature1PhotoUrl&#39;</span><span class="p">,</span> <span class="s1">&#39;Feature2PhotoUrl&#39;</span><span class="p">,</span> <span class="s1">&#39;Feature3PhotoUrl&#39;</span><span class="p">,</span> <span class="s1">&#39;Feature4PhotoUrl&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="n">url_list</span> <span class="o">=</span> <span class="p">[]</span>
@@ -5257,7 +4606,7 @@ WestPhotoUrl: https://data.globe.gov/system/photos/2024/12/31/4325697/original.j
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-4eca0fed-9798-4778-a76b-a460b625e237" class="colab-df-container">
+  <div id="df-a6b447cb-7a9b-4494-873c-504440a2fe5b" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -5416,7 +4765,7 @@ WestPhotoUrl: https://data.globe.gov/system/photos/2024/12/31/4325697/original.j
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-4eca0fed-9798-4778-a76b-a460b625e237')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-a6b447cb-7a9b-4494-873c-504440a2fe5b')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -5468,12 +4817,12 @@ WestPhotoUrl: https://data.globe.gov/system/photos/2024/12/31/4325697/original.j
 
     <script>
       const buttonEl =
-        document.querySelector('#df-4eca0fed-9798-4778-a76b-a460b625e237 button.colab-df-convert');
+        document.querySelector('#df-a6b447cb-7a9b-4494-873c-504440a2fe5b button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-4eca0fed-9798-4778-a76b-a460b625e237');
+        const element = document.querySelector('#df-a6b447cb-7a9b-4494-873c-504440a2fe5b');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -5493,7 +4842,7 @@ WestPhotoUrl: https://data.globe.gov/system/photos/2024/12/31/4325697/original.j
   </div>
 
 
-  <div id="id_60315b57-45eb-4fac-aa7c-03b147a590a6">
+  <div id="id_43f80690-4d71-407c-98db-b8379ccddb52">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -5537,7 +4886,7 @@ WestPhotoUrl: https://data.globe.gov/system/photos/2024/12/31/4325697/original.j
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_60315b57-45eb-4fac-aa7c-03b147a590a6 button.colab-df-generate');
+        document.querySelector('#id_43f80690-4d71-407c-98db-b8379ccddb52 button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
