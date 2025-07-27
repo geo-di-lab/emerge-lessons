@@ -7,7 +7,8 @@ parts:
   - file: docs/ch1/lesson2
   - file: docs/ch1/lesson3
   - file: docs/ch1/lesson4
-  - file: docs/ch1/lesson5
+  - file: docs/ch1/lesson5a
+  - file: docs/ch1/lesson5b
   - file: docs/ch1/lesson6
 
 - caption: Explore the Data

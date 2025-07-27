@@ -6,9 +6,6 @@ Through mobile tools like GLOBE Observer, participants help monitor mosquito bre
 
 This digital textbook includes interactive coding tutorials designed to introduce you to the amazing capabilities of participatory science and geospatial analysis.
 
-```{tableofcontents}
-```
-
 # Recommendations by Audience
 
 ```{admonition} Libraries
@@ -106,4 +103,9 @@ Anyone curious about science, environmental issues, or how they can take local a
 - [CH 1: Lesson 3 – What is GLOBE Observer?]()
 - [CH 2: Lesson 2 – Larvae Count Patterns]()
 - [CH 2: Lesson 5 – Decoding Habitat Photos]()
+```
+
+# Table of Contents
+
+```{tableofcontents}
 ```
