@@ -15,12 +15,22 @@ parts:
   chapters:
   - file: docs/ch2/lesson1
   - file: docs/ch2/lesson2
+  - file: docs/ch2/lesson3
+  - file: docs/ch2/lesson4
+  - file: docs/ch2/lesson5
 
-# - caption: Data from Satellites
-#   chapters:
+- caption: Data from Satellites
+  chapters:
+  - file: docs/ch3/lesson1
+  - file: docs/ch3/lesson2
+  - file: docs/ch3/lesson3
 
-# - caption: Analyze the Data
-#   chapters:
+- caption: Analyze the Data
+  chapters:
+  - file: docs/ch4/lesson1
+  - file: docs/ch4/lesson2
+  - file: docs/ch4/lesson3
+  - file: docs/ch4/lesson4
 
 # - caption: Science Communication
 #   chapters:

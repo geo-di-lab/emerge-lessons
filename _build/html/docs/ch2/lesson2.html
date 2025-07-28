@@ -61,6 +61,7 @@
     <link rel="icon" href="../../_static/GeoDI_Logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Map GLOBE Citizen Science Data" href="lesson3.html" />
     <link rel="prev" title="Why Analyze Data?" href="lesson1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -195,7 +196,22 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Mosquito &amp; Land Cover Stats</a></li>
 
 
-
+<li class="toctree-l1"><a class="reference internal" href="lesson3.html">Map GLOBE Citizen Science Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lesson4.html">Visualizing Mosquito Hotspots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lesson5.html">Decoding Habitat Photos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data from Satellites</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ch3/lesson1.html">Our Eyes in the Sky &amp; On the Ground</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch3/lesson2.html">Zooming in with Satellites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch3/lesson3.html">Vegetation &amp; Water Indices</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Analyze the Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ch4/lesson1.html">Temperature, Rainfall &amp; Vegetation:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch4/lesson2.html">Environment &amp; Habitats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch4/lesson3.html">Land Cover Over Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch4/lesson4.html">Introduction to Risk Mapping</a></li>
 </ul>
 
     </div>
@@ -425,7 +441,6 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Mosquito &amp; Land Cover Stats</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mosquito">Mosquito</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#land-cover">Land Cover</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-both">Combining Both</a></li>
 </ul>
 
             </nav>
@@ -440,8 +455,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="mosquito-land-cover-stats">
 <h1>Mosquito &amp; Land Cover Stats<a class="headerlink" href="#mosquito-land-cover-stats" title="Link to this heading">#</a></h1>
-<p>Basic statistics (mean, median, max counts) and charting larvae numbers. Do counts vary by reported species or location?</p>
-<p>If you are working in Google Colab, click on the Folder icon to the very left. Then, click the Upload icon and choose where you downloaded the dataaset from the previous lesson (1.5: Intro to GLOBE Data). You can also drag and drop your downloaded data. You will get a warning saying “Warning: Ensure that your files are saved elsewhere.” This is because all data uploaded to Google Colab will be deleted once you close the browser. Since you have the files on your computer, you can click “OK.” It will take a few seconds for the data to finish uploading.</p>
+<p>This lesson shows how to investigate the GLOBE data, calculate statistics, and create charts &amp; maps.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -466,7 +480,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-406af5f1-42ab-4393-9792-ce235e7c6724" class="colab-df-container">
+  <div id="df-637f56b0-7789-4a7a-adc6-f0d0da6c653b" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -725,7 +739,7 @@ document.write(`
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-406af5f1-42ab-4393-9792-ce235e7c6724')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-637f56b0-7789-4a7a-adc6-f0d0da6c653b')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -777,12 +791,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-406af5f1-42ab-4393-9792-ce235e7c6724 button.colab-df-convert');
+        document.querySelector('#df-637f56b0-7789-4a7a-adc6-f0d0da6c653b button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-406af5f1-42ab-4393-9792-ce235e7c6724');
+        const element = document.querySelector('#df-637f56b0-7789-4a7a-adc6-f0d0da6c653b');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -802,8 +816,8 @@ document.write(`
   </div>
 
 
-    <div id="df-0ab323c4-4409-485b-a828-c39139d231ea">
-      <button class="colab-df-quickchart" onclick="quickchart('df-0ab323c4-4409-485b-a828-c39139d231ea')"
+    <div id="df-97e7b3bd-d654-45a2-b9aa-412a10ca54c9">
+      <button class="colab-df-quickchart" onclick="quickchart('df-97e7b3bd-d654-45a2-b9aa-412a10ca54c9')"
                 title="Suggest charts"
                 style="display:none;">
 
@@ -922,7 +936,7 @@ document.write(`
         }
         (() => {
           let quickchartButtonEl =
-            document.querySelector('#df-0ab323c4-4409-485b-a828-c39139d231ea button');
+            document.querySelector('#df-97e7b3bd-d654-45a2-b9aa-412a10ca54c9 button');
           quickchartButtonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
         })();
@@ -1397,7 +1411,7 @@ memory usage: 11.8+ MB
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-57978df6-1638-40bd-bdcb-2ccffb193432" class="colab-df-container">
+  <div id="df-c94c4044-d081-41a7-9806-c80c1cd8360c" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1824,7 +1838,7 @@ memory usage: 11.8+ MB
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-57978df6-1638-40bd-bdcb-2ccffb193432')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-c94c4044-d081-41a7-9806-c80c1cd8360c')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -1876,12 +1890,12 @@ memory usage: 11.8+ MB
 
     <script>
       const buttonEl =
-        document.querySelector('#df-57978df6-1638-40bd-bdcb-2ccffb193432 button.colab-df-convert');
+        document.querySelector('#df-c94c4044-d081-41a7-9806-c80c1cd8360c button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-57978df6-1638-40bd-bdcb-2ccffb193432');
+        const element = document.querySelector('#df-c94c4044-d081-41a7-9806-c80c1cd8360c');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1901,8 +1915,8 @@ memory usage: 11.8+ MB
   </div>
 
 
-    <div id="df-f9fd80e3-ad56-4fb1-9019-eb4ecced42be">
-      <button class="colab-df-quickchart" onclick="quickchart('df-f9fd80e3-ad56-4fb1-9019-eb4ecced42be')"
+    <div id="df-92c7beed-319e-4039-a250-d3f812dae899">
+      <button class="colab-df-quickchart" onclick="quickchart('df-92c7beed-319e-4039-a250-d3f812dae899')"
                 title="Suggest charts"
                 style="display:none;">
 
@@ -2021,7 +2035,7 @@ memory usage: 11.8+ MB
         }
         (() => {
           let quickchartButtonEl =
-            document.querySelector('#df-f9fd80e3-ad56-4fb1-9019-eb4ecced42be button');
+            document.querySelector('#df-92c7beed-319e-4039-a250-d3f812dae899 button');
           quickchartButtonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
         })();
@@ -2169,7 +2183,7 @@ memory usage: 24.8+ MB
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-95c9a8eb-1734-4cf5-8ad5-c12f0c10f681" class="colab-df-container">
+  <div id="df-6734e95f-b587-4680-9ffd-affdb8541fbc" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2267,7 +2281,7 @@ memory usage: 24.8+ MB
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-95c9a8eb-1734-4cf5-8ad5-c12f0c10f681')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-6734e95f-b587-4680-9ffd-affdb8541fbc')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -2319,12 +2333,12 @@ memory usage: 24.8+ MB
 
     <script>
       const buttonEl =
-        document.querySelector('#df-95c9a8eb-1734-4cf5-8ad5-c12f0c10f681 button.colab-df-convert');
+        document.querySelector('#df-6734e95f-b587-4680-9ffd-affdb8541fbc button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-95c9a8eb-1734-4cf5-8ad5-c12f0c10f681');
+        const element = document.querySelector('#df-6734e95f-b587-4680-9ffd-affdb8541fbc');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -2344,8 +2358,8 @@ memory usage: 24.8+ MB
   </div>
 
 
-    <div id="df-8db28056-a8dc-4e6b-a69d-46e063552360">
-      <button class="colab-df-quickchart" onclick="quickchart('df-8db28056-a8dc-4e6b-a69d-46e063552360')"
+    <div id="df-017f6ddd-6c3f-4ca6-9af8-8467fbdb4187">
+      <button class="colab-df-quickchart" onclick="quickchart('df-017f6ddd-6c3f-4ca6-9af8-8467fbdb4187')"
                 title="Suggest charts"
                 style="display:none;">
 
@@ -2464,14 +2478,14 @@ memory usage: 24.8+ MB
         }
         (() => {
           let quickchartButtonEl =
-            document.querySelector('#df-8db28056-a8dc-4e6b-a69d-46e063552360 button');
+            document.querySelector('#df-017f6ddd-6c3f-4ca6-9af8-8467fbdb4187 button');
           quickchartButtonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
         })();
       </script>
     </div>
 
-  <div id="id_b9ec48a9-0006-46d7-972a-76beda250b91">
+  <div id="id_e4354f08-745d-4014-8e17-eb928168a67e">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -2515,7 +2529,7 @@ memory usage: 24.8+ MB
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_b9ec48a9-0006-46d7-972a-76beda250b91 button.colab-df-generate');
+        document.querySelector('#id_e4354f08-745d-4014-8e17-eb928168a67e button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -2540,7 +2554,7 @@ memory usage: 24.8+ MB
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-4fb775d2-e129-4edc-bf56-d444ec666168" class="colab-df-container">
+  <div id="df-15816a7d-7012-4e7f-998f-ba3471668540" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -3370,7 +3384,7 @@ memory usage: 24.8+ MB
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-4fb775d2-e129-4edc-bf56-d444ec666168')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-15816a7d-7012-4e7f-998f-ba3471668540')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -3422,12 +3436,12 @@ memory usage: 24.8+ MB
 
     <script>
       const buttonEl =
-        document.querySelector('#df-4fb775d2-e129-4edc-bf56-d444ec666168 button.colab-df-convert');
+        document.querySelector('#df-15816a7d-7012-4e7f-998f-ba3471668540 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-4fb775d2-e129-4edc-bf56-d444ec666168');
+        const element = document.querySelector('#df-15816a7d-7012-4e7f-998f-ba3471668540');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -3447,8 +3461,8 @@ memory usage: 24.8+ MB
   </div>
 
 
-    <div id="df-8607b6ed-7309-4ba9-9313-dd04aee91e7b">
-      <button class="colab-df-quickchart" onclick="quickchart('df-8607b6ed-7309-4ba9-9313-dd04aee91e7b')"
+    <div id="df-f346bf92-e41f-443c-b182-7c6bc29c0a07">
+      <button class="colab-df-quickchart" onclick="quickchart('df-f346bf92-e41f-443c-b182-7c6bc29c0a07')"
                 title="Suggest charts"
                 style="display:none;">
 
@@ -3567,7 +3581,7 @@ memory usage: 24.8+ MB
         }
         (() => {
           let quickchartButtonEl =
-            document.querySelector('#df-8607b6ed-7309-4ba9-9313-dd04aee91e7b button');
+            document.querySelector('#df-f346bf92-e41f-443c-b182-7c6bc29c0a07 button');
           quickchartButtonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
         })();
@@ -3614,102 +3628,6 @@ memory usage: 24.8+ MB
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="combining-both">
-<h1>Combining Both<a class="headerlink" href="#combining-both" title="Link to this heading">#</a></h1>
-<p>Now, we want to merge the mosquito and land cover datasets, and save the results as a new file.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert to a projected coordinate system for more accurate distance calculations</span>
-<span class="n">mosquito</span> <span class="o">=</span> <span class="n">mosquito</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">3087</span><span class="p">)</span>
-<span class="n">land_cover</span> <span class="o">=</span> <span class="n">land_cover</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">3087</span><span class="p">)</span>
-
-<span class="c1"># Add a month and year for easier filtering</span>
-<span class="n">mosquito</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mosquito</span><span class="p">[</span><span class="s1">&#39;MeasuredAt&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span>
-<span class="n">mosquito</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mosquito</span><span class="p">[</span><span class="s1">&#39;MeasuredAt&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
-
-<span class="n">land_cover</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">land_cover</span><span class="p">[</span><span class="s1">&#39;MeasuredAt&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span>
-<span class="n">land_cover</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">land_cover</span><span class="p">[</span><span class="s1">&#39;MeasuredAt&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
-
-<span class="c1"># Make a buffer around each mosquito point of 100 meters</span>
-<span class="n">mosquito</span><span class="p">[</span><span class="s1">&#39;buffer_100m&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mosquito</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">candidate_matches</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span><span class="n">land_cover</span><span class="p">,</span> <span class="n">mosquito</span><span class="o">.</span><span class="n">set_geometry</span><span class="p">(</span><span class="s1">&#39;buffer_100m&#39;</span><span class="p">),</span> <span class="n">predicate</span><span class="o">=</span><span class="s1">&#39;within&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter by same month</span>
-<span class="n">candidate_matches</span> <span class="o">=</span> <span class="n">candidate_matches</span><span class="p">[</span>
-    <span class="n">candidate_matches</span><span class="p">[</span><span class="s1">&#39;month_left&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">candidate_matches</span><span class="p">[</span><span class="s1">&#39;month_right&#39;</span><span class="p">]</span>
-<span class="p">]</span>
-
-<span class="c1"># Calculate spatial and temporal distances</span>
-<span class="n">candidate_matches</span><span class="p">[</span><span class="s1">&#39;spatial_distance&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">candidate_matches</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
-    <span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">distance</span><span class="p">(</span><span class="n">mosquito</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;index_right&#39;</span><span class="p">],</span> <span class="s1">&#39;geometry&#39;</span><span class="p">]),</span>
-    <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
-<span class="p">)</span>
-
-<span class="n">candidate_matches</span><span class="p">[</span><span class="s1">&#39;temporal_distance&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">candidate_matches</span><span class="p">[</span><span class="s1">&#39;MeasuredAt_left&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">candidate_matches</span><span class="p">[</span><span class="s1">&#39;MeasuredAt_right&#39;</span><span class="p">]</span>
-<span class="p">)</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Rank by spatial + temporal proximity</span>
-<span class="n">candidate_matches</span><span class="p">[</span><span class="s1">&#39;combined_score&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">candidate_matches</span><span class="p">[</span><span class="s1">&#39;spatial_distance&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">candidate_matches</span><span class="p">[</span><span class="s1">&#39;temporal_distance&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">days</span>
-
-<span class="c1"># Keep only best match per mosquito point</span>
-<span class="n">best_matches</span> <span class="o">=</span> <span class="n">candidate_matches</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;combined_score&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="s1">&#39;index_right&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># List of the land cover columns that we want</span>
-<span class="n">land_cover_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DryGround&#39;</span><span class="p">,</span> <span class="s1">&#39;LeavesOnTrees&#39;</span><span class="p">,</span> <span class="s1">&#39;Muddy&#39;</span><span class="p">,</span> <span class="s1">&#39;MucCode&#39;</span><span class="p">,</span> <span class="s1">&#39;MucDescription&#39;</span><span class="p">,</span> <span class="s1">&#39;RainingSnowing&#39;</span><span class="p">,</span> <span class="s1">&#39;SnowIce&#39;</span><span class="p">,</span> <span class="s1">&#39;StandingWater&#39;</span><span class="p">,</span> <span class="s1">&#39;MeasuredAt_left&#39;</span><span class="p">]</span>
-
-<span class="n">land_cover_renamed</span> <span class="o">=</span> <span class="n">best_matches</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;index_right&#39;</span><span class="p">)[</span><span class="n">land_cover_cols</span><span class="p">]</span> \
-                                 <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;MeasuredAt_left&#39;</span><span class="p">:</span> <span class="s1">&#39;LandcoverMeasuredAt&#39;</span><span class="p">})</span>
-<span class="n">land_cover_renamed</span><span class="p">[</span><span class="s1">&#39;LandcoverMerged&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="n">final_merged</span> <span class="o">=</span> <span class="n">mosquito</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;buffer_100m&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">land_cover_renamed</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># How many of the mosquito observations were able to be merged with land cover data based on the parameters (same month &amp; within 100m)?</span>
-<span class="n">num_merged</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">final_merged</span><span class="p">[</span><span class="n">final_merged</span><span class="p">[</span><span class="s1">&#39;LandcoverMerged&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">num_merged</span><span class="si">}</span><span class="s1"> observations merged (</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">num_merged</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">mosquito</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s1">%)&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3144 observations merged (7.31%)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">final_merged</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s1">&#39;globe_mosquito_land_cover_merge_100m_month.gpkg&#39;</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s1">&#39;GPKG&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
 
     <script type="text/x-thebe-config">
     {
@@ -3750,6 +3668,15 @@ memory usage: 24.8+ MB
         <p class="prev-next-title">Why Analyze Data?</p>
       </div>
     </a>
+    <a class="right-next"
+       href="lesson3.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Map GLOBE Citizen Science Data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -3769,7 +3696,6 @@ memory usage: 24.8+ MB
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Mosquito &amp; Land Cover Stats</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mosquito">Mosquito</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#land-cover">Land Cover</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-both">Combining Both</a></li>
 </ul>
 
   </nav></div>

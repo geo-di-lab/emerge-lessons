@@ -196,7 +196,22 @@
 <li class="toctree-l1"><a class="reference internal" href="../ch2/lesson2.html">Mosquito &amp; Land Cover Stats</a></li>
 
 
-
+<li class="toctree-l1"><a class="reference internal" href="../ch2/lesson3.html">Map GLOBE Citizen Science Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch2/lesson4.html">Visualizing Mosquito Hotspots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch2/lesson5.html">Decoding Habitat Photos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data from Satellites</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ch3/lesson1.html">Our Eyes in the Sky &amp; On the Ground</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch3/lesson2.html">Zooming in with Satellites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch3/lesson3.html">Vegetation &amp; Water Indices</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Analyze the Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ch4/lesson1.html">Temperature, Rainfall &amp; Vegetation:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch4/lesson2.html">Environment &amp; Habitats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch4/lesson3.html">Land Cover Over Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch4/lesson4.html">Introduction to Risk Mapping</a></li>
 </ul>
 
     </div>
@@ -238,37 +253,6 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
-
-
-
-
-
-<div class="dropdown dropdown-launch-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
-    <i class="fas fa-rocket"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://colab.research.google.com/github/geo-di-lab/emerge-lessons/blob/main/docs/ch1/lesson3.ipynb" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch on Colab"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
-  </span>
-<span class="btn__text-container">Colab</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
 
 
 
@@ -329,7 +313,7 @@
       
       
       
-      <li><a href="../../_sources/docs/ch1/lesson3.ipynb" target="_blank"
+      <li><a href="../../_sources/docs/ch1/lesson3.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -339,7 +323,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.ipynb</span>
+<span class="btn__text-container">.md</span>
 </a>
 </li>
       
@@ -400,9 +384,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -418,26 +400,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#globe-observer-app">GLOBE Observer App</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mosquito-habitat-mapper">Mosquito Habitat Mapper</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#history">History</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#app">App</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outputs">Outputs</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#land-cover">Land Cover</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">History</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">App</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Outputs</a></li>
-</ul>
-</li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -449,34 +411,6 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="what-is-globe-observer">
 <h1>What is GLOBE Observer?<a class="headerlink" href="#what-is-globe-observer" title="Link to this heading">#</a></h1>
-<p>GLOBE Observer is a NASA-funded citizen science program that uses an app to allow volunteers to collect and share environmental data, helping scientists understand the Earth’s climate and environment.</p>
-<section id="globe-observer-app">
-<h2>GLOBE Observer App<a class="headerlink" href="#globe-observer-app" title="Link to this heading">#</a></h2>
-</section>
-<section id="mosquito-habitat-mapper">
-<h2>Mosquito Habitat Mapper<a class="headerlink" href="#mosquito-habitat-mapper" title="Link to this heading">#</a></h2>
-<section id="history">
-<h3>History<a class="headerlink" href="#history" title="Link to this heading">#</a></h3>
-</section>
-<section id="app">
-<h3>App<a class="headerlink" href="#app" title="Link to this heading">#</a></h3>
-</section>
-<section id="outputs">
-<h3>Outputs<a class="headerlink" href="#outputs" title="Link to this heading">#</a></h3>
-</section>
-</section>
-<section id="land-cover">
-<h2>Land Cover<a class="headerlink" href="#land-cover" title="Link to this heading">#</a></h2>
-<section id="id1">
-<h3>History<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-</section>
-<section id="id2">
-<h3>App<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-</section>
-<section id="id3">
-<h3>Outputs<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
-</section>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -533,33 +467,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#globe-observer-app">GLOBE Observer App</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mosquito-habitat-mapper">Mosquito Habitat Mapper</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#history">History</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#app">App</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outputs">Outputs</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#land-cover">Land Cover</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">History</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">App</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Outputs</a></li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
