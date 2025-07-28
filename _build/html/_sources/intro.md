@@ -17,14 +17,14 @@ Public, school, or academic library staff looking to host citizen science events
 **Recommended Lessons:**
 
 - [CH 1: Lesson 1 – What is Citizen Science?](https://geo-di-lab.github.io/emerge-lessons/docs/ch1/lesson1.html)
-- [CH 1: Lesson 3 – What is GLOBE Observer?]()
-- [CH 2: Lesson 1 – Why Analyze Data?]()
-- [CH 2: Lesson 2 – Larvae Count Patterns]()
-- [CH 2: Lesson 3 – Map the Data]()
-- [CH 2: Lesson 5 – Decoding Habitat Photos]()
-- [CH 5: Lesson 1 – Communicate the Science]()
-- [CH 5: Lesson 2 – Host Your Own Data Camp]()
-- [CH 5: Lesson 4 – Sharing Your Findings]()
+- [CH 1: Lesson 3 – What is GLOBE Observer?](https://geo-di-lab.github.io/emerge-lessons/docs/ch1/lesson3.html)
+- [CH 2: Lesson 1 – Why Analyze Data?](https://geo-di-lab.github.io/emerge-lessons/docs/ch2/lesson1.html)
+- [CH 2: Lesson 2 – Mosquito & Land Cover Stats](https://geo-di-lab.github.io/emerge-lessons/docs/ch2/lesson2.html)
+- [CH 2: Lesson 3 – Map the Data](https://geo-di-lab.github.io/emerge-lessons/docs/ch2/lesson3.html)
+- [CH 2: Lesson 5 – Decoding Habitat Photos](https://geo-di-lab.github.io/emerge-lessons/docs/ch2/lesson5.html)
+- [CH 5: Lesson 1 – Communicate the Science](https://geo-di-lab.github.io/emerge-lessons/docs/ch5/lesson1.html)
+- [CH 5: Lesson 2 – Host Your Own Data Camp](https://geo-di-lab.github.io/emerge-lessons/docs/ch5/lesson2.html)
+- [CH 5: Lesson 4 – Sharing Your Findings](https://geo-di-lab.github.io/emerge-lessons/docs/ch5/lesson4.html)
 ```
 
 ```{admonition} Educators
@@ -35,24 +35,24 @@ K–12 and college instructors, out-of-school educators, and curriculum designer
 
 **Recommended Lessons:**
 
-- [CH 5: Lesson 4 – Sharing Your Findings]()
-- [CH 1: Lesson 1 – What is Citizen Science?]()
-- [CH 1: Lesson 2 – Why Mosquitoes?]()
-- [CH 1: Lesson 5 – Intro to Coding & Google Earth Engine (GEE)]()
-- [CH 1: Lesson 6 – Intro to GLOBE Data]()
-- [CH 2: Lesson 2 – Larvae Count Patterns]()
-- [CH 2: Lesson 3 – Map the Data]()
-- [CH 2: Lesson 4 – Visualizing Mosquito Hotspots]()
-- [CH 2: Lesson 5 – Decoding Habitat Photos]()
-- [CH 3: Lesson 1 – Our Eyes in the Sky & On the Ground]()
-- [CH 3: Lesson 2 – Zooming In with Satellites]()
-- [CH 3: Lesson 3 – Is it Green? Is it Wet?]()
-- [CH 4: Lesson 1 – Temperature, Rainfall & Mosquito Seasons]()
-- [CH 4: Lesson 2 – Correlation Quest Pt. 1]()
-- [CH 4: Lesson 3 – Correlation Quest Pt. 2]()
-- [CH 4: Lesson 4 – Introduction to Risk Mapping]()
-- [CH 5: Lesson 2 – Host Your Own Data Camp]()
-- [CH 5: Lesson 3 – Student Mini-Project]()
+- [CH 5: Lesson 4 – Sharing Your Findings](https://geo-di-lab.github.io/emerge-lessons/docs/ch5/lesson4.html)
+- [CH 1: Lesson 1 – What is Citizen Science?](https://geo-di-lab.github.io/emerge-lessons/docs/ch1/lesson1.html)
+- [CH 1: Lesson 2 – Why Mosquitoes?](https://geo-di-lab.github.io/emerge-lessons/docs/ch1/lesson2.html)
+- [CH 1: Lesson 5 – Intro to Coding & Google Earth Engine (GEE)](https://geo-di-lab.github.io/emerge-lessons/docs/ch1/lesson5.html)
+- [CH 1: Lesson 6 – Intro to GLOBE Data](https://geo-di-lab.github.io/emerge-lessons/docs/ch1/lesson6.html)
+- [CH 2: Lesson 2 – Mosquito & Land Cover Stats](https://geo-di-lab.github.io/emerge-lessons/docs/ch2/lesson2.html)
+- [CH 2: Lesson 3 – Map the Data](https://geo-di-lab.github.io/emerge-lessons/docs/ch2/lesson3.html)
+- [CH 2: Lesson 4 – Visualizing Mosquito Hotspots](https://geo-di-lab.github.io/emerge-lessons/docs/ch2/lesson4.html)
+- [CH 2: Lesson 5 – Decoding Habitat Photos](https://geo-di-lab.github.io/emerge-lessons/docs/ch2/lesson5.html)
+- [CH 3: Lesson 1 – Our Eyes in the Sky & On the Ground](https://geo-di-lab.github.io/emerge-lessons/docs/ch3/lesson1.html)
+- [CH 3: Lesson 2 – Zooming In with Satellites](https://geo-di-lab.github.io/emerge-lessons/docs/ch3/lesson2.html)
+- [CH 3: Lesson 3 – Vegetation & Water Indices](https://geo-di-lab.github.io/emerge-lessons/docs/ch3/lesson3.html)
+- [CH 4: Lesson 1 – Temperature, Rainfall & Mosquito Seasons](https://geo-di-lab.github.io/emerge-lessons/docs/ch4/lesson1.html)
+- [CH 4: Lesson 2 – Environment & Habitats](https://geo-di-lab.github.io/emerge-lessons/docs/ch4/lesson2.html)
+- [CH 4: Lesson 3 – Land Cover Analysis](https://geo-di-lab.github.io/emerge-lessons/docs/ch4/lesson3.html)
+- [CH 4: Lesson 4 – Introduction to Risk Mapping](https://geo-di-lab.github.io/emerge-lessons/docs/ch4/lesson4.html)
+- [CH 5: Lesson 2 – Host Your Own Data Camp](https://geo-di-lab.github.io/emerge-lessons/docs/ch5/lesson2.html)
+- [CH 5: Lesson 3 – Student Mini-Project](https://geo-di-lab.github.io/emerge-lessons/docs/ch5/lesson3.html)
 ```
 
 ```{admonition} Local Government
@@ -63,14 +63,14 @@ City, county, or state agency professionals interested in public health, environ
 
 **Recommended Lessons:**
 
-- [CH 4: Lesson 4 – Introduction to Risk Mapping]()
-- [CH 1: Lesson 2 – Why Mosquitoes?]()
-- [CH 1: Lesson 5 – Intro to Coding & Google Earth Engine]()
-- [CH 1: Lesson 6 – Intro to GLOBE Data]()
-- [CH 2: Lesson 2 – Larvae Count Patterns]()
-- [CH 2: Lesson 4 – Visualizing Mosquito Hotspots]()
-- [CH 3: Lesson 3 – Is it Green? Is it Wet?]()
-- [CH 4: Lesson 2 – Correlation Quest Pt. 1]()
+- [CH 4: Lesson 4 – Introduction to Risk Mapping](https://geo-di-lab.github.io/emerge-lessons/docs/ch4/lesson4.html)
+- [CH 1: Lesson 2 – Why Mosquitoes?](https://geo-di-lab.github.io/emerge-lessons/docs/ch1/lesson2.html)
+- [CH 1: Lesson 5 – Intro to Google Earth Engine](https://geo-di-lab.github.io/emerge-lessons/docs/ch1/lesson5.html)
+- [CH 1: Lesson 6 – Intro to GLOBE Data](https://geo-di-lab.github.io/emerge-lessons/docs/ch1/lesson6.html)
+- [CH 2: Lesson 2 – Mosquito & Land Cover Stats](https://geo-di-lab.github.io/emerge-lessons/docs/ch2/lesson2.html)
+- [CH 2: Lesson 4 – Visualizing Mosquito Hotspots](https://geo-di-lab.github.io/emerge-lessons/docs/ch2/lesson4.html)
+- [CH 3: Lesson 3 – Vegetation & Water Indices](https://geo-di-lab.github.io/emerge-lessons/docs/ch3/lesson3.html)
+- [CH 4: Lesson 2 – Environment & Habitats](https://geo-di-lab.github.io/emerge-lessons/docs/ch4/lesson2.html)
 ```
 
 ```{admonition} Ambassadors
@@ -81,12 +81,12 @@ Motivated citizen science volunteers who help lead outreach efforts and facilita
 
 **Recommended Lessons:**
 
-- [CH 5: Lesson 4 – Sharing Your Findings]()
-- [CH 1: Lesson 1 – What is Citizen Science?]()
-- [CH 1: Lesson 3 – What is GLOBE Observer?]()
-- [CH 2: Lesson 1 – Why Analyze Data?]()
-- [CH 2: Lesson 3 – Map the Data]()
-- [CH 5: Lesson 2 – Host Your Own Data Camp]()
+- [CH 5: Lesson 4 – Sharing Your Findings](https://geo-di-lab.github.io/emerge-lessons/docs/ch5/lesson4.html)
+- [CH 1: Lesson 1 – What is Citizen Science?](https://geo-di-lab.github.io/emerge-lessons/docs/ch1/lesson1.html)
+- [CH 1: Lesson 3 – What is GLOBE Observer?](https://geo-di-lab.github.io/emerge-lessons/docs/ch1/lesson3.html)
+- [CH 2: Lesson 1 – Why Analyze Data?](https://geo-di-lab.github.io/emerge-lessons/docs/ch2/lesson1.html)
+- [CH 2: Lesson 3 – Map the Data](https://geo-di-lab.github.io/emerge-lessons/docs/ch2/lesson3.html)
+- [CH 5: Lesson 2 – Host Your Own Data Camp](https://geo-di-lab.github.io/emerge-lessons/docs/ch5/lesson2.html)
 ```
 
 ```{admonition} General Public
@@ -97,12 +97,12 @@ Anyone curious about science, environmental issues, or how they can take local a
 
 **Recommended Lessons:**
 
-- [CH 5: Lesson 1 – Communicate the Science]()
-- [CH 1: Lesson 1 – What is Citizen Science?]()
-- [CH 1: Lesson 2 – Why Mosquitoes?]()
-- [CH 1: Lesson 3 – What is GLOBE Observer?]()
-- [CH 2: Lesson 2 – Larvae Count Patterns]()
-- [CH 2: Lesson 5 – Decoding Habitat Photos]()
+- [CH 5: Lesson 1 – Communicate the Science](https://geo-di-lab.github.io/emerge-lessons/docs/ch5/lesson1.html)
+- [CH 1: Lesson 1 – What is Citizen Science?](https://geo-di-lab.github.io/emerge-lessons/docs/ch1/lesson1.html)
+- [CH 1: Lesson 2 – Why Mosquitoes?](https://geo-di-lab.github.io/emerge-lessons/docs/ch1/lesson2.html)
+- [CH 1: Lesson 3 – What is GLOBE Observer?](https://geo-di-lab.github.io/emerge-lessons/docs/ch1/lesson3.html)
+- [CH 2: Lesson 2 – Mosquito & Land Cover Stats](https://geo-di-lab.github.io/emerge-lessons/docs/ch2/lesson2.html)
+- [CH 2: Lesson 5 – Decoding Habitat Photos](https://geo-di-lab.github.io/emerge-lessons/docs/ch2/lesson5.html)
 ```
 
 # Table of Contents

@@ -32,8 +32,12 @@ parts:
   - file: docs/ch4/lesson3
   - file: docs/ch4/lesson4
 
-# - caption: Science Communication
-#   chapters:
+- caption: Science Communication
+  chapters:
+  - file: docs/ch5/lesson1
+  - file: docs/ch5/lesson2
+  - file: docs/ch5/lesson3
+  - file: docs/ch5/lesson4
 
 # - caption: Templates for Your Data Analysis
 #   chapters:

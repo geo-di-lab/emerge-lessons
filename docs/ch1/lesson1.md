@@ -25,7 +25,7 @@ There are [good faith debates](https://www.science.org/doi/10.1126/science.abi64
 
 Some citizen science projects are small and local (with only a few people in a certain place participating), but some are big and global. The big projects often rely on crowdsourcing. [Crowdsourcing](https://doi.org/10.1016/j.tree.2009.03.017) is the “the process of outsourcing tasks to a distributed group of people.”
 
-![Cartoon of a student saying "I think you'll be delightfully suprised by the quality of my work on this assignment. I crowdsourced it.](https://blog.citsci.org/wp-content/uploads/2025/07/image.gif?w=650)
+![Cartoon of a student saying "I think you'll be delightfully suprised by the quality of my work on this assignment. I crowdsourced it.](https://blog.citsci.org/wp-content/uploads/2025/07/image.gif)
 Image source: [Rob Cottingham](https://www.robcottingham.ca/cartoon/)
 
 A lot of citizen science also involves community-based monitoring, [described](https://link.springer.com/article/10.1023/A:1025545813057) as when “…concerned citizens, government agencies, industry, academia, community groups, and local institutions collaborate to monitor, track, and respond to issues of common community concern.”
