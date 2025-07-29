@@ -42,7 +42,7 @@ K–12 and college instructors, out-of-school educators, and curriculum designer
 - [CH 1: Lesson 6 – Intro to GLOBE Data](https://geo-di-lab.github.io/emerge-lessons/docs/ch1/lesson6.html)
 - [CH 2: Lesson 2 – Mosquito & Land Cover Stats](https://geo-di-lab.github.io/emerge-lessons/docs/ch2/lesson2.html)
 - [CH 2: Lesson 3 – Map the Data](https://geo-di-lab.github.io/emerge-lessons/docs/ch2/lesson3.html)
-- [CH 2: Lesson 4 – Visualizing Mosquito Hotspots](https://geo-di-lab.github.io/emerge-lessons/docs/ch2/lesson4.html)
+- [CH 2: Lesson 4 – Visualizing GLOBE Hotspots](https://geo-di-lab.github.io/emerge-lessons/docs/ch2/lesson4.html)
 - [CH 2: Lesson 5 – Decoding Habitat Photos](https://geo-di-lab.github.io/emerge-lessons/docs/ch2/lesson5.html)
 - [CH 3: Lesson 1 – Our Eyes in the Sky & On the Ground](https://geo-di-lab.github.io/emerge-lessons/docs/ch3/lesson1.html)
 - [CH 3: Lesson 2 – Zooming In with Satellites](https://geo-di-lab.github.io/emerge-lessons/docs/ch3/lesson2.html)
@@ -68,7 +68,7 @@ City, county, or state agency professionals interested in public health, environ
 - [CH 1: Lesson 5 – Intro to Google Earth Engine](https://geo-di-lab.github.io/emerge-lessons/docs/ch1/lesson5.html)
 - [CH 1: Lesson 6 – Intro to GLOBE Data](https://geo-di-lab.github.io/emerge-lessons/docs/ch1/lesson6.html)
 - [CH 2: Lesson 2 – Mosquito & Land Cover Stats](https://geo-di-lab.github.io/emerge-lessons/docs/ch2/lesson2.html)
-- [CH 2: Lesson 4 – Visualizing Mosquito Hotspots](https://geo-di-lab.github.io/emerge-lessons/docs/ch2/lesson4.html)
+- [CH 2: Lesson 4 – Visualizing GLOBE Hotspots](https://geo-di-lab.github.io/emerge-lessons/docs/ch2/lesson4.html)
 - [CH 3: Lesson 3 – Vegetation & Water Indices](https://geo-di-lab.github.io/emerge-lessons/docs/ch3/lesson3.html)
 - [CH 4: Lesson 2 – Environment & Habitats](https://geo-di-lab.github.io/emerge-lessons/docs/ch4/lesson2.html)
 ```
