@@ -2,6 +2,8 @@
 
 In this lesson, we’ll introduce [GLOBE Observer](https://observer.globe.gov/), a NASA-supported citizen science app that empowers you contribute to environmental research.
 
+View an [interactive dashboard of GLOBE data here](https://experience.arcgis.com/experience/15c3e38176ec44d1a2f250c218343b4b).
+
 Read on to learn what GLOBE Observer is, why the data you collect are so valuable, and how community observations – especially using the [Land Cover](https://observer.globe.gov/do-globe-observer/land-cover) tool and the [Mosquito Habitat Mapper](https://observer.globe.gov/do-globe-observer/mosquito-habitats) – support both cutting-edge science and local action.
 
 Your smartphone and curiosity can help ground-truth satellite data, strengthen public health, and build environmental resilience.
