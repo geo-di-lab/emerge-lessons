@@ -494,7 +494,7 @@ document.write(`
 <span class="n">lat</span> <span class="o">=</span> <span class="mf">27.8742</span>    <span class="c1"># Latitude</span>
 <span class="n">lon</span> <span class="o">=</span> <span class="o">-</span><span class="mf">81.8407</span>   <span class="c1"># Longitude</span>
 
-<span class="nb">map</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">],</span> <span class="n">tiles</span><span class="o">=</span><span class="s2">&quot;Cartodb dark_matter&quot;</span><span class="p">,</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="nb">map</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">],</span> <span class="n">tiles</span><span class="o">=</span><span class="s2">&quot;Cartodb dark_matter&quot;</span><span class="p">,</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -716,7 +716,7 @@ document.write(`
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_63b4c4ded8041754e44978340db25917 {
+                #map_cc5afd051bbc7d113984f8720e2b3147 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -753,19 +753,19 @@ document.write(`
 &lt;body&gt;
     
     
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_63b4c4ded8041754e44978340db25917&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_cc5afd051bbc7d113984f8720e2b3147&quot; &gt;&lt;/div&gt;
         
 &lt;/body&gt;
 &lt;script&gt;
     
     
-            var map_63b4c4ded8041754e44978340db25917 = L.map(
-                &quot;map_63b4c4ded8041754e44978340db25917&quot;,
+            var map_cc5afd051bbc7d113984f8720e2b3147 = L.map(
+                &quot;map_cc5afd051bbc7d113984f8720e2b3147&quot;,
                 {
                     center: [27.8742, -81.8407],
                     crs: L.CRS.EPSG3857,
                     ...{
-  &quot;zoom&quot;: 7,
+  &quot;zoom&quot;: 9,
   &quot;zoomControl&quot;: true,
   &quot;preferCanvas&quot;: false,
 }
@@ -777,7 +777,7 @@ document.write(`
 
         
     
-            var tile_layer_14ddc05e48f064eb3e5c2fbe1c3047a2 = L.tileLayer(
+            var tile_layer_77426920534322aa727d16f9d761ffbf = L.tileLayer(
                 &quot;https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png&quot;,
                 {
   &quot;minZoom&quot;: 0,
@@ -794,11 +794,11 @@ document.write(`
             );
         
     
-            tile_layer_14ddc05e48f064eb3e5c2fbe1c3047a2.addTo(map_63b4c4ded8041754e44978340db25917);
+            tile_layer_77426920534322aa727d16f9d761ffbf.addTo(map_cc5afd051bbc7d113984f8720e2b3147);
         
     
-            var tile_layer_5284c2ec27864385dce709579e700818 = L.tileLayer(
-                &quot;https://earthengine.googleapis.com/v1/projects/emerge-466105/maps/a2a2c6a69fea48b172e9c83368c9e544-cf473d66691ad36caf9b9df60371079e/tiles/{z}/{x}/{y}&quot;,
+            var tile_layer_fd5ba30f6925e23ab4d4df4f8deae531 = L.tileLayer(
+                &quot;https://earthengine.googleapis.com/v1/projects/emerge-466105/maps/7d029a25d3370afd1b6229a488654c0d-3128a076d05730fd282a0928a052d808/tiles/{z}/{x}/{y}&quot;,
                 {
   &quot;minZoom&quot;: 0,
   &quot;maxZoom&quot;: 18,
@@ -814,87 +814,7 @@ document.write(`
             );
         
     
-            tile_layer_5284c2ec27864385dce709579e700818.addTo(map_63b4c4ded8041754e44978340db25917);
-        
-    
-            var tile_layer_a6053ced4766f804bd0108bf5a347068 = L.tileLayer(
-                &quot;https://earthengine.googleapis.com/v1/projects/emerge-466105/maps/a2a2c6a69fea48b172e9c83368c9e544-137cc47b9181fb9ad57e3448570d4bad/tiles/{z}/{x}/{y}&quot;,
-                {
-  &quot;minZoom&quot;: 0,
-  &quot;maxZoom&quot;: 18,
-  &quot;maxNativeZoom&quot;: 18,
-  &quot;noWrap&quot;: false,
-  &quot;attribution&quot;: &quot;Map Data \u0026copy; \u003ca href=\&quot;https://earthengine.google.com/\&quot;\u003eGoogle Earth Engine\u003c/a\u003e&quot;,
-  &quot;subdomains&quot;: &quot;abc&quot;,
-  &quot;detectRetina&quot;: false,
-  &quot;tms&quot;: false,
-  &quot;opacity&quot;: 1,
-}
-
-            );
-        
-    
-            tile_layer_a6053ced4766f804bd0108bf5a347068.addTo(map_63b4c4ded8041754e44978340db25917);
-        
-    
-            var tile_layer_267d72cba260e781b5754af2f8fd9255 = L.tileLayer(
-                &quot;https://earthengine.googleapis.com/v1/projects/emerge-466105/maps/a2a2c6a69fea48b172e9c83368c9e544-50e623dc9ec5131ad40543318e116e37/tiles/{z}/{x}/{y}&quot;,
-                {
-  &quot;minZoom&quot;: 0,
-  &quot;maxZoom&quot;: 18,
-  &quot;maxNativeZoom&quot;: 18,
-  &quot;noWrap&quot;: false,
-  &quot;attribution&quot;: &quot;Map Data \u0026copy; \u003ca href=\&quot;https://earthengine.google.com/\&quot;\u003eGoogle Earth Engine\u003c/a\u003e&quot;,
-  &quot;subdomains&quot;: &quot;abc&quot;,
-  &quot;detectRetina&quot;: false,
-  &quot;tms&quot;: false,
-  &quot;opacity&quot;: 1,
-}
-
-            );
-        
-    
-            tile_layer_267d72cba260e781b5754af2f8fd9255.addTo(map_63b4c4ded8041754e44978340db25917);
-        
-    
-            var tile_layer_417a1919e559a7545737dae8fb47c358 = L.tileLayer(
-                &quot;https://earthengine.googleapis.com/v1/projects/emerge-466105/maps/a2a2c6a69fea48b172e9c83368c9e544-f6fe4e4e53011bcfdd82fe4b9c30f4d2/tiles/{z}/{x}/{y}&quot;,
-                {
-  &quot;minZoom&quot;: 0,
-  &quot;maxZoom&quot;: 18,
-  &quot;maxNativeZoom&quot;: 18,
-  &quot;noWrap&quot;: false,
-  &quot;attribution&quot;: &quot;Map Data \u0026copy; \u003ca href=\&quot;https://earthengine.google.com/\&quot;\u003eGoogle Earth Engine\u003c/a\u003e&quot;,
-  &quot;subdomains&quot;: &quot;abc&quot;,
-  &quot;detectRetina&quot;: false,
-  &quot;tms&quot;: false,
-  &quot;opacity&quot;: 1,
-}
-
-            );
-        
-    
-            tile_layer_417a1919e559a7545737dae8fb47c358.addTo(map_63b4c4ded8041754e44978340db25917);
-        
-    
-            var tile_layer_dfec90d7020fc8ff82c89eb2da4d9c8f = L.tileLayer(
-                &quot;https://earthengine.googleapis.com/v1/projects/emerge-466105/maps/a2a2c6a69fea48b172e9c83368c9e544-ce883740efcc62213960ed20b21ad421/tiles/{z}/{x}/{y}&quot;,
-                {
-  &quot;minZoom&quot;: 0,
-  &quot;maxZoom&quot;: 18,
-  &quot;maxNativeZoom&quot;: 18,
-  &quot;noWrap&quot;: false,
-  &quot;attribution&quot;: &quot;Map Data \u0026copy; \u003ca href=\&quot;https://earthengine.google.com/\&quot;\u003eGoogle Earth Engine\u003c/a\u003e&quot;,
-  &quot;subdomains&quot;: &quot;abc&quot;,
-  &quot;detectRetina&quot;: false,
-  &quot;tms&quot;: false,
-  &quot;opacity&quot;: 1,
-}
-
-            );
-        
-    
-            tile_layer_dfec90d7020fc8ff82c89eb2da4d9c8f.addTo(map_63b4c4ded8041754e44978340db25917);
+            tile_layer_fd5ba30f6925e23ab4d4df4f8deae531.addTo(map_cc5afd051bbc7d113984f8720e2b3147);
         
 &lt;/script&gt;
 &lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>

@@ -463,6 +463,30 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -821,7 +845,7 @@ Formula: (GREEN - NIR) / (GREEN + NIR)</p>
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_f426f84d19032fdbb09d173fd3b9956a {
+                #map_7a281f81cf6c8aff4d83c50499b25643 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -858,14 +882,14 @@ Formula: (GREEN - NIR) / (GREEN + NIR)</p>
 &lt;body&gt;
     
     
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_f426f84d19032fdbb09d173fd3b9956a&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_7a281f81cf6c8aff4d83c50499b25643&quot; &gt;&lt;/div&gt;
         
 &lt;/body&gt;
 &lt;script&gt;
     
     
-            var map_f426f84d19032fdbb09d173fd3b9956a = L.map(
-                &quot;map_f426f84d19032fdbb09d173fd3b9956a&quot;,
+            var map_7a281f81cf6c8aff4d83c50499b25643 = L.map(
+                &quot;map_7a281f81cf6c8aff4d83c50499b25643&quot;,
                 {
                     center: [28.473813, -81.660044],
                     crs: L.CRS.EPSG3857,
@@ -882,7 +906,7 @@ Formula: (GREEN - NIR) / (GREEN + NIR)</p>
 
         
     
-            var tile_layer_c688cbfa49a569d8f924e2efa06d8188 = L.tileLayer(
+            var tile_layer_f77bc7579e41af7fbb0dbc5ca0b3136f = L.tileLayer(
                 &quot;https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png&quot;,
                 {
   &quot;minZoom&quot;: 0,
@@ -899,11 +923,11 @@ Formula: (GREEN - NIR) / (GREEN + NIR)</p>
             );
         
     
-            tile_layer_c688cbfa49a569d8f924e2efa06d8188.addTo(map_f426f84d19032fdbb09d173fd3b9956a);
+            tile_layer_f77bc7579e41af7fbb0dbc5ca0b3136f.addTo(map_7a281f81cf6c8aff4d83c50499b25643);
         
     
-            var tile_layer_f64b7e7755caaf948f58b56de0148bc8 = L.tileLayer(
-                &quot;https://earthengine.googleapis.com/v1/projects/emerge-466105/maps/fffa3179630d7415d102737fab36c156-bb85db1d2741a75f7498aefbe843fc16/tiles/{z}/{x}/{y}&quot;,
+            var tile_layer_2e1ce6f2e2e964b83dc8fb20c64ea699 = L.tileLayer(
+                &quot;https://earthengine.googleapis.com/v1/projects/emerge-466105/maps/de94a5372f33d4533c5b4ad3129e4a45-84462ad4c3fe20cd094c7266b9f25350/tiles/{z}/{x}/{y}&quot;,
                 {
   &quot;minZoom&quot;: 0,
   &quot;maxZoom&quot;: 18,
@@ -919,11 +943,11 @@ Formula: (GREEN - NIR) / (GREEN + NIR)</p>
             );
         
     
-            tile_layer_f64b7e7755caaf948f58b56de0148bc8.addTo(map_f426f84d19032fdbb09d173fd3b9956a);
+            tile_layer_2e1ce6f2e2e964b83dc8fb20c64ea699.addTo(map_7a281f81cf6c8aff4d83c50499b25643);
         
     
-            var tile_layer_99833fab0ac19c655956cefd1f4205a7 = L.tileLayer(
-                &quot;https://earthengine.googleapis.com/v1/projects/emerge-466105/maps/7fd8973279346cba5940472e48be52c9-7b2184627af18aee4d811225b9a10b65/tiles/{z}/{x}/{y}&quot;,
+            var tile_layer_af516a0c040f30800b001d3527f26745 = L.tileLayer(
+                &quot;https://earthengine.googleapis.com/v1/projects/emerge-466105/maps/31fa83c6a67d0fe7bad335471f9088ad-32a174fff1fa880613bdd48e33b2fb8f/tiles/{z}/{x}/{y}&quot;,
                 {
   &quot;minZoom&quot;: 0,
   &quot;maxZoom&quot;: 18,
@@ -939,27 +963,27 @@ Formula: (GREEN - NIR) / (GREEN + NIR)</p>
             );
         
     
-            tile_layer_99833fab0ac19c655956cefd1f4205a7.addTo(map_f426f84d19032fdbb09d173fd3b9956a);
+            tile_layer_af516a0c040f30800b001d3527f26745.addTo(map_7a281f81cf6c8aff4d83c50499b25643);
         
     
-            var layer_control_ce6511fac89c5c8df271ec58ba1e900a_layers = {
+            var layer_control_6e0542e42ae534eddac003459846d56a_layers = {
                 base_layers : {
-                    &quot;cartodbdarkmatter&quot; : tile_layer_c688cbfa49a569d8f924e2efa06d8188,
+                    &quot;cartodbdarkmatter&quot; : tile_layer_f77bc7579e41af7fbb0dbc5ca0b3136f,
                 },
                 overlays :  {
-                    &quot;NDVI&quot; : tile_layer_f64b7e7755caaf948f58b56de0148bc8,
-                    &quot;NDWI&quot; : tile_layer_99833fab0ac19c655956cefd1f4205a7,
+                    &quot;NDVI&quot; : tile_layer_2e1ce6f2e2e964b83dc8fb20c64ea699,
+                    &quot;NDWI&quot; : tile_layer_af516a0c040f30800b001d3527f26745,
                 },
             };
-            let layer_control_ce6511fac89c5c8df271ec58ba1e900a = L.control.layers(
-                layer_control_ce6511fac89c5c8df271ec58ba1e900a_layers.base_layers,
-                layer_control_ce6511fac89c5c8df271ec58ba1e900a_layers.overlays,
+            let layer_control_6e0542e42ae534eddac003459846d56a = L.control.layers(
+                layer_control_6e0542e42ae534eddac003459846d56a_layers.base_layers,
+                layer_control_6e0542e42ae534eddac003459846d56a_layers.overlays,
                 {
   &quot;position&quot;: &quot;topright&quot;,
   &quot;collapsed&quot;: false,
   &quot;autoZIndex&quot;: true,
 }
-            ).addTo(map_f426f84d19032fdbb09d173fd3b9956a);
+            ).addTo(map_7a281f81cf6c8aff4d83c50499b25643);
 
         
 &lt;/script&gt;
