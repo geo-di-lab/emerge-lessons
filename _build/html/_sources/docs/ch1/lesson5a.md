@@ -1,4 +1,4 @@
-# Get Google Earth Engine Account
+# Get Google Earth Engine
 
 ```{note}
 We recommend using an `@gmail.com` address instead of an institutional .org or .edu email address. This is because Google Cloud may have different options based on your institutional email's settings. Thus, we found that Gmail may be the best for working with Google Earth Engine for educational purposes.

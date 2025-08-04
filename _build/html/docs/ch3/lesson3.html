@@ -186,7 +186,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../ch1/lesson2.html">Why Mosquitoes?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch1/lesson3.html">What is GLOBE Observer?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch1/lesson4.html">What is Coding?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ch1/lesson5a.html">Get Google Earth Engine Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch1/lesson5a.html">Get Google Earth Engine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch1/lesson5b.html">Intro to Google Earth Engine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch1/lesson6.html">Introduction to GLOBE Data</a></li>
 </ul>
@@ -455,7 +455,7 @@ document.write(`
 <span class="kn">import</span><span class="w"> </span><span class="nn">geemap</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
 
-<span class="c1"># Authenticate your Google account with Earth Engine.</span>
+<span class="c1"># Authenticate your Google account with Earth Engine</span>
 <span class="n">ee</span><span class="o">.</span><span class="n">Authenticate</span><span class="p">()</span>
 
 <span class="c1"># Write your project ID here, in quotes</span>
@@ -463,6 +463,30 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -821,7 +845,7 @@ Formula: (GREEN - NIR) / (GREEN + NIR)</p>
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_fef01a1c0837ccd36b873a3d20dd3579 {
+                #map_e497e16e2eba000b3b1e4d20c8a819c2 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -858,14 +882,14 @@ Formula: (GREEN - NIR) / (GREEN + NIR)</p>
 &lt;body&gt;
     
     
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_fef01a1c0837ccd36b873a3d20dd3579&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_e497e16e2eba000b3b1e4d20c8a819c2&quot; &gt;&lt;/div&gt;
         
 &lt;/body&gt;
 &lt;script&gt;
     
     
-            var map_fef01a1c0837ccd36b873a3d20dd3579 = L.map(
-                &quot;map_fef01a1c0837ccd36b873a3d20dd3579&quot;,
+            var map_e497e16e2eba000b3b1e4d20c8a819c2 = L.map(
+                &quot;map_e497e16e2eba000b3b1e4d20c8a819c2&quot;,
                 {
                     center: [28.473813, -81.660044],
                     crs: L.CRS.EPSG3857,
@@ -882,7 +906,7 @@ Formula: (GREEN - NIR) / (GREEN + NIR)</p>
 
         
     
-            var tile_layer_c71c37e27357e298816ae611d58d0afd = L.tileLayer(
+            var tile_layer_641cd65499404508c362b18d23bddcde = L.tileLayer(
                 &quot;https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png&quot;,
                 {
   &quot;minZoom&quot;: 0,
@@ -899,11 +923,11 @@ Formula: (GREEN - NIR) / (GREEN + NIR)</p>
             );
         
     
-            tile_layer_c71c37e27357e298816ae611d58d0afd.addTo(map_fef01a1c0837ccd36b873a3d20dd3579);
+            tile_layer_641cd65499404508c362b18d23bddcde.addTo(map_e497e16e2eba000b3b1e4d20c8a819c2);
         
     
-            var tile_layer_1f77f16fdefbcfa15501cc8859b2d1c9 = L.tileLayer(
-                &quot;https://earthengine.googleapis.com/v1/projects/emerge-466105/maps/8bdf6f46f7e3ef2c36734e5c8e4a6a44-849a92a59c9652a5b7735c7e5398b03b/tiles/{z}/{x}/{y}&quot;,
+            var tile_layer_1a3139f20ed37792562922ccf3e5dec6 = L.tileLayer(
+                &quot;https://earthengine.googleapis.com/v1/projects/emerge-466105/maps/8f990f9bc9a46da30bbef7ade1d5f4be-94f61c95cdaa7957e4a2f0a28a801d75/tiles/{z}/{x}/{y}&quot;,
                 {
   &quot;minZoom&quot;: 0,
   &quot;maxZoom&quot;: 18,
@@ -919,11 +943,11 @@ Formula: (GREEN - NIR) / (GREEN + NIR)</p>
             );
         
     
-            tile_layer_1f77f16fdefbcfa15501cc8859b2d1c9.addTo(map_fef01a1c0837ccd36b873a3d20dd3579);
+            tile_layer_1a3139f20ed37792562922ccf3e5dec6.addTo(map_e497e16e2eba000b3b1e4d20c8a819c2);
         
     
-            var tile_layer_8c2418ac05f282fca074002e27c37e61 = L.tileLayer(
-                &quot;https://earthengine.googleapis.com/v1/projects/emerge-466105/maps/e2ac5e2253c97961a134cb990f0163a8-4dc84ea83182a0e43b84b231823f116d/tiles/{z}/{x}/{y}&quot;,
+            var tile_layer_23cbd5a33abc5c91c4602b266bf9a590 = L.tileLayer(
+                &quot;https://earthengine.googleapis.com/v1/projects/emerge-466105/maps/dcbc1b1245e5b7f65eb384b083a97ea7-0a9fff862d975d5c548d14376e552938/tiles/{z}/{x}/{y}&quot;,
                 {
   &quot;minZoom&quot;: 0,
   &quot;maxZoom&quot;: 18,
@@ -939,27 +963,27 @@ Formula: (GREEN - NIR) / (GREEN + NIR)</p>
             );
         
     
-            tile_layer_8c2418ac05f282fca074002e27c37e61.addTo(map_fef01a1c0837ccd36b873a3d20dd3579);
+            tile_layer_23cbd5a33abc5c91c4602b266bf9a590.addTo(map_e497e16e2eba000b3b1e4d20c8a819c2);
         
     
-            var layer_control_c2597cd93209baf0cf408dcbd2a0e216_layers = {
+            var layer_control_4942b83c2a794e888c8667afb74cda3d_layers = {
                 base_layers : {
-                    &quot;cartodbdarkmatter&quot; : tile_layer_c71c37e27357e298816ae611d58d0afd,
+                    &quot;cartodbdarkmatter&quot; : tile_layer_641cd65499404508c362b18d23bddcde,
                 },
                 overlays :  {
-                    &quot;NDVI&quot; : tile_layer_1f77f16fdefbcfa15501cc8859b2d1c9,
-                    &quot;NDWI&quot; : tile_layer_8c2418ac05f282fca074002e27c37e61,
+                    &quot;NDVI&quot; : tile_layer_1a3139f20ed37792562922ccf3e5dec6,
+                    &quot;NDWI&quot; : tile_layer_23cbd5a33abc5c91c4602b266bf9a590,
                 },
             };
-            let layer_control_c2597cd93209baf0cf408dcbd2a0e216 = L.control.layers(
-                layer_control_c2597cd93209baf0cf408dcbd2a0e216_layers.base_layers,
-                layer_control_c2597cd93209baf0cf408dcbd2a0e216_layers.overlays,
+            let layer_control_4942b83c2a794e888c8667afb74cda3d = L.control.layers(
+                layer_control_4942b83c2a794e888c8667afb74cda3d_layers.base_layers,
+                layer_control_4942b83c2a794e888c8667afb74cda3d_layers.overlays,
                 {
   &quot;position&quot;: &quot;topright&quot;,
   &quot;collapsed&quot;: false,
   &quot;autoZIndex&quot;: true,
 }
-            ).addTo(map_fef01a1c0837ccd36b873a3d20dd3579);
+            ).addTo(map_e497e16e2eba000b3b1e4d20c8a819c2);
 
         
 &lt;/script&gt;

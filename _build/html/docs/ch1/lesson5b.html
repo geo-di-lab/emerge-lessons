@@ -62,7 +62,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Introduction to GLOBE Data" href="lesson6.html" />
-    <link rel="prev" title="Get Google Earth Engine Account" href="lesson5a.html" />
+    <link rel="prev" title="Get Google Earth Engine" href="lesson5a.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -186,7 +186,7 @@
 <li class="toctree-l1"><a class="reference internal" href="lesson2.html">Why Mosquitoes?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lesson3.html">What is GLOBE Observer?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lesson4.html">What is Coding?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lesson5a.html">Get Google Earth Engine Account</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lesson5a.html">Get Google Earth Engine</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Intro to Google Earth Engine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lesson6.html">Introduction to GLOBE Data</a></li>
 </ul>
@@ -463,6 +463,7 @@ document.write(`
 <div><p>Make sure you have this notebook open in Google Colab (if you are starting from the digital textbook, click on the <span class="fa fa-rocket"></span> icon and click <strong>Colab</strong>). Each block of code is called a cell. To run a cell, hover over it and click the arrow in the top left of the cell, or click inside of the cell and press Shift + Enter.</p>
 </div></blockquote>
 <p>Note: When you run a block of code for the first time, Google Colab will say <code class="docutils literal notranslate"><span class="pre">Warning:</span> <span class="pre">This</span> <span class="pre">notebook</span> <span class="pre">was</span> <span class="pre">not</span> <span class="pre">authored</span> <span class="pre">by</span> <span class="pre">Google</span></code>. Please click <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">Anyway</span></code>.</p>
+<p>You need a Google Earth Engine project in order to run this code. If you haven’t already, please go to the previous lesson <a class="reference external" href="https://geo-di-lab.github.io/emerge-lessons/docs/ch1/lesson5a.html">Get Google Earth Engine</a> to set up your project.</p>
 <p>A great feature of Google Colab is that you are able to write Python code and see the output directly on your browser. Let’s go through the basics below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -638,7 +639,7 @@ The rural  land surface temperature for the urban point is 20.9 °C
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_7ed58363149dab11fed7c631a4e52f80 {
+                #map_e4e4b29bffb33ecab81d09784f540284 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -675,14 +676,14 @@ The rural  land surface temperature for the urban point is 20.9 °C
 &lt;body&gt;
     
     
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_7ed58363149dab11fed7c631a4e52f80&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_e4e4b29bffb33ecab81d09784f540284&quot; &gt;&lt;/div&gt;
         
 &lt;/body&gt;
 &lt;script&gt;
     
     
-            var map_7ed58363149dab11fed7c631a4e52f80 = L.map(
-                &quot;map_7ed58363149dab11fed7c631a4e52f80&quot;,
+            var map_e4e4b29bffb33ecab81d09784f540284 = L.map(
+                &quot;map_e4e4b29bffb33ecab81d09784f540284&quot;,
                 {
                     center: [28.263363, -83.497652],
                     crs: L.CRS.EPSG3857,
@@ -699,7 +700,7 @@ The rural  land surface temperature for the urban point is 20.9 °C
 
         
     
-            var tile_layer_02feb229699891ddd9f7c0135689d302 = L.tileLayer(
+            var tile_layer_d4fc4b34e30842fc0c0af0dc17eea0a0 = L.tileLayer(
                 &quot;https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png&quot;,
                 {
   &quot;minZoom&quot;: 0,
@@ -716,7 +717,7 @@ The rural  land surface temperature for the urban point is 20.9 °C
             );
         
     
-            tile_layer_02feb229699891ddd9f7c0135689d302.addTo(map_7ed58363149dab11fed7c631a4e52f80);
+            tile_layer_d4fc4b34e30842fc0c0af0dc17eea0a0.addTo(map_e4e4b29bffb33ecab81d09784f540284);
         
 &lt;/script&gt;
 &lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>
@@ -828,7 +829,7 @@ The rural  land surface temperature for the urban point is 20.9 °C
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_7ed58363149dab11fed7c631a4e52f80 {
+                #map_e4e4b29bffb33ecab81d09784f540284 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -865,14 +866,14 @@ The rural  land surface temperature for the urban point is 20.9 °C
 &lt;body&gt;
     
     
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_7ed58363149dab11fed7c631a4e52f80&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_e4e4b29bffb33ecab81d09784f540284&quot; &gt;&lt;/div&gt;
         
 &lt;/body&gt;
 &lt;script&gt;
     
     
-            var map_7ed58363149dab11fed7c631a4e52f80 = L.map(
-                &quot;map_7ed58363149dab11fed7c631a4e52f80&quot;,
+            var map_e4e4b29bffb33ecab81d09784f540284 = L.map(
+                &quot;map_e4e4b29bffb33ecab81d09784f540284&quot;,
                 {
                     center: [28.263363, -83.497652],
                     crs: L.CRS.EPSG3857,
@@ -889,7 +890,7 @@ The rural  land surface temperature for the urban point is 20.9 °C
 
         
     
-            var tile_layer_02feb229699891ddd9f7c0135689d302 = L.tileLayer(
+            var tile_layer_d4fc4b34e30842fc0c0af0dc17eea0a0 = L.tileLayer(
                 &quot;https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png&quot;,
                 {
   &quot;minZoom&quot;: 0,
@@ -906,14 +907,14 @@ The rural  land surface temperature for the urban point is 20.9 °C
             );
         
     
-            tile_layer_02feb229699891ddd9f7c0135689d302.addTo(map_7ed58363149dab11fed7c631a4e52f80);
+            tile_layer_d4fc4b34e30842fc0c0af0dc17eea0a0.addTo(map_e4e4b29bffb33ecab81d09784f540284);
         
     
-            tile_layer_02feb229699891ddd9f7c0135689d302.addTo(map_7ed58363149dab11fed7c631a4e52f80);
+            tile_layer_d4fc4b34e30842fc0c0af0dc17eea0a0.addTo(map_e4e4b29bffb33ecab81d09784f540284);
         
     
-            var tile_layer_9e4306d7579aca8c026c968dc11f03b5 = L.tileLayer(
-                &quot;https://earthengine.googleapis.com/v1/projects/emerge-466105/maps/cbb1557444890cf436aa23389868612a-dfa00f5408d75225fb8c9fc77a791a41/tiles/{z}/{x}/{y}&quot;,
+            var tile_layer_9e69541bb1673f320ea172f9606c2a04 = L.tileLayer(
+                &quot;https://earthengine.googleapis.com/v1/projects/emerge-466105/maps/39d83f8f2f2b0dede9386ccdc624d14b-231255c1339646a3e6585193f48ff31c/tiles/{z}/{x}/{y}&quot;,
                 {
   &quot;minZoom&quot;: 0,
   &quot;maxZoom&quot;: 18,
@@ -929,7 +930,7 @@ The rural  land surface temperature for the urban point is 20.9 °C
             );
         
     
-            tile_layer_9e4306d7579aca8c026c968dc11f03b5.addTo(map_7ed58363149dab11fed7c631a4e52f80);
+            tile_layer_9e69541bb1673f320ea172f9606c2a04.addTo(map_e4e4b29bffb33ecab81d09784f540284);
         
 &lt;/script&gt;
 &lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>
@@ -978,7 +979,7 @@ The rural  land surface temperature for the urban point is 20.9 °C
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Get Google Earth Engine Account</p>
+        <p class="prev-next-title">Get Google Earth Engine</p>
       </div>
     </a>
     <a class="right-next"
