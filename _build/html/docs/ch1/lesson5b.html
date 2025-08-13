@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -469,7 +469,7 @@ document.write(`
 <p>A great feature of Google Colab is that you are able to write Python code and see the output directly on your browser. Let’s go through the basics below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">ee</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">ee</span>
 
 <span class="c1"># Authenticate Google Earth Engine</span>
 <span class="n">ee</span><span class="o">.</span><span class="n">Authenticate</span><span class="p">()</span>
@@ -502,7 +502,7 @@ document.write(`
 <p>For this example, we’ll be using the <a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD11A1">MODIS Terra Land Surface Temperature (LST)</a> dataset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import the MODIS land surface temperature collection</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import the MODIS land surface temperature collection</span>
 <span class="n">lst</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;MODIS/061/MOD11A1&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -523,7 +523,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initial date of interest (inclusive)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initial date of interest (inclusive)</span>
 <span class="n">i_date</span> <span class="o">=</span> <span class="s1">&#39;2024-01-01&#39;</span>
 
 <span class="c1"># Final date of interest (exclusive)</span>
@@ -538,7 +538,7 @@ document.write(`
 <p>Next, we’ll define two points of interest (POIs) in relation to what we want to look at. Since we’re looking at Land Surface Emissivity (land temp), we’ll make a comparison of the temperature in an urban area versus a rural area.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the urban location of interest as a point near Miami, Florida</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the urban location of interest as a point near Miami, Florida</span>
 <span class="n">urban_lon</span> <span class="o">=</span> <span class="o">-</span><span class="mf">80.196432</span>
 <span class="n">urban_lat</span> <span class="o">=</span> <span class="mf">25.779766</span>
 <span class="n">urban_poi</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="n">urban_lon</span><span class="p">,</span> <span class="n">urban_lat</span><span class="p">)</span>
@@ -556,7 +556,7 @@ document.write(`
 <p>We need the average land temperature of the two POIs we’re looking at, so we’ll use <code class="docutils literal notranslate"><span class="pre">mean()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Scale in meters</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Scale in meters</span>
 <span class="n">scale</span> <span class="o">=</span> <span class="mi">1000</span>
 
 <span class="c1"># Function to convert LST to Celsius and get mean LST</span>
@@ -585,7 +585,7 @@ The rural  land surface temperature for the urban point is 20.9 °C
 <h2>Interactive Maps<a class="headerlink" href="#interactive-maps" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">folium</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">folium</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">geemap</span>
 </pre></div>
 </div>
@@ -594,7 +594,7 @@ The rural  land surface temperature for the urban point is 20.9 °C
 <p>Create an empty map zoomed to Florida. You can click and drag to move around the map, as well as zoom in and out.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">map</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">28.263363</span><span class="p">,</span> <span class="o">-</span><span class="mf">83.497652</span><span class="p">],</span> <span class="n">tiles</span><span class="o">=</span><span class="s2">&quot;Cartodb dark_matter&quot;</span><span class="p">,</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">map</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">28.263363</span><span class="p">,</span> <span class="o">-</span><span class="mf">83.497652</span><span class="p">],</span> <span class="n">tiles</span><span class="o">=</span><span class="s2">&quot;Cartodb dark_matter&quot;</span><span class="p">,</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="nb">map</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -641,7 +641,7 @@ The rural  land surface temperature for the urban point is 20.9 °C
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_05ffa82a4c7e0ea5eaf89744b6db3f8f {
+                #map_56d8aa4b20fe60de52024111cc21b7d9 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -678,14 +678,14 @@ The rural  land surface temperature for the urban point is 20.9 °C
 &lt;body&gt;
     
     
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_05ffa82a4c7e0ea5eaf89744b6db3f8f&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_56d8aa4b20fe60de52024111cc21b7d9&quot; &gt;&lt;/div&gt;
         
 &lt;/body&gt;
 &lt;script&gt;
     
     
-            var map_05ffa82a4c7e0ea5eaf89744b6db3f8f = L.map(
-                &quot;map_05ffa82a4c7e0ea5eaf89744b6db3f8f&quot;,
+            var map_56d8aa4b20fe60de52024111cc21b7d9 = L.map(
+                &quot;map_56d8aa4b20fe60de52024111cc21b7d9&quot;,
                 {
                     center: [28.263363, -83.497652],
                     crs: L.CRS.EPSG3857,
@@ -702,7 +702,7 @@ The rural  land surface temperature for the urban point is 20.9 °C
 
         
     
-            var tile_layer_6f9ad1a6f11366b64f556016202dae55 = L.tileLayer(
+            var tile_layer_40a0e126db40924fc54b04665c77deb3 = L.tileLayer(
                 &quot;https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png&quot;,
                 {
   &quot;minZoom&quot;: 0,
@@ -719,7 +719,7 @@ The rural  land surface temperature for the urban point is 20.9 °C
             );
         
     
-            tile_layer_6f9ad1a6f11366b64f556016202dae55.addTo(map_05ffa82a4c7e0ea5eaf89744b6db3f8f);
+            tile_layer_40a0e126db40924fc54b04665c77deb3.addTo(map_56d8aa4b20fe60de52024111cc21b7d9);
         
 &lt;/script&gt;
 &lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>
@@ -727,7 +727,7 @@ The rural  land surface temperature for the urban point is 20.9 °C
 <p>Next, we define a function (from <a class="reference external" href="https://developers.google.com/earth-engine/tutorials/community/intro-to-python-api">this tutorial</a>) to add Google Earth Engine data to a map in a way that allows it to be interactively displayed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_ee_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ee_image_object</span><span class="p">,</span> <span class="n">vis_params</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_ee_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ee_image_object</span><span class="p">,</span> <span class="n">vis_params</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds a method for displaying Earth Engine image tiles to folium map.&quot;&quot;&quot;</span>
     <span class="n">map_id_dict</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">ee_image_object</span><span class="p">)</span><span class="o">.</span><span class="n">getMapId</span><span class="p">(</span><span class="n">vis_params</span><span class="p">)</span>
     <span class="n">folium</span><span class="o">.</span><span class="n">raster_layers</span><span class="o">.</span><span class="n">TileLayer</span><span class="p">(</span>
@@ -769,7 +769,7 @@ The rural  land surface temperature for the urban point is 20.9 °C
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualization parameters used to set the colors for the data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualization parameters used to set the colors for the data</span>
 <span class="n">lst_vis</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="mf">13000.0</span><span class="p">,</span>
     <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="mf">16500.0</span><span class="p">,</span>
@@ -831,7 +831,7 @@ The rural  land surface temperature for the urban point is 20.9 °C
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_05ffa82a4c7e0ea5eaf89744b6db3f8f {
+                #map_56d8aa4b20fe60de52024111cc21b7d9 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -868,14 +868,14 @@ The rural  land surface temperature for the urban point is 20.9 °C
 &lt;body&gt;
     
     
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_05ffa82a4c7e0ea5eaf89744b6db3f8f&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_56d8aa4b20fe60de52024111cc21b7d9&quot; &gt;&lt;/div&gt;
         
 &lt;/body&gt;
 &lt;script&gt;
     
     
-            var map_05ffa82a4c7e0ea5eaf89744b6db3f8f = L.map(
-                &quot;map_05ffa82a4c7e0ea5eaf89744b6db3f8f&quot;,
+            var map_56d8aa4b20fe60de52024111cc21b7d9 = L.map(
+                &quot;map_56d8aa4b20fe60de52024111cc21b7d9&quot;,
                 {
                     center: [28.263363, -83.497652],
                     crs: L.CRS.EPSG3857,
@@ -892,7 +892,7 @@ The rural  land surface temperature for the urban point is 20.9 °C
 
         
     
-            var tile_layer_6f9ad1a6f11366b64f556016202dae55 = L.tileLayer(
+            var tile_layer_40a0e126db40924fc54b04665c77deb3 = L.tileLayer(
                 &quot;https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png&quot;,
                 {
   &quot;minZoom&quot;: 0,
@@ -909,14 +909,14 @@ The rural  land surface temperature for the urban point is 20.9 °C
             );
         
     
-            tile_layer_6f9ad1a6f11366b64f556016202dae55.addTo(map_05ffa82a4c7e0ea5eaf89744b6db3f8f);
+            tile_layer_40a0e126db40924fc54b04665c77deb3.addTo(map_56d8aa4b20fe60de52024111cc21b7d9);
         
     
-            tile_layer_6f9ad1a6f11366b64f556016202dae55.addTo(map_05ffa82a4c7e0ea5eaf89744b6db3f8f);
+            tile_layer_40a0e126db40924fc54b04665c77deb3.addTo(map_56d8aa4b20fe60de52024111cc21b7d9);
         
     
-            var tile_layer_862edf836909280aed395adbfe1baae0 = L.tileLayer(
-                &quot;https://earthengine.googleapis.com/v1/projects/emerge-466105/maps/6a4da9c226b6989165b34211e77537f2-520da3f90d29962db705cb6d20921289/tiles/{z}/{x}/{y}&quot;,
+            var tile_layer_92d27d869b60fe666267d8b2d05ed713 = L.tileLayer(
+                &quot;https://earthengine.googleapis.com/v1/projects/emerge-lessons/maps/4633e84a0895236fee500c41f1525a19-fba8003309c15ebbd85ccd9b2e9ffb40/tiles/{z}/{x}/{y}&quot;,
                 {
   &quot;minZoom&quot;: 0,
   &quot;maxZoom&quot;: 18,
@@ -932,7 +932,7 @@ The rural  land surface temperature for the urban point is 20.9 °C
             );
         
     
-            tile_layer_862edf836909280aed395adbfe1baae0.addTo(map_05ffa82a4c7e0ea5eaf89744b6db3f8f);
+            tile_layer_92d27d869b60fe666267d8b2d05ed713.addTo(map_56d8aa4b20fe60de52024111cc21b7d9);
         
 &lt;/script&gt;
 &lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>

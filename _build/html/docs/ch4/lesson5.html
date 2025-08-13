@@ -1,0 +1,1204 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Summary Statistics by County &#8212; EMERGE Lessons</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/ch4/lesson5';</script>
+    <link rel="icon" href="../../_static/GeoDI_Logo.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/EMERGE_Landsat.png" class="logo__image only-light" alt="EMERGE Lessons - Home"/>
+    <script>document.write(`<img src="../../_static/EMERGE_Landsat.png" class="logo__image only-dark" alt="EMERGE Lessons - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome to EMERGE
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Foundational Concepts</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ch1/lesson1.html">What is Citizen Science?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch1/lesson2.html">Why Mosquitoes?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch1/lesson3.html">What is GLOBE Observer?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch1/lesson4.html">What is Coding?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch1/lesson5a.html">Get Google Earth Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch1/lesson5b.html">Intro to Google Earth Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch1/lesson6.html">Introduction to GLOBE Data</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Explore the Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ch2/lesson1.html">Why Analyze Data?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch2/lesson2.html">Mosquito &amp; Land Cover Stats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch2/lesson3.html">Map GLOBE Citizen Science Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch2/lesson4.html">Visualizing GLOBE Hotspots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch2/lesson5.html">Decoding Habitat Photos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data from Satellites</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ch3/lesson1.html">Our Eyes in the Sky &amp; On the Ground</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch3/lesson2.html">Zooming in with Satellites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch3/lesson3.html">Vegetation &amp; Water Indices</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Analyze the Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="lesson1.html">Temperature, Rainfall &amp; Vegetation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lesson2.html">Environment &amp; Habitats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lesson3.html">Land Cover Over Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lesson4.html">Introduction to Risk Mapping</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Science Communication</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ch5/lesson1.html">Communicate the Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch5/lesson2.html">Host Your Own Data Camp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch5/lesson3.html">Student Mini-Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch5/lesson4.html">Sharing Your Findings</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/geo-di-lab/emerge-lessons/blob/main/docs/ch4/lesson5.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/geo-di-lab/emerge-lessons" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/geo-di-lab/emerge-lessons/issues/new?title=Issue%20on%20page%20%2Fdocs/ch4/lesson5.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/ch4/lesson5.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Summary Statistics by County</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><a class="reference external" href="https://colab.research.google.com/github/geo-di-lab/emerge-lessons/blob/main/docs/ch4/lesson5.ipynb"><img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="summary-statistics-by-county">
+<h1>Summary Statistics by County<a class="headerlink" href="#summary-statistics-by-county" title="Link to this heading">#</a></h1>
+<p>Write the name of your county in the quotes below. For example, <code class="docutils literal notranslate"><span class="pre">county</span> <span class="pre">=</span> <span class="pre">&quot;Broward</span> <span class="pre">County&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">county</span> <span class="pre">=</span> <span class="pre">&quot;Miami-Dade</span> <span class="pre">County&quot;</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">county_name</span> <span class="o">=</span> <span class="s2">&quot;Broward County&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">geopandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gpd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.max_columns&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>First, load 1) the GLOBE Mosquito Habitat Mapper data, and 2) a file with the Florida county boundaries from the <a class="reference external" href="https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html">U.S. Census</a>, which will be used to filter the data to each county.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;https://github.com/geo-di-lab/emerge-lessons/raw/refs/heads/main/docs/data/globe_mosquito.zip&#39;</span><span class="p">)</span>
+<span class="n">fl</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;https://github.com/geo-di-lab/emerge-lessons/raw/refs/heads/main/docs/data/florida_counties.geojson&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then, get the geographic boundaries of your county.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">county</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">fl</span><span class="p">[</span><span class="s1">&#39;NAMELSAD&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">county_name</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we use those boundaries to filter for all GLOBE points within your county, from 2018 tp 2024.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data_county</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span><span class="n">county</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span> <span class="n">predicate</span><span class="o">=</span><span class="s2">&quot;within&quot;</span><span class="p">)</span>
+
+<span class="n">num_total</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_county</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There were </span><span class="si">{</span><span class="n">num_total</span><span class="si">}</span><span class="s2"> GLOBE points recorded within </span><span class="si">{</span><span class="n">county_name</span><span class="si">}</span><span class="s2"> from 2018-2024 by community scientists.&quot;</span><span class="p">)</span>
+
+<span class="n">num_eliminated</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_county</span><span class="p">[</span><span class="n">data_county</span><span class="p">[</span><span class="s1">&#39;BreedingGroundEliminated&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;true&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Of those points, </span><span class="si">{</span><span class="n">num_eliminated</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">num_eliminated</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">num_total</span><span class="p">)</span><span class="si">}</span><span class="s2">%) were successfully mitigated by the community scientists, which reduces the risk for mosquitoes at that location in the future.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There were 43 GLOBE points recorded within Broward County from 2018-2024 by community scientists.
+Of those points, 26 (60%) were successfully mitigated by the community scientists, which reduces the risk for mosquitoes at that location in the future.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data_county</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-600e011e-7fb8-412e-b310-515424825cbe" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CountryCode</th>
+      <th>CountryName</th>
+      <th>Elevation</th>
+      <th>AbdomenCloseupPhotoUrls</th>
+      <th>BreedingGroundEliminated</th>
+      <th>Comments</th>
+      <th>DataSource</th>
+      <th>ExtraData</th>
+      <th>Genus</th>
+      <th>GlobeTeams</th>
+      <th>LarvaFullBodyPhotoUrls</th>
+      <th>LarvaeCount</th>
+      <th>LastIdentifyStage</th>
+      <th>LocationAccuracyM</th>
+      <th>LocationMethod</th>
+      <th>MeasuredAt</th>
+      <th>MeasurementElevation</th>
+      <th>MeasurementLatitude</th>
+      <th>MeasurementLongitude</th>
+      <th>MosquitoAdults</th>
+      <th>MosquitoEggs</th>
+      <th>MosquitoHabitatMapperId</th>
+      <th>MosquitoPupae</th>
+      <th>Species</th>
+      <th>Userid</th>
+      <th>WaterSource</th>
+      <th>WaterSourcePhotoUrls</th>
+      <th>WaterSourceType</th>
+      <th>OrganizationId</th>
+      <th>OrganizationName</th>
+      <th>Protocol</th>
+      <th>SiteId</th>
+      <th>SiteName</th>
+      <th>MeasuredDate</th>
+      <th>LarvaeCountProcessed</th>
+      <th>geometry</th>
+      <th>index_right</th>
+      <th>STATEFP</th>
+      <th>COUNTYFP</th>
+      <th>COUNTYNS</th>
+      <th>GEOIDFQ</th>
+      <th>GEOID</th>
+      <th>NAME</th>
+      <th>NAMELSAD</th>
+      <th>STUSPS</th>
+      <th>STATE_NAME</th>
+      <th>LSAD</th>
+      <th>ALAND</th>
+      <th>AWATER</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>6640</th>
+      <td>USA</td>
+      <td>United States</td>
+      <td>-0.4</td>
+      <td>None</td>
+      <td>true</td>
+      <td>When I went kayaking I saw sum in like the tre...</td>
+      <td>GLOBE Observer App</td>
+      <td>LarvaeVisibleNo</td>
+      <td>None</td>
+      <td>[WileyCollegeBIOL1422]</td>
+      <td>None</td>
+      <td>0</td>
+      <td>None</td>
+      <td>5</td>
+      <td>automatic</td>
+      <td>2023-03-30 02:01:00</td>
+      <td>0</td>
+      <td>26.1638</td>
+      <td>-80.1253</td>
+      <td>None</td>
+      <td>None</td>
+      <td>42851</td>
+      <td>false</td>
+      <td>None</td>
+      <td>103027879</td>
+      <td>puddle or still water next to a creek, stream ...</td>
+      <td>https://data.globe.gov/system/photos/2023/03/3...</td>
+      <td>flowing: still water found next to river or st...</td>
+      <td>17043304</td>
+      <td>United States of America Citizen Science</td>
+      <td>mosquito_habitat_mapper</td>
+      <td>314904</td>
+      <td>17RNJ874941</td>
+      <td>2023-03-30</td>
+      <td>0.0</td>
+      <td>POINT (-80.12548 26.16364)</td>
+      <td>57</td>
+      <td>12</td>
+      <td>011</td>
+      <td>00295753</td>
+      <td>0500000US12011</td>
+      <td>12011</td>
+      <td>Broward</td>
+      <td>Broward County</td>
+      <td>FL</td>
+      <td>Florida</td>
+      <td>06</td>
+      <td>3115495915</td>
+      <td>273317277</td>
+    </tr>
+    <tr>
+      <th>28671</th>
+      <td>USA</td>
+      <td>United States</td>
+      <td>4.7</td>
+      <td>None</td>
+      <td>false</td>
+      <td>None</td>
+      <td>GLOBE Observer App</td>
+      <td>None</td>
+      <td>None</td>
+      <td>[SEES2019]</td>
+      <td>None</td>
+      <td>0</td>
+      <td>identify</td>
+      <td>None</td>
+      <td>None</td>
+      <td>2019-08-24 11:27:00</td>
+      <td>0</td>
+      <td>26.3255</td>
+      <td>-80.1897</td>
+      <td>false</td>
+      <td>false</td>
+      <td>15439</td>
+      <td>false</td>
+      <td>None</td>
+      <td>57838002</td>
+      <td>puddle, vehhicle or animal tracks</td>
+      <td>https://data.globe.gov/system/photos/2019/08/2...</td>
+      <td>still: lake/pond/swamp</td>
+      <td>17043304</td>
+      <td>United States of America Citizen Science</td>
+      <td>mosquito_habitat_mapper</td>
+      <td>160462</td>
+      <td>17RNK808119</td>
+      <td>2019-08-24</td>
+      <td>0.0</td>
+      <td>POINT (-80.1904 26.32473)</td>
+      <td>57</td>
+      <td>12</td>
+      <td>011</td>
+      <td>00295753</td>
+      <td>0500000US12011</td>
+      <td>12011</td>
+      <td>Broward</td>
+      <td>Broward County</td>
+      <td>FL</td>
+      <td>Florida</td>
+      <td>06</td>
+      <td>3115495915</td>
+      <td>273317277</td>
+    </tr>
+    <tr>
+      <th>29021</th>
+      <td>USA</td>
+      <td>United States</td>
+      <td>4.7</td>
+      <td>None</td>
+      <td>false</td>
+      <td>None</td>
+      <td>GLOBE Observer App</td>
+      <td>None</td>
+      <td>None</td>
+      <td>[SEES2019]</td>
+      <td>None</td>
+      <td>None</td>
+      <td>identify</td>
+      <td>None</td>
+      <td>None</td>
+      <td>2019-08-14 19:06:00</td>
+      <td>0</td>
+      <td>26.3255</td>
+      <td>-80.1897</td>
+      <td>None</td>
+      <td>None</td>
+      <td>15169</td>
+      <td>false</td>
+      <td>None</td>
+      <td>57838002</td>
+      <td>puddle, vehhicle or animal tracks</td>
+      <td>https://data.globe.gov/system/photos/2019/08/1...</td>
+      <td>still: lake/pond/swamp</td>
+      <td>17043304</td>
+      <td>United States of America Citizen Science</td>
+      <td>mosquito_habitat_mapper</td>
+      <td>160462</td>
+      <td>17RNK808119</td>
+      <td>2019-08-14</td>
+      <td>NaN</td>
+      <td>POINT (-80.1904 26.32473)</td>
+      <td>57</td>
+      <td>12</td>
+      <td>011</td>
+      <td>00295753</td>
+      <td>0500000US12011</td>
+      <td>12011</td>
+      <td>Broward</td>
+      <td>Broward County</td>
+      <td>FL</td>
+      <td>Florida</td>
+      <td>06</td>
+      <td>3115495915</td>
+      <td>273317277</td>
+    </tr>
+    <tr>
+      <th>29392</th>
+      <td>USA</td>
+      <td>United States</td>
+      <td>4.7</td>
+      <td>None</td>
+      <td>false</td>
+      <td>None</td>
+      <td>GLOBE Observer App</td>
+      <td>None</td>
+      <td>None</td>
+      <td>[SEES2019]</td>
+      <td>None</td>
+      <td>None</td>
+      <td>identify</td>
+      <td>None</td>
+      <td>None</td>
+      <td>2019-08-04 16:29:00</td>
+      <td>0</td>
+      <td>26.3257</td>
+      <td>-80.1900</td>
+      <td>None</td>
+      <td>None</td>
+      <td>14785</td>
+      <td>false</td>
+      <td>None</td>
+      <td>57838002</td>
+      <td>adult mosquito trap</td>
+      <td>https://data.globe.gov/system/photos/2019/08/0...</td>
+      <td>container: artificial</td>
+      <td>17043304</td>
+      <td>United States of America Citizen Science</td>
+      <td>mosquito_habitat_mapper</td>
+      <td>160293</td>
+      <td>17RNK808120</td>
+      <td>2019-08-04</td>
+      <td>NaN</td>
+      <td>POINT (-80.1904 26.32564)</td>
+      <td>57</td>
+      <td>12</td>
+      <td>011</td>
+      <td>00295753</td>
+      <td>0500000US12011</td>
+      <td>12011</td>
+      <td>Broward</td>
+      <td>Broward County</td>
+      <td>FL</td>
+      <td>Florida</td>
+      <td>06</td>
+      <td>3115495915</td>
+      <td>273317277</td>
+    </tr>
+    <tr>
+      <th>29406</th>
+      <td>USA</td>
+      <td>United States</td>
+      <td>4.7</td>
+      <td>None</td>
+      <td>false</td>
+      <td>None</td>
+      <td>GLOBE Observer App</td>
+      <td>None</td>
+      <td>None</td>
+      <td>[SEES2019]</td>
+      <td>None</td>
+      <td>None</td>
+      <td>identify</td>
+      <td>None</td>
+      <td>None</td>
+      <td>2019-08-04 16:28:00</td>
+      <td>0</td>
+      <td>26.3254</td>
+      <td>-80.1899</td>
+      <td>None</td>
+      <td>None</td>
+      <td>14783</td>
+      <td>false</td>
+      <td>None</td>
+      <td>57838002</td>
+      <td>adult mosquito trap</td>
+      <td>https://data.globe.gov/system/photos/2019/08/0...</td>
+      <td>container: artificial</td>
+      <td>17043304</td>
+      <td>United States of America Citizen Science</td>
+      <td>mosquito_habitat_mapper</td>
+      <td>160462</td>
+      <td>17RNK808119</td>
+      <td>2019-08-04</td>
+      <td>NaN</td>
+      <td>POINT (-80.1904 26.32473)</td>
+      <td>57</td>
+      <td>12</td>
+      <td>011</td>
+      <td>00295753</td>
+      <td>0500000US12011</td>
+      <td>12011</td>
+      <td>Broward</td>
+      <td>Broward County</td>
+      <td>FL</td>
+      <td>Florida</td>
+      <td>06</td>
+      <td>3115495915</td>
+      <td>273317277</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-600e011e-7fb8-412e-b310-515424825cbe')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-600e011e-7fb8-412e-b310-515424825cbe button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-600e011e-7fb8-412e-b310-515424825cbe');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    <div id="df-79119f32-6fef-4343-b10b-c74ccce9896b">
+      <button class="colab-df-quickchart" onclick="quickchart('df-79119f32-6fef-4343-b10b-c74ccce9896b')"
+                title="Suggest charts"
+                style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+      </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+      <script>
+        async function quickchart(key) {
+          const quickchartButtonEl =
+            document.querySelector('#' + key + ' button');
+          quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+          quickchartButtonEl.classList.add('colab-df-spinner');
+          try {
+            const charts = await google.colab.kernel.invokeFunction(
+                'suggestCharts', [key], {});
+          } catch (error) {
+            console.error('Error during call to suggestCharts:', error);
+          }
+          quickchartButtonEl.classList.remove('colab-df-spinner');
+          quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+        }
+        (() => {
+          let quickchartButtonEl =
+            document.querySelector('#df-79119f32-6fef-4343-b10b-c74ccce9896b button');
+          quickchartButtonEl.style.display =
+            google.colab.kernel.accessAllowed ? 'block' : 'none';
+        })();
+      </script>
+    </div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add a new column for year</span>
+<span class="n">data_county</span><span class="p">[</span><span class="s1">&#39;MeasuredYear&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_county</span><span class="p">[</span><span class="s1">&#39;MeasuredAt&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
+
+<span class="c1"># Make histogram of mosquito sightings each year</span>
+<span class="n">years</span> <span class="o">=</span> <span class="n">data_county</span><span class="p">[[</span><span class="s1">&#39;SiteId&#39;</span><span class="p">,</span> <span class="s1">&#39;MeasuredYear&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;MeasuredYear&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">years</span><span class="p">[</span><span class="s1">&#39;MeasuredYear&#39;</span><span class="p">],</span> <span class="n">years</span><span class="p">[</span><span class="s1">&#39;SiteId&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Mosquito Sightings by Year&quot;</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">county_name</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/d083ad4bff3e9f4eb573e1a78cb414899c1795be1eda9ec3259d0d0edd89d673.png" src="../../_images/d083ad4bff3e9f4eb573e1a78cb414899c1795be1eda9ec3259d0d0edd89d673.png" />
+</div>
+</div>
+<p>Let’s make a pie chart of the water source types (both general and specific) where mosquitoes were reported in this county.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">types</span> <span class="o">=</span> <span class="n">data_county</span><span class="p">[[</span><span class="s1">&#39;SiteId&#39;</span><span class="p">,</span> <span class="s1">&#39;WaterSourceType&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;WaterSourceType&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">patches</span><span class="p">,</span> <span class="n">texts</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">types</span><span class="p">[</span><span class="s1">&#39;SiteId&#39;</span><span class="p">],</span>
+                         <span class="n">colors</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s1">&#39;Set2&#39;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;GLOBE Mosquito Sightings in </span><span class="si">{</span><span class="n">county_name</span><span class="si">}</span><span class="s2">: Water Source Types (General)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">patches</span><span class="p">,</span> <span class="n">types</span><span class="p">[</span><span class="s1">&#39;WaterSourceType&#39;</span><span class="p">],</span>
+           <span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;center left&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/02af51a5e4459fe33dbd1730ce126525cab324e149f537e0f87f39c4a2fd784f.png" src="../../_images/02af51a5e4459fe33dbd1730ce126525cab324e149f537e0f87f39c4a2fd784f.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">types</span> <span class="o">=</span> <span class="n">data_county</span><span class="p">[[</span><span class="s1">&#39;SiteId&#39;</span><span class="p">,</span> <span class="s1">&#39;WaterSource&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;WaterSource&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">patches</span><span class="p">,</span> <span class="n">texts</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">types</span><span class="p">[</span><span class="s1">&#39;SiteId&#39;</span><span class="p">],</span>
+                         <span class="n">colors</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s1">&#39;Set2&#39;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;GLOBE Mosquito Sightings in </span><span class="si">{</span><span class="n">county_name</span><span class="si">}</span><span class="s2">: Water Source Types (Specific)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">patches</span><span class="p">,</span> <span class="n">types</span><span class="p">[</span><span class="s1">&#39;WaterSource&#39;</span><span class="p">],</span>
+           <span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;center left&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1c61aa8c3601c49f392e2c40f4d4b407d48cef1b2f49314ce6a039cfc465acc7.png" src="../../_images/1c61aa8c3601c49f392e2c40f4d4b407d48cef1b2f49314ce6a039cfc465acc7.png" />
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs\ch4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By GeoDI
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -463,7 +463,7 @@ document.write(`
 <p>How have land use and land cover changed over time?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">folium</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">folium</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">ee</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">geemap</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">geopandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gpd</span>
@@ -477,7 +477,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_ee_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ee_image_object</span><span class="p">,</span> <span class="n">vis_params</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_ee_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ee_image_object</span><span class="p">,</span> <span class="n">vis_params</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds a method for displaying Earth Engine image tiles to folium map.&quot;&quot;&quot;</span>
     <span class="n">map_id_dict</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">ee_image_object</span><span class="p">)</span><span class="o">.</span><span class="n">getMapId</span><span class="p">(</span><span class="n">vis_params</span><span class="p">)</span>
     <span class="n">folium</span><span class="o">.</span><span class="n">raster_layers</span><span class="o">.</span><span class="n">TileLayer</span><span class="p">(</span>
@@ -519,7 +519,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">map</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">28.263363</span><span class="p">,</span> <span class="o">-</span><span class="mf">83.497652</span><span class="p">],</span> <span class="n">tiles</span><span class="o">=</span><span class="s2">&quot;Cartodb dark_matter&quot;</span><span class="p">,</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">map</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">28.263363</span><span class="p">,</span> <span class="o">-</span><span class="mf">83.497652</span><span class="p">],</span> <span class="n">tiles</span><span class="o">=</span><span class="s2">&quot;Cartodb dark_matter&quot;</span><span class="p">,</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -550,7 +550,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">landcover_1985</span> <span class="o">=</span> <span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">landcover_1985</span> <span class="o">=</span> <span class="p">(</span>
     <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;USFS/GTAC/LCMS/v2024-10&#39;</span><span class="p">)</span>
       <span class="o">.</span><span class="n">filterDate</span><span class="p">(</span><span class="s1">&#39;1985&#39;</span><span class="p">,</span> <span class="s1">&#39;1986&#39;</span><span class="p">)</span>
       <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">&#39;study_area == &quot;CONUS&quot;&#39;</span><span class="p">)</span>
@@ -591,7 +591,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="nb">map</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="nb">map</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -637,7 +637,7 @@ document.write(`
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_dcbaa6bd6aae0c7bd7f1473696219225 {
+                #map_2f2ac348db943b34973cd500774fffc5 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -674,14 +674,14 @@ document.write(`
 &lt;body&gt;
     
     
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_dcbaa6bd6aae0c7bd7f1473696219225&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_2f2ac348db943b34973cd500774fffc5&quot; &gt;&lt;/div&gt;
         
 &lt;/body&gt;
 &lt;script&gt;
     
     
-            var map_dcbaa6bd6aae0c7bd7f1473696219225 = L.map(
-                &quot;map_dcbaa6bd6aae0c7bd7f1473696219225&quot;,
+            var map_2f2ac348db943b34973cd500774fffc5 = L.map(
+                &quot;map_2f2ac348db943b34973cd500774fffc5&quot;,
                 {
                     center: [28.263363, -83.497652],
                     crs: L.CRS.EPSG3857,
@@ -698,7 +698,7 @@ document.write(`
 
         
     
-            var tile_layer_3b256bc5ce451629774f6e850084e8c9 = L.tileLayer(
+            var tile_layer_87ae8f720511e28e958dada2a71f72aa = L.tileLayer(
                 &quot;https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png&quot;,
                 {
   &quot;minZoom&quot;: 0,
@@ -715,11 +715,11 @@ document.write(`
             );
         
     
-            tile_layer_3b256bc5ce451629774f6e850084e8c9.addTo(map_dcbaa6bd6aae0c7bd7f1473696219225);
+            tile_layer_87ae8f720511e28e958dada2a71f72aa.addTo(map_2f2ac348db943b34973cd500774fffc5);
         
     
-            var tile_layer_fbf329fd1e8ee06311c82d34b5aeafed = L.tileLayer(
-                &quot;https://earthengine.googleapis.com/v1/projects/emerge-466105/maps/a1543fc76240117053b94108d4104af2-7ef6ac881bec961a6cc3a07ca5f73b03/tiles/{z}/{x}/{y}&quot;,
+            var tile_layer_8541e9fa04d7b443961f2b0b9540db05 = L.tileLayer(
+                &quot;https://earthengine.googleapis.com/v1/projects/emerge-lessons/maps/a1543fc76240117053b94108d4104af2-ee93b13e60a449fd4c1aa6e10c54f7b3/tiles/{z}/{x}/{y}&quot;,
                 {
   &quot;minZoom&quot;: 0,
   &quot;maxZoom&quot;: 18,
@@ -735,14 +735,14 @@ document.write(`
             );
         
     
-            tile_layer_fbf329fd1e8ee06311c82d34b5aeafed.addTo(map_dcbaa6bd6aae0c7bd7f1473696219225);
+            tile_layer_8541e9fa04d7b443961f2b0b9540db05.addTo(map_2f2ac348db943b34973cd500774fffc5);
         
 &lt;/script&gt;
 &lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">landcover_2024</span> <span class="o">=</span> <span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">landcover_2024</span> <span class="o">=</span> <span class="p">(</span>
     <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;USFS/GTAC/LCMS/v2024-10&#39;</span><span class="p">)</span>
       <span class="o">.</span><span class="n">filterDate</span><span class="p">(</span><span class="s1">&#39;2024&#39;</span><span class="p">,</span> <span class="s1">&#39;2025&#39;</span><span class="p">)</span>
       <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">&#39;study_area == &quot;CONUS&quot;&#39;</span><span class="p">)</span>
@@ -797,7 +797,7 @@ document.write(`
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_dcbaa6bd6aae0c7bd7f1473696219225 {
+                #map_2f2ac348db943b34973cd500774fffc5 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -834,14 +834,14 @@ document.write(`
 &lt;body&gt;
     
     
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_dcbaa6bd6aae0c7bd7f1473696219225&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_2f2ac348db943b34973cd500774fffc5&quot; &gt;&lt;/div&gt;
         
 &lt;/body&gt;
 &lt;script&gt;
     
     
-            var map_dcbaa6bd6aae0c7bd7f1473696219225 = L.map(
-                &quot;map_dcbaa6bd6aae0c7bd7f1473696219225&quot;,
+            var map_2f2ac348db943b34973cd500774fffc5 = L.map(
+                &quot;map_2f2ac348db943b34973cd500774fffc5&quot;,
                 {
                     center: [28.263363, -83.497652],
                     crs: L.CRS.EPSG3857,
@@ -858,7 +858,7 @@ document.write(`
 
         
     
-            var tile_layer_3b256bc5ce451629774f6e850084e8c9 = L.tileLayer(
+            var tile_layer_87ae8f720511e28e958dada2a71f72aa = L.tileLayer(
                 &quot;https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png&quot;,
                 {
   &quot;minZoom&quot;: 0,
@@ -875,11 +875,11 @@ document.write(`
             );
         
     
-            tile_layer_3b256bc5ce451629774f6e850084e8c9.addTo(map_dcbaa6bd6aae0c7bd7f1473696219225);
+            tile_layer_87ae8f720511e28e958dada2a71f72aa.addTo(map_2f2ac348db943b34973cd500774fffc5);
         
     
-            var tile_layer_fbf329fd1e8ee06311c82d34b5aeafed = L.tileLayer(
-                &quot;https://earthengine.googleapis.com/v1/projects/emerge-466105/maps/a1543fc76240117053b94108d4104af2-7ef6ac881bec961a6cc3a07ca5f73b03/tiles/{z}/{x}/{y}&quot;,
+            var tile_layer_8541e9fa04d7b443961f2b0b9540db05 = L.tileLayer(
+                &quot;https://earthengine.googleapis.com/v1/projects/emerge-lessons/maps/a1543fc76240117053b94108d4104af2-ee93b13e60a449fd4c1aa6e10c54f7b3/tiles/{z}/{x}/{y}&quot;,
                 {
   &quot;minZoom&quot;: 0,
   &quot;maxZoom&quot;: 18,
@@ -895,17 +895,17 @@ document.write(`
             );
         
     
-            tile_layer_fbf329fd1e8ee06311c82d34b5aeafed.addTo(map_dcbaa6bd6aae0c7bd7f1473696219225);
+            tile_layer_8541e9fa04d7b443961f2b0b9540db05.addTo(map_2f2ac348db943b34973cd500774fffc5);
         
     
-            tile_layer_3b256bc5ce451629774f6e850084e8c9.addTo(map_dcbaa6bd6aae0c7bd7f1473696219225);
+            tile_layer_87ae8f720511e28e958dada2a71f72aa.addTo(map_2f2ac348db943b34973cd500774fffc5);
         
     
-            tile_layer_fbf329fd1e8ee06311c82d34b5aeafed.addTo(map_dcbaa6bd6aae0c7bd7f1473696219225);
+            tile_layer_8541e9fa04d7b443961f2b0b9540db05.addTo(map_2f2ac348db943b34973cd500774fffc5);
         
     
-            var tile_layer_a9fd15f961cd3267ec43062d91696eaf = L.tileLayer(
-                &quot;https://earthengine.googleapis.com/v1/projects/emerge-466105/maps/e28baa2fb468e109132ce554d075d441-dd7b0fdef9f40c98a2e0329e8f40c368/tiles/{z}/{x}/{y}&quot;,
+            var tile_layer_20855a769e315f7b2b8d826c04639cc1 = L.tileLayer(
+                &quot;https://earthengine.googleapis.com/v1/projects/emerge-lessons/maps/e28baa2fb468e109132ce554d075d441-0833478c485cd04febbaacadfcaf4e15/tiles/{z}/{x}/{y}&quot;,
                 {
   &quot;minZoom&quot;: 0,
   &quot;maxZoom&quot;: 18,
@@ -921,27 +921,27 @@ document.write(`
             );
         
     
-            tile_layer_a9fd15f961cd3267ec43062d91696eaf.addTo(map_dcbaa6bd6aae0c7bd7f1473696219225);
+            tile_layer_20855a769e315f7b2b8d826c04639cc1.addTo(map_2f2ac348db943b34973cd500774fffc5);
         
     
-            var layer_control_04f95d02198a814505302a3265fa4989_layers = {
+            var layer_control_80ebdb8f2486ecee15116942b08a9062_layers = {
                 base_layers : {
-                    &quot;cartodbdarkmatter&quot; : tile_layer_3b256bc5ce451629774f6e850084e8c9,
+                    &quot;cartodbdarkmatter&quot; : tile_layer_87ae8f720511e28e958dada2a71f72aa,
                 },
                 overlays :  {
-                    &quot;1985 Land Use&quot; : tile_layer_fbf329fd1e8ee06311c82d34b5aeafed,
-                    &quot;2024 Land Use&quot; : tile_layer_a9fd15f961cd3267ec43062d91696eaf,
+                    &quot;1985 Land Use&quot; : tile_layer_8541e9fa04d7b443961f2b0b9540db05,
+                    &quot;2024 Land Use&quot; : tile_layer_20855a769e315f7b2b8d826c04639cc1,
                 },
             };
-            let layer_control_04f95d02198a814505302a3265fa4989 = L.control.layers(
-                layer_control_04f95d02198a814505302a3265fa4989_layers.base_layers,
-                layer_control_04f95d02198a814505302a3265fa4989_layers.overlays,
+            let layer_control_80ebdb8f2486ecee15116942b08a9062 = L.control.layers(
+                layer_control_80ebdb8f2486ecee15116942b08a9062_layers.base_layers,
+                layer_control_80ebdb8f2486ecee15116942b08a9062_layers.overlays,
                 {
   &quot;position&quot;: &quot;topright&quot;,
   &quot;collapsed&quot;: false,
   &quot;autoZIndex&quot;: true,
 }
-            ).addTo(map_dcbaa6bd6aae0c7bd7f1473696219225);
+            ).addTo(map_2f2ac348db943b34973cd500774fffc5);
 
         
 &lt;/script&gt;
@@ -962,7 +962,7 @@ document.write(`
 <p>Now, we will show land cover, as opposed to land use.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Refresh the map</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Refresh the map</span>
 <span class="nb">map</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">28.263363</span><span class="p">,</span> <span class="o">-</span><span class="mf">83.497652</span><span class="p">],</span> <span class="n">tiles</span><span class="o">=</span><span class="s2">&quot;Cartodb dark_matter&quot;</span><span class="p">,</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
 
 <span class="n">palette</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;004e2b&#39;</span><span class="p">,</span> <span class="s1">&#39;009344&#39;</span><span class="p">,</span> <span class="s1">&#39;61bb46&#39;</span><span class="p">,</span> <span class="s1">&#39;acbb67&#39;</span><span class="p">,</span> <span class="s1">&#39;8b8560&#39;</span><span class="p">,</span> <span class="s1">&#39;cafd4b&#39;</span><span class="p">,</span> <span class="s1">&#39;f89a1c&#39;</span><span class="p">,</span> <span class="s1">&#39;8fa55f&#39;</span><span class="p">,</span> <span class="s1">&#39;bebb8e&#39;</span><span class="p">,</span> <span class="s1">&#39;e5e98a&#39;</span><span class="p">,</span> <span class="s1">&#39;ddb925&#39;</span><span class="p">,</span> <span class="s1">&#39;893f54&#39;</span><span class="p">,</span> <span class="s1">&#39;e4f5fd&#39;</span><span class="p">,</span> <span class="s1">&#39;00b6f0&#39;</span><span class="p">,</span> <span class="s1">&#39;1b1716&#39;</span><span class="p">]</span>
@@ -1018,7 +1018,7 @@ document.write(`
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_1150a5981a31c117dcc37f493a8ac7c1 {
+                #map_460494ac3965719693dace5308f83555 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -1055,14 +1055,14 @@ document.write(`
 &lt;body&gt;
     
     
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_1150a5981a31c117dcc37f493a8ac7c1&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_460494ac3965719693dace5308f83555&quot; &gt;&lt;/div&gt;
         
 &lt;/body&gt;
 &lt;script&gt;
     
     
-            var map_1150a5981a31c117dcc37f493a8ac7c1 = L.map(
-                &quot;map_1150a5981a31c117dcc37f493a8ac7c1&quot;,
+            var map_460494ac3965719693dace5308f83555 = L.map(
+                &quot;map_460494ac3965719693dace5308f83555&quot;,
                 {
                     center: [28.263363, -83.497652],
                     crs: L.CRS.EPSG3857,
@@ -1079,7 +1079,7 @@ document.write(`
 
         
     
-            var tile_layer_d2a1c5a2efa049a445c03e17e9858aff = L.tileLayer(
+            var tile_layer_23240ddf30216dbeda87d1797b9579f6 = L.tileLayer(
                 &quot;https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png&quot;,
                 {
   &quot;minZoom&quot;: 0,
@@ -1096,11 +1096,11 @@ document.write(`
             );
         
     
-            tile_layer_d2a1c5a2efa049a445c03e17e9858aff.addTo(map_1150a5981a31c117dcc37f493a8ac7c1);
+            tile_layer_23240ddf30216dbeda87d1797b9579f6.addTo(map_460494ac3965719693dace5308f83555);
         
     
-            var tile_layer_3bb31073e9ed618ffe38a0c2afea7802 = L.tileLayer(
-                &quot;https://earthengine.googleapis.com/v1/projects/emerge-466105/maps/989761cea4af5c9f1514038614899ef1-681a6565d04cfa5d921a023cb3c39306/tiles/{z}/{x}/{y}&quot;,
+            var tile_layer_5edd9a1179af1b6db64063504974f184 = L.tileLayer(
+                &quot;https://earthengine.googleapis.com/v1/projects/emerge-lessons/maps/989761cea4af5c9f1514038614899ef1-5ff5b63f341adb6e1c9911090a6a6751/tiles/{z}/{x}/{y}&quot;,
                 {
   &quot;minZoom&quot;: 0,
   &quot;maxZoom&quot;: 18,
@@ -1116,11 +1116,11 @@ document.write(`
             );
         
     
-            tile_layer_3bb31073e9ed618ffe38a0c2afea7802.addTo(map_1150a5981a31c117dcc37f493a8ac7c1);
+            tile_layer_5edd9a1179af1b6db64063504974f184.addTo(map_460494ac3965719693dace5308f83555);
         
     
-            var tile_layer_76fb9ab792f47bb9895f6e39ef2714f2 = L.tileLayer(
-                &quot;https://earthengine.googleapis.com/v1/projects/emerge-466105/maps/b877595660a8684af593c89517bd944d-1c8e716f6fd6a6bce7210f6a8b43a011/tiles/{z}/{x}/{y}&quot;,
+            var tile_layer_17e41f60fd92e236f1f1794394a417ae = L.tileLayer(
+                &quot;https://earthengine.googleapis.com/v1/projects/emerge-lessons/maps/b877595660a8684af593c89517bd944d-ee400438eb0b30f1e278efb7c248568d/tiles/{z}/{x}/{y}&quot;,
                 {
   &quot;minZoom&quot;: 0,
   &quot;maxZoom&quot;: 18,
@@ -1136,27 +1136,27 @@ document.write(`
             );
         
     
-            tile_layer_76fb9ab792f47bb9895f6e39ef2714f2.addTo(map_1150a5981a31c117dcc37f493a8ac7c1);
+            tile_layer_17e41f60fd92e236f1f1794394a417ae.addTo(map_460494ac3965719693dace5308f83555);
         
     
-            var layer_control_bd58a4ec94ecd38b6307dac0cd0f5d0e_layers = {
+            var layer_control_5d65447fc3f76390113e12df28364b60_layers = {
                 base_layers : {
-                    &quot;cartodbdarkmatter&quot; : tile_layer_d2a1c5a2efa049a445c03e17e9858aff,
+                    &quot;cartodbdarkmatter&quot; : tile_layer_23240ddf30216dbeda87d1797b9579f6,
                 },
                 overlays :  {
-                    &quot;1985 Land Cover&quot; : tile_layer_3bb31073e9ed618ffe38a0c2afea7802,
-                    &quot;2024 Land Cover&quot; : tile_layer_76fb9ab792f47bb9895f6e39ef2714f2,
+                    &quot;1985 Land Cover&quot; : tile_layer_5edd9a1179af1b6db64063504974f184,
+                    &quot;2024 Land Cover&quot; : tile_layer_17e41f60fd92e236f1f1794394a417ae,
                 },
             };
-            let layer_control_bd58a4ec94ecd38b6307dac0cd0f5d0e = L.control.layers(
-                layer_control_bd58a4ec94ecd38b6307dac0cd0f5d0e_layers.base_layers,
-                layer_control_bd58a4ec94ecd38b6307dac0cd0f5d0e_layers.overlays,
+            let layer_control_5d65447fc3f76390113e12df28364b60 = L.control.layers(
+                layer_control_5d65447fc3f76390113e12df28364b60_layers.base_layers,
+                layer_control_5d65447fc3f76390113e12df28364b60_layers.overlays,
                 {
   &quot;position&quot;: &quot;topright&quot;,
   &quot;collapsed&quot;: false,
   &quot;autoZIndex&quot;: true,
 }
-            ).addTo(map_1150a5981a31c117dcc37f493a8ac7c1);
+            ).addTo(map_460494ac3965719693dace5308f83555);
 
         
 &lt;/script&gt;
@@ -1188,7 +1188,7 @@ document.write(`
 <h2>Create Timelapse<a class="headerlink" href="#create-timelapse" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">landcover</span> <span class="o">=</span> <span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">landcover</span> <span class="o">=</span> <span class="p">(</span>
     <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;USFS/GTAC/LCMS/v2024-10&#39;</span><span class="p">)</span>
       <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">&#39;study_area == &quot;CONUS&quot;&#39;</span><span class="p">)</span>
       <span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Land_Use&#39;</span><span class="p">)</span>
@@ -1318,7 +1318,7 @@ body.vscode-dark {
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
 
 <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1985</span><span class="p">,</span> <span class="mi">2024</span><span class="p">)]</span>
 
@@ -1333,7 +1333,7 @@ body.vscode-dark {
 <p>In Google Colab, click the &gt; arrow to see a timelapse of the land use over the years. This may take a few seconds to load.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;https://github.com/geo-di-lab/emerge-lessons/raw/refs/heads/main/docs/data/florida_boundary.geojson&#39;</span><span class="p">)[[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fl</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;https://github.com/geo-di-lab/emerge-lessons/raw/refs/heads/main/docs/data/florida_boundary.geojson&#39;</span><span class="p">)[[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]]</span>
 <span class="n">region</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">geopandas_to_ee</span><span class="p">(</span><span class="n">fl</span><span class="p">)</span>
 
 <span class="n">timelapse</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">modis_ndvi_timelapse</span><span class="p">(</span>
@@ -1352,7 +1352,7 @@ body.vscode-dark {
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">geemap</span><span class="o">.</span><span class="n">show_image</span><span class="p">(</span><span class="n">timelapse</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">geemap</span><span class="o">.</span><span class="n">show_image</span><span class="p">(</span><span class="n">timelapse</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

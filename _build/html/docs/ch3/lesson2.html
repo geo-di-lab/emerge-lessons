@@ -451,7 +451,7 @@ document.write(`
 <p>This lesson shows how to use Earth Engine and geemap to find and visualize the clearest available satellite image over a site near a specified date. By adjusting filters and using sorting, you can display the most usable image (with minimal clouds obscuring the image).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">folium</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">folium</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">ee</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">geemap</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
@@ -467,7 +467,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define your point of interest</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define your point of interest</span>
 <span class="n">lat</span> <span class="o">=</span> <span class="mf">27.8742</span>    <span class="c1"># Latitude</span>
 <span class="n">lon</span> <span class="o">=</span> <span class="o">-</span><span class="mf">81.8407</span>   <span class="c1"># Longitude</span>
 
@@ -508,7 +508,7 @@ document.write(`
 <p>Like in Chapter 1, we need to define a function (from <a class="reference external" href="https://developers.google.com/earth-engine/tutorials/community/intro-to-python-api">this tutorial</a>) to add Google Earth Engine data to a map in a way that allows it to be interactively displayed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_ee_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ee_image_object</span><span class="p">,</span> <span class="n">vis_params</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_ee_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ee_image_object</span><span class="p">,</span> <span class="n">vis_params</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds a method for displaying Earth Engine image tiles to folium map.&quot;&quot;&quot;</span>
     <span class="n">map_id_dict</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">ee_image_object</span><span class="p">)</span><span class="o">.</span><span class="n">getMapId</span><span class="p">(</span><span class="n">vis_params</span><span class="p">)</span>
     <span class="n">folium</span><span class="o">.</span><span class="n">raster_layers</span><span class="o">.</span><span class="n">TileLayer</span><span class="p">(</span>
@@ -550,7 +550,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a point at the longitude and latitude</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a point at the longitude and latitude</span>
 <span class="n">point</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">Point</span><span class="p">([</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">])</span>
 
 <span class="c1"># Choose your target date (when you&#39;d like to be &quot;closest&quot; to)</span>
@@ -592,7 +592,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Build a Sentinel-2 ImageCollection:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Build a Sentinel-2 ImageCollection:</span>
 <span class="c1">#  - Only images over your point</span>
 <span class="c1">#  - Within your date window</span>
 <span class="c1">#  - Sorted so the least cloudy image comes first</span>
@@ -635,7 +635,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Only add the image to the map if there is one found in the window</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Only add the image to the map if there is one found in the window</span>
 <span class="k">if</span> <span class="n">image</span><span class="o">.</span><span class="n">getInfo</span><span class="p">():</span>  <span class="c1"># Will be False if there are no images found at all</span>
     <span class="c1"># Get the image&#39;s capture date</span>
     <span class="n">image_date</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;system:time_start&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;YYYY-MM-dd&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getInfo</span><span class="p">()</span>
@@ -693,7 +693,7 @@ document.write(`
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_76c1c4b677d7bc38946e797551bc7a43 {
+                #map_c6568667d8cdb615087adc5f7c8d9109 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -730,14 +730,14 @@ document.write(`
 &lt;body&gt;
     
     
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_76c1c4b677d7bc38946e797551bc7a43&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_c6568667d8cdb615087adc5f7c8d9109&quot; &gt;&lt;/div&gt;
         
 &lt;/body&gt;
 &lt;script&gt;
     
     
-            var map_76c1c4b677d7bc38946e797551bc7a43 = L.map(
-                &quot;map_76c1c4b677d7bc38946e797551bc7a43&quot;,
+            var map_c6568667d8cdb615087adc5f7c8d9109 = L.map(
+                &quot;map_c6568667d8cdb615087adc5f7c8d9109&quot;,
                 {
                     center: [27.8742, -81.8407],
                     crs: L.CRS.EPSG3857,
@@ -754,7 +754,7 @@ document.write(`
 
         
     
-            var tile_layer_df2e1943692bb3d6274a3bd1998fe54a = L.tileLayer(
+            var tile_layer_be49df50aff92fc4b0497fbc2db66840 = L.tileLayer(
                 &quot;https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png&quot;,
                 {
   &quot;minZoom&quot;: 0,
@@ -771,11 +771,11 @@ document.write(`
             );
         
     
-            tile_layer_df2e1943692bb3d6274a3bd1998fe54a.addTo(map_76c1c4b677d7bc38946e797551bc7a43);
+            tile_layer_be49df50aff92fc4b0497fbc2db66840.addTo(map_c6568667d8cdb615087adc5f7c8d9109);
         
     
-            var tile_layer_3d4cde952d24070291fbbbcfb36fc6cd = L.tileLayer(
-                &quot;https://earthengine.googleapis.com/v1/projects/emerge-466105/maps/05b0b4ec89ed28e1c5a6b2f512deae02-27161d295941a6182640715bc2d68b7f/tiles/{z}/{x}/{y}&quot;,
+            var tile_layer_5f903d38ff18d0096fb0272aa392dadf = L.tileLayer(
+                &quot;https://earthengine.googleapis.com/v1/projects/emerge-lessons/maps/5b9e4149e1ea3a8e11ca5b3b9e942374-c09fe57f57d33378bd7a84eff5bf51c0/tiles/{z}/{x}/{y}&quot;,
                 {
   &quot;minZoom&quot;: 0,
   &quot;maxZoom&quot;: 18,
@@ -791,7 +791,7 @@ document.write(`
             );
         
     
-            tile_layer_3d4cde952d24070291fbbbcfb36fc6cd.addTo(map_76c1c4b677d7bc38946e797551bc7a43);
+            tile_layer_5f903d38ff18d0096fb0272aa392dadf.addTo(map_c6568667d8cdb615087adc5f7c8d9109);
         
 &lt;/script&gt;
 &lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>
