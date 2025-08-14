@@ -31,6 +31,7 @@ parts:
   - file: docs/ch4/lesson2
   - file: docs/ch4/lesson3
   - file: docs/ch4/lesson4
+  - file: docs/ch4/lesson5
 
 - caption: Science Communication
   chapters:
