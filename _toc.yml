@@ -40,5 +40,8 @@ parts:
   - file: docs/ch5/lesson3
   - file: docs/ch5/lesson4
 
-# - caption: Templates for Your Data Analysis
-#   chapters:
+- caption: Templates for Your Data Analysis
+  chapters:
+  - file: docs/ch6/lesson1
+  - file: docs/ch6/lesson2
+  - file: docs/ch6/lesson3
