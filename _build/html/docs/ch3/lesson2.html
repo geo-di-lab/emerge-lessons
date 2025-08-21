@@ -475,10 +475,10 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define your point of interest</span>
-<span class="n">lat</span> <span class="o">=</span> <span class="mf">27.8742</span>    <span class="c1"># Latitude</span>
-<span class="n">lon</span> <span class="o">=</span> <span class="o">-</span><span class="mf">81.8407</span>   <span class="c1"># Longitude</span>
+<span class="n">latitude</span> <span class="o">=</span> <span class="mf">27.536873</span>
+<span class="n">longitude</span> <span class="o">=</span> <span class="o">-</span><span class="mf">81.469549</span>
 
-<span class="nb">map</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">],</span> <span class="n">tiles</span><span class="o">=</span><span class="s2">&quot;Cartodb dark_matter&quot;</span><span class="p">,</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+<span class="nb">map</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">latitude</span><span class="p">,</span> <span class="n">longitude</span><span class="p">],</span> <span class="n">tiles</span><span class="o">=</span><span class="s2">&quot;Cartodb dark_matter&quot;</span><span class="p">,</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -558,7 +558,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a point at the longitude and latitude</span>
-<span class="n">point</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">Point</span><span class="p">([</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">])</span>
+<span class="n">point</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">Point</span><span class="p">([</span><span class="n">longitude</span><span class="p">,</span> <span class="n">latitude</span><span class="p">])</span>
 
 <span class="c1"># Choose your target date (when you&#39;d like to be &quot;closest&quot; to)</span>
 <span class="n">target_date_str</span> <span class="o">=</span> <span class="s1">&#39;2024-01-01&#39;</span>
@@ -700,7 +700,7 @@ document.write(`
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_c6568667d8cdb615087adc5f7c8d9109 {
+                #map_239a7cb6ffb6a37afde7c8330d10beeb {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -737,16 +737,16 @@ document.write(`
 &lt;body&gt;
     
     
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_c6568667d8cdb615087adc5f7c8d9109&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_239a7cb6ffb6a37afde7c8330d10beeb&quot; &gt;&lt;/div&gt;
         
 &lt;/body&gt;
 &lt;script&gt;
     
     
-            var map_c6568667d8cdb615087adc5f7c8d9109 = L.map(
-                &quot;map_c6568667d8cdb615087adc5f7c8d9109&quot;,
+            var map_239a7cb6ffb6a37afde7c8330d10beeb = L.map(
+                &quot;map_239a7cb6ffb6a37afde7c8330d10beeb&quot;,
                 {
-                    center: [27.8742, -81.8407],
+                    center: [27.536873, -81.469549],
                     crs: L.CRS.EPSG3857,
                     ...{
   &quot;zoom&quot;: 9,
@@ -761,7 +761,7 @@ document.write(`
 
         
     
-            var tile_layer_be49df50aff92fc4b0497fbc2db66840 = L.tileLayer(
+            var tile_layer_85e3183b4b1be05e87318baa6648e4d1 = L.tileLayer(
                 &quot;https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png&quot;,
                 {
   &quot;minZoom&quot;: 0,
@@ -778,11 +778,11 @@ document.write(`
             );
         
     
-            tile_layer_be49df50aff92fc4b0497fbc2db66840.addTo(map_c6568667d8cdb615087adc5f7c8d9109);
+            tile_layer_85e3183b4b1be05e87318baa6648e4d1.addTo(map_239a7cb6ffb6a37afde7c8330d10beeb);
         
     
-            var tile_layer_5f903d38ff18d0096fb0272aa392dadf = L.tileLayer(
-                &quot;https://earthengine.googleapis.com/v1/projects/emerge-lessons/maps/5b9e4149e1ea3a8e11ca5b3b9e942374-c09fe57f57d33378bd7a84eff5bf51c0/tiles/{z}/{x}/{y}&quot;,
+            var tile_layer_96315144364e68295cc98d075a6fa010 = L.tileLayer(
+                &quot;https://earthengine.googleapis.com/v1/projects/emerge-lessons/maps/bdb0af6f9ef63493eedc9c2a85c02a2e-b83495fb423557ca0a45878634ac4fb9/tiles/{z}/{x}/{y}&quot;,
                 {
   &quot;minZoom&quot;: 0,
   &quot;maxZoom&quot;: 18,
@@ -798,7 +798,7 @@ document.write(`
             );
         
     
-            tile_layer_5f903d38ff18d0096fb0272aa392dadf.addTo(map_c6568667d8cdb615087adc5f7c8d9109);
+            tile_layer_96315144364e68295cc98d075a6fa010.addTo(map_239a7cb6ffb6a37afde7c8330d10beeb);
         
 &lt;/script&gt;
 &lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>
@@ -869,7 +869,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By GeoDI
+By GeoDI Lab
 </p>
 
   </div>
@@ -879,7 +879,7 @@ By GeoDI
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025.
       <br/>
     
   </p>

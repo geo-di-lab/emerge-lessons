@@ -2,7 +2,8 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: EMERGE Lessons
-author: GeoDI
+author: GeoDI Lab
+copyright: "2025"
 logo: EMERGE_Landsat.png
 
 # Do not re-execute notebooks on each build

@@ -651,7 +651,7 @@ document.write(`
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_e933a42d04432ea506644fee0b550107 {
+                #map_d40dafc83300f5a25540491054978755 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -688,14 +688,14 @@ document.write(`
 &lt;body&gt;
     
     
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_e933a42d04432ea506644fee0b550107&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_d40dafc83300f5a25540491054978755&quot; &gt;&lt;/div&gt;
         
 &lt;/body&gt;
 &lt;script&gt;
     
     
-            var map_e933a42d04432ea506644fee0b550107 = L.map(
-                &quot;map_e933a42d04432ea506644fee0b550107&quot;,
+            var map_d40dafc83300f5a25540491054978755 = L.map(
+                &quot;map_d40dafc83300f5a25540491054978755&quot;,
                 {
                     center: [25.93805, -80.78048],
                     crs: L.CRS.EPSG3857,
@@ -712,7 +712,7 @@ document.write(`
 
         
     
-            var tile_layer_d9b8ab92155856d688a550c64721a13e = L.tileLayer(
+            var tile_layer_4f481f6293e47a4beae22222cbb7f233 = L.tileLayer(
                 &quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
                 {
   &quot;minZoom&quot;: 0,
@@ -729,14 +729,14 @@ document.write(`
             );
         
     
-            tile_layer_d9b8ab92155856d688a550c64721a13e.addTo(map_e933a42d04432ea506644fee0b550107);
+            tile_layer_4f481f6293e47a4beae22222cbb7f233.addTo(map_d40dafc83300f5a25540491054978755);
         
     
-            var marker_cebc5bde6933d32ecf2bde3dc3d9c58f = L.marker(
+            var marker_b89a65e1b899a385a4114b3c4fca83dc = L.marker(
                 [25.93805, -80.78048],
                 {
 }
-            ).addTo(map_e933a42d04432ea506644fee0b550107);
+            ).addTo(map_d40dafc83300f5a25540491054978755);
         
 &lt;/script&gt;
 &lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>
@@ -853,6 +853,7 @@ document.write(`
             </style>
             </div></div>
 </div>
+<p>Get the data over the entire region.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_at_region</span> <span class="o">=</span> <span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">filterDate</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">)</span>
@@ -888,9 +889,11 @@ document.write(`
             </style>
             </div></div>
 </div>
+<p>Show a map of the region.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">map</span><span class="o">.</span><span class="n">add_ee_layer</span><span class="p">(</span><span class="n">data_at_region</span><span class="p">,</span> <span class="n">visual_params</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">map</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">28.263363</span><span class="p">,</span> <span class="o">-</span><span class="mf">83.497652</span><span class="p">],</span> <span class="n">tiles</span><span class="o">=</span><span class="s2">&quot;OpenStreetMap&quot;</span><span class="p">,</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="nb">map</span><span class="o">.</span><span class="n">add_ee_layer</span><span class="p">(</span><span class="n">data_at_region</span><span class="p">,</span> <span class="n">visual_params</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="nb">map</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -937,7 +940,7 @@ document.write(`
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_e933a42d04432ea506644fee0b550107 {
+                #map_83b415073d97da5a905b73f05e6551e2 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -974,19 +977,19 @@ document.write(`
 &lt;body&gt;
     
     
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_e933a42d04432ea506644fee0b550107&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_83b415073d97da5a905b73f05e6551e2&quot; &gt;&lt;/div&gt;
         
 &lt;/body&gt;
 &lt;script&gt;
     
     
-            var map_e933a42d04432ea506644fee0b550107 = L.map(
-                &quot;map_e933a42d04432ea506644fee0b550107&quot;,
+            var map_83b415073d97da5a905b73f05e6551e2 = L.map(
+                &quot;map_83b415073d97da5a905b73f05e6551e2&quot;,
                 {
-                    center: [25.93805, -80.78048],
+                    center: [28.263363, -83.497652],
                     crs: L.CRS.EPSG3857,
                     ...{
-  &quot;zoom&quot;: 10,
+  &quot;zoom&quot;: 7,
   &quot;zoomControl&quot;: true,
   &quot;preferCanvas&quot;: false,
 }
@@ -998,7 +1001,7 @@ document.write(`
 
         
     
-            var tile_layer_d9b8ab92155856d688a550c64721a13e = L.tileLayer(
+            var tile_layer_cf0216d32cebd5bcac8b073b52082f81 = L.tileLayer(
                 &quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
                 {
   &quot;minZoom&quot;: 0,
@@ -1015,21 +1018,11 @@ document.write(`
             );
         
     
-            tile_layer_d9b8ab92155856d688a550c64721a13e.addTo(map_e933a42d04432ea506644fee0b550107);
+            tile_layer_cf0216d32cebd5bcac8b073b52082f81.addTo(map_83b415073d97da5a905b73f05e6551e2);
         
     
-            var marker_cebc5bde6933d32ecf2bde3dc3d9c58f = L.marker(
-                [25.93805, -80.78048],
-                {
-}
-            ).addTo(map_e933a42d04432ea506644fee0b550107);
-        
-    
-            tile_layer_d9b8ab92155856d688a550c64721a13e.addTo(map_e933a42d04432ea506644fee0b550107);
-        
-    
-            var tile_layer_300ac4496246738659450e83dbf0a122 = L.tileLayer(
-                &quot;https://earthengine.googleapis.com/v1/projects/emerge-lessons/maps/9f38aa25af4076fd56ca315c3c10786c-9c0c3392ba956858db661491f633298a/tiles/{z}/{x}/{y}&quot;,
+            var tile_layer_2a9103037dcee4db5c2271dfb46ab9c2 = L.tileLayer(
+                &quot;https://earthengine.googleapis.com/v1/projects/emerge-lessons/maps/df57ed3c68c3cc625e4a75da336aee44-e704eb0dbc901adcadc6ed362c8a5850/tiles/{z}/{x}/{y}&quot;,
                 {
   &quot;minZoom&quot;: 0,
   &quot;maxZoom&quot;: 18,
@@ -1045,11 +1038,12 @@ document.write(`
             );
         
     
-            tile_layer_300ac4496246738659450e83dbf0a122.addTo(map_e933a42d04432ea506644fee0b550107);
+            tile_layer_2a9103037dcee4db5c2271dfb46ab9c2.addTo(map_83b415073d97da5a905b73f05e6551e2);
         
 &lt;/script&gt;
 &lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>
 </div>
+<p>Get the average value (of your chosen band) over the entire region.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">average_over_region</span> <span class="o">=</span> <span class="p">(</span><span class="n">data_at_region</span><span class="o">.</span><span class="n">reduceRegion</span><span class="p">(</span>
@@ -1174,7 +1168,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By GeoDI
+By GeoDI Lab
 </p>
 
   </div>
@@ -1184,7 +1178,7 @@ By GeoDI
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025.
       <br/>
     
   </p>

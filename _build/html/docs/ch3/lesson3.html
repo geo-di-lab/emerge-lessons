@@ -829,7 +829,7 @@ Formula: (GREEN - NIR) / (GREEN + NIR)</p>
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_d8be324cfda7da41bb8781ec8449a812 {
+                #map_6ffee453ec77532e37fc0955c12f1e1c {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -866,14 +866,14 @@ Formula: (GREEN - NIR) / (GREEN + NIR)</p>
 &lt;body&gt;
     
     
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_d8be324cfda7da41bb8781ec8449a812&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_6ffee453ec77532e37fc0955c12f1e1c&quot; &gt;&lt;/div&gt;
         
 &lt;/body&gt;
 &lt;script&gt;
     
     
-            var map_d8be324cfda7da41bb8781ec8449a812 = L.map(
-                &quot;map_d8be324cfda7da41bb8781ec8449a812&quot;,
+            var map_6ffee453ec77532e37fc0955c12f1e1c = L.map(
+                &quot;map_6ffee453ec77532e37fc0955c12f1e1c&quot;,
                 {
                     center: [28.473813, -81.660044],
                     crs: L.CRS.EPSG3857,
@@ -890,7 +890,7 @@ Formula: (GREEN - NIR) / (GREEN + NIR)</p>
 
         
     
-            var tile_layer_b3596f66fa7b60c560284dd2d902b062 = L.tileLayer(
+            var tile_layer_dae82153db3e230b20863bdf47132072 = L.tileLayer(
                 &quot;https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png&quot;,
                 {
   &quot;minZoom&quot;: 0,
@@ -907,11 +907,11 @@ Formula: (GREEN - NIR) / (GREEN + NIR)</p>
             );
         
     
-            tile_layer_b3596f66fa7b60c560284dd2d902b062.addTo(map_d8be324cfda7da41bb8781ec8449a812);
+            tile_layer_dae82153db3e230b20863bdf47132072.addTo(map_6ffee453ec77532e37fc0955c12f1e1c);
         
     
-            var tile_layer_e5a9512f302a597bdce47a01ac791a59 = L.tileLayer(
-                &quot;https://earthengine.googleapis.com/v1/projects/emerge-lessons/maps/9960bef05a9863851692437e36511c05-585713c4a965ce5fdb0c4d033d8c067c/tiles/{z}/{x}/{y}&quot;,
+            var tile_layer_fdf90edd0121782654b1c361e0b37d68 = L.tileLayer(
+                &quot;https://earthengine.googleapis.com/v1/projects/emerge-lessons/maps/ec09af5b36b824440ed2415c83990d02-04ba319590423865a4e90f021efedac7/tiles/{z}/{x}/{y}&quot;,
                 {
   &quot;minZoom&quot;: 0,
   &quot;maxZoom&quot;: 18,
@@ -927,11 +927,11 @@ Formula: (GREEN - NIR) / (GREEN + NIR)</p>
             );
         
     
-            tile_layer_e5a9512f302a597bdce47a01ac791a59.addTo(map_d8be324cfda7da41bb8781ec8449a812);
+            tile_layer_fdf90edd0121782654b1c361e0b37d68.addTo(map_6ffee453ec77532e37fc0955c12f1e1c);
         
     
-            var tile_layer_96bb5d1e6bb482ceb2806865a9861144 = L.tileLayer(
-                &quot;https://earthengine.googleapis.com/v1/projects/emerge-lessons/maps/9802fc5f32e283f642146db854d1ae6e-0b36d307edb8e3e3a77d4a5bc17925b5/tiles/{z}/{x}/{y}&quot;,
+            var tile_layer_96a70080a1da79ab474519c5adb6679b = L.tileLayer(
+                &quot;https://earthengine.googleapis.com/v1/projects/emerge-lessons/maps/1637b6d2dbe8720ebfd4bb5e07daf1ae-c1879ed4a260ac238f0c959653d28543/tiles/{z}/{x}/{y}&quot;,
                 {
   &quot;minZoom&quot;: 0,
   &quot;maxZoom&quot;: 18,
@@ -947,27 +947,27 @@ Formula: (GREEN - NIR) / (GREEN + NIR)</p>
             );
         
     
-            tile_layer_96bb5d1e6bb482ceb2806865a9861144.addTo(map_d8be324cfda7da41bb8781ec8449a812);
+            tile_layer_96a70080a1da79ab474519c5adb6679b.addTo(map_6ffee453ec77532e37fc0955c12f1e1c);
         
     
-            var layer_control_bac4e6b70d3751b313ed86f667afa361_layers = {
+            var layer_control_60df5aee4455a0ad273aef3321406426_layers = {
                 base_layers : {
-                    &quot;cartodbdarkmatter&quot; : tile_layer_b3596f66fa7b60c560284dd2d902b062,
+                    &quot;cartodbdarkmatter&quot; : tile_layer_dae82153db3e230b20863bdf47132072,
                 },
                 overlays :  {
-                    &quot;NDVI&quot; : tile_layer_e5a9512f302a597bdce47a01ac791a59,
-                    &quot;NDWI&quot; : tile_layer_96bb5d1e6bb482ceb2806865a9861144,
+                    &quot;NDVI&quot; : tile_layer_fdf90edd0121782654b1c361e0b37d68,
+                    &quot;NDWI&quot; : tile_layer_96a70080a1da79ab474519c5adb6679b,
                 },
             };
-            let layer_control_bac4e6b70d3751b313ed86f667afa361 = L.control.layers(
-                layer_control_bac4e6b70d3751b313ed86f667afa361_layers.base_layers,
-                layer_control_bac4e6b70d3751b313ed86f667afa361_layers.overlays,
+            let layer_control_60df5aee4455a0ad273aef3321406426 = L.control.layers(
+                layer_control_60df5aee4455a0ad273aef3321406426_layers.base_layers,
+                layer_control_60df5aee4455a0ad273aef3321406426_layers.overlays,
                 {
   &quot;position&quot;: &quot;topright&quot;,
   &quot;collapsed&quot;: false,
   &quot;autoZIndex&quot;: true,
 }
-            ).addTo(map_d8be324cfda7da41bb8781ec8449a812);
+            ).addTo(map_6ffee453ec77532e37fc0955c12f1e1c);
 
         
 &lt;/script&gt;
@@ -1040,7 +1040,7 @@ Formula: (GREEN - NIR) / (GREEN + NIR)</p>
   <div class="footer-item">
     
 <p class="component-author">
-By GeoDI
+By GeoDI Lab
 </p>
 
   </div>
@@ -1050,7 +1050,7 @@ By GeoDI
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2025.
       <br/>
     
   </p>
