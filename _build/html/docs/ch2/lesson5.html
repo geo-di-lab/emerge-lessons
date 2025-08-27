@@ -216,7 +216,6 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ch5/lesson1.html">Communicate the Science</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch5/lesson2.html">Host Your Own Data Camp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ch5/lesson3.html">Student Mini-Project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch5/lesson4.html">Sharing Your Findings</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Templates for Your Data Analysis</span></p>
@@ -528,7 +527,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the first observation where all photos were submitted</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the photo links from the GLOBE observations</span>
 <span class="n">entry</span> <span class="o">=</span> <span class="n">mosquito</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;WaterSourcePhotoUrls&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">40</span><span class="p">:</span><span class="mi">50</span><span class="p">]</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">entry</span><span class="p">[</span><span class="s1">&#39;WaterSourcePhotoUrls&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
