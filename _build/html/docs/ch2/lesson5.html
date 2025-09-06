@@ -454,8 +454,7 @@ document.write(`
   <p><a class="reference external" href="https://colab.research.google.com/github/geo-di-lab/emerge-lessons/blob/main/docs/ch2/lesson5.ipynb"><img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
 <section class="tex2jax_ignore mathjax_ignore" id="decoding-habitat-photos">
 <h1>Decoding Habitat Photos<a class="headerlink" href="#decoding-habitat-photos" title="Link to this heading">#</a></h1>
-<p>Applying an open-source computer vision model, Detectron2, to classify objects in the citizen science images (e.g., container type).</p>
-<p>In this lesson, we will apply Detectron2, a deep learning model that has already been trained on 200,000+ everyday images.</p>
+<p>In this lesson, we will apply Detectron2, a deep learning model that has already been trained on 200,000+ everyday images, to classify objects in the citizen science images (like container type).</p>
 <p>First, go to Edit -&gt; Notebook settings -&gt; Hardware accelerator and set it to T4 GPU. This should improve the speed of the code.</p>
 <p>Install Detectron2 to Google Colab (this will not download anything to your computer and will be deleted once you close the browser). Note that this may take a few minutes to run.</p>
 <div class="cell docutils container">
@@ -602,7 +601,7 @@ document.write(`
 </div>
 </div>
 <p>For this image showing trash and grass, the model did not make any classifications within the image. The model likely could not pinpoint any clear object to classify.</p>
-<p>We’ve explored the use of an open-source computer vision model to identify objects in the images submitted to GLOBE Observer showing water sources where mosquitoes may be found. The benefits of such computer vision models is saving the time it would take to manually review and classify all images; however, as we have seen in some of the images, the classifications are not always accurate. It is important to consider this trade-off, as well as consider methods such as training the model on our own, pre-labeled data to improve results. There are also multiple other open source models that can perform similar tasks of classifying objects that may be better than Detectron2 for these water source images.</p>
+<p>We’ve explored the use of an open-source computer vision model to identify objects in the images submitted to GLOBE Observer showing water sources where mosquitoes may be found. The benefits of such computer vision models is saving the time it would take to manually review and classify all images; however, as we have seen in some of the images, the classifications are not always accurate. It is important to consider this trade-off, as well as consider methods such as training the model on our own pre-labeled data to improve results. There are also multiple other open source models that can perform similar tasks of classifying objects that may be better than Detectron2 for these water source images.</p>
 <p>References</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/facebookresearch/detectron2">Detectron2 GitHub</a></p></li>
