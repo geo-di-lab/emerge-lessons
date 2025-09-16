@@ -13,7 +13,7 @@ We recommend using an `@gmail.com` address instead of an institutional .org or .
 Make note of your project ID! There may be some numbers after what you typed, like emerge-lessons-359891
 ```
 
-3. Go to [console.cloud.google.com/earth-engine](console.cloud.google.com/earth-engine) and click {guilabel}`Register` under "Register your Cloud project."
+3. Go to [console.cloud.google.com/earth-engine](https://console.cloud.google.com/earth-engine) and click {guilabel}`Register` under "Register your Cloud project."
 ![Welcome to Earth Engine page](gee_2.png)
 
 4. Click {guilabel}`Get started` under "See if you are eligible for noncommercial use."
