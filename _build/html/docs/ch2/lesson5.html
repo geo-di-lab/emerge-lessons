@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -527,23 +527,9 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the photo links from the GLOBE observations</span>
-<span class="n">entry</span> <span class="o">=</span> <span class="n">mosquito</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;WaterSourcePhotoUrls&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">40</span><span class="p">:</span><span class="mi">50</span><span class="p">]</span>
+<span class="n">entry</span> <span class="o">=</span> <span class="n">mosquito</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;WaterSourcePhotoUrls&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">entry</span><span class="p">[</span><span class="s1">&#39;WaterSourcePhotoUrls&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://data.globe.gov/system/photos/2024/12/30/4293658/original.jpg&#39;
- &#39;https://data.globe.gov/system/photos/2024/12/30/4293296/original.jpg&#39;
- &#39;https://data.globe.gov/system/photos/2024/12/30/4293975/original.jpg&#39;
- &#39;https://data.globe.gov/system/photos/2024/12/30/4293625/original.jpg&#39;
- &#39;https://data.globe.gov/system/photos/2024/12/30/4293629/original.jpg&#39;
- &#39;https://data.globe.gov/system/photos/2024/12/30/4293647/original.jpg&#39;
- &#39;https://data.globe.gov/system/photos/2024/12/30/4293987/original.jpg&#39;
- &#39;https://data.globe.gov/system/photos/2024/12/29/4292071/original.jpg&#39;
- &#39;https://data.globe.gov/system/photos/2024/12/29/4292139/original.jpg&#39;
- &#39;https://data.globe.gov/system/photos/2024/12/29/4292590/original.jpg&#39;]
 </pre></div>
 </div>
 </div>
