@@ -5,7 +5,7 @@ parts:
   chapters:
   - file: docs/activities/intro_globe_analysis
 
-- caption: Foundational Concepts
+- caption: 1. Foundational Concepts
   chapters:
   - file: docs/ch1/lesson1
   - file: docs/ch1/lesson2
@@ -15,7 +15,7 @@ parts:
   - file: docs/ch1/lesson5b
   - file: docs/ch1/lesson6
 
-- caption: Explore the Data
+- caption: 2. Explore the Data
   chapters:
   - file: docs/ch2/lesson1
   - file: docs/ch2/lesson2
@@ -23,13 +23,13 @@ parts:
   - file: docs/ch2/lesson4
   - file: docs/ch2/lesson5
 
-- caption: Data from Satellites
+- caption: 3. Data from Satellites
   chapters:
   - file: docs/ch3/lesson1
   - file: docs/ch3/lesson2
   - file: docs/ch3/lesson3
 
-- caption: Analyze the Data
+- caption: 4. Analyze the Data
   chapters:
   - file: docs/ch4/lesson1
   - file: docs/ch4/lesson2
@@ -37,14 +37,14 @@ parts:
   - file: docs/ch4/lesson4
   - file: docs/ch4/lesson5
 
-- caption: Science Communication
+- caption: 5. Science Communication
   chapters:
   - file: docs/ch5/lesson1
   - file: docs/ch5/lesson2
   # - file: docs/ch5/lesson3
   - file: docs/ch5/lesson4
 
-- caption: Templates for Your Data Analysis
+- caption: 6. Templates for Your Data Analysis
   chapters:
   - file: docs/ch6/lesson1
   - file: docs/ch6/lesson2
