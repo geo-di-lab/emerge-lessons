@@ -1,6 +1,10 @@
 format: jb-book
 root: intro
 parts:
+- caption: Activity
+  chapters:
+  - file: docs/activities/intro_globe_analysis
+
 - caption: Foundational Concepts
   chapters:
   - file: docs/ch1/lesson1
