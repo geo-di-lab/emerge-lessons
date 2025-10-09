@@ -1,6 +1,6 @@
 # Welcome to EMERGE
 
-EMERGE aims to Engage Communities in Environmental Research and Geospatial Education. It is a statewide initiative that helps libraries, educators, and individuals across Florida engage in public health and environmental science using real-world data tools and citizen science.
+Environmental Monitoring through Education, Research & Geospatial Engagement (EMERGE) is a statewide initiative that helps libraries, educators, and individuals across Florida engage in public health and environmental science using real-world data tools and citizen science.
 
 Through mobile tools like GLOBE Observer, participants help monitor mosquito breeding sites, classify land cover, and contribute data to global scientific efforts.
 
@@ -108,4 +108,13 @@ Anyone curious about science, environmental issues, or how they can take local a
 # Table of Contents
 
 ```{tableofcontents}
+```
+
+```{admonition} Activities
+:class: dropdown
+
+Access the following coding activities that summarize the first four lessons of the textbook, providing an introduction to GLOBE data visualization and analysis.
+
+- [Part 1. Introduction to GLOBE Data & Visualization](https://geo-di-lab.github.io/emerge-lessons/docs/activities/1_intro_globe_data.html)
+- [Part 2. GLOBE Analysis with Environmental Data](https://geo-di-lab.github.io/emerge-lessons/docs/activities/2_globe_analysis.html)
 ```

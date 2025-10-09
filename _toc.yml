@@ -1,9 +1,6 @@
 format: jb-book
 root: intro
 parts:
-- caption: Activity
-  chapters:
-  - file: docs/activities/intro_globe_analysis
 
 - caption: 1. Foundational Concepts
   chapters:
