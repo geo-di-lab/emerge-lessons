@@ -14,6 +14,12 @@ This digital textbook includes interactive coding tutorials designed to introduc
 **Who this is for:**
 Public, school, or academic library staff looking to host citizen science events, informal STEM programming, or community outreach.
 
+**Recommended Activities:**
+The following coding activities summarize the first four lessons of the textbook, providing an introduction to GLOBE data visualization and analysis.
+
+- [Part 1. Introduction to GLOBE Data Visualization](https://geo-di-lab.github.io/emerge-lessons/docs/activities/1_intro_globe_data.html)
+- [Part 2. GLOBE Analysis with Environmental Data](https://geo-di-lab.github.io/emerge-lessons/docs/activities/2_globe_analysis.html)
+
 **Recommended Lessons:**
 
 - [CH 1: Lesson 1 – What is Citizen Science?](https://geo-di-lab.github.io/emerge-lessons/docs/ch1/lesson1.html)
@@ -32,6 +38,12 @@ Public, school, or academic library staff looking to host citizen science events
 
 **Who this is for:**
 K–12 and college instructors, out-of-school educators, and curriculum designers integrating environmental science, data analysis, or coding into learning.
+
+**Recommended Activities:**
+The following coding activities summarize the first four lessons of the textbook, providing an introduction to GLOBE data visualization and analysis.
+
+- [Part 1. Introduction to GLOBE Data Visualization](https://geo-di-lab.github.io/emerge-lessons/docs/activities/1_intro_globe_data.html)
+- [Part 2. GLOBE Analysis with Environmental Data](https://geo-di-lab.github.io/emerge-lessons/docs/activities/2_globe_analysis.html)
 
 **Recommended Lessons:**
 
@@ -110,11 +122,9 @@ Anyone curious about science, environmental issues, or how they can take local a
 ```{tableofcontents}
 ```
 
-```{admonition} Activities
-:class: dropdown
+## Activities
 
-Access the following coding activities that summarize the first four lessons of the textbook, providing an introduction to GLOBE data visualization and analysis.
+These coding activities summarize the first four lessons of the textbook, providing an introduction to GLOBE data visualization and analysis.
 
-- [Part 1. Introduction to GLOBE Data & Visualization](https://geo-di-lab.github.io/emerge-lessons/docs/activities/1_intro_globe_data.html)
+- [Part 1. Introduction to GLOBE Data Visualization](https://geo-di-lab.github.io/emerge-lessons/docs/activities/1_intro_globe_data.html)
 - [Part 2. GLOBE Analysis with Environmental Data](https://geo-di-lab.github.io/emerge-lessons/docs/activities/2_globe_analysis.html)
-```

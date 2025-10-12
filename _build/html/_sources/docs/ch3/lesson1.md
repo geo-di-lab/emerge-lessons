@@ -1,4 +1,5 @@
 # Our Eyes in the Sky & On the Ground
+For more information, refer to [NASA's article about Remote Sensing](https://www.earthdata.nasa.gov/learn/earth-observation-data-basics/remote-sensing).
 
 ## Intro to NASA & Remote Sensing
 
@@ -15,7 +16,8 @@ Remote Sensing Satellites observe and gather data from a distance, capturing ele
 Multispectral imaging captures image data in specific wavelengths using either filters or instruments that are sensitive to particular wavelengths, drawing out latent information. Using different color filters, features like water, vegetation, soil, etc are distinctly emphasized in order for easier analysis. This distinction is possible because each feature reflects the light of a different wavelength under sunlight. 
 
 ![Electromagnetic spectrum](https://science.nasa.gov/wp-content/uploads/2023/04/intro_1-jpg.webp)
-Image from [NASA](https://science.nasa.gov/ems/01_intro/)
+
+Image from [NASA Science](https://science.nasa.gov/ems/01_intro/)
 
 ## Typical Spectral Bands
 Wavelengths are approximate and in parenthesis
@@ -43,15 +45,18 @@ Resolution of images plays a very big role in how data from an instrument can be
 **Radiometric resolution** is the amount of information in each pixel, the number of bits representing energy recorded. Each bit records an exponent of base 2, meaning that the higher the radiometric resolution, the more values are available to store, allowing for better discrimination against energy differences (ex. Subtle differences in ocean color)
 
 ![Space Archaeology: In the Realm of Resolution](https://eoimages.gsfc.nasa.gov/images/imagerecords/91000/91071/selselah_oli_2017024.png)
-Image from [NASA](https://www.visibleearth.nasa.gov/images/91071/space-archaeology-in-the-realm-of-resolution/91074w)
+
+[NASA Earth Observatory images by Joshua Stevens](https://www.visibleearth.nasa.gov/images/91071/space-archaeology-in-the-realm-of-resolution/91074w)
 
 **Spatial resolution** is defined by the size of each pixel within a digital image and the area on Earth’s surface represented by that pixel. One pixel represents a specific area on the ground, the finer the resolution (the lower the number), the more detail visible. In the Moderate Resolution Imaging Spectroradiometer (MODIS) each pixel represents a 1km x 1km area with a spatial resolution of 250m or 500m.
 
-![3 Landsat satellite images at 30m, 100m and 300m resolution](https://www.researchgate.net/profile/Bhooleshwari-Singh/publication/377118115/figure/fig3/AS:11431281215699588@1704365239541/Landsat-8-image-of-Reykjavik-Iceland-acquired-July-7-2019-illustrating-the-difference.png)
-Image from [Singh et al.](https://www.researchgate.net/publication/377118115_Applications_of_Remote_Sensing_for_Enhanced_Fisheries_Management_and_Sustainable_Practices_21)
+![3 Landsat satellite images at 30m, 100m and 300m resolution](https://earthdata.nasa.gov/s3fs-public/styles/hds_large/public/2022-02/spatial_resolution.jpg)
+
+Image from [NASA Earth Observatory](https://earthobservatory.nasa.gov/)
 
 **Spectral resolution** is the ability of an instrument to discern finer wavelengths, having more and narrower bands. The narrower the range of a given band, the finer the spectral resolution. Many instruments are multispectral with 3-10 bands, while others are hyperspectral with thousands. Below, the Airborne Visible/Infrared Imaging Spectrometer (AVIRIS) has 224 spectral channels, distinctions are able to be made between rocks and minerals as well as vegetation types.
 ![A cube showing hyperspectral data depicting part of San Francisco](https://esto.nasa.gov/wp-content/uploads/2022/05/ImgSPEC_Image2.jpg)
-Image from [NASA / JPL](https://esto.nasa.gov/nasa-software-leverages-hyperspectral-data-to-better-understand-climate-change/)
+
+Image from [NASA Jet Propulsion Laboratory](https://esto.nasa.gov/nasa-software-leverages-hyperspectral-data-to-better-understand-climate-change/)
 
 **Temporal resolution** is the time that it takes for a space-based platform to complete an orbit and revisit an observation area depending on the orbit, the instrument’s individual characteristics, and the horizontal distance covering a satellite sensor. Polar orbiting platforms have temporal resolutions that vary from 1 to 16 days, a satellite with a temporal resolution of 16 days would be better for capturing bi-monthly changes rather than daily changes.

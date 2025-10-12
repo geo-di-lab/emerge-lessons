@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Remote Sensing Data for Your County &#8212; EMERGE Lessons</title>
+    <title>Part 2. GLOBE Analysis with Environmental Data &#8212; EMERGE Lessons</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -182,11 +182,7 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Activity</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro_globe_analysis.html">EMERGE Activity: Data Analysis &amp; Mapping of GLOBE Data</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">1. Foundational Concepts</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">1. Foundational Concepts</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ch1/lesson1.html">What is Citizen Science?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ch1/lesson2.html">Why Mosquitoes?</a></li>
@@ -445,7 +441,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Remote Sensing Data for Your County</h1>
+    <h1>Part 2. GLOBE Analysis with Environmental Data</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -455,7 +451,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Remote Sensing Data for Your County</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Part 2. GLOBE Analysis with Environmental Data</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-the-tools">Introduction to the Tools</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tying-it-all-together-getting-remote-sensing-data-for-a-globe-point">Tying it all together: Getting Remote Sensing Data for a GLOBE point</a></li>
 </ul>
@@ -470,9 +466,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="remote-sensing-data-for-your-county">
-<h1>Remote Sensing Data for Your County<a class="headerlink" href="#remote-sensing-data-for-your-county" title="Link to this heading">#</a></h1>
-<p>If you have not used Google Earth Engine before, follow <a class="reference external" href="https://geo-di-lab.github.io/emerge-lessons/docs/ch1/lesson5a.html">this tutorial</a> to create an Earth Engine account and project.</p>
+  <section id="part-2-globe-analysis-with-environmental-data">
+<h1>Part 2. GLOBE Analysis with Environmental Data<a class="headerlink" href="#part-2-globe-analysis-with-environmental-data" title="Link to this heading">#</a></h1>
+<p>If you have not used Google Earth Engine before, follow <a class="reference external" href="https://geo-di-lab.github.io/emerge-lessons/docs/ch1/lesson5a.html">this tutorial</a> to set up your
+Earth Engine project. This will let you load environmental data for your GLOBE analysis!</p>
 </section>
 <section id="introduction-to-the-tools">
 <h1>Introduction to the Tools<a class="headerlink" href="#introduction-to-the-tools" title="Link to this heading">#</a></h1>
@@ -521,13 +518,12 @@ document.write(`
 <span class="kn">import</span><span class="w"> </span><span class="nn">branca.colormap</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cm</span>                  <span class="c1"># For creating color scales</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>                         <span class="c1"># For more options to load colors and create plots</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">folium</span>                                 <span class="c1"># For creating interactive maps</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">ee</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">geemap</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">geopandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gpd</span>
-<span class="n">ee</span><span class="o">.</span><span class="n">Authenticate</span><span class="p">()</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ee</span>                                     <span class="c1"># For loading environmental data with Google Earth Engine</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geemap</span>                                 <span class="c1"># For creating interactive maps for Google Earth Engine data</span>
 
-<span class="c1"># Write your project ID here, in quotes</span>
+<span class="c1"># Initialize Earth Engine to load environmental data</span>
 <span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">(</span><span class="n">project</span> <span class="o">=</span> <span class="n">projectID</span><span class="p">)</span>
+<span class="n">ee</span><span class="o">.</span><span class="n">Authenticate</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -538,8 +534,10 @@ document.write(`
 <span class="n">mosquito</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;https://github.com/geo-di-lab/emerge-lessons/raw/refs/heads/main/docs/data/globe_mosquito.zip&#39;</span><span class="p">)</span>
 <span class="n">land_cover</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;https://github.com/geo-di-lab/emerge-lessons/raw/refs/heads/main/docs/data/globe_land_cover.zip&#39;</span><span class="p">)</span>
 <span class="n">counties</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;https://github.com/geo-di-lab/emerge-lessons/raw/refs/heads/main/docs/data/us_counties.zip&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="s1">&#39;EPSG:4326&#39;</span><span class="p">)</span>
-<span class="n">state_counties</span> <span class="o">=</span> <span class="n">counties</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">counties</span><span class="p">[</span><span class="s1">&#39;STATE_NAME&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">state_name</span><span class="p">]</span>
-<span class="n">county</span> <span class="o">=</span> <span class="n">state_counties</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">counties</span><span class="p">[</span><span class="s1">&#39;NAMELSAD&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">county_name</span><span class="p">]</span>
+
+<span class="c1"># Get boundary for chosen county</span>
+<span class="n">county</span> <span class="o">=</span> <span class="n">counties</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">counties</span><span class="p">[</span><span class="s1">&#39;STATE_NAME&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">state_name</span><span class="p">)</span> <span class="o">&amp;</span>
+                      <span class="p">(</span><span class="n">counties</span><span class="p">[</span><span class="s1">&#39;NAMELSAD&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">county_name</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
@@ -1027,7 +1025,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Remote Sensing Data for Your County</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Part 2. GLOBE Analysis with Environmental Data</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-the-tools">Introduction to the Tools</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tying-it-all-together-getting-remote-sensing-data-for-a-globe-point">Tying it all together: Getting Remote Sensing Data for a GLOBE point</a></li>
 </ul>
