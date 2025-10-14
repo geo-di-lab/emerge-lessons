@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -522,8 +522,8 @@ Earth Engine project. This will let you load environmental data for your GLOBE a
 <span class="kn">import</span><span class="w"> </span><span class="nn">geemap</span>                                 <span class="c1"># For creating interactive maps for Google Earth Engine data</span>
 
 <span class="c1"># Initialize Earth Engine to load environmental data</span>
-<span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">(</span><span class="n">project</span> <span class="o">=</span> <span class="n">projectID</span><span class="p">)</span>
 <span class="n">ee</span><span class="o">.</span><span class="n">Authenticate</span><span class="p">()</span>
+<span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">(</span><span class="n">project</span> <span class="o">=</span> <span class="n">projectID</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -835,7 +835,9 @@ Earth Engine project. This will let you load environmental data for your GLOBE a
 <p>View the list of observations for your chosen county.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data_county</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show mosquito observations for chosen county</span>
+<span class="n">data_county</span> <span class="o">=</span> <span class="n">mosquito</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span><span class="n">county</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span> <span class="n">predicate</span><span class="o">=</span><span class="s2">&quot;within&quot;</span><span class="p">)</span>
+<span class="n">data_county</span>
 </pre></div>
 </div>
 </div>
