@@ -46,3 +46,9 @@ parts:
   - file: docs/ch6/lesson1
   - file: docs/ch6/lesson2
   - file: docs/ch6/lesson3
+
+- caption: 7. Merging GLOBE & iNaturalist Data
+  chapters:
+  - file: docs/ch7/lesson1
+  - file: docs/ch7/lesson2
+  - file: docs/ch7/lesson3
