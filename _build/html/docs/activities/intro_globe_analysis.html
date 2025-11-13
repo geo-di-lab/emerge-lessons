@@ -1,0 +1,1621 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>EMERGE Activity: Data Analysis &amp; Mapping of GLOBE Data &#8212; EMERGE Lessons</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/activities/intro_globe_analysis';</script>
+    <link rel="icon" href="../../_static/GeoDI_Logo.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/EMERGE_Landsat.png" class="logo__image only-light" alt="EMERGE Lessons - Home"/>
+    <script>document.write(`<img src="../../_static/EMERGE_Landsat.png" class="logo__image only-dark" alt="EMERGE Lessons - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome to EMERGE
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">1. Foundational Concepts</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ch1/lesson1.html">What is Citizen Science?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch1/lesson2.html">Why Mosquitoes?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch1/lesson3.html">What is GLOBE Observer?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch1/lesson4.html">What is Coding?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch1/lesson5a.html">Get Google Earth Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch1/lesson5b.html">Intro to Google Earth Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch1/lesson6.html">Introduction to GLOBE Data</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">2. Explore the Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ch2/lesson1.html">Why Analyze Data?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch2/lesson2.html">Mosquito &amp; Land Cover Stats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch2/lesson3.html">Map GLOBE Citizen Science Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch2/lesson4.html">Visualizing GLOBE Hotspots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch2/lesson5.html">Decoding Habitat Photos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">3. Data from Satellites</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ch3/lesson1.html">Our Eyes in the Sky &amp; On the Ground</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch3/lesson2.html">Zooming in with Satellites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch3/lesson3.html">Vegetation &amp; Water Indices</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">4. Analyze the Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ch4/lesson1.html">Temperature, Rainfall &amp; Vegetation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch4/lesson2.html">Environment &amp; Habitats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch4/lesson3.html">Land Cover Over Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch4/lesson4.html">Introduction to Risk Mapping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch4/lesson5.html">County-Level Analysis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">5. Science Communication</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ch5/lesson1.html">Communicate the Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch5/lesson2.html">Host Your Own Data Camp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch5/lesson4.html">Sharing Your Findings</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">6. Templates for Your Data Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ch6/lesson1.html">Plotting Your Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch6/lesson2.html">Mapping Your Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch6/lesson3.html">Earth Engine Data</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">7. Merge GLOBE &amp; iNaturalist Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ch7/lesson1.html">Mosquito Control Through Predation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch7/lesson2.html">Map iNaturalist Citizen Science Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch7/lesson3.html">Download iNaturalist Data</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/geo-di-lab/emerge-lessons/blob/main/docs/activities/intro_globe_analysis.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/geo-di-lab/emerge-lessons" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/geo-di-lab/emerge-lessons/issues/new?title=Issue%20on%20page%20%2Fdocs/activities/intro_globe_analysis.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/activities/intro_globe_analysis.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>EMERGE Activity: Data Analysis & Mapping of GLOBE Data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-the-tools">Introduction to the Tools</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mosquitoes-around-the-globe">Mosquitoes Around the GLOBE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#land-cover-around-the-globe">Land Cover Around the GLOBE</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-create-an-interactive-map-for-land-cover">Challenge: Create an interactive map for land cover</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mosquitoes-in-your-state">Mosquitoes in Your State</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mosquitoes-in-your-county">Mosquitoes in Your County</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remote-sensing-data-for-your-county">Remote Sensing Data for Your County</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tying-it-all-together-getting-remote-sensing-data-for-a-globe-point">Tying it all together: Getting Remote Sensing Data for a GLOBE point</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><a class="reference external" href="https://colab.research.google.com/github/geo-di-lab/emerge-lessons/blob/main/docs/activities/intro_globe_analysis.ipynb"><img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="emerge-activity-data-analysis-mapping-of-globe-data">
+<h1>EMERGE Activity: Data Analysis &amp; Mapping of GLOBE Data<a class="headerlink" href="#emerge-activity-data-analysis-mapping-of-globe-data" title="Link to this heading">#</a></h1>
+<p>This lesson shows how to investigate GLOBE mosquito &amp; land cover data, calculate statistics, and create charts &amp; maps at global, state, and county levels.</p>
+<section id="introduction-to-the-tools">
+<h2>Introduction to the Tools<a class="headerlink" href="#introduction-to-the-tools" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Python</strong> (a popular programming knowledge for analyzing data, automating tasks, creating software, training machine learning models, and more) to analyze GLOBE Mosquito Habitat Mapper and Land Cover data.</p></li>
+<li><p><strong>Google Colab</strong> (a free, cloud-based coding environment) to run Python on the browser. <em>No setup or downloads necessary!</em></p></li>
+<li><p><strong>Google Earth Engine</strong> (a cloud-based platform that includes satellite imagery and other geospatial datasets) to load environmental data.</p></li>
+</ul>
+<p><strong>To run the code:</strong></p>
+<blockquote>
+<div><p>Make sure you have this notebook open in Google Colab. If you are starting from the digital textbook, click <a class="reference external" href="https://colab.research.google.com/github/geo-di-lab/emerge-lessons/blob/main/docs/activities/intro_globe_analysis.ipynb"><img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+</div></blockquote>
+<p>Each block of code is called a cell. To run a cell, hover over it and click the arrow in the top left of the cell, or click inside of the cell and press <code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Enter</span></code>.</p>
+<p>Note: When you run a block of code for the first time, Google Colab will say <code class="docutils literal notranslate"><span class="pre">Warning:</span> <span class="pre">This</span> <span class="pre">notebook</span> <span class="pre">was</span> <span class="pre">not</span> <span class="pre">authored</span> <span class="pre">by</span> <span class="pre">Google</span></code>. Please click <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">Anyway</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import libraries</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>                           <span class="c1"># For working with data</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.max_columns&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>    <span class="c1"># Lets us see all columns of the data instead of just a preview</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geopandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gpd</span>                       <span class="c1"># For working with spatial data</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>                            <span class="c1"># For working with numbers</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>                     <span class="c1"># For working with dates</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>               <span class="c1"># For making graphs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">to_rgb</span>          <span class="c1"># For getting colors</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">branca.colormap</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cm</span>                  <span class="c1"># For creating color scales</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>                         <span class="c1"># For more options to load colors and create plots</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">folium</span>                                 <span class="c1"># For creating interactive maps</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the code above, we imported Python libraries, which expand the options we have with our code. Each library comes with many functions designed to accomplish specific tasks, like loading a dataset, performing calculations, making a chart, and more.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is a comment (added using # at the start), used by programmers to explain their code</span>
+<span class="c1"># Comments do not impact how the code runs</span>
+
+<span class="c1"># Print today&#39;s date</span>
+<span class="n">today</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Today&#39;s date is </span><span class="si">{</span><span class="n">today</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A great feature of Google Colab is that you are able to write Python code and see the output directly on your browser!</p>
+</section>
+<section id="mosquitoes-around-the-globe">
+<h2>Mosquitoes Around the GLOBE<a class="headerlink" href="#mosquitoes-around-the-globe" title="Link to this heading">#</a></h2>
+<p>Let’s load the data directly from the link (everything stays in Google Colab on the browser; nothing gets downloaded to your computer)! This is a processed version of the data that has the columns renamed and some errors corrected.</p>
+<p>The data comes from GLOBE Observer accessed through <a class="reference external" href="https://www.globe.gov/globe-data/globe-api">the API</a>. You can see all the steps taken to process and clean the data in <a class="reference external" href="https://geo-di-lab.github.io/emerge-lessons/docs/ch1/lesson6.html">chapter 1 of the EMERGE curriculum</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mosquito</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;https://github.com/geo-di-lab/emerge-lessons/raw/refs/heads/main/docs/data/globe_mosquito.zip&#39;</span><span class="p">)</span>
+<span class="n">mosquito</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>See a list of the columns:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mosquito</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>How many rows are in the dataset?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">mosquito</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>There were 43,012 citizen science contributions from 2018 to 2024. Now, let’s see the number of countries where people submitted data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">mosquito</span><span class="p">[</span><span class="s1">&#39;CountryCode&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s see the types of the habitats (water sources) the citizen scientists recorded.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># General water source types</span>
+<span class="n">mosquito</span><span class="p">[</span><span class="s1">&#39;WaterSourceType&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>These are the general types of water sources that citizen scientists reported to NASA GLOBE. It looks like most of the data collected were about artificial containers. Let’s see some of the more specific types in the other column:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># More specific water source types</span>
+<span class="n">mosquito</span><span class="p">[</span><span class="s1">&#39;WaterSource&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s make a pie chart using the more general types, WaterSourceType</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here are some options for color palettes</span>
+<span class="n">display</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="n">palette</span><span class="o">=</span><span class="s1">&#39;rainbow&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="n">palette</span><span class="o">=</span><span class="s1">&#39;CMRmap&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="n">palette</span><span class="o">=</span><span class="s1">&#39;BrBG&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="n">palette</span><span class="o">=</span><span class="s1">&#39;cubehelix&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="n">palette</span><span class="o">=</span><span class="s1">&#39;Set2&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="n">palette</span><span class="o">=</span><span class="s1">&#39;Set3&#39;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="n">palette</span><span class="o">=</span><span class="s1">&#39;tab20&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pie chart of water types</span>
+<span class="n">types</span> <span class="o">=</span> <span class="n">mosquito</span><span class="p">[[</span><span class="s1">&#39;SiteId&#39;</span><span class="p">,</span> <span class="s1">&#39;WaterSourceType&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;WaterSourceType&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+
+<span class="c1"># Create pie chart</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">patches</span><span class="p">,</span> <span class="n">texts</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">colors</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s1">&#39;Set2&#39;</span><span class="p">),</span> <span class="c1"># Enter the name of the color palette you want to use</span>
+                         <span class="n">x</span> <span class="o">=</span> <span class="n">types</span><span class="p">[</span><span class="s1">&#39;SiteId&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;GLOBE Mosquito Sightings: Water Source Types (General)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">patches</span><span class="p">,</span> <span class="n">types</span><span class="p">[</span><span class="s1">&#39;WaterSourceType&#39;</span><span class="p">],</span>
+           <span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;center left&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>What is the average larvae count by country?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mosquito_avg</span> <span class="o">=</span> <span class="n">mosquito</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;CountryCode&#39;</span><span class="p">)[</span><span class="s1">&#39;LarvaeCountProcessed&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">mosquito_avg</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s make a map showing the larvae count by country. The <a class="reference external" href="https://hub.arcgis.com/datasets/esri::world-countries-generalized/about">country boundaries (generalized)</a> are from Esri, Garmin, and U.S. Central Intelligence Agency (The World Factbook). The boundaries are generalized to allow data processing and visualizations to load faster. The ISO alpha-3 codes come from the <a class="reference external" href="https://hub.arcgis.com/datasets/esri::world-countries/about">World Countries</a> layer from Esri, Garmin, U.S. Central Intelligence Agency (The World Factbook), and International Organization for Standardization (ISO).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load country boundaries</span>
+<span class="n">countries</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;https://github.com/geo-di-lab/emerge-lessons/raw/refs/heads/main/docs/data/world_countries_general.geojson&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">4326</span><span class="p">)</span>
+
+<span class="c1"># Add mosquito data for each country</span>
+<span class="n">mosquito_avg</span> <span class="o">=</span> <span class="n">countries</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">mosquito_avg</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;iso3&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;CountryCode&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="c1"># Create plot of average larvae count by country</span>
+<span class="n">mosquito_avg</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span> <span class="o">=</span> <span class="s1">&#39;LarvaeCountProcessed&#39;</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;viridis&#39;</span><span class="p">,</span>
+                     <span class="n">legend</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">vmin</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span>
+                     <span class="n">missing_kwds</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;lightgrey&#39;</span><span class="p">})</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;GLOBE Mosquito Sightings: Average Larvae Count&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we’ll make an <em>interactive</em> map showing total GLOBE observations by country.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get total GLOBE observations by country</span>
+<span class="n">mosquito_obs</span> <span class="o">=</span> <span class="n">mosquito</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;CountryCode&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> \
+                       <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;GLOBE_Observations&#39;</span><span class="p">)</span>
+<span class="n">mosquito_obs</span> <span class="o">=</span> <span class="n">countries</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">mosquito_obs</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;iso3&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;CountryCode&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GLOBE_Observations&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load a color scale, starting at 1 and ending at 100</span>
+<span class="c1"># Blue indicates 100 or more GLOBE observations, while green/yellow indicate closer to 1 observation</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">YlGnBu_03</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">colors</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">map</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">tiles</span><span class="o">=</span><span class="s2">&quot;CartoDB positron&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create interactive map of GLOBE observations by country</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">GeoJson</span><span class="p">(</span>
+    <span class="n">geo_data</span> <span class="o">=</span> <span class="n">mosquito_obs</span><span class="o">.</span><span class="n">to_json</span><span class="p">(),</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">mosquito_obs</span><span class="p">,</span>
+    <span class="n">key_on</span> <span class="o">=</span> <span class="s2">&quot;feature.properties.name&quot;</span><span class="p">,</span>
+    <span class="n">tooltip</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">GeoJsonTooltip</span><span class="p">(</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;GLOBE_Observations&#39;</span><span class="p">],</span>
+        <span class="n">aliases</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Country:&#39;</span><span class="p">,</span> <span class="s1">&#39;Observations:&#39;</span><span class="p">]</span>
+    <span class="p">),</span>
+    <span class="n">style_function</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">feature</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;fillColor&quot;</span><span class="p">:</span> <span class="n">colors</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;GLOBE_Observations&#39;</span><span class="p">]),</span>
+        <span class="s1">&#39;fillOpacity&#39;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span>
+        <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;grey&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">}</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="nb">map</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="nb">map</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="land-cover-around-the-globe">
+<h2>Land Cover Around the GLOBE<a class="headerlink" href="#land-cover-around-the-globe" title="Link to this heading">#</a></h2>
+<p>Like the mosquito data, we’ll load in the GLOBE land cover data directly from the link.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">land_cover</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;https://github.com/geo-di-lab/emerge-lessons/raw/refs/heads/main/docs/data/globe_land_cover.zip&#39;</span><span class="p">)</span>
+<span class="n">land_cover</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">land_cover</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A helpful part of the land cover dataset is the MUC classifications. MUC (Modified UNESCO Classification) is a classification system with different land use types that helps us understand habitats around the world.</p>
+<p>What are the most common MUC codes by country?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find the most common MUC for each country</span>
+<span class="n">muc</span> <span class="o">=</span> <span class="n">land_cover</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;CountryCode&#39;</span><span class="p">)[</span><span class="s1">&#39;MucDescription&#39;</span><span class="p">]</span> \
+    <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">x</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">empty</span> <span class="k">else</span> <span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;MucDescription&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add a column for the number of GLOBE observations with the MUC code</span>
+<span class="n">muc</span><span class="p">[</span><span class="s1">&#39;Count&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">land_cover</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;CountryCode&#39;</span><span class="p">)[</span><span class="s1">&#39;MucDescription&#39;</span><span class="p">]</span> \
+    <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">max</span><span class="p">())</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># Add a column for the total number of GLOBE observations</span>
+<span class="n">muc</span><span class="p">[</span><span class="s1">&#39;GLOBE_Observations&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">land_cover</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;CountryCode&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">values</span>
+
+<span class="n">muc</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add this data to the country boundaries</span>
+<span class="n">muc</span> <span class="o">=</span> <span class="n">countries</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">muc</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;iso3&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;CountryCode&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+
+<span class="c1"># Create general categories</span>
+<span class="n">muc_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Barren&#39;</span><span class="p">,</span> <span class="s1">&#39;Closed Forest&#39;</span><span class="p">,</span> <span class="s1">&#39;Cultivated&#39;</span><span class="p">,</span> <span class="s1">&#39;Herbaceous&#39;</span><span class="p">,</span> <span class="s1">&#39;Open Water&#39;</span><span class="p">,</span> <span class="s1">&#39;Trees&#39;</span><span class="p">,</span> <span class="s1">&#39;Urban&#39;</span><span class="p">,</span> <span class="s1">&#39;Wetlands&#39;</span><span class="p">,</span> <span class="s1">&#39;Woodland&#39;</span><span class="p">]</span>
+
+<span class="c1"># Simplify some names into the categories listed above</span>
+<span class="k">for</span> <span class="n">muc_code</span> <span class="ow">in</span> <span class="n">muc_list</span><span class="p">:</span>
+    <span class="n">muc</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">muc</span><span class="p">[</span><span class="s1">&#39;MucDescription&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">muc_code</span><span class="p">,</span> <span class="n">na</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span> <span class="s1">&#39;MucDescriptionShort&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">muc_code</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># Create a map of the most common MUC codes by country</span>
+<span class="n">muc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span> <span class="o">=</span> <span class="s1">&#39;MucDescriptionShort&#39;</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;viridis&#39;</span><span class="p">,</span>
+                     <span class="n">legend</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span>
+                     <span class="n">missing_kwds</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;lightgrey&#39;</span><span class="p">,</span> <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;No Data&#39;</span><span class="p">},</span>
+                     <span class="n">legend_kwds</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;loc&#39;</span><span class="p">:</span> <span class="s1">&#39;lower left&#39;</span><span class="p">,</span> <span class="s1">&#39;frameon&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">})</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;GLOBE Land Cover: Most Common MUC Codes&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice the gray areas. There were no GLOBE observations recorded for these countries, so we’ll remove these from the dataset to make it easier to visualize the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">muc</span> <span class="o">=</span> <span class="n">muc</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GLOBE_Observations&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="challenge-create-an-interactive-map-for-land-cover">
+<h3>Challenge: Create an interactive map for land cover<a class="headerlink" href="#challenge-create-an-interactive-map-for-land-cover" title="Link to this heading">#</a></h3>
+<p>Like the mosquito observation map above, let’s make a map of the number of GLOBE Observations for land cover. In addition to the name of the country and the number of GLOBE Observations, add the most common MUC code (<code class="docutils literal notranslate"><span class="pre">MucDescriptionShort</span></code>) to the text box that pops up when you hover over each country.</p>
+<p>Use the following columns:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code> for the name of the country (pop-up)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MucDescriptionShort</span></code> for the most common MUC code (pop-up)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GLOBE_Observations</span></code> for the number of GLOBE observations recorded (pop-up and color of each country)</p></li>
+</ul>
+<p>In summary, each country’s color on the map will be based on <code class="docutils literal notranslate"><span class="pre">GLOBE_Observations</span></code> and the pop-up should include the country name, number of GLOBE observations, and the most common MUC.</p>
+<p>Feel free to reference the code for making an interactive map of the mosquito observations (which we’ve pasted below). If you get stuck, click <code class="docutils literal notranslate"><span class="pre">Open</span> <span class="pre">for</span> <span class="pre">Answer</span></code> to see one way to create this map!</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">map</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">tiles</span><span class="o">=</span><span class="s2">&quot;CartoDB positron&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create interactive map of GLOBE observations by country</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">GeoJson</span><span class="p">(</span>
+    <span class="n">geo_data</span> <span class="o">=</span> <span class="n">mosquito_obs</span><span class="o">.</span><span class="n">to_json</span><span class="p">(),</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">mosquito_obs</span><span class="p">,</span>
+    <span class="n">key_on</span> <span class="o">=</span> <span class="s2">&quot;feature.properties.name&quot;</span><span class="p">,</span>
+    <span class="n">tooltip</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">GeoJsonTooltip</span><span class="p">(</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;GLOBE_Observations&#39;</span><span class="p">],</span>
+        <span class="n">aliases</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Country:&#39;</span><span class="p">,</span> <span class="s1">&#39;Observations:&#39;</span><span class="p">]</span>
+    <span class="p">),</span>
+    <span class="n">style_function</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">feature</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;fillColor&quot;</span><span class="p">:</span> <span class="n">colors</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;GLOBE_Observations&#39;</span><span class="p">]),</span>
+        <span class="s1">&#39;fillOpacity&#39;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span>
+        <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;grey&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">}</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="nb">map</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="nb">map</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">map</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">tiles</span><span class="o">=</span><span class="s2">&quot;CartoDB positron&quot;</span><span class="p">)</span>
+
+<span class="c1"># Replace ? with your code below</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">GeoJson</span><span class="p">(</span>
+    <span class="n">geo_data</span> <span class="o">=</span> <span class="err">?</span><span class="p">,</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="err">?</span><span class="p">,</span>
+    <span class="n">key_on</span> <span class="o">=</span> <span class="s2">&quot;feature.properties.name&quot;</span><span class="p">,</span>
+    <span class="n">tooltip</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">GeoJsonTooltip</span><span class="p">(</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="err">?</span><span class="p">,</span>
+        <span class="n">aliases</span> <span class="o">=</span> <span class="o">?</span>
+    <span class="p">),</span>
+<span class="c1"># Replace ? with your code above</span>
+    <span class="n">style_function</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">feature</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;fillColor&quot;</span><span class="p">:</span> <span class="n">colors</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;GLOBE_Observations&#39;</span><span class="p">]),</span>
+        <span class="s1">&#39;fillOpacity&#39;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span>
+        <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;grey&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">}</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="nb">map</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="nb">map</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Open for Answer</span>
+
+<span class="nb">map</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">tiles</span><span class="o">=</span><span class="s2">&quot;CartoDB positron&quot;</span><span class="p">)</span>
+
+<span class="c1"># Replace ? with your code below</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">GeoJson</span><span class="p">(</span>
+    <span class="n">geo_data</span> <span class="o">=</span> <span class="n">muc</span><span class="o">.</span><span class="n">to_json</span><span class="p">(),</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">muc</span><span class="p">,</span>
+    <span class="n">key_on</span> <span class="o">=</span> <span class="s2">&quot;feature.properties.name&quot;</span><span class="p">,</span>
+    <span class="n">tooltip</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">GeoJsonTooltip</span><span class="p">(</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;GLOBE_Observations&#39;</span><span class="p">,</span> <span class="s1">&#39;MucDescriptionShort&#39;</span><span class="p">],</span>
+        <span class="n">aliases</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Country:&#39;</span><span class="p">,</span> <span class="s1">&#39;Observations:&#39;</span><span class="p">,</span> <span class="s1">&#39;Most common MUC:&#39;</span><span class="p">]</span>
+    <span class="p">),</span>
+<span class="c1"># Replace ? with your code above</span>
+    <span class="n">style_function</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">feature</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;fillColor&quot;</span><span class="p">:</span> <span class="n">colors</span><span class="p">(</span><span class="n">feature</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">][</span><span class="s1">&#39;GLOBE_Observations&#39;</span><span class="p">]),</span>
+        <span class="s1">&#39;fillOpacity&#39;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span>
+        <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;grey&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">}</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="nb">map</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="nb">map</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="mosquitoes-in-your-state">
+<h2>Mosquitoes in Your State<a class="headerlink" href="#mosquitoes-in-your-state" title="Link to this heading">#</a></h2>
+<p>Now, we’ll view the GLOBE data for your state and later on, your county. Enter the name of your state below.</p>
+<p>The boundary files from the <a class="reference external" href="https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html">U.S. Census</a>. We will use the same mosquito data as the first part of this code notebook (which comes from GLOBE Observer accessed through <a class="reference external" href="https://www.globe.gov/globe-data/globe-api">the API</a> from <a class="reference external" href="https://geo-di-lab.github.io/emerge-lessons/docs/ch1/lesson6.html">chapter 1 of our digital textbook</a>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">state_name</span> <span class="o">=</span> <span class="s2">&quot;Your State Name&quot;</span>
+
+<span class="c1"># For example,</span>
+<span class="c1"># state_name = &quot;Florida&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load county boundaries</span>
+<span class="n">counties</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;https://github.com/geo-di-lab/emerge-lessons/raw/refs/heads/main/docs/data/us_counties.zip&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="s1">&#39;EPSG:4326&#39;</span><span class="p">)</span>
+
+<span class="c1"># Filter to all counties in state</span>
+<span class="n">state_counties</span> <span class="o">=</span> <span class="n">counties</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">counties</span><span class="p">[</span><span class="s1">&#39;STATE_NAME&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">state_name</span><span class="p">]</span>
+
+<span class="c1"># Get state boundary by combining the counties together</span>
+<span class="n">state</span> <span class="o">=</span> <span class="n">state_counties</span><span class="p">[[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">dissolve</span><span class="p">()</span>
+
+<span class="n">state</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create empty map zoomed to the state</span>
+<span class="nb">map</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">tiles</span><span class="o">=</span><span class="s2">&quot;Cartodb dark_matter&quot;</span><span class="p">)</span>
+
+<span class="c1"># Get all GLOBE mosquito data within the state</span>
+<span class="n">mosquito_state</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span><span class="n">mosquito</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span> <span class="n">predicate</span><span class="o">=</span><span class="s1">&#39;intersects&#39;</span><span class="p">)</span> \
+          <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;index_right&#39;</span><span class="p">])</span> \
+          <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Add county boundaries to the map</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">GeoJson</span><span class="p">(</span>
+    <span class="n">state_counties</span><span class="o">.</span><span class="n">to_json</span><span class="p">(),</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;County Boundaries&#39;</span><span class="p">,</span>
+    <span class="n">tooltip</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">GeoJsonTooltip</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;NAMELSAD&#39;</span><span class="p">],</span> <span class="n">aliases</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;County:&#39;</span><span class="p">]),</span>
+    <span class="n">style_function</span><span class="o">=</span><span class="k">lambda</span> <span class="n">feature</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;fillColor&#39;</span><span class="p">:</span> <span class="s1">&#39;transparent&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;grey&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">}</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="nb">map</span><span class="p">)</span>
+
+<span class="c1"># Add each point as a green circle on the map</span>
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">mosquito_state</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">popup_content</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&lt;b&gt;Date:&lt;/b&gt; </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;MeasuredDate&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&lt;br&gt;&lt;b&gt;Water Source:&lt;/b&gt; </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;WaterSourceType&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&lt;br&gt;&lt;b&gt;Longitude:&lt;/b&gt; </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;MeasurementLongitude&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&lt;br&gt;&lt;b&gt;Latitude:&lt;/b&gt; </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;MeasurementLatitude&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">folium</span><span class="o">.</span><span class="n">CircleMarker</span><span class="p">(</span>
+        <span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">row</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">x</span><span class="p">],</span>
+        <span class="n">popup</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Popup</span><span class="p">(</span><span class="n">popup_content</span><span class="p">,</span> <span class="n">max_width</span><span class="o">=</span><span class="mi">300</span><span class="p">),</span>
+        <span class="n">radius</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
+        <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">fillColor</span><span class="o">=</span><span class="s1">&#39;lightgreen&#39;</span><span class="p">,</span>
+        <span class="n">fillOpacity</span><span class="o">=</span><span class="mf">0.5</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="nb">map</span><span class="p">)</span>
+
+<span class="c1"># Add an option to hide the county boundaries</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">LayerControl</span><span class="p">()</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="nb">map</span><span class="p">)</span>
+
+<span class="c1"># Zoom to the state</span>
+<span class="n">minx</span><span class="p">,</span> <span class="n">miny</span><span class="p">,</span> <span class="n">maxx</span><span class="p">,</span> <span class="n">maxy</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">bounds</span> <span class="o">=</span> <span class="p">[[</span><span class="n">miny</span><span class="p">,</span> <span class="n">minx</span><span class="p">],</span> <span class="p">[</span><span class="n">maxy</span><span class="p">,</span> <span class="n">maxx</span><span class="p">]]</span>
+<span class="nb">map</span><span class="o">.</span><span class="n">fit_bounds</span><span class="p">(</span><span class="n">bounds</span><span class="p">)</span>
+
+<span class="c1"># Display the map</span>
+<span class="n">display</span><span class="p">(</span><span class="nb">map</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>See if there are any points in your county! If not, find a nearby county that has points. Enter the name of your chosen county below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">county_name</span> <span class="o">=</span> <span class="s2">&quot;Your County Name&quot;</span>
+
+<span class="c1"># Make sure it ends in the word &quot;County&quot;</span>
+
+<span class="c1"># For example,</span>
+<span class="c1"># county_name = &quot;Broward County&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="mosquitoes-in-your-county">
+<h2>Mosquitoes in Your County<a class="headerlink" href="#mosquitoes-in-your-county" title="Link to this heading">#</a></h2>
+<p>Get the specific outline of your county:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">county</span> <span class="o">=</span> <span class="n">state_counties</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">counties</span><span class="p">[</span><span class="s1">&#39;NAMELSAD&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">county_name</span><span class="p">]</span>
+<span class="n">county</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we use those boundaries to filter for all GLOBE points within your county, from 2018 to 2024.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_county</span> <span class="o">=</span> <span class="n">mosquito</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span><span class="n">county</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span> <span class="n">predicate</span><span class="o">=</span><span class="s2">&quot;within&quot;</span><span class="p">)</span>
+
+<span class="n">num_total</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_county</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There were </span><span class="si">{</span><span class="n">num_total</span><span class="si">}</span><span class="s2"> GLOBE points recorded within </span><span class="si">{</span><span class="n">county_name</span><span class="si">}</span><span class="s2"> from 2018-2024 by community scientists.&quot;</span><span class="p">)</span>
+
+<span class="n">num_eliminated</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_county</span><span class="p">[</span><span class="n">data_county</span><span class="p">[</span><span class="s1">&#39;BreedingGroundEliminated&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;true&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Of those points, </span><span class="si">{</span><span class="n">num_eliminated</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">num_eliminated</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">num_total</span><span class="p">)</span><span class="si">}</span><span class="s2">%) were successfully mitigated by the community scientists, which reduces the risk for mosquitoes inhabiting that location in the future.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If there were no GLOBE points in your county, please choose a nearby county that has at least one point. You can check by looking at the map of your state above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_county</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>How many mosquito observations have been submitted to GLOBE Observer each year in your county? We’ll make a bar plot to figure this out.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add a new column for year</span>
+<span class="n">data_county</span><span class="p">[</span><span class="s1">&#39;MeasuredYear&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_county</span><span class="p">[</span><span class="s1">&#39;MeasuredAt&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
+
+<span class="c1"># Make histogram of mosquito sightings each year</span>
+<span class="n">years</span> <span class="o">=</span> <span class="n">data_county</span><span class="p">[[</span><span class="s1">&#39;SiteId&#39;</span><span class="p">,</span> <span class="s1">&#39;MeasuredYear&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;MeasuredYear&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">years</span><span class="p">[</span><span class="s1">&#39;MeasuredYear&#39;</span><span class="p">],</span> <span class="n">years</span><span class="p">[</span><span class="s1">&#39;SiteId&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Mosquito Sightings by Year&quot;</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">county_name</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s make a pie chart of the water source types (both general and specific) where mosquitoes were reported in this county.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get counts of each water source (general)</span>
+<span class="n">types</span> <span class="o">=</span> <span class="n">data_county</span><span class="p">[[</span><span class="s1">&#39;SiteId&#39;</span><span class="p">,</span> <span class="s1">&#39;WaterSourceType&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;WaterSourceType&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+
+<span class="c1"># Create pie chart</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">patches</span><span class="p">,</span> <span class="n">texts</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">types</span><span class="p">[</span><span class="s1">&#39;SiteId&#39;</span><span class="p">],</span>
+                         <span class="n">colors</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s1">&#39;Set2&#39;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;GLOBE Mosquito Sightings in </span><span class="si">{</span><span class="n">county_name</span><span class="si">}</span><span class="s2">: Water Source Types (General)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">patches</span><span class="p">,</span> <span class="n">types</span><span class="p">[</span><span class="s1">&#39;WaterSourceType&#39;</span><span class="p">],</span>
+           <span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;center left&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get counts of each water source (specific)</span>
+<span class="n">types</span> <span class="o">=</span> <span class="n">data_county</span><span class="p">[[</span><span class="s1">&#39;SiteId&#39;</span><span class="p">,</span> <span class="s1">&#39;WaterSource&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;WaterSource&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+
+<span class="c1"># Create pie chart</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">patches</span><span class="p">,</span> <span class="n">texts</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">types</span><span class="p">[</span><span class="s1">&#39;SiteId&#39;</span><span class="p">],</span>
+                         <span class="n">colors</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s1">&#39;Set2&#39;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;GLOBE Mosquito Sightings in </span><span class="si">{</span><span class="n">county_name</span><span class="si">}</span><span class="s2">: Water Source Types (Specific)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">patches</span><span class="p">,</span> <span class="n">types</span><span class="p">[</span><span class="s1">&#39;WaterSource&#39;</span><span class="p">],</span>
+           <span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;center left&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="remote-sensing-data-for-your-county">
+<h2>Remote Sensing Data for Your County<a class="headerlink" href="#remote-sensing-data-for-your-county" title="Link to this heading">#</a></h2>
+<p>If you have not used Google Earth Engine before, follow <a class="reference external" href="https://geo-di-lab.github.io/emerge-lessons/docs/ch1/lesson5a.html">this tutorial</a> to create an Earth Engine account and project.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write your project ID for Google Earth Engine below</span>
+<span class="n">projectID</span> <span class="o">=</span> <span class="s2">&quot;Write Your Project ID&quot;</span>
+
+<span class="c1"># For example,</span>
+<span class="c1"># projectID = &quot;emerge-lessons-23148&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">ee</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geemap</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geopandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gpd</span>
+<span class="n">ee</span><span class="o">.</span><span class="n">Authenticate</span><span class="p">()</span>
+
+<span class="c1"># Write your project ID here, in quotes</span>
+<span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">(</span><span class="n">project</span> <span class="o">=</span> <span class="n">projectID</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert county boundaries to Earth Engine format</span>
+<span class="n">region</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">geopandas_to_ee</span><span class="p">(</span><span class="n">county</span><span class="p">)</span>
+
+<span class="c1"># Create an empty map zoomed to the county</span>
+<span class="n">county_center</span> <span class="o">=</span> <span class="n">county</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">centroid</span>
+
+<span class="nb">map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="n">county_center</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">county_center</span><span class="o">.</span><span class="n">x</span><span class="p">],</span>
+                 <span class="n">zoom</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">map</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="s1">&#39;CartoDB.DarkMatter&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we will map land surface temperature across the county. First, define a date range which would be used to find the average temperature across those dates.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start_date</span> <span class="o">=</span> <span class="s2">&quot;2025-06-01&quot;</span>
+<span class="n">end_date</span> <span class="o">=</span> <span class="s2">&quot;2025-07-01&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will visualize NASA remote sensing data from Google Earth Engine: <a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD11A1">MOD11A1.061 Terra Land Surface Temperature and Emissivity Daily Global 1km</a>. The land surface temperature data are scaled, so to return to the original temperature in Kelvin, the value needs to be multipled by 0.02. Then, we can convert this to Fahrenheit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">to_fahrenheit</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+  <span class="n">celsius</span> <span class="o">=</span> <span class="n">lst</span> <span class="o">*</span> <span class="mf">0.02</span> <span class="o">-</span> <span class="mf">273.15</span>
+  <span class="n">fahrenheit</span> <span class="o">=</span> <span class="n">celsius</span> <span class="o">*</span> <span class="mf">1.8</span> <span class="o">+</span> <span class="mi">32</span>
+  <span class="k">return</span> <span class="n">fahrenheit</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">to_lst</span><span class="p">(</span><span class="n">fahrenheit</span><span class="p">):</span>
+  <span class="n">celsius</span> <span class="o">=</span> <span class="p">(</span><span class="n">fahrenheit</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1.8</span>
+  <span class="n">lst</span> <span class="o">=</span> <span class="p">(</span><span class="n">celsius</span> <span class="o">+</span> <span class="mf">273.15</span><span class="p">)</span> <span class="o">/</span> <span class="mf">0.02</span>
+  <span class="k">return</span> <span class="n">lst</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load Google Earth Engine data</span>
+<span class="n">lst</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;MODIS/061/MOD11A1&#39;</span><span class="p">)</span>
+      <span class="o">.</span><span class="n">filterDate</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">)</span>
+      <span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;LST_Day_1km&#39;</span><span class="p">)</span>
+      <span class="o">.</span><span class="n">median</span><span class="p">()</span>
+      <span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">region</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># Define color range</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;040274&#39;</span><span class="p">,</span> <span class="s1">&#39;040281&#39;</span><span class="p">,</span> <span class="s1">&#39;0502a3&#39;</span><span class="p">,</span> <span class="s1">&#39;0502b8&#39;</span><span class="p">,</span> <span class="s1">&#39;0502ce&#39;</span><span class="p">,</span> <span class="s1">&#39;0502e6&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;0602ff&#39;</span><span class="p">,</span> <span class="s1">&#39;235cb1&#39;</span><span class="p">,</span> <span class="s1">&#39;307ef3&#39;</span><span class="p">,</span> <span class="s1">&#39;269db1&#39;</span><span class="p">,</span> <span class="s1">&#39;30c8e2&#39;</span><span class="p">,</span> <span class="s1">&#39;32d3ef&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;3be285&#39;</span><span class="p">,</span> <span class="s1">&#39;3ff38f&#39;</span><span class="p">,</span> <span class="s1">&#39;86e26f&#39;</span><span class="p">,</span> <span class="s1">&#39;3ae237&#39;</span><span class="p">,</span> <span class="s1">&#39;b5e22e&#39;</span><span class="p">,</span> <span class="s1">&#39;d6e21f&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;fff705&#39;</span><span class="p">,</span> <span class="s1">&#39;ffd611&#39;</span><span class="p">,</span> <span class="s1">&#39;ffb613&#39;</span><span class="p">,</span> <span class="s1">&#39;ff8b13&#39;</span><span class="p">,</span> <span class="s1">&#39;ff6e08&#39;</span><span class="p">,</span> <span class="s1">&#39;ff500d&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ff0000&#39;</span><span class="p">,</span> <span class="s1">&#39;de0101&#39;</span><span class="p">,</span> <span class="s1">&#39;c21301&#39;</span><span class="p">,</span> <span class="s1">&#39;a71001&#39;</span><span class="p">,</span> <span class="s1">&#39;911003&#39;</span>
+<span class="p">]</span>
+
+<span class="c1"># Define minimum and maximum values and color scale</span>
+<span class="n">lst_vis</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="n">to_lst</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+    <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="n">to_lst</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+    <span class="s1">&#39;palette&#39;</span><span class="p">:</span> <span class="n">colors</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># Add data to map</span>
+<span class="nb">map</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">lst_vis</span><span class="p">,</span> <span class="s2">&quot;LST&quot;</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="nb">map</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Below is a colorbar that shows what the colors on the map represent: land surface temperature in degrees Fahrenheit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">colors</span><span class="p">),</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">([</span> <span class="p">[</span><span class="n">to_rgb</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;#</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">colors</span><span class="p">]</span> <span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;50 °F&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;100 °F&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">24</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, find the average temperature across the county.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_lst</span> <span class="o">=</span> <span class="n">lst</span><span class="o">.</span><span class="n">reduceRegion</span><span class="p">(</span><span class="n">reducer</span><span class="o">=</span><span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">geometry</span><span class="o">=</span><span class="n">region</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+                              <span class="n">maxPixels</span><span class="o">=</span><span class="mf">1e12</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;LST_Day_1km&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">getInfo</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The average temperature for </span><span class="si">{</span><span class="n">county_name</span><span class="si">}</span><span class="s2"> from </span><span class="si">{</span><span class="n">start_date</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">end_date</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">to_fahrenheit</span><span class="p">(</span><span class="n">mean_lst</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">°F&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we’ll visualize the land use and land cover in the county: <a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/USFS_GTAC_LCMS_v2024-10#bands">USFS Landscape Change Monitoring System v2024.10 (CONUS and OCONUS)</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Land Use</span>
+
+<span class="c1"># Reset the map</span>
+<span class="nb">map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="n">county_center</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">county_center</span><span class="o">.</span><span class="n">x</span><span class="p">],</span>
+                 <span class="n">zoom</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">map</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="s1">&#39;CartoDB.DarkMatter&#39;</span><span class="p">)</span>
+
+<span class="c1"># Define land cover color palette</span>
+<span class="n">palette</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;fbff97&#39;</span><span class="p">,</span> <span class="s1">&#39;e6558b&#39;</span><span class="p">,</span> <span class="s1">&#39;004e2b&#39;</span><span class="p">,</span> <span class="s1">&#39;9dbac5&#39;</span><span class="p">,</span> <span class="s1">&#39;a6976a&#39;</span><span class="p">,</span> <span class="s1">&#39;1b1716&#39;</span><span class="p">]</span>
+<span class="n">visual</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;palette&#39;</span><span class="p">:</span> <span class="n">palette</span><span class="p">}</span>
+
+<span class="c1"># Add 1985 land use</span>
+<span class="n">landcover_1985</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;USFS/GTAC/LCMS/v2024-10&#39;</span><span class="p">)</span>
+      <span class="o">.</span><span class="n">filterDate</span><span class="p">(</span><span class="s1">&#39;1985&#39;</span><span class="p">,</span> <span class="s1">&#39;1986&#39;</span><span class="p">)</span>
+      <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">&#39;study_area == &quot;CONUS&quot;&#39;</span><span class="p">)</span>
+      <span class="o">.</span><span class="n">first</span><span class="p">()</span>
+      <span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">region</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="nb">map</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">landcover_1985</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Land_Use&#39;</span><span class="p">),</span> <span class="n">visual</span><span class="p">,</span> <span class="s1">&#39;1985 Land Use&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add 2024 land use</span>
+<span class="n">landcover_2024</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;USFS/GTAC/LCMS/v2024-10&#39;</span><span class="p">)</span>
+      <span class="o">.</span><span class="n">filterDate</span><span class="p">(</span><span class="s1">&#39;2024&#39;</span><span class="p">,</span> <span class="s1">&#39;2025&#39;</span><span class="p">)</span>
+      <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">&#39;study_area == &quot;CONUS&quot;&#39;</span><span class="p">)</span>
+      <span class="o">.</span><span class="n">first</span><span class="p">()</span>
+      <span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">region</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="nb">map</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">landcover_2024</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Land_Use&#39;</span><span class="p">),</span> <span class="n">visual</span><span class="p">,</span> <span class="s1">&#39;2024 Land Use&#39;</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="nb">map</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="math notranslate nohighlight">
+\[\color{#fbff97}Agriculture\]</div>
+<div class="math notranslate nohighlight">
+\[\color{#e6558b}Developed\]</div>
+<div class="math notranslate nohighlight">
+\[\color{#004e2b}Forest\]</div>
+<div class="math notranslate nohighlight">
+\[\color{#9dbac5}Other\]</div>
+<div class="math notranslate nohighlight">
+\[\color{#a6976a}Rangeland or Pasture\]</div>
+<p>We will create a function that calculates the percent of each type of land use and land cover in the county.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">land_stats</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Calculates the percent of each type of land use or land cover in the county.</span>
+<span class="sd">  Inputs:</span>
+<span class="sd">  - image: Earth Engine image</span>
+<span class="sd">  - name: Land_Use or Land_Cover</span>
+<span class="sd">  - labels: dictionary of labels</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">count</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">reduceRegion</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">frequencyHistogram</span><span class="p">(),</span> <span class="n">geometry</span><span class="o">=</span><span class="n">region</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">maxPixels</span><span class="o">=</span><span class="mf">1e12</span><span class="p">)</span><span class="o">.</span><span class="n">getInfo</span><span class="p">()</span>
+
+  <span class="n">land_cover_counts</span> <span class="o">=</span> <span class="p">{}</span>
+
+  <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">labels</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+      <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">count</span><span class="p">[</span><span class="n">name</span><span class="p">]:</span>
+          <span class="n">land_cover_counts</span><span class="p">[</span><span class="n">value</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="n">key</span><span class="p">]</span>
+
+  <span class="n">total_pixels</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">land_cover_counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">land_cover_counts</span><span class="p">])</span>
+
+  <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">land_cover_counts</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">percent</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="n">num</span> <span class="o">/</span> <span class="n">total_pixels</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">percent</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">percent</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Get the land use for 1985.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">land_use_labels</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;1&#39;</span><span class="p">:</span> <span class="s1">&#39;Agriculture&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;2&#39;</span><span class="p">:</span> <span class="s1">&#39;Developed&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;3&#39;</span><span class="p">:</span> <span class="s1">&#39;Forest&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;4&#39;</span><span class="p">:</span> <span class="s1">&#39;Other&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;5&#39;</span><span class="p">:</span> <span class="s1">&#39;Rangeland or Pasture&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;6&#39;</span><span class="p">:</span> <span class="s1">&#39;Non-Processing Area Mask&#39;</span><span class="p">}</span>
+
+<span class="n">land_stats</span><span class="p">(</span><span class="n">landcover_1985</span><span class="p">,</span> <span class="s1">&#39;Land_Use&#39;</span><span class="p">,</span> <span class="n">land_use_labels</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we repeat for 2024.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">land_stats</span><span class="p">(</span><span class="n">landcover_2024</span><span class="p">,</span> <span class="s1">&#39;Land_Use&#39;</span><span class="p">,</span> <span class="n">land_use_labels</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Visualize land cover on a map.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Land Cover</span>
+
+<span class="c1"># Reset the map</span>
+<span class="nb">map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="n">county_center</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">county_center</span><span class="o">.</span><span class="n">x</span><span class="p">],</span>
+                 <span class="n">zoom</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">map</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="s1">&#39;CartoDB.DarkMatter&#39;</span><span class="p">)</span>
+
+<span class="c1"># Define color palette</span>
+<span class="n">palette</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;004e2b&#39;</span><span class="p">,</span> <span class="s1">&#39;009344&#39;</span><span class="p">,</span> <span class="s1">&#39;61bb46&#39;</span><span class="p">,</span> <span class="s1">&#39;acbb67&#39;</span><span class="p">,</span> <span class="s1">&#39;8b8560&#39;</span><span class="p">,</span> <span class="s1">&#39;cafd4b&#39;</span><span class="p">,</span> <span class="s1">&#39;f89a1c&#39;</span><span class="p">,</span> <span class="s1">&#39;8fa55f&#39;</span><span class="p">,</span> <span class="s1">&#39;bebb8e&#39;</span><span class="p">,</span> <span class="s1">&#39;e5e98a&#39;</span><span class="p">,</span> <span class="s1">&#39;ddb925&#39;</span><span class="p">,</span> <span class="s1">&#39;893f54&#39;</span><span class="p">,</span> <span class="s1">&#39;e4f5fd&#39;</span><span class="p">,</span> <span class="s1">&#39;00b6f0&#39;</span><span class="p">,</span> <span class="s1">&#39;1b1716&#39;</span><span class="p">]</span>
+<span class="n">visual</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="s1">&#39;palette&#39;</span><span class="p">:</span> <span class="n">palette</span><span class="p">}</span>
+
+<span class="c1"># Add land cover for 1985 and 2024</span>
+<span class="nb">map</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">landcover_1985</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Land_Cover&#39;</span><span class="p">),</span> <span class="n">visual</span><span class="p">,</span> <span class="s1">&#39;1985 Land Cover&#39;</span><span class="p">)</span>
+<span class="nb">map</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">landcover_2024</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;Land_Cover&#39;</span><span class="p">),</span> <span class="n">visual</span><span class="p">,</span> <span class="s1">&#39;2024 Land Cover&#39;</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="nb">map</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="math notranslate nohighlight">
+\[\color{#004e2b}Trees\]</div>
+<div class="math notranslate nohighlight">
+\[\color{#61bb46}Shrubs \space and \space Trees Mix\]</div>
+<div class="math notranslate nohighlight">
+\[\color{#acbb67}Grass/Forb/Herb \space and \space Trees Mix\]</div>
+<div class="math notranslate nohighlight">
+\[\color{#8b8560}Barren \space and \space Trees Mix\]</div>
+<div class="math notranslate nohighlight">
+\[\color{#f89a1c}Shrubs\]</div>
+<div class="math notranslate nohighlight">
+\[\color{#8fa55f}Grass/Forb/Herb \space and \space Shrubs Mix\]</div>
+<div class="math notranslate nohighlight">
+\[\color{#bebb8e}Barren \space and \space Shrubs Mix\]</div>
+<div class="math notranslate nohighlight">
+\[\color{#e5e98a}Grass/Forb/Herb\]</div>
+<div class="math notranslate nohighlight">
+\[\color{#ddb925}Barren \space and \space Grass/Forb/Herb Mix\]</div>
+<div class="math notranslate nohighlight">
+\[\color{#893f54}Barren or Impervious\]</div>
+<div class="math notranslate nohighlight">
+\[\color{#e4f5fd}Snow or Ice\]</div>
+<p>Find the percent of each type of land cover</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">land_cover_labels</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;1&#39;</span><span class="p">:</span> <span class="s1">&#39;Trees&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;2&#39;</span><span class="p">:</span> <span class="s1">&#39;Tall Shrubs &amp; Trees Mix (AK Only)&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;3&#39;</span><span class="p">:</span> <span class="s1">&#39;Shrubs &amp; Trees Mix&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;4&#39;</span><span class="p">:</span> <span class="s1">&#39;Grass/Forb/Herb &amp; Trees Mix&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;5&#39;</span><span class="p">:</span> <span class="s1">&#39;Barren &amp; Trees Mix&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;6&#39;</span><span class="p">:</span> <span class="s1">&#39;Tall Shrubs (AK Only)&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;7&#39;</span><span class="p">:</span> <span class="s1">&#39;Shrubs&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;8&#39;</span><span class="p">:</span> <span class="s1">&#39;Grass/Forb/Herb &amp; Shrubs Mix&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;9&#39;</span><span class="p">:</span> <span class="s1">&#39;Barren &amp; Shrubs Mix&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;10&#39;</span><span class="p">:</span> <span class="s1">&#39;Grass/Forb/Herb&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;11&#39;</span><span class="p">:</span> <span class="s1">&#39;Barren &amp; Grass/Forb/Herb Mix&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;12&#39;</span><span class="p">:</span> <span class="s1">&#39;Barren or Impervious&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;13&#39;</span><span class="p">:</span> <span class="s1">&#39;Snow or Ice&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;14&#39;</span><span class="p">:</span> <span class="s1">&#39;Water&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;15&#39;</span><span class="p">:</span> <span class="s1">&#39;Non-Processing Area Mask&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">land_stats</span><span class="p">(</span><span class="n">landcover_1985</span><span class="p">,</span> <span class="s1">&#39;Land_Cover&#39;</span><span class="p">,</span> <span class="n">land_cover_labels</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">land_stats</span><span class="p">(</span><span class="n">landcover_2024</span><span class="p">,</span> <span class="s1">&#39;Land_Cover&#39;</span><span class="p">,</span> <span class="n">land_cover_labels</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="tying-it-all-together-getting-remote-sensing-data-for-a-globe-point">
+<h2>Tying it all together: Getting Remote Sensing Data for a GLOBE point<a class="headerlink" href="#tying-it-all-together-getting-remote-sensing-data-for-a-globe-point" title="Link to this heading">#</a></h2>
+<p>View the list of observations for your chosen county.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_county</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Choose one of these obsarvations and note the index (the left-most number, like 6643 or 29024) of the observation you chose. Write it below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index</span> <span class="o">=</span>
+
+<span class="c1"># For example,</span>
+<span class="c1"># index = 29024</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Show the data for the point at this index:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">point</span> <span class="o">=</span> <span class="n">data_county</span><span class="p">[</span><span class="n">data_county</span><span class="o">.</span><span class="n">index</span> <span class="o">==</span> <span class="n">index</span><span class="p">]</span>
+<span class="n">point</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Get environmental data (land surface temperature, precipitation, and vegetation) for the point you chose. Read more about this code in <a class="reference external" href="https://geo-di-lab.github.io/emerge-lessons/docs/ch4/lesson2.html">chapter 4 of the digital textbook</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mask_s2_clouds</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Masks clouds in a Sentinel-2 image using the QA band.</span>
+<span class="sd">  Args:</span>
+<span class="sd">      image (ee.Image): A Sentinel-2 image.</span>
+<span class="sd">  Returns:</span>
+<span class="sd">      ee.Image: A cloud-masked Sentinel-2 image.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">qa</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;QA60&#39;</span><span class="p">)</span>
+
+  <span class="c1"># Bits 10 and 11 are clouds and cirrus, respectively.</span>
+  <span class="n">cloud_bit_mask</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">10</span>
+  <span class="n">cirrus_bit_mask</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">11</span>
+
+  <span class="c1"># Both flags should be set to zero, indicating clear conditions.</span>
+  <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span>
+      <span class="n">qa</span><span class="o">.</span><span class="n">bitwiseAnd</span><span class="p">(</span><span class="n">cloud_bit_mask</span><span class="p">)</span>
+      <span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+      <span class="o">.</span><span class="n">And</span><span class="p">(</span><span class="n">qa</span><span class="o">.</span><span class="n">bitwiseAnd</span><span class="p">(</span><span class="n">cirrus_bit_mask</span><span class="p">)</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+  <span class="p">)</span>
+
+  <span class="k">return</span> <span class="n">image</span><span class="o">.</span><span class="n">updateMask</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_data_for_point</span><span class="p">(</span><span class="n">point</span><span class="p">):</span>
+    <span class="c1"># Extract the point&#39;s date property</span>
+    <span class="n">point_date</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">point</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;MeasuredDate&#39;</span><span class="p">))</span>
+    <span class="n">day_before</span> <span class="o">=</span> <span class="n">point_date</span><span class="o">.</span><span class="n">advance</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;day&#39;</span><span class="p">)</span>
+    <span class="n">month_before</span> <span class="o">=</span> <span class="n">point_date</span><span class="o">.</span><span class="n">advance</span><span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;day&#39;</span><span class="p">)</span>
+
+    <span class="c1">#### Land Surface Temperature from NASA&#39;s MODIS ####</span>
+    <span class="n">lst</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;MODIS/061/MOD11A1&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">filterDate</span><span class="p">(</span><span class="n">month_before</span><span class="p">,</span> <span class="n">point_date</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;LST_Day_1km&#39;</span><span class="p">,</span> <span class="s1">&#39;QC_Day&#39;</span><span class="p">,</span> <span class="s1">&#39;LST_Night_1km&#39;</span><span class="p">,</span> <span class="s1">&#39;QC_Night&#39;</span><span class="p">,</span> <span class="s1">&#39;Clear_day_cov&#39;</span><span class="p">,</span> <span class="s1">&#39;Clear_night_cov&#39;</span><span class="p">])</span>
+        <span class="o">.</span><span class="n">median</span><span class="p">()</span>
+        <span class="c1"># Sample LST at the point’s location</span>
+        <span class="o">.</span><span class="n">reduceRegion</span><span class="p">(</span>
+            <span class="n">reducer</span><span class="o">=</span><span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span>
+            <span class="n">geometry</span><span class="o">=</span><span class="n">point</span><span class="o">.</span><span class="n">geometry</span><span class="p">(),</span>
+            <span class="n">scale</span><span class="o">=</span><span class="mi">1000</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">point</span> <span class="o">=</span> <span class="n">point</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
+    <span class="n">point</span> <span class="o">=</span> <span class="n">point</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;LST_Day_1km_F&#39;</span><span class="p">,</span> <span class="n">to_fahrenheit</span><span class="p">(</span><span class="n">point</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;LST_Day_1km&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">getInfo</span><span class="p">()))</span>
+
+    <span class="c1">#### Sentinel-2, Median of Previous Month (used to calculate NDVI) ####</span>
+    <span class="n">sentinel2</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;COPERNICUS/S2_SR_HARMONIZED&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">filterDate</span><span class="p">(</span><span class="n">month_before</span><span class="p">,</span> <span class="n">point_date</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">mask_s2_clouds</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">median</span><span class="p">()</span>
+        <span class="c1"># Sample median band values at the point’s location</span>
+        <span class="o">.</span><span class="n">reduceRegion</span><span class="p">(</span>
+            <span class="n">reducer</span><span class="o">=</span><span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span>
+            <span class="n">geometry</span><span class="o">=</span><span class="n">point</span><span class="o">.</span><span class="n">geometry</span><span class="p">(),</span>
+            <span class="n">scale</span><span class="o">=</span><span class="mi">10</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">point</span> <span class="o">=</span> <span class="n">point</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">sentinel2</span><span class="p">)</span>
+
+    <span class="c1">#### Precipitation from NASA&#39;s Daymet V4 ####</span>
+    <span class="n">rain</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;NASA/ORNL/DAYMET_V4&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">filterDate</span><span class="p">(</span><span class="n">day_before</span><span class="p">,</span> <span class="n">point_date</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;prcp&#39;</span><span class="p">)</span>     <span class="c1"># Daily total precipitation</span>
+        <span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="c1"># Sample median band values at the point’s location</span>
+        <span class="o">.</span><span class="n">reduceRegion</span><span class="p">(</span>
+            <span class="n">reducer</span><span class="o">=</span><span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span>
+            <span class="n">geometry</span><span class="o">=</span><span class="n">point</span><span class="o">.</span><span class="n">geometry</span><span class="p">(),</span>
+            <span class="n">scale</span><span class="o">=</span><span class="mi">1000</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">point</span> <span class="o">=</span> <span class="n">point</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rain</span><span class="p">)</span>
+
+    <span class="c1"># Add additional information</span>
+    <span class="n">b8</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="n">point</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;B8&#39;</span><span class="p">))</span>
+    <span class="n">b4</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="n">point</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;B4&#39;</span><span class="p">))</span>
+    <span class="n">point</span> <span class="o">=</span> <span class="n">point</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;NDVI&#39;</span><span class="p">,</span> <span class="n">b8</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">b4</span><span class="p">)</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">b8</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">b4</span><span class="p">)))</span>
+
+    <span class="k">return</span> <span class="n">point</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Use this function to get precipitation, temperature, and vegetation data for your chosen point.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">point_fc</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">geopandas_to_ee</span><span class="p">(</span><span class="n">point</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">get_data_for_point</span><span class="p">(</span><span class="n">point_fc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Print the data:</p>
+<p>The Normalized Difference Vegetation Index (NDVI)  is a value from -1 to 1 representing vegetation levels. High values close to 1 indicate areas of high vegetation like forests, whereas low values close to -1 indicate areas of low vegetation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;GLOBE Mosquito observation in </span><span class="si">{</span><span class="n">county_name</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">state_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Date: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;MeasuredDate&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">getInfo</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Water source: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;WaterSource&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">getInfo</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Precipitation: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;prcp&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">getInfo</span><span class="p">(),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2"> mm&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Land Surface Temperature: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;LST_Day_1km_F&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">getInfo</span><span class="p">(),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2"> </span><span class="se">\N{degree sign}</span><span class="s2">F&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Normalized Difference Vegetation Index (NDVI): </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;NDVI&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">getInfo</span><span class="p">(),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Below are more resources for GLOBE and EMERGE:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://geoemerge.com/">EMERGE website</a> and <a class="reference external" href="https://geo-di-lab.github.io/emerge-lessons">curriculum</a></p></li>
+<li><p><a class="reference external" href="https://www.globe.gov/do-globe/resources/teaching-resources">GLOBE Educator Resources</a></p></li>
+<li><p><a class="reference external" href="https://observer.globe.gov/do-globe-observer/mosquito-habitats/resource-library">GLOBE Mosquito Habitat Mapper Resource Library</a></p></li>
+<li><p><a class="reference external" href="https://observer.globe.gov/do-globe-observer/land-cover">GLOBE Land Cover Resource Library</a></p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs\activities"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-the-tools">Introduction to the Tools</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mosquitoes-around-the-globe">Mosquitoes Around the GLOBE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#land-cover-around-the-globe">Land Cover Around the GLOBE</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-create-an-interactive-map-for-land-cover">Challenge: Create an interactive map for land cover</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mosquitoes-in-your-state">Mosquitoes in Your State</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mosquitoes-in-your-county">Mosquitoes in Your County</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remote-sensing-data-for-your-county">Remote Sensing Data for Your County</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tying-it-all-together-getting-remote-sensing-data-for-a-globe-point">Tying it all together: Getting Remote Sensing Data for a GLOBE point</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By GeoDI Lab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

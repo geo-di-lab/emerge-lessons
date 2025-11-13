@@ -1,0 +1,704 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>What is Citizen Science? &#8212; EMERGE Lessons</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/ch1/lesson1';</script>
+    <link rel="icon" href="../../_static/GeoDI_Logo.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Why Mosquitoes?" href="lesson2.html" />
+    <link rel="prev" title="Welcome to EMERGE" href="../../intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/EMERGE_Landsat.png" class="logo__image only-light" alt="EMERGE Lessons - Home"/>
+    <script>document.write(`<img src="../../_static/EMERGE_Landsat.png" class="logo__image only-dark" alt="EMERGE Lessons - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome to EMERGE
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">1. Foundational Concepts</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">What is Citizen Science?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lesson2.html">Why Mosquitoes?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lesson3.html">What is GLOBE Observer?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lesson4.html">What is Coding?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lesson5a.html">Get Google Earth Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lesson5b.html">Intro to Google Earth Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lesson6.html">Introduction to GLOBE Data</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">2. Explore the Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ch2/lesson1.html">Why Analyze Data?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch2/lesson2.html">Mosquito &amp; Land Cover Stats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch2/lesson3.html">Map GLOBE Citizen Science Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch2/lesson4.html">Visualizing GLOBE Hotspots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch2/lesson5.html">Decoding Habitat Photos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">3. Data from Satellites</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ch3/lesson1.html">Our Eyes in the Sky &amp; On the Ground</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch3/lesson2.html">Zooming in with Satellites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch3/lesson3.html">Vegetation &amp; Water Indices</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">4. Analyze the Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ch4/lesson1.html">Temperature, Rainfall &amp; Vegetation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch4/lesson2.html">Environment &amp; Habitats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch4/lesson3.html">Land Cover Over Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch4/lesson4.html">Introduction to Risk Mapping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch4/lesson5.html">County-Level Analysis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">5. Science Communication</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ch5/lesson1.html">Communicate the Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch5/lesson2.html">Host Your Own Data Camp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch5/lesson4.html">Sharing Your Findings</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">6. Templates for Your Data Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ch6/lesson1.html">Plotting Your Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch6/lesson2.html">Mapping Your Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch6/lesson3.html">Earth Engine Data</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">7. Merge GLOBE &amp; iNaturalist Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ch7/lesson1.html">Mosquito Control Through Predation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch7/lesson2.html">Map iNaturalist Citizen Science Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ch7/lesson3.html">Download iNaturalist Data</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/geo-di-lab/emerge-lessons" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/geo-di-lab/emerge-lessons/issues/new?title=Issue%20on%20page%20%2Fdocs/ch1/lesson1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/ch1/lesson1.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>What is Citizen Science?</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-research">What is Research?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">What is Citizen Science?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citizen-science-data">Citizen Science Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-an-existing-citizen-science-project">Finding an Existing Citizen Science Project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-scistarter-to-find-an-existing-project-citsci-to-find-an-existing-project-or-start-your-own">Using SciStarter (to find an existing project) &amp; CitSci (to find an existing project or start your own)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scistarter">SciStarter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#citsci">CitSci</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="what-is-citizen-science">
+<h1>What is Citizen Science?<a class="headerlink" href="#what-is-citizen-science" title="Link to this heading">#</a></h1>
+<p>Parts of this lesson were adapted from a <a class="reference external" href="https://blog.citsci.org/2025/07/16/citizen-science-for-educators/">longer blog post Caroline Nickerson wrote for CitSci</a>.</p>
+<section id="what-is-research">
+<h2>What is Research?<a class="headerlink" href="#what-is-research" title="Link to this heading">#</a></h2>
+<p>If you’re thinking about doing citizen science, you might ask yourself: What is research?</p>
+<p>In simple terms, research is a systematic way of investigating the world to create new knowledge</p>
+<p>And why do research? For a number of reasons:</p>
+<ul class="simple">
+<li><p>Because you are curious or concerned about something!</p></li>
+<li><p>Because you want to understand a problem or topic.</p></li>
+<li><p>Because you want a foundation built on knowledge to make decisions.</p></li>
+</ul>
+<p>Some people are professional researchers working for universities, nonprofits, governments, or companies, but others are researchers without a special background or even institutional support.</p>
+<p>Anyone, from any background, can volunteer to engage in research projects, or even start their own. Anyone can create knowledge! This is often done through citizen science.</p>
+</section>
+<section id="id1">
+<h2>What is Citizen Science?<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>Citizen science goes by a few different names. It can be: community, neighborhood, crowdsourced, participatory, and/or public science.</p>
+<p>There are <a class="reference external" href="https://www.science.org/doi/10.1126/science.abi6487">good faith debates</a> out there about what is the best term to use (or what these different terms mean), but a working definition of citizen science for an educator could be: “how any member of the public contributes to scientific discovery, often by collecting, analyzing, or somehow working with data.” And remember, data is just information about the world!</p>
+<p>Some citizen science projects are small and local (with only a few people in a certain place participating), but some are big and global. The big projects often rely on crowdsourcing. <a class="reference external" href="https://doi.org/10.1016/j.tree.2009.03.017">Crowdsourcing</a> is the “the process of outsourcing tasks to a distributed group of people.”</p>
+<p><img alt="Cartoon of a student saying &quot;I think you'll be delightfully suprised by the quality of my work on this assignment. I crowdsourced it." src="https://blog.citsci.org/wp-content/uploads/2025/07/image.gif" />
+Image source: <a class="reference external" href="https://www.robcottingham.ca/cartoon/">Rob Cottingham</a></p>
+<p>A lot of citizen science also involves community-based monitoring, <a class="reference external" href="https://link.springer.com/article/10.1023/A:1025545813057">described</a> as when “…concerned citizens, government agencies, industry, academia, community groups, and local institutions collaborate to monitor, track, and respond to issues of common community concern.”</p>
+<p>In other words, many communities use citizen science to pay extra-close attention to an issue that matters to them, like sea-level rise (or mosquito habitats! Tracking mosquito habitats helps us predict where mosquito-borne illness might occur).</p>
+<p>In citizen science, participation can range from contractual, where communities commission researchers to conduct studies; contributory, where volunteers primarily collect data; collaborative, where participants may also help refine project design or analyze results; co-created, where scientists and community members jointly design and carry out research; to collegial, where non-credentialed individuals conduct independent research (<a class="reference external" href="https://doi.org/10.1525/bio.2009.59.11.9">Bonney et al.</a> and <a class="reference external" href="https://doi.org/10.1016/j.tree.2009.03.017">Shirk et al.</a> really articulate these frameworks well).</p>
+<p>Sauermann and Poetz (initially in an <a class="reference external" href="https://doi.org/10.1080/13662716.2021.1976627">article with Franzoni</a>, and then expanded on in their <a class="reference external" href="https://www.sciencewithcrowds.org/">book</a>) developed a helpful model showing how members of the public (including at scale through the lens of crowd science, or with smaller teams) can be involved at any stage of the research process, from identifying questions to analyzing data to sharing results.</p>
+<p>But beyond when people participate, Sauermann and Poetz also introduced a framework for understanding how they contribute: the AKRD model.</p>
+<p>AKRD stands for:</p>
+<ul class="simple">
+<li><p><strong>Activities</strong> – the actual tasks the crowd members/participants perform (like taking photos of wildlife or transcribing historical documents)</p></li>
+<li><p><strong>Knowledge</strong> – what people know and bring to the project (including lived experience, local expertise, or disciplinary training)</p></li>
+<li><p><strong>Resources</strong> – what people have access to (like smartphones, tools, transportation, or even funding)</p></li>
+<li><p><strong>Decisions</strong> – the ability to help shape the project, whether through setting priorities, refining methods, or choosing how results are used</p></li>
+</ul>
+<p>Participants often contribute through activities (like data collection), but they also bring unique knowledge about their communities, and sometimes make key decisions about what to investigate and why. Understanding these different forms of contribution helps educators create more meaningful, inclusive citizen science experiences, and helps citizen scientists see themselves as full participants in the scientific process.</p>
+<p>The <a class="reference external" href="https://citsci.org/">CitSci</a> team often uses a graphic that outlines how different types of citizen science projects fall under different frameworks:</p>
+<p><img alt="Checklist titled types of participation" src="https://blog.citsci.org/wp-content/uploads/2025/07/image-1.gif?w=936" />
+This table was developed in part based on <a class="reference external" href="https://doi.org/10.1016/j.tree.2009.03.017">Shirk et al.</a></p>
+<p>The biggest takeaway from all this is that citizen science makes a difference and advances knowledge.</p>
+<p>Because of citizen scientists, we now know (and shout out to <a class="reference external" href="https://faculty.cnr.ncsu.edu/carencooper/">Caren Cooper</a> for helping flag some of the outcomes on this list!):</p>
+<ul class="simple">
+<li><p>One-third of bird species are at risk of extinction (<a class="reference external" href="https://www.audubon.org/magazine/sweeping-new-report-shows-us-birds-declining-sharply-across-range-habitats">Audubon</a>)</p></li>
+<li><p>New species of birds, trees, earthworms, and more have been discovered (<a class="reference external" href="https://www.australiangeographic.com.au/topics/science-environment/2018/09/a-history-of-the-biggest-discoveries-by-citizen-scientists/">Australian Geographic</a>)</p></li>
+<li><p>50+ types of bacteria live in your belly button (<a class="reference external" href="https://robdunnlab.com/projects/belly-button-biodiversity/project-history">Dunn Lab</a>)</p></li>
+<li><p>The first flowering of 19 species of plants has moved 9 days earlier over the past decade, indicating climate change (<a class="reference external" href="https://www.nature.com/articles/srep02239">Gonsamo et al.</a>)</p></li>
+<li><p>There’s a new type of aurora in the night sky (and the citizen scientists named it Steve!) (<a class="reference external" href="https://sos.noaa.gov/education/phenomenon-based-learning/this-is-steve/">NOAA</a>)</p></li>
+<li><p>There’s another Jupiter-sized planet (<a class="reference external" href="https://exoplanets.nasa.gov/tess/">TESS</a>)</p></li>
+<li><p>Invasive mosquito species have arrived in Germany (<a class="reference external" href="https://climate-adapt.eea.europa.eu/en/metadata/case-studies/2018muckenatlas2019-a-citizen-science-project-for-mosquito-surveillance-in-germany">Mückenatlas</a>)</p></li>
+<li><p>Alzheimer’s research is 6x faster than it would be at Cornell’s Schaffer – Nishimura Lab (<a class="reference external" href="https://stallcatchers.com/about">Stall Catchers</a>)</p></li>
+</ul>
+</section>
+<section id="citizen-science-data">
+<h2>Citizen Science Data<a class="headerlink" href="#citizen-science-data" title="Link to this heading">#</a></h2>
+<p>Data is information.</p>
+<ul class="simple">
+<li><p>Information = words and pictures (qualitative data)</p></li>
+<li><p>Information = numbers and measurements (quantitative data)</p></li>
+</ul>
+<p>Much of citizen science involves the collection and analysis of data. Data collection can be as simple as taking pictures of plants with a <a class="reference external" href="http://inaturalist.org/">smartphone</a>, or as complex as doing a full <a class="reference external" href="https://www.earthecho.org/">water quality sample</a> with a kit.</p>
+<p>Data analysis also can be simple or complex: you can be clicking on blood vessels to find stalls for <a class="reference external" href="https://www.stallcatchers.com/">Alzheimer’s researchers</a>, or you can be solving complex problems yourself to help synthesize <a class="reference external" href="https://eternagame.org/">RNA-based vaccines</a>.</p>
+<p>Anyone can do citizen science by collecting or analyzing data, if they follow the instructions.</p>
+<p>It’s up to the researcher making a project to create instructions that facilitate meaningful participation (and mitigate possible data collection or analysis mistakes).</p>
+<p>We think <a class="reference external" href="https://science.nasa.gov/citizen-science/globe-observer/">GLOBE Observer</a> has done a great job with their research design, which is one reason they’re the featured project for the EMERGE campaign.</p>
+<p>Continue to explore the curriculum to dive in to our featured citizen science project, <a class="reference external" href="https://science.nasa.gov/citizen-science/globe-observer/">GLOBE Observer</a>!</p>
+<p>But what about all the other citizen science projects out there? And have you ever considered starting your own?</p>
+</section>
+<section id="finding-an-existing-citizen-science-project">
+<h2>Finding an Existing Citizen Science Project<a class="headerlink" href="#finding-an-existing-citizen-science-project" title="Link to this heading">#</a></h2>
+<p>You can certainly start your own citizen science project, but before you do, we recommend that you see what’s already out there.</p>
+<p>There are thousands of local and global citizen science projects in the world, spanning every topic from astronomy to agriculture.</p>
+<p>Some projects you can do in the field with a smartphone app or a paper datasheet, some are experiment-based (meaning you’re testing a statement that we believe to be true about the world – a hypothesis) or observational (to understand what’s going on in your community), and others are entirely online, involving data analysis, image tagging, or transcription.</p>
+<p>With so many choices, it might be difficult to decide on the right project for you or your community. The good news? If a project truly doesn’t exist that offers what you’re looking for, you can start your own, and several platforms make that easy (<strong>cough cough</strong> CitSci! We’ll explain more later in this post).</p>
+<p>Here are four trusted places to begin exploring:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://citsci.org/">CitSci</a> – CitSci is a website and app where anyone can start, manage, or join a citizen science project.. CitSci supports collaborative, community-based science and flexible project design.</p></li>
+<li><p><a class="reference external" href="https://scistarter.org/education">SciStarter</a> – SciStarter connects volunteers to over 3,000 citizen science projects, events, and tools. SciStarter also partners with NASA, Verizon, libraries, Girl Scouts, and others to offer engaging content. Many of our EMERGE materials are meant to support <a class="reference external" href="https://scistarter.org/ambassador">SciStarter Ambassadors</a>, who are highly motivated volunteers trying to get others involved in citizen science.</p></li>
+<li><p><a class="reference external" href="https://www.zooniverse.org/">Zooniverse</a> – Zooniverse is an online platform for people-powered research. Volunteers can contribute to ongoing projects in fields like astronomy, biology, history, and climate science—usually by analyzing images, transcribing documents, or tagging patterns.</p></li>
+<li><p><a class="reference external" href="https://www.citizenscience.gov/catalog/">Federal Citizen Science Catalog</a> – Managed by the U.S. General Services Administration, this catalog lists federally supported citizen science and crowdsourcing projects.</p></li>
+</ul>
+</section>
+<section id="using-scistarter-to-find-an-existing-project-citsci-to-find-an-existing-project-or-start-your-own">
+<h2>Using SciStarter (to find an existing project) &amp; CitSci (to find an existing project or start your own)<a class="headerlink" href="#using-scistarter-to-find-an-existing-project-citsci-to-find-an-existing-project-or-start-your-own" title="Link to this heading">#</a></h2>
+<p>To summarize above content, there are three steps you can take to immediately engage in citizen science.</p>
+<ul class="simple">
+<li><p>Find an existing project (SciStarter or CitSci)</p></li>
+<li><p>Analyze citizen science data (CitSci)</p></li>
+<li><p>Create own project (CitSci)</p></li>
+</ul>
+<section id="scistarter">
+<h3>SciStarter<a class="headerlink" href="#scistarter" title="Link to this heading">#</a></h3>
+<p>Let’s start with the SciStarter resources. Our first recommendation is to <a class="reference external" href="https://scistarter.org/finder">use SciStarter to find an existing project</a> that is a good fit for you; you don’t want to reinvent the wheel, and ideally you can learn something about your community while also contributing to a bigger global goal by joining an existing project.</p>
+<p>SciStarter connects citizen scientists to over 2,000 projects, events, and tools. It’s the world’s largest searchable citizen science database, and it includes projects from all sorts of other platforms, including CitSci and Zooniverse.</p>
+<p>You can start with the <a class="reference external" href="https://scistarter.org/finder">project finder</a> and search topics that you’re interested in. If you’re an educator, make sure you select the “has classroom materials” filter. Not every project has been intentional about designing themselves for people to learn as they participate – and that’s not necessarily a bad thing – but those that do actually <a class="reference external" href="https://blog.scistarter.org/2020/11/national-academy-of-sciences-report-is-a-guide-to-making-citizen-science-work-for-everyone/">have better outcomes</a>.</p>
+<p><img alt="Use the mini Project Finder on the home page of SciStarter or the Advanced Search" src="https://blog.citsci.org/wp-content/uploads/2025/07/image-6.gif?w=936" /></p>
+<p>Some other SciStarter resources that can get you started include:</p>
+<ul class="simple">
+<li><p>The <a class="reference external" href="https://www.hachettebookgroup.com/titles/darlene-cavalier/the-field-guide-to-citizen-science/9781604698473/?lens=timber-press">Field Guide to Citizen Science</a> book</p></li>
+<li><p>All the <a class="reference external" href="https://scistarter.org/training">trainings</a></p>
+<ul>
+<li><p>In higher ed? Pay special attention to that <a class="reference external" href="https://scistarter.org/training-highered">training</a></p></li>
+</ul>
+</li>
+<li><p>The <a class="reference external" href="https://scistarter.org/ambassadors">Ambassador program</a></p></li>
+<li><p>The <a class="reference external" href="https://scistarter.org/girlscouts-info">Girl Scouts program</a></p></li>
+<li><p><a class="reference external" href="https://scistarter.org/NASA">NASA programs</a></p></li>
+<li><p><a class="reference external" href="https://scistarter.org/citizensciencemonth">One Million Acts of Science</a> each April</p></li>
+</ul>
+</section>
+<section id="citsci">
+<h3>CitSci<a class="headerlink" href="#citsci" title="Link to this heading">#</a></h3>
+<p>After exploring SciStarter, you might be wondering:</p>
+<ul class="simple">
+<li><p>Is there a platform where I can both find citizen science projects <em>and</em> build my own?</p></li>
+<li><p>What if I want to dive deeper, by analyzing real data?</p></li>
+</ul>
+<p>That’s where <a class="reference external" href="https://citsci.org/">CitSci.org</a> comes in.</p>
+<p>CitSci is both a website and an app designed for researchers, educators, community groups, and anyone curious about the world around them. It’s a platform where you can:</p>
+<ul class="simple">
+<li><p>Start your own citizen science project</p></li>
+<li><p>Join and contribute to existing projects</p></li>
+<li><p>Analyze data collected by others</p></li>
+</ul>
+<p>While SciStarter helps you find projects across many platforms (including ones from CitSci), on CitSci, you can not only find projects that people have used CitSci to create, but also create your own project and use free tools to analyze data contributed by the global community (for public projects, or for projects you create).</p>
+<p>To get started, we recommend heading over to <a class="reference external" href="https://citsci.org/">CitSci’s homepage</a> and creating an account. Then, you can explore featured global projects and other projects that might pertain to your locality.</p>
+<p>The CitSci team wrote a <a class="reference external" href="https://blog.citsci.org/2025/06/24/setting-up-your-first-project-datasheet/">blog post</a> to help you create your first project and datasheet.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs\ch1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Welcome to EMERGE</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="lesson2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Why Mosquitoes?</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-research">What is Research?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">What is Citizen Science?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citizen-science-data">Citizen Science Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-an-existing-citizen-science-project">Finding an Existing Citizen Science Project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-scistarter-to-find-an-existing-project-citsci-to-find-an-existing-project-or-start-your-own">Using SciStarter (to find an existing project) &amp; CitSci (to find an existing project or start your own)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scistarter">SciStarter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#citsci">CitSci</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By GeoDI Lab
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
