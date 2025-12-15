@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -523,8 +523,9 @@ For the rest of this code notebook, we will be looking at Broward County.</p>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There were </span><span class="si">{</span><span class="n">num_total</span><span class="si">}</span><span class="s2"> GLOBE Mosquito Habitat Mapper points recorded within </span><span class="si">{</span><span class="n">county_name</span><span class="si">}</span><span class="s2"> from 2018 to 2024 by community scientists.&quot;</span><span class="p">)</span>
 
-<span class="n">num_eliminated</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_county</span><span class="p">[</span><span class="n">data_county</span><span class="p">[</span><span class="s1">&#39;BreedingGroundEliminated&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;true&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Of those points, </span><span class="si">{</span><span class="n">num_eliminated</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">num_eliminated</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">num_total</span><span class="p">)</span><span class="si">}</span><span class="s2">%) mosquito habitats were successfully mitigated by the community scientists, which reduces the risk for mosquitoes at that location in the future.&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">num_total</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">num_eliminated</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_county</span><span class="p">[</span><span class="n">data_county</span><span class="p">[</span><span class="s1">&#39;BreedingGroundEliminated&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;true&#39;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Of those points, </span><span class="si">{</span><span class="n">num_eliminated</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">num_eliminated</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">num_total</span><span class="p">)</span><span class="si">}</span><span class="s2">%) mosquito habitats were successfully mitigated by the community scientists, which reduces the risk for mosquitoes at that location in the future.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -535,6 +536,7 @@ Of those points, 26 (60%) mosquito habitats were successfully mitigated by the c
 </div>
 </div>
 </div>
+<p>Note: if there were 0 points located within your county, go back to the first code cell and type a new county name!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_county</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -892,7 +894,7 @@ Of those points, 26 (60%) mosquito habitats were successfully mitigated by the c
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b29a8215252bdc91abf42a573ef538c7dedfecf9ad639110134c301b0d7110aa.png" src="../../_images/b29a8215252bdc91abf42a573ef538c7dedfecf9ad639110134c301b0d7110aa.png" />
+<img alt="../../_images/d645ab58d4579981d1bc273239206f1c77680d5f6f4d209150cfddae88b0f7d1.png" src="../../_images/d645ab58d4579981d1bc273239206f1c77680d5f6f4d209150cfddae88b0f7d1.png" />
 </div>
 </div>
 <p>Let’s make a pie chart of the water source types (both general and specific) where mosquitoes were reported in this county.</p>
@@ -911,7 +913,7 @@ Of those points, 26 (60%) mosquito habitats were successfully mitigated by the c
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a7057966804ac398b338941070b1e7295b1de6cab6e2d1bc995f034efcd89883.png" src="../../_images/a7057966804ac398b338941070b1e7295b1de6cab6e2d1bc995f034efcd89883.png" />
+<img alt="../../_images/1b2f5fb583f2f792ca728fc650e18d12fda12a3f1e99b36b6d73bb720d53c1f7.png" src="../../_images/1b2f5fb583f2f792ca728fc650e18d12fda12a3f1e99b36b6d73bb720d53c1f7.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -929,7 +931,7 @@ Of those points, 26 (60%) mosquito habitats were successfully mitigated by the c
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6c25b4d75db0077cbc88b759b22c34f606127ad28606d6084708bcd8a8721ef8.png" src="../../_images/6c25b4d75db0077cbc88b759b22c34f606127ad28606d6084708bcd8a8721ef8.png" />
+<img alt="../../_images/669cd4b0e3411dace2e4a14abf58e42bfa2042986adc3dfc84ed1dc37c624613.png" src="../../_images/669cd4b0e3411dace2e4a14abf58e42bfa2042986adc3dfc84ed1dc37c624613.png" />
 </div>
 </div>
 <section id="temperature-and-land-use">
@@ -964,6 +966,30 @@ Of those points, 26 (60%) mosquito habitats were successfully mitigated by the c
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1148,7 +1174,7 @@ Of those points, 26 (60%) mosquito habitats were successfully mitigated by the c
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_8438c6b6d3a403a09738131806341608 {
+                #map_330e8623591d88956d66b6373e60d72f {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -1185,14 +1211,14 @@ Of those points, 26 (60%) mosquito habitats were successfully mitigated by the c
 &lt;body&gt;
     
     
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_8438c6b6d3a403a09738131806341608&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_330e8623591d88956d66b6373e60d72f&quot; &gt;&lt;/div&gt;
         
 &lt;/body&gt;
 &lt;script&gt;
     
     
-            var map_8438c6b6d3a403a09738131806341608 = L.map(
-                &quot;map_8438c6b6d3a403a09738131806341608&quot;,
+            var map_330e8623591d88956d66b6373e60d72f = L.map(
+                &quot;map_330e8623591d88956d66b6373e60d72f&quot;,
                 {
                     center: [26.152315495642696, -80.487072697842],
                     crs: L.CRS.EPSG3857,
@@ -1209,7 +1235,7 @@ Of those points, 26 (60%) mosquito habitats were successfully mitigated by the c
 
         
     
-            var tile_layer_ef03c64c3548aa600ad889f2a8452fc7 = L.tileLayer(
+            var tile_layer_5f64c775ab54403443ba1ce6c6220c12 = L.tileLayer(
                 &quot;https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png&quot;,
                 {
   &quot;minZoom&quot;: 0,
@@ -1226,11 +1252,11 @@ Of those points, 26 (60%) mosquito habitats were successfully mitigated by the c
             );
         
     
-            tile_layer_ef03c64c3548aa600ad889f2a8452fc7.addTo(map_8438c6b6d3a403a09738131806341608);
+            tile_layer_5f64c775ab54403443ba1ce6c6220c12.addTo(map_330e8623591d88956d66b6373e60d72f);
         
     
-            var tile_layer_120162df803e4d708d27319f21bcff85 = L.tileLayer(
-                &quot;https://earthengine.googleapis.com/v1/projects/emerge-lessons/maps/3ae288ebca4ae482fcfce7a77e68da4e-573415ecb714357fe28bf767e1c8f83d/tiles/{z}/{x}/{y}&quot;,
+            var tile_layer_28831e8f8fb6195bf36c0630597dc20e = L.tileLayer(
+                &quot;https://earthengine.googleapis.com/v1/projects/emerge-lessons/maps/600a6f680152a705759d99fd2bc272fa-46967a0e4ba643ead775b75b99d8bd3a/tiles/{z}/{x}/{y}&quot;,
                 {
   &quot;minZoom&quot;: 0,
   &quot;maxZoom&quot;: 18,
@@ -1246,7 +1272,7 @@ Of those points, 26 (60%) mosquito habitats were successfully mitigated by the c
             );
         
     
-            tile_layer_120162df803e4d708d27319f21bcff85.addTo(map_8438c6b6d3a403a09738131806341608);
+            tile_layer_28831e8f8fb6195bf36c0630597dc20e.addTo(map_330e8623591d88956d66b6373e60d72f);
         
 &lt;/script&gt;
 &lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>
@@ -1288,7 +1314,7 @@ Of those points, 26 (60%) mosquito habitats were successfully mitigated by the c
                     --jp-layout-color3: var(--colab-primary-surface-color, white);
                 }
             </style>
-            </div><img alt="../../_images/5cb7da0e64c6a8a266130774fe1a8908dfaa0f23dfc021d394e9baaf2f423dea.png" src="../../_images/5cb7da0e64c6a8a266130774fe1a8908dfaa0f23dfc021d394e9baaf2f423dea.png" />
+            </div><img alt="../../_images/0e44545cd10f6eba5e0ef31cd8f262fca26fc0ce3a132e25165bf62db3854925.png" src="../../_images/0e44545cd10f6eba5e0ef31cd8f262fca26fc0ce3a132e25165bf62db3854925.png" />
 </div>
 </div>
 <p>Next, find the average temperature across the county.</p>
@@ -1408,7 +1434,7 @@ Of those points, 26 (60%) mosquito habitats were successfully mitigated by the c
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_5c49cfee0eeda15d30471806b87b9419 {
+                #map_33b6093d97e46dcbde8eb88fd5fd4c1b {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -1445,14 +1471,14 @@ Of those points, 26 (60%) mosquito habitats were successfully mitigated by the c
 &lt;body&gt;
     
     
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_5c49cfee0eeda15d30471806b87b9419&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_33b6093d97e46dcbde8eb88fd5fd4c1b&quot; &gt;&lt;/div&gt;
         
 &lt;/body&gt;
 &lt;script&gt;
     
     
-            var map_5c49cfee0eeda15d30471806b87b9419 = L.map(
-                &quot;map_5c49cfee0eeda15d30471806b87b9419&quot;,
+            var map_33b6093d97e46dcbde8eb88fd5fd4c1b = L.map(
+                &quot;map_33b6093d97e46dcbde8eb88fd5fd4c1b&quot;,
                 {
                     center: [26.152315495642696, -80.487072697842],
                     crs: L.CRS.EPSG3857,
@@ -1469,7 +1495,7 @@ Of those points, 26 (60%) mosquito habitats were successfully mitigated by the c
 
         
     
-            var tile_layer_1038c5e6199b926b106f41dd1ef4b2a3 = L.tileLayer(
+            var tile_layer_ef121e239728c691ed478f56cfcd9629 = L.tileLayer(
                 &quot;https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png&quot;,
                 {
   &quot;minZoom&quot;: 0,
@@ -1486,11 +1512,11 @@ Of those points, 26 (60%) mosquito habitats were successfully mitigated by the c
             );
         
     
-            tile_layer_1038c5e6199b926b106f41dd1ef4b2a3.addTo(map_5c49cfee0eeda15d30471806b87b9419);
+            tile_layer_ef121e239728c691ed478f56cfcd9629.addTo(map_33b6093d97e46dcbde8eb88fd5fd4c1b);
         
     
-            var tile_layer_eeb72f84d66a6c482cd2182d69bd65f4 = L.tileLayer(
-                &quot;https://earthengine.googleapis.com/v1/projects/emerge-lessons/maps/4b9f006f80554e876062446ac1a4eb3b-59bc708c0e9b966ef7cd3e7e4e5f7628/tiles/{z}/{x}/{y}&quot;,
+            var tile_layer_881957a650aafc5709d453b7625116f9 = L.tileLayer(
+                &quot;https://earthengine.googleapis.com/v1/projects/emerge-lessons/maps/4b9f006f80554e876062446ac1a4eb3b-2a2794caaf5b2243a411eb27841813ec/tiles/{z}/{x}/{y}&quot;,
                 {
   &quot;minZoom&quot;: 0,
   &quot;maxZoom&quot;: 18,
@@ -1506,11 +1532,11 @@ Of those points, 26 (60%) mosquito habitats were successfully mitigated by the c
             );
         
     
-            tile_layer_eeb72f84d66a6c482cd2182d69bd65f4.addTo(map_5c49cfee0eeda15d30471806b87b9419);
+            tile_layer_881957a650aafc5709d453b7625116f9.addTo(map_33b6093d97e46dcbde8eb88fd5fd4c1b);
         
     
-            var tile_layer_7c138c24947044dfed818e00124cb34f = L.tileLayer(
-                &quot;https://earthengine.googleapis.com/v1/projects/emerge-lessons/maps/f06346b350ae71d802c541d5dc676aaa-af5111b7111f0b5814a9d30c37a634b2/tiles/{z}/{x}/{y}&quot;,
+            var tile_layer_bae809aa0ec91fd2664120ee2bb2986a = L.tileLayer(
+                &quot;https://earthengine.googleapis.com/v1/projects/emerge-lessons/maps/f06346b350ae71d802c541d5dc676aaa-b2cb1410afe53685ad5f750732358ccb/tiles/{z}/{x}/{y}&quot;,
                 {
   &quot;minZoom&quot;: 0,
   &quot;maxZoom&quot;: 18,
@@ -1526,27 +1552,27 @@ Of those points, 26 (60%) mosquito habitats were successfully mitigated by the c
             );
         
     
-            tile_layer_7c138c24947044dfed818e00124cb34f.addTo(map_5c49cfee0eeda15d30471806b87b9419);
+            tile_layer_bae809aa0ec91fd2664120ee2bb2986a.addTo(map_33b6093d97e46dcbde8eb88fd5fd4c1b);
         
     
-            var layer_control_8cd2914e14b0942a8f20737e033a65ac_layers = {
+            var layer_control_a9a6ffc411646c52295a78d432f76bd8_layers = {
                 base_layers : {
-                    &quot;cartodbdarkmatter&quot; : tile_layer_1038c5e6199b926b106f41dd1ef4b2a3,
+                    &quot;cartodbdarkmatter&quot; : tile_layer_ef121e239728c691ed478f56cfcd9629,
                 },
                 overlays :  {
-                    &quot;1985 Land Use&quot; : tile_layer_eeb72f84d66a6c482cd2182d69bd65f4,
-                    &quot;2024 Land Use&quot; : tile_layer_7c138c24947044dfed818e00124cb34f,
+                    &quot;1985 Land Use&quot; : tile_layer_881957a650aafc5709d453b7625116f9,
+                    &quot;2024 Land Use&quot; : tile_layer_bae809aa0ec91fd2664120ee2bb2986a,
                 },
             };
-            let layer_control_8cd2914e14b0942a8f20737e033a65ac = L.control.layers(
-                layer_control_8cd2914e14b0942a8f20737e033a65ac_layers.base_layers,
-                layer_control_8cd2914e14b0942a8f20737e033a65ac_layers.overlays,
+            let layer_control_a9a6ffc411646c52295a78d432f76bd8 = L.control.layers(
+                layer_control_a9a6ffc411646c52295a78d432f76bd8_layers.base_layers,
+                layer_control_a9a6ffc411646c52295a78d432f76bd8_layers.overlays,
                 {
   &quot;position&quot;: &quot;topright&quot;,
   &quot;collapsed&quot;: false,
   &quot;autoZIndex&quot;: true,
 }
-            ).addTo(map_5c49cfee0eeda15d30471806b87b9419);
+            ).addTo(map_33b6093d97e46dcbde8eb88fd5fd4c1b);
 
         
 &lt;/script&gt;
@@ -1754,7 +1780,7 @@ Rangeland or Pasture: 43.1%
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_8be5e38640589c1fd5020f8acc8d8e4e {
+                #map_ac84b786aa93899f78b8585970d3a44b {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -1791,14 +1817,14 @@ Rangeland or Pasture: 43.1%
 &lt;body&gt;
     
     
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_8be5e38640589c1fd5020f8acc8d8e4e&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_ac84b786aa93899f78b8585970d3a44b&quot; &gt;&lt;/div&gt;
         
 &lt;/body&gt;
 &lt;script&gt;
     
     
-            var map_8be5e38640589c1fd5020f8acc8d8e4e = L.map(
-                &quot;map_8be5e38640589c1fd5020f8acc8d8e4e&quot;,
+            var map_ac84b786aa93899f78b8585970d3a44b = L.map(
+                &quot;map_ac84b786aa93899f78b8585970d3a44b&quot;,
                 {
                     center: [26.152315495642696, -80.487072697842],
                     crs: L.CRS.EPSG3857,
@@ -1815,7 +1841,7 @@ Rangeland or Pasture: 43.1%
 
         
     
-            var tile_layer_87b51a819d30fdabf31b1f85c152971e = L.tileLayer(
+            var tile_layer_92a566c46bb91d863f29d2ea8942e3ab = L.tileLayer(
                 &quot;https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png&quot;,
                 {
   &quot;minZoom&quot;: 0,
@@ -1832,11 +1858,11 @@ Rangeland or Pasture: 43.1%
             );
         
     
-            tile_layer_87b51a819d30fdabf31b1f85c152971e.addTo(map_8be5e38640589c1fd5020f8acc8d8e4e);
+            tile_layer_92a566c46bb91d863f29d2ea8942e3ab.addTo(map_ac84b786aa93899f78b8585970d3a44b);
         
     
-            var tile_layer_d3566eddb4d33c0fcfbe62b5f0a264f7 = L.tileLayer(
-                &quot;https://earthengine.googleapis.com/v1/projects/emerge-lessons/maps/c418f0a25d093127d4c8e995076b13ad-07af13849e163faac7baeb61e86eda0a/tiles/{z}/{x}/{y}&quot;,
+            var tile_layer_8e5035a7a7ba88d403fe65257a691bca = L.tileLayer(
+                &quot;https://earthengine.googleapis.com/v1/projects/emerge-lessons/maps/c418f0a25d093127d4c8e995076b13ad-916a776346929a10460e48be9b369e22/tiles/{z}/{x}/{y}&quot;,
                 {
   &quot;minZoom&quot;: 0,
   &quot;maxZoom&quot;: 18,
@@ -1852,11 +1878,11 @@ Rangeland or Pasture: 43.1%
             );
         
     
-            tile_layer_d3566eddb4d33c0fcfbe62b5f0a264f7.addTo(map_8be5e38640589c1fd5020f8acc8d8e4e);
+            tile_layer_8e5035a7a7ba88d403fe65257a691bca.addTo(map_ac84b786aa93899f78b8585970d3a44b);
         
     
-            var tile_layer_26461b041896d4241a6bf3f800e88292 = L.tileLayer(
-                &quot;https://earthengine.googleapis.com/v1/projects/emerge-lessons/maps/38c888b0c040346bb3e8c1ff91c98c0d-cbb3f957933d20dce0b4924e1e64d27f/tiles/{z}/{x}/{y}&quot;,
+            var tile_layer_c3a48b44ac985190ee96a700ca15ce2c = L.tileLayer(
+                &quot;https://earthengine.googleapis.com/v1/projects/emerge-lessons/maps/38c888b0c040346bb3e8c1ff91c98c0d-51ea083bb22ff277d7a0e5a3afff7ce7/tiles/{z}/{x}/{y}&quot;,
                 {
   &quot;minZoom&quot;: 0,
   &quot;maxZoom&quot;: 18,
@@ -1872,27 +1898,27 @@ Rangeland or Pasture: 43.1%
             );
         
     
-            tile_layer_26461b041896d4241a6bf3f800e88292.addTo(map_8be5e38640589c1fd5020f8acc8d8e4e);
+            tile_layer_c3a48b44ac985190ee96a700ca15ce2c.addTo(map_ac84b786aa93899f78b8585970d3a44b);
         
     
-            var layer_control_75ee8f738bb98d6523e9c15b99b2e35e_layers = {
+            var layer_control_de26e7565ffaab54ff3a43320aa7615d_layers = {
                 base_layers : {
-                    &quot;cartodbdarkmatter&quot; : tile_layer_87b51a819d30fdabf31b1f85c152971e,
+                    &quot;cartodbdarkmatter&quot; : tile_layer_92a566c46bb91d863f29d2ea8942e3ab,
                 },
                 overlays :  {
-                    &quot;1985 Land Cover&quot; : tile_layer_d3566eddb4d33c0fcfbe62b5f0a264f7,
-                    &quot;2024 Land Cover&quot; : tile_layer_26461b041896d4241a6bf3f800e88292,
+                    &quot;1985 Land Cover&quot; : tile_layer_8e5035a7a7ba88d403fe65257a691bca,
+                    &quot;2024 Land Cover&quot; : tile_layer_c3a48b44ac985190ee96a700ca15ce2c,
                 },
             };
-            let layer_control_75ee8f738bb98d6523e9c15b99b2e35e = L.control.layers(
-                layer_control_75ee8f738bb98d6523e9c15b99b2e35e_layers.base_layers,
-                layer_control_75ee8f738bb98d6523e9c15b99b2e35e_layers.overlays,
+            let layer_control_de26e7565ffaab54ff3a43320aa7615d = L.control.layers(
+                layer_control_de26e7565ffaab54ff3a43320aa7615d_layers.base_layers,
+                layer_control_de26e7565ffaab54ff3a43320aa7615d_layers.overlays,
                 {
   &quot;position&quot;: &quot;topright&quot;,
   &quot;collapsed&quot;: false,
   &quot;autoZIndex&quot;: true,
 }
-            ).addTo(map_8be5e38640589c1fd5020f8acc8d8e4e);
+            ).addTo(map_ac84b786aa93899f78b8585970d3a44b);
 
         
 &lt;/script&gt;
