@@ -648,14 +648,14 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Only add the image to the map if there is one found in the window</span>
-<span class="k">if</span> <span class="n">image</span><span class="o">.</span><span class="n">getInfo</span><span class="p">():</span>  <span class="c1"># Will be False if there are no images found at all</span>
+<span class="k">if</span> <span class="n">image</span><span class="o">.</span><span class="n">getInfo</span><span class="p">():</span>
     <span class="c1"># Get the image&#39;s capture date</span>
     <span class="n">image_date</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;system:time_start&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;YYYY-MM-dd&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getInfo</span><span class="p">()</span>
     <span class="c1"># Get the cloudiness percentage</span>
     <span class="n">cloud_pct</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;CLOUDY_PIXEL_PERCENTAGE&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">getInfo</span><span class="p">()</span>
     <span class="c1"># Visualization parameters: true color, stretch from 0 to 3000 as usual for S2</span>
     <span class="n">vis_params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;bands&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;B4&#39;</span><span class="p">,</span> <span class="s1">&#39;B3&#39;</span><span class="p">,</span> <span class="s1">&#39;B2&#39;</span><span class="p">],</span> <span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="mi">3000</span><span class="p">}</span>
-    <span class="c1"># Add the least cloudy image, layer name shows its date and cloud %</span>
+    <span class="c1"># Add the least cloudy image; layer name shows its date and cloud %</span>
     <span class="nb">map</span><span class="o">.</span><span class="n">add_ee_layer</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">vis_params</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;Least Cloudy: </span><span class="si">{</span><span class="n">image_date</span><span class="si">}</span><span class="s1"> (</span><span class="si">{</span><span class="n">cloud_pct</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">% cloud)&#39;</span><span class="p">)</span>
 
 <span class="c1"># Show the map</span>
@@ -705,7 +705,7 @@ document.write(`
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_39769801862853e2340a0833817a7ce7 {
+                #map_77102f79e4c1907c6b040a3635311e90 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -742,14 +742,14 @@ document.write(`
 &lt;body&gt;
     
     
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_39769801862853e2340a0833817a7ce7&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_77102f79e4c1907c6b040a3635311e90&quot; &gt;&lt;/div&gt;
         
 &lt;/body&gt;
 &lt;script&gt;
     
     
-            var map_39769801862853e2340a0833817a7ce7 = L.map(
-                &quot;map_39769801862853e2340a0833817a7ce7&quot;,
+            var map_77102f79e4c1907c6b040a3635311e90 = L.map(
+                &quot;map_77102f79e4c1907c6b040a3635311e90&quot;,
                 {
                     center: [27.536873, -81.469549],
                     crs: L.CRS.EPSG3857,
@@ -766,7 +766,7 @@ document.write(`
 
         
     
-            var tile_layer_d4af2cba2d7c7b66b5d00c2801f9e0ca = L.tileLayer(
+            var tile_layer_6fccc992f0a3b33da6efeb86bb772feb = L.tileLayer(
                 &quot;https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png&quot;,
                 {
   &quot;minZoom&quot;: 0,
@@ -783,11 +783,11 @@ document.write(`
             );
         
     
-            tile_layer_d4af2cba2d7c7b66b5d00c2801f9e0ca.addTo(map_39769801862853e2340a0833817a7ce7);
+            tile_layer_6fccc992f0a3b33da6efeb86bb772feb.addTo(map_77102f79e4c1907c6b040a3635311e90);
         
     
-            var tile_layer_2594548683adcec398d78581a93db245 = L.tileLayer(
-                &quot;https://earthengine.googleapis.com/v1/projects/emerge-lessons/maps/231e750cbbf2bef6535e11d7cd64c1e8-a7cd9d2d4a8b6dd75bb6a6c6f96b1420/tiles/{z}/{x}/{y}&quot;,
+            var tile_layer_6fc0bfd81b18ae5e31bc6c5197eb5fc5 = L.tileLayer(
+                &quot;https://earthengine.googleapis.com/v1/projects/emerge-lessons/maps/6422eb13ceaf90372eef6f4486ab5be9-8119023a8e604d7d4f007bbe7e0bdb13/tiles/{z}/{x}/{y}&quot;,
                 {
   &quot;minZoom&quot;: 0,
   &quot;maxZoom&quot;: 18,
@@ -803,7 +803,7 @@ document.write(`
             );
         
     
-            tile_layer_2594548683adcec398d78581a93db245.addTo(map_39769801862853e2340a0833817a7ce7);
+            tile_layer_6fc0bfd81b18ae5e31bc6c5197eb5fc5.addTo(map_77102f79e4c1907c6b040a3635311e90);
         
 &lt;/script&gt;
 &lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>

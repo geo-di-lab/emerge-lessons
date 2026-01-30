@@ -491,6 +491,30 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div></div>
 </div>
 <p>In the code above, change “emerge-lessons” to your own project ID. For example, if your ID is “emerge-34956,” you can change it to the following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s2">&quot;emerge-34956&quot;</span><span class="p">)</span>
@@ -519,6 +543,30 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div></div>
 </div>
 <p>Datasets include several sets of information across several bands, with some datasets containing daily imagery in a 1km resolution (like the MODIS LST dataset we’re using) to one image a year in a 30m resolution for others.</p>
 <p>The LST Collection uses these bands</p>
@@ -546,6 +594,30 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div></div>
 </div>
 <p>Next, we’ll define two points of interest (POIs) in relation to what we want to look at. Since we’re looking at Land Surface Emissivity (land temp), we’ll make a comparison of the temperature in an urban area versus a rural area.</p>
 <div class="cell docutils container">
@@ -562,6 +634,30 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div></div>
 </div>
 <p>The MODIS emissivity dataset that we’re using should be corrected by a scale of 0.02 to get units of Kelvin. You can find this in the <a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD11A1#bands">Google Earth Engine catalogue at this link</a>.</p>
 <p><em>Remember to convert your values for a final answer!</em></p>
@@ -586,7 +682,29 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The mean land surface temperature for the urban point is 23.15 °C
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The mean land surface temperature for the urban point is 23.15 °C
 The rural land surface temperature for the urban point is 20.9 °C
 </pre></div>
 </div>
@@ -602,6 +720,30 @@ The rural land surface temperature for the urban point is 20.9 °C
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+            <style>
+                .geemap-dark {
+                    --jp-widgets-color: white;
+                    --jp-widgets-label-color: white;
+                    --jp-ui-font-color1: white;
+                    --jp-layout-color2: #454545;
+                    background-color: #383838;
+                }
+
+                .geemap-dark .jupyter-button {
+                    --jp-layout-color3: #383838;
+                }
+
+                .geemap-colab {
+                    background-color: var(--colab-primary-surface-color, white);
+                }
+
+                .geemap-colab .jupyter-button {
+                    --jp-layout-color3: var(--colab-primary-surface-color, white);
+                }
+            </style>
+            </div></div>
 </div>
 <p>Create an empty map zoomed to Florida. You can click and drag to move around the map, as well as zoom in and out.</p>
 <div class="cell docutils container">
@@ -653,7 +795,7 @@ The rural land surface temperature for the urban point is 20.9 °C
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_fb5d06f9e1b97e859fe7638ad68c2b3b {
+                #map_13fae702b55a7ec7828959a917136daa {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -690,14 +832,14 @@ The rural land surface temperature for the urban point is 20.9 °C
 &lt;body&gt;
     
     
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_fb5d06f9e1b97e859fe7638ad68c2b3b&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_13fae702b55a7ec7828959a917136daa&quot; &gt;&lt;/div&gt;
         
 &lt;/body&gt;
 &lt;script&gt;
     
     
-            var map_fb5d06f9e1b97e859fe7638ad68c2b3b = L.map(
-                &quot;map_fb5d06f9e1b97e859fe7638ad68c2b3b&quot;,
+            var map_13fae702b55a7ec7828959a917136daa = L.map(
+                &quot;map_13fae702b55a7ec7828959a917136daa&quot;,
                 {
                     center: [28.263363, -83.497652],
                     crs: L.CRS.EPSG3857,
@@ -714,7 +856,7 @@ The rural land surface temperature for the urban point is 20.9 °C
 
         
     
-            var tile_layer_e72aa784e95ee2ce7a6a675d874c0c6e = L.tileLayer(
+            var tile_layer_58c2e1ca34da13dfd2528715e2b8293c = L.tileLayer(
                 &quot;https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png&quot;,
                 {
   &quot;minZoom&quot;: 0,
@@ -731,7 +873,7 @@ The rural land surface temperature for the urban point is 20.9 °C
             );
         
     
-            tile_layer_e72aa784e95ee2ce7a6a675d874c0c6e.addTo(map_fb5d06f9e1b97e859fe7638ad68c2b3b);
+            tile_layer_58c2e1ca34da13dfd2528715e2b8293c.addTo(map_13fae702b55a7ec7828959a917136daa);
         
 &lt;/script&gt;
 &lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>
@@ -843,7 +985,7 @@ The rural land surface temperature for the urban point is 20.9 °C
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_fb5d06f9e1b97e859fe7638ad68c2b3b {
+                #map_13fae702b55a7ec7828959a917136daa {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -880,14 +1022,14 @@ The rural land surface temperature for the urban point is 20.9 °C
 &lt;body&gt;
     
     
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_fb5d06f9e1b97e859fe7638ad68c2b3b&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_13fae702b55a7ec7828959a917136daa&quot; &gt;&lt;/div&gt;
         
 &lt;/body&gt;
 &lt;script&gt;
     
     
-            var map_fb5d06f9e1b97e859fe7638ad68c2b3b = L.map(
-                &quot;map_fb5d06f9e1b97e859fe7638ad68c2b3b&quot;,
+            var map_13fae702b55a7ec7828959a917136daa = L.map(
+                &quot;map_13fae702b55a7ec7828959a917136daa&quot;,
                 {
                     center: [28.263363, -83.497652],
                     crs: L.CRS.EPSG3857,
@@ -904,7 +1046,7 @@ The rural land surface temperature for the urban point is 20.9 °C
 
         
     
-            var tile_layer_e72aa784e95ee2ce7a6a675d874c0c6e = L.tileLayer(
+            var tile_layer_58c2e1ca34da13dfd2528715e2b8293c = L.tileLayer(
                 &quot;https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png&quot;,
                 {
   &quot;minZoom&quot;: 0,
@@ -921,14 +1063,14 @@ The rural land surface temperature for the urban point is 20.9 °C
             );
         
     
-            tile_layer_e72aa784e95ee2ce7a6a675d874c0c6e.addTo(map_fb5d06f9e1b97e859fe7638ad68c2b3b);
+            tile_layer_58c2e1ca34da13dfd2528715e2b8293c.addTo(map_13fae702b55a7ec7828959a917136daa);
         
     
-            tile_layer_e72aa784e95ee2ce7a6a675d874c0c6e.addTo(map_fb5d06f9e1b97e859fe7638ad68c2b3b);
+            tile_layer_58c2e1ca34da13dfd2528715e2b8293c.addTo(map_13fae702b55a7ec7828959a917136daa);
         
     
-            var tile_layer_ef3267a4ad652488250bbd19100d19dd = L.tileLayer(
-                &quot;https://earthengine.googleapis.com/v1/projects/emerge-lessons/maps/cc05b0802e3cec90260e17e06c6e905f-26e449bb7bd95ba986782aeae36da79b/tiles/{z}/{x}/{y}&quot;,
+            var tile_layer_f34a049ff603e0b66ca6327526810b23 = L.tileLayer(
+                &quot;https://earthengine.googleapis.com/v1/projects/emerge-lessons/maps/42466a2789f306af36884d5251ab86fa-b9a0556a5f12cbf8164fda8658dac3d8/tiles/{z}/{x}/{y}&quot;,
                 {
   &quot;minZoom&quot;: 0,
   &quot;maxZoom&quot;: 18,
@@ -944,7 +1086,7 @@ The rural land surface temperature for the urban point is 20.9 °C
             );
         
     
-            tile_layer_ef3267a4ad652488250bbd19100d19dd.addTo(map_fb5d06f9e1b97e859fe7638ad68c2b3b);
+            tile_layer_f34a049ff603e0b66ca6327526810b23.addTo(map_13fae702b55a7ec7828959a917136daa);
         
 &lt;/script&gt;
 &lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>
