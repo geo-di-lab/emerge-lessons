@@ -21,20 +21,16 @@ Image from [Centers for Disease Control and Prevention](https://www.cdc.gov/mosq
 
 Vector-control, specifically targeting mosquitoes, is vital as more populations become susceptible in order to prevent infection and reduce disease transmission. Climate change is shifting conditions so that they can breed and lay eggs in more places, as well as for longer periods. Wet conditions allow for female mosquitoes to lay eggs; they thrive in humidity. They prefer stagnant water, like ponds, and need healthy vegetation. The eggs can survive in dry conditions for months.  Many breeds of mosquitoes are also becoming resistant to pesticides, so they need to be targeted specifically.
 
-Remote sensing can be used to find areas with healthy vegetation and sitting water, satellite imagery can also be used to find things like birdbaths or tires where mosquitoes can breed, tracking conditions where they have the potential to breed in order to track their habitats.
+Remote sensing can be used to find areas with healthy vegetation and sitting water; aerial imagery can also be used to find locations where mosquitoes can breed, such as birdbaths or tires.
 
-It’s hard to eliminate them specifically because of how many variations there are of the species, 3500~.
-
-Work needs to be focused on small, geographically restricted networks in order to focus on specific pathogens.
-
-Targeted mosquito efforts have the highest rate of success.
+Targeted mosquito efforts have the highest rate of success. Work needs to be focused on small, geographically restricted networks in order to focus on specific pathogens.
 
 ## Mosquito-Borne Illnesses
 
 Most mosquito-borne illnesses are found in tropical climates, where mosquito colonies thrive.
 
 ### Malaria
-Malaria is a life-threatening disease spread by the bite of an infected female Anopheles mosquito. It cannot spread from person-to-person and is preventable and curable. There were an estimated 263 million malaria cases and 597,000 malaria deaths in 2023. Symptoms incluhde fever, chills, and headache, with severe symptoms including fatigue, difficulty breathing, or even seizures.
+Malaria is a life-threatening disease spread by the bite of an infected female Anopheles mosquito. It cannot spread from person-to-person and is preventable and curable. There were an [estimated 263 million malaria cases and 597,000 malaria deaths in 2023](https://www.who.int/teams/global-malaria-programme/reports/world-malaria-report-2024). Symptoms include fever, chills, and headache, with severe symptoms including fatigue, difficulty breathing, or even seizures.
 
 ### Dengue
 Dengue virus is a form of *Flavivirus*, mostly spread by the Aedes mosquito, either *Ae. aegypti* or *Ae. albopictus*. It causes high fever and rashes, as well as muscle and joint pain. Pregnant women are at high risk if they contract dengue, potentially leading to premature birth, low birthweight, or even loss of the fetus. There is no specific medicine in which to treat dengue and it has the potential to become severe, which needs emergency medical treatment.

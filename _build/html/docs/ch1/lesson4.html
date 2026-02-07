@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -570,7 +570,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>You can redefine variables or convert their types, to redefine, you take the original variable and assign it a different value.</p>
+<p>You can redefine variables or convert their types. To redefine, you take the original variable and assign it a different value.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">daily_temperature</span> <span class="o">=</span> <span class="s2">&quot;85.0&quot;</span>
@@ -587,7 +587,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">updated_temperature</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">daily_temperature</span><span class="p">)</span>
-<span class="c1"># We can confirm the type has changed by checking the type of forecastHigh or by checking the output of a code cell with the variable.</span>
+<span class="c1"># We can confirm the type has changed by using the type() function again</span>
 
 <span class="nb">type</span><span class="p">(</span><span class="n">updated_temperature</span><span class="p">)</span>
 </pre></div>
@@ -617,7 +617,7 @@ We’ll define our first function in order to convert Fahrenheit to Celsius.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">def</span></code> is the keyword</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">celsius_to_fahr</span></code> is the function name</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">(temp)</span></code> is the parameter</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">temp</span></code> is the parameter</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -663,7 +663,7 @@ We’ll define our first function in order to convert Fahrenheit to Celsius.</p>
 </div>
 </div>
 </div>
-<p>Learn more about Python with these free resources</p>
+<p>Learn more about Python with these free resources:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.python.org/3/tutorial/index.html">The Python Tutorial</a></p></li>
 <li><p><a class="reference external" href="https://cs50.harvard.edu/python/2022/">Harvard’s CS50’s Introduction to Programming with Python</a></p></li>

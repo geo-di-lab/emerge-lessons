@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -534,7 +534,7 @@ document.write(`
 <blockquote>
 <div><p>ee.FeatureCollection or ee.ImageCollection</p>
 </div></blockquote>
-<p>When you go into the details of an individual dataset, you can find the snippet of how to import that specific dataset</p>
+<p>In the <a class="reference external" href="https://developers.google.com/earth-engine/datasets">Earth Engine Data Catalog</a>, when you go into the details of an individual dataset, you can find the snippet of how to import that specific dataset.</p>
 <p>For this example, we’ll be using the <a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD11A1">MODIS Terra Land Surface Temperature (LST)</a> dataset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -575,12 +575,7 @@ document.write(`
 <li><p>Day_view_time: Local time of day observation</p></li>
 <li><p>LST_Night_1km: Nighttime Land Surface Temperature</p></li>
 </ul>
-<p>With so many images within the collection, we need to filter those images using dates</p>
-<p>Use either of these for filtering</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filterDate</span><span class="p">()</span>
-<span class="n">select</span><span class="p">()</span>
-</pre></div>
-</div>
+<p>With so many images in the collection, we need to set filters. Use <code class="docutils literal notranslate"><span class="pre">filterDate()</span></code> to filter for images within a date range and use <code class="docutils literal notranslate"><span class="pre">select()</span></code> to choose specific variables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initial date of interest (inclusive)</span>
@@ -619,7 +614,7 @@ document.write(`
             </style>
             </div></div>
 </div>
-<p>Next, we’ll define two points of interest (POIs) in relation to what we want to look at. Since we’re looking at Land Surface Emissivity (land temp), we’ll make a comparison of the temperature in an urban area versus a rural area.</p>
+<p>Next, we’ll set two points of interest (POIs) for locations to investigate. Since we’re looking at Land Surface Emissivity (land temperature), we’ll make a comparison of the temperature in an urban area versus a rural area.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the urban location of interest as a point near Miami, Florida</span>

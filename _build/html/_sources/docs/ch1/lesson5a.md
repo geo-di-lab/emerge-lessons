@@ -21,11 +21,13 @@ Make note of your project ID! There may be some numbers after what you typed, li
 
 5. Complete the series of short questions as follows:
 
-> For "Select your organization type" choose "Earth Engine trainer or trainee" and click {guilabel}`Next`
+> For "Select your organization type" choose "Earth Engine trainer or trainee" and click {guilabel}`next`.
 
-> For "Check noncommercial eligibility" choose "Participant" for the first question and then write the date you are starting the lessons, as well as the date you expect to finish. If you are not sure yet, you can put "10/31/25." If you end up needing more time, you can update this. Click {guilabel}`Check eligibility`
+> For "Check noncommercial eligibility" choose "Participant" for the first question and then write the date you are starting the lessons, as well as the date you expect to finish. If you are not sure yet, you can put "09/01/2026." If you end up needing more time, you can update this. Click {guilabel}`Check eligibility`
 
-> Click {guilabel}`Next` and it should say {fa}`circle-info` **A pricing plan is not required for noncommercial registration.**
+> It should say {fa}`circle-info` **Based on your answers, you are eligible for noncommercial Earth Engine use.** 
+
+> Click {guilabel}`Next` to go to **Choose your plan**. Under "Please select a quota tier," you can select **Community**.
 
 > For "Describe your work," under "Will you use Earth Engine for any of the following? *" choose "Classroom or education" and click {guilabel}`OK`. Then click {guilabel}`Next`
 
