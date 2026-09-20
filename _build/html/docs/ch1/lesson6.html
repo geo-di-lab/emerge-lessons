@@ -496,24 +496,36 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">end_date</span> <span class="o">=</span> <span class="s2">&quot;2024-12-31&quot;</span>
-</pre></div>
-</div>
-</div>
-</div>
 <section id="mosquito-habitat-mapper">
 <h2>Mosquito Habitat Mapper<a class="headerlink" href="#mosquito-habitat-mapper" title="Link to this heading">#</a></h2>
-<p>Let’s use the <a class="reference external" href="https://www.globe.gov/globe-data/globe-api">GLOBE API</a>, which allows us to get data directly without needing to download anything.</p>
+<p>We’ll read a saved copy of the <a class="reference external" href="https://www.globe.gov/globe-data/globe-api">GLOBE</a> data, stored as a GeoParquet file so that it loads quickly and reliably.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;https://api.globe.gov/search/v1/measurement/?protocols=mosquito_habitat_mapper&amp;datefield=measuredDate&amp;startdate=2018-01-01&amp;enddate=</span><span class="si">{</span><span class="n">end_date</span><span class="si">}</span><span class="s2">&amp;geojson=TRUE&amp;sample=FALSE&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/geo-di-lab/geoemerge/raw/refs/heads/main/data/mosquito_habitat_mapper_orig.parquet&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">content</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>If you get an error <code class="docutils literal notranslate"><span class="pre">NameError:</span> <span class="pre">name</span> <span class="pre">'gpd'</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">defined</span></code>, go to the top of this notebook and click the arrow next to the first code block starting with <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">geopandas</span> <span class="pre">as</span> <span class="pre">gpd</span></code>. This will install the packages needed for the rest of the code.</p>
+<p><strong>Optional: get the most recent data</strong></p>
+<p>The file above is a saved copy of the GLOBE database, including data submitted up to August 2026. If you want the newest observations instead, you can download them directly from the GLOBE API.</p>
+<ol class="arabic simple">
+<li><p>Go to the <a class="reference external" href="https://api.globe.gov/search/swagger-ui.html">GLOBE API Interface</a>.</p></li>
+<li><p>Click the second option, <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/v1/measurement/protocol/measureddate/</span> <span class="pre">Find</span> <span class="pre">measurements</span> <span class="pre">by</span> <span class="pre">protocol</span> <span class="pre">and</span> <span class="pre">measured</span> <span class="pre">date</span> <span class="pre">range.</span></code></p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">Try</span> <span class="pre">it</span> <span class="pre">out</span></code> in the expanded section.</p></li>
+<li><p>For “protocols” choose <code class="docutils literal notranslate"><span class="pre">mosquito_habitat_mapper</span></code>.</p></li>
+<li><p>Enter your desired start and end date in the format Year-Month-Day (like 2026-08-31).</p></li>
+<li><p>Set “geojson” to <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>.</p></li>
+<li><p>Set “sample” to <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>.</p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">Execute</span></code> and wait for it to finish loading.</p></li>
+<li><p>Scroll down to “Response body” and click <code class="docutils literal notranslate"><span class="pre">Download</span></code>.</p></li>
+<li><p>Upload the file to this Google Colab page using the folder icon on the left.</p></li>
+<li><p>Replace the cell above with the name of your file, in quotes like below, and re-run that cell.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>View the first 10 rows of the data, which are the most recently collected entries submitted to the GLOBE Observer App.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -580,383 +592,383 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>BRA</td>
-      <td>Brazil</td>
-      <td>6.3</td>
+      <td>THA</td>
+      <td>Thailand</td>
+      <td>27.3</td>
       <td>null</td>
-      <td>false</td>
+      <td>true</td>
       <td>null</td>
       <td>GLOBE Observer App</td>
       <td>LarvaeVisibleNo</td>
       <td>null</td>
-      <td>[COLUNSLZ]</td>
+      <td>[Western GLOBE Community Thailand]</td>
       <td>null</td>
       <td>0</td>
       <td>null</td>
-      <td>13</td>
+      <td>4</td>
       <td>automatic</td>
-      <td>2024-12-31 17:16:00</td>
+      <td>2026-08-31 02:10:00</td>
       <td>0</td>
-      <td>-2.5617</td>
-      <td>-44.2657</td>
+      <td>13.9537</td>
+      <td>99.6878</td>
       <td>null</td>
       <td>null</td>
       <td>null</td>
-      <td>46287</td>
+      <td>51237</td>
       <td>false</td>
       <td>null</td>
-      <td>137422629</td>
-      <td>ovitrap</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
+      <td>183949365</td>
+      <td>cement, metal or plastic tank</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
       <td>container: artificial</td>
-      <td>17459532</td>
-      <td>Brazil Citizen Science</td>
+      <td>106647949</td>
+      <td>Wat Wang Sala School</td>
       <td>mosquito_habitat_mapper</td>
-      <td>371514</td>
-      <td>23MNT816168</td>
-      <td>POINT (-44.26597 -2.56197)</td>
+      <td>424480</td>
+      <td>47PNR742427</td>
+      <td>POINT (99.68694 13.95358)</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>BRA</td>
-      <td>Brazil</td>
-      <td>6.3</td>
-      <td>null</td>
-      <td>false</td>
-      <td>null</td>
-      <td>GLOBE Observer App</td>
-      <td>LarvaeVisibleNo</td>
-      <td>null</td>
-      <td>[COLUNSLZ]</td>
-      <td>null</td>
-      <td>0</td>
-      <td>null</td>
-      <td>13</td>
-      <td>automatic</td>
-      <td>2024-12-31 17:20:00</td>
-      <td>0</td>
-      <td>-2.5617</td>
-      <td>-44.2657</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>46290</td>
-      <td>false</td>
-      <td>null</td>
-      <td>137422629</td>
-      <td>ovitrap</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>container: artificial</td>
-      <td>17459532</td>
-      <td>Brazil Citizen Science</td>
-      <td>mosquito_habitat_mapper</td>
-      <td>371514</td>
-      <td>23MNT816168</td>
-      <td>POINT (-44.26597 -2.56197)</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>BRA</td>
-      <td>Brazil</td>
-      <td>7.4</td>
+      <td>GTM</td>
+      <td>Guatemala</td>
+      <td>1494.9</td>
       <td>null</td>
       <td>true</td>
       <td>null</td>
       <td>GLOBE Observer App</td>
       <td>LarvaeVisibleNo</td>
       <td>null</td>
-      <td>[COLUNSLZ]</td>
+      <td>[CENCAR, dominicana2, EMERGE GEO DI Guatemala,...</td>
       <td>null</td>
       <td>0</td>
       <td>null</td>
-      <td>51</td>
+      <td>128</td>
       <td>automatic</td>
-      <td>2024-12-31 22:32:00</td>
+      <td>2026-08-29 20:28:00</td>
       <td>0</td>
-      <td>-2.5163</td>
-      <td>-44.3023</td>
+      <td>14.5977</td>
+      <td>-90.5589</td>
       <td>null</td>
       <td>null</td>
       <td>null</td>
-      <td>46482</td>
+      <td>51235</td>
       <td>false</td>
       <td>null</td>
-      <td>137420190</td>
-      <td>cement, metal or plastic tank</td>
-      <td>null</td>
-      <td>container: artificial</td>
-      <td>17459532</td>
-      <td>Brazil Citizen Science</td>
-      <td>mosquito_habitat_mapper</td>
-      <td>372864</td>
-      <td>23MNT775218</td>
-      <td>POINT (-44.30288 -2.51676)</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>BRA</td>
-      <td>Brazil</td>
-      <td>20.6</td>
-      <td>null</td>
-      <td>true</td>
-      <td>null</td>
-      <td>GLOBE Observer App</td>
-      <td>LarvaeVisibleNo</td>
-      <td>null</td>
-      <td>[COLUNSLZ]</td>
-      <td>null</td>
-      <td>0</td>
-      <td>null</td>
-      <td>66</td>
-      <td>automatic</td>
-      <td>2024-12-31 00:05:00</td>
-      <td>0</td>
-      <td>-2.8639</td>
-      <td>-44.0549</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>46203</td>
-      <td>false</td>
-      <td>null</td>
-      <td>137419937</td>
-      <td>can or bottle</td>
-      <td>null</td>
-      <td>container: artificial</td>
-      <td>17459532</td>
-      <td>Brazil Citizen Science</td>
-      <td>mosquito_habitat_mapper</td>
-      <td>373085</td>
-      <td>23MPS050834</td>
-      <td>POINT (-44.05526 -2.86396)</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>BRA</td>
-      <td>Brazil</td>
-      <td>20.6</td>
-      <td>null</td>
-      <td>true</td>
-      <td>null</td>
-      <td>GLOBE Observer App</td>
-      <td>LarvaeVisibleNo</td>
-      <td>null</td>
-      <td>[COLUNSLZ]</td>
-      <td>null</td>
-      <td>0</td>
-      <td>null</td>
-      <td>28</td>
-      <td>automatic</td>
-      <td>2024-12-31 00:23:00</td>
-      <td>0</td>
-      <td>-2.8639</td>
-      <td>-44.055</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>46223</td>
-      <td>false</td>
-      <td>null</td>
-      <td>137419937</td>
-      <td>lake</td>
-      <td>null</td>
-      <td>still: lake/pond/swamp</td>
-      <td>17459532</td>
-      <td>Brazil Citizen Science</td>
-      <td>mosquito_habitat_mapper</td>
-      <td>373085</td>
-      <td>23MPS050834</td>
-      <td>POINT (-44.05526 -2.86396)</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>BRA</td>
-      <td>Brazil</td>
-      <td>20.6</td>
-      <td>null</td>
-      <td>true</td>
-      <td>null</td>
-      <td>GLOBE Observer App</td>
-      <td>LarvaeVisibleNo</td>
-      <td>null</td>
-      <td>[COLUNSLZ]</td>
-      <td>null</td>
-      <td>0</td>
-      <td>null</td>
-      <td>19</td>
-      <td>automatic</td>
-      <td>2024-12-31 00:26:00</td>
-      <td>0</td>
-      <td>-2.8639</td>
-      <td>-44.055</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>46230</td>
-      <td>false</td>
-      <td>null</td>
-      <td>137419937</td>
-      <td>plant husk (areca, coconut etc)</td>
-      <td>null</td>
-      <td>container: natural</td>
-      <td>17459532</td>
-      <td>Brazil Citizen Science</td>
-      <td>mosquito_habitat_mapper</td>
-      <td>373085</td>
-      <td>23MPS050834</td>
-      <td>POINT (-44.05526 -2.86396)</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>BRA</td>
-      <td>Brazil</td>
-      <td>20.6</td>
-      <td>null</td>
-      <td>true</td>
-      <td>null</td>
-      <td>GLOBE Observer App</td>
-      <td>LarvaeVisibleNo</td>
-      <td>null</td>
-      <td>[COLUNSLZ]</td>
-      <td>null</td>
-      <td>0</td>
-      <td>null</td>
-      <td>98</td>
-      <td>automatic</td>
-      <td>2024-12-31 00:31:00</td>
-      <td>0</td>
-      <td>-2.8638</td>
-      <td>-44.0548</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>46234</td>
-      <td>false</td>
-      <td>null</td>
-      <td>137419937</td>
-      <td>lake</td>
-      <td>null</td>
-      <td>still: lake/pond/swamp</td>
-      <td>17459532</td>
-      <td>Brazil Citizen Science</td>
-      <td>mosquito_habitat_mapper</td>
-      <td>373085</td>
-      <td>23MPS050834</td>
-      <td>POINT (-44.05526 -2.86396)</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>BRA</td>
-      <td>Brazil</td>
-      <td>20.6</td>
-      <td>null</td>
-      <td>true</td>
-      <td>null</td>
-      <td>GLOBE Observer App</td>
-      <td>LarvaeVisibleNo</td>
-      <td>null</td>
-      <td>[COLUNSLZ]</td>
-      <td>null</td>
-      <td>0</td>
-      <td>null</td>
-      <td>98</td>
-      <td>automatic</td>
-      <td>2024-12-31 00:42:00</td>
-      <td>0</td>
-      <td>-2.8638</td>
-      <td>-44.0552</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>46261</td>
-      <td>false</td>
-      <td>null</td>
-      <td>137419937</td>
+      <td>12781123</td>
       <td>plant clumps (bamboo etc)</td>
       <td>null</td>
       <td>container: natural</td>
-      <td>17459532</td>
-      <td>Brazil Citizen Science</td>
+      <td>112712735</td>
+      <td>STEAM Program Guatemala</td>
       <td>mosquito_habitat_mapper</td>
-      <td>373085</td>
-      <td>23MPS050834</td>
-      <td>POINT (-44.05526 -2.86396)</td>
+      <td>324426</td>
+      <td>15PYS629152</td>
+      <td>POINT (-90.55974 14.59732)</td>
     </tr>
     <tr>
-      <th>8</th>
-      <td>BRA</td>
-      <td>Brazil</td>
-      <td>20.6</td>
+      <th>2</th>
+      <td>TUR</td>
+      <td>Turkey</td>
+      <td>4.2</td>
       <td>null</td>
       <td>true</td>
       <td>null</td>
       <td>GLOBE Observer App</td>
       <td>LarvaeVisibleNo</td>
       <td>null</td>
-      <td>[COLUNSLZ]</td>
+      <td>NaN</td>
       <td>null</td>
       <td>0</td>
       <td>null</td>
-      <td>100</td>
+      <td>11</td>
       <td>automatic</td>
-      <td>2024-12-31 00:46:00</td>
+      <td>2026-08-29 11:20:00</td>
       <td>0</td>
-      <td>-2.8639</td>
-      <td>-44.0552</td>
+      <td>39.1478</td>
+      <td>26.8284</td>
       <td>null</td>
       <td>null</td>
       <td>null</td>
-      <td>46264</td>
+      <td>51233</td>
       <td>false</td>
       <td>null</td>
-      <td>137419937</td>
+      <td>193050607</td>
+      <td>discarded: other</td>
+      <td>https://data.globe.gov/system/photos/2026/08/2...</td>
+      <td>container: artificial</td>
+      <td>17542446</td>
+      <td>Turkey Citizen Science</td>
+      <td>mosquito_habitat_mapper</td>
+      <td>424761</td>
+      <td>35SMD851331</td>
+      <td>POINT (26.82757 39.14697)</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>USA</td>
+      <td>United States</td>
+      <td>95.9</td>
+      <td>null</td>
+      <td>false</td>
+      <td>Active fish feeding</td>
+      <td>GLOBE Observer App</td>
+      <td>LarvaeVisibleNo</td>
+      <td>null</td>
+      <td>[Midlands Overwatch ]</td>
+      <td>null</td>
+      <td>0</td>
+      <td>null</td>
+      <td>3</td>
+      <td>automatic</td>
+      <td>2026-08-28 15:29:00</td>
+      <td>0</td>
+      <td>34.1429</td>
+      <td>-80.9579</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>51228</td>
+      <td>false</td>
+      <td>null</td>
+      <td>161454935</td>
+      <td>puddle or still water next to a creek, stream ...</td>
+      <td>null</td>
+      <td>flowing: still water found next to river or st...</td>
+      <td>17043304</td>
+      <td>United States of America Citizen Science</td>
+      <td>mosquito_habitat_mapper</td>
+      <td>419154</td>
+      <td>17SNT038780</td>
+      <td>POINT (-80.95878 34.14289)</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>IND</td>
+      <td>India</td>
+      <td>25.4</td>
+      <td>null</td>
+      <td>true</td>
+      <td>null</td>
+      <td>GLOBE Observer App</td>
+      <td>LarvaeVisibleNo</td>
+      <td>null</td>
+      <td>NaN</td>
+      <td>null</td>
+      <td>0</td>
+      <td>null</td>
+      <td>38</td>
+      <td>automatic</td>
+      <td>2026-08-28 11:26:00</td>
+      <td>0</td>
+      <td>19.2038</td>
+      <td>72.9821</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>51225</td>
+      <td>false</td>
+      <td>null</td>
+      <td>193290387</td>
+      <td>puddle, vehicle or animal tracks</td>
+      <td>null</td>
+      <td>still: lake/pond/swamp</td>
+      <td>17179766</td>
+      <td>India Citizen Science</td>
+      <td>mosquito_habitat_mapper</td>
+      <td>424695</td>
+      <td>43QBB878246</td>
+      <td>POINT (72.98171 19.20373)</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>USA</td>
+      <td>United States</td>
+      <td>106.2</td>
+      <td>null</td>
+      <td>false</td>
+      <td>null</td>
+      <td>GLOBE Observer App</td>
+      <td>LarvaeVisibleNo</td>
+      <td>null</td>
+      <td>[Midlands Overwatch ]</td>
+      <td>null</td>
+      <td>0</td>
+      <td>null</td>
+      <td>3</td>
+      <td>automatic</td>
+      <td>2026-08-28 16:19:00</td>
+      <td>0</td>
+      <td>34.1443</td>
+      <td>-80.9579</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>51230</td>
+      <td>false</td>
+      <td>null</td>
+      <td>161454935</td>
       <td>pond</td>
       <td>null</td>
       <td>still: lake/pond/swamp</td>
-      <td>17459532</td>
-      <td>Brazil Citizen Science</td>
+      <td>17043304</td>
+      <td>United States of America Citizen Science</td>
       <td>mosquito_habitat_mapper</td>
-      <td>373085</td>
-      <td>23MPS050834</td>
-      <td>POINT (-44.05526 -2.86396)</td>
+      <td>419155</td>
+      <td>17SNT038781</td>
+      <td>POINT (-80.95878 34.14379)</td>
     </tr>
     <tr>
-      <th>9</th>
-      <td>BRA</td>
-      <td>Brazil</td>
-      <td>20.6</td>
+      <th>6</th>
+      <td>GTM</td>
+      <td>Guatemala</td>
+      <td>1519.3</td>
+      <td>null</td>
+      <td>false</td>
+      <td>null</td>
+      <td>GLOBE Observer App</td>
+      <td>LarvaeVisibleYes</td>
+      <td>null</td>
+      <td>[EMERGE GEO DI Guatemala]</td>
+      <td>https://data.globe.gov/system/photos/2026/08/2...</td>
+      <td>4000</td>
+      <td>identify-siphon-pecten</td>
+      <td>15</td>
+      <td>automatic</td>
+      <td>2026-08-28 23:58:00</td>
+      <td>0</td>
+      <td>14.6279</td>
+      <td>-90.5374</td>
+      <td>true</td>
+      <td>null</td>
+      <td>true</td>
+      <td>51232</td>
+      <td>true</td>
+      <td>null</td>
+      <td>190813680</td>
+      <td>adult mosquito trap</td>
+      <td>https://data.globe.gov/system/photos/2026/08/2...</td>
+      <td>container: artificial</td>
+      <td>19879312</td>
+      <td>Guatemala Citizen Science</td>
+      <td>mosquito_habitat_mapper</td>
+      <td>424749</td>
+      <td>15PYS652186</td>
+      <td>POINT (-90.53807 14.62781)</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>THA</td>
+      <td>Thailand</td>
+      <td>10.4</td>
       <td>null</td>
       <td>true</td>
       <td>null</td>
       <td>GLOBE Observer App</td>
-      <td>LarvaeVisibleNo</td>
+      <td>LarvaeVisibleYes</td>
       <td>null</td>
-      <td>[COLUNSLZ]</td>
+      <td>NaN</td>
       <td>null</td>
-      <td>0</td>
-      <td>null</td>
-      <td>98</td>
+      <td>15</td>
+      <td>identify</td>
+      <td>48</td>
       <td>automatic</td>
-      <td>2024-12-31 00:48:00</td>
+      <td>2026-08-28 03:41:00</td>
       <td>0</td>
-      <td>-2.8638</td>
-      <td>-44.0552</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>46266</td>
+      <td>8.5253</td>
+      <td>99.9732</td>
       <td>false</td>
       <td>null</td>
-      <td>137419937</td>
-      <td>adult mosquito trap</td>
+      <td>true</td>
+      <td>51223</td>
+      <td>false</td>
       <td>null</td>
+      <td>193277208</td>
+      <td>dish or pot</td>
+      <td>https://data.globe.gov/system/photos/2026/08/2...</td>
       <td>container: artificial</td>
-      <td>17459532</td>
-      <td>Brazil Citizen Science</td>
+      <td>17615655</td>
+      <td>Thailand Citizen Science</td>
       <td>mosquito_habitat_mapper</td>
-      <td>373085</td>
-      <td>23MPS050834</td>
-      <td>POINT (-44.05526 -2.86396)</td>
+      <td>424687</td>
+      <td>47PPK071425</td>
+      <td>POINT (99.97312 8.52524)</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>USA</td>
+      <td>United States</td>
+      <td>99.4</td>
+      <td>null</td>
+      <td>false</td>
+      <td>Active habitat for fish.</td>
+      <td>GLOBE Observer App</td>
+      <td>LarvaeVisibleNo</td>
+      <td>null</td>
+      <td>[Midlands Overwatch ]</td>
+      <td>null</td>
+      <td>0</td>
+      <td>null</td>
+      <td>3</td>
+      <td>automatic</td>
+      <td>2026-08-28 15:14:00</td>
+      <td>0</td>
+      <td>34.1424</td>
+      <td>-80.9585</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>51227</td>
+      <td>false</td>
+      <td>null</td>
+      <td>161454935</td>
+      <td>swamp or wetland</td>
+      <td>null</td>
+      <td>still: lake/pond/swamp</td>
+      <td>17043304</td>
+      <td>United States of America Citizen Science</td>
+      <td>mosquito_habitat_mapper</td>
+      <td>424718</td>
+      <td>17SNT038779</td>
+      <td>POINT (-80.95878 34.14199)</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>USA</td>
+      <td>United States</td>
+      <td>105.3</td>
+      <td>null</td>
+      <td>false</td>
+      <td>Water running</td>
+      <td>GLOBE Observer App</td>
+      <td>LarvaeVisibleNo</td>
+      <td>null</td>
+      <td>[Midlands Overwatch ]</td>
+      <td>null</td>
+      <td>0</td>
+      <td>null</td>
+      <td>3</td>
+      <td>automatic</td>
+      <td>2026-08-28 16:09:00</td>
+      <td>0</td>
+      <td>34.1447</td>
+      <td>-80.9587</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>51229</td>
+      <td>false</td>
+      <td>null</td>
+      <td>161454935</td>
+      <td>puddle or still water next to a creek, stream ...</td>
+      <td>null</td>
+      <td>flowing: still water found next to river or st...</td>
+      <td>17043304</td>
+      <td>United States of America Citizen Science</td>
+      <td>mosquito_habitat_mapper</td>
+      <td>424725</td>
+      <td>17SNT038782</td>
+      <td>POINT (-80.95878 34.14469)</td>
     </tr>
   </tbody>
 </table>
@@ -971,47 +983,47 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;geopandas.geodataframe.GeoDataFrame&#39;&gt;
-RangeIndex: 43345 entries, 0 to 43344
+RangeIndex: 49464 entries, 0 to 49463
 Data columns (total 35 columns):
  #   Column                                         Non-Null Count  Dtype         
 ---  ------                                         --------------  -----         
- 0   countryCode                                    43259 non-null  object        
- 1   countryName                                    43259 non-null  object        
- 2   elevation                                      43345 non-null  object        
- 3   mosquitohabitatmapperAbdomenCloseupPhotoUrls   43345 non-null  object        
- 4   mosquitohabitatmapperBreedingGroundEliminated  43345 non-null  object        
- 5   mosquitohabitatmapperComments                  43345 non-null  object        
- 6   mosquitohabitatmapperDataSource                43345 non-null  object        
- 7   mosquitohabitatmapperExtraData                 43345 non-null  object        
- 8   mosquitohabitatmapperGenus                     43345 non-null  object        
- 9   mosquitohabitatmapperGlobeTeams                16353 non-null  object        
- 10  mosquitohabitatmapperLarvaFullBodyPhotoUrls    43345 non-null  object        
- 11  mosquitohabitatmapperLarvaeCount               43345 non-null  object        
- 12  mosquitohabitatmapperLastIdentifyStage         43345 non-null  object        
- 13  mosquitohabitatmapperLocationAccuracyM         25004 non-null  object        
- 14  mosquitohabitatmapperLocationMethod            25004 non-null  object        
- 15  mosquitohabitatmapperMeasuredAt                43345 non-null  datetime64[ms]
- 16  mosquitohabitatmapperMeasurementElevation      43328 non-null  object        
- 17  mosquitohabitatmapperMeasurementLatitude       43328 non-null  object        
- 18  mosquitohabitatmapperMeasurementLongitude      43328 non-null  object        
- 19  mosquitohabitatmapperMosquitoAdults            43345 non-null  object        
- 20  mosquitohabitatmapperMosquitoEggCount          43345 non-null  object        
- 21  mosquitohabitatmapperMosquitoEggs              43345 non-null  object        
- 22  mosquitohabitatmapperMosquitoHabitatMapperId   43345 non-null  object        
- 23  mosquitohabitatmapperMosquitoPupae             43345 non-null  object        
- 24  mosquitohabitatmapperSpecies                   43345 non-null  object        
- 25  mosquitohabitatmapperUserid                    43345 non-null  object        
- 26  mosquitohabitatmapperWaterSource               43345 non-null  object        
- 27  mosquitohabitatmapperWaterSourcePhotoUrls      43345 non-null  object        
- 28  mosquitohabitatmapperWaterSourceType           43345 non-null  object        
- 29  organizationId                                 43345 non-null  object        
- 30  organizationName                               43259 non-null  object        
- 31  protocol                                       43345 non-null  object        
- 32  siteId                                         43345 non-null  object        
- 33  siteName                                       43345 non-null  object        
- 34  geometry                                       43345 non-null  geometry      
-dtypes: datetime64[ms](1), geometry(1), object(33)
-memory usage: 11.6+ MB
+ 0   countryCode                                    49378 non-null  str           
+ 1   countryName                                    49378 non-null  str           
+ 2   elevation                                      49464 non-null  str           
+ 3   mosquitohabitatmapperAbdomenCloseupPhotoUrls   49464 non-null  str           
+ 4   mosquitohabitatmapperBreedingGroundEliminated  49464 non-null  str           
+ 5   mosquitohabitatmapperComments                  49464 non-null  str           
+ 6   mosquitohabitatmapperDataSource                49464 non-null  str           
+ 7   mosquitohabitatmapperExtraData                 49464 non-null  str           
+ 8   mosquitohabitatmapperGenus                     49464 non-null  str           
+ 9   mosquitohabitatmapperGlobeTeams                18279 non-null  str           
+ 10  mosquitohabitatmapperLarvaFullBodyPhotoUrls    49464 non-null  str           
+ 11  mosquitohabitatmapperLarvaeCount               49464 non-null  str           
+ 12  mosquitohabitatmapperLastIdentifyStage         49464 non-null  str           
+ 13  mosquitohabitatmapperLocationAccuracyM         29746 non-null  str           
+ 14  mosquitohabitatmapperLocationMethod            29746 non-null  str           
+ 15  mosquitohabitatmapperMeasuredAt                49464 non-null  datetime64[ms]
+ 16  mosquitohabitatmapperMeasurementElevation      49447 non-null  str           
+ 17  mosquitohabitatmapperMeasurementLatitude       49447 non-null  str           
+ 18  mosquitohabitatmapperMeasurementLongitude      49447 non-null  str           
+ 19  mosquitohabitatmapperMosquitoAdults            49464 non-null  str           
+ 20  mosquitohabitatmapperMosquitoEggCount          49464 non-null  str           
+ 21  mosquitohabitatmapperMosquitoEggs              49464 non-null  str           
+ 22  mosquitohabitatmapperMosquitoHabitatMapperId   49464 non-null  str           
+ 23  mosquitohabitatmapperMosquitoPupae             49464 non-null  str           
+ 24  mosquitohabitatmapperSpecies                   49464 non-null  str           
+ 25  mosquitohabitatmapperUserid                    49464 non-null  str           
+ 26  mosquitohabitatmapperWaterSource               49464 non-null  str           
+ 27  mosquitohabitatmapperWaterSourcePhotoUrls      49464 non-null  str           
+ 28  mosquitohabitatmapperWaterSourceType           49464 non-null  str           
+ 29  organizationId                                 49464 non-null  str           
+ 30  organizationName                               49378 non-null  str           
+ 31  protocol                                       49464 non-null  str           
+ 32  siteId                                         49464 non-null  str           
+ 33  siteName                                       49464 non-null  str           
+ 34  geometry                                       49464 non-null  geometry      
+dtypes: datetime64[ms](1), geometry(1), str(33)
+memory usage: 30.5 MB
 </pre></div>
 </div>
 </div>
@@ -1034,47 +1046,47 @@ memory usage: 11.6+ MB
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;geopandas.geodataframe.GeoDataFrame&#39;&gt;
-RangeIndex: 43345 entries, 0 to 43344
+RangeIndex: 49464 entries, 0 to 49463
 Data columns (total 35 columns):
  #   Column                    Non-Null Count  Dtype         
 ---  ------                    --------------  -----         
- 0   CountryCode               43259 non-null  object        
- 1   CountryName               43259 non-null  object        
- 2   Elevation                 43345 non-null  object        
- 3   AbdomenCloseupPhotoUrls   43345 non-null  object        
- 4   BreedingGroundEliminated  43345 non-null  object        
- 5   Comments                  43345 non-null  object        
- 6   DataSource                43345 non-null  object        
- 7   ExtraData                 43345 non-null  object        
- 8   Genus                     43345 non-null  object        
- 9   GlobeTeams                16353 non-null  object        
- 10  LarvaFullBodyPhotoUrls    43345 non-null  object        
- 11  LarvaeCount               43345 non-null  object        
- 12  LastIdentifyStage         43345 non-null  object        
- 13  LocationAccuracyM         25004 non-null  object        
- 14  LocationMethod            25004 non-null  object        
- 15  MeasuredAt                43345 non-null  datetime64[ms]
- 16  MeasurementElevation      43328 non-null  object        
- 17  MeasurementLatitude       43328 non-null  object        
- 18  MeasurementLongitude      43328 non-null  object        
- 19  MosquitoAdults            43345 non-null  object        
- 20  MosquitoEggCount          43345 non-null  object        
- 21  MosquitoEggs              43345 non-null  object        
- 22  MosquitoHabitatMapperId   43345 non-null  object        
- 23  MosquitoPupae             43345 non-null  object        
- 24  Species                   43345 non-null  object        
- 25  Userid                    43345 non-null  object        
- 26  WaterSource               43345 non-null  object        
- 27  WaterSourcePhotoUrls      43345 non-null  object        
- 28  WaterSourceType           43345 non-null  object        
- 29  OrganizationId            43345 non-null  object        
- 30  OrganizationName          43259 non-null  object        
- 31  Protocol                  43345 non-null  object        
- 32  SiteId                    43345 non-null  object        
- 33  SiteName                  43345 non-null  object        
- 34  geometry                  43345 non-null  geometry      
-dtypes: datetime64[ms](1), geometry(1), object(33)
-memory usage: 11.6+ MB
+ 0   CountryCode               49378 non-null  str           
+ 1   CountryName               49378 non-null  str           
+ 2   Elevation                 49464 non-null  str           
+ 3   AbdomenCloseupPhotoUrls   49464 non-null  str           
+ 4   BreedingGroundEliminated  49464 non-null  str           
+ 5   Comments                  49464 non-null  str           
+ 6   DataSource                49464 non-null  str           
+ 7   ExtraData                 49464 non-null  str           
+ 8   Genus                     49464 non-null  str           
+ 9   GlobeTeams                18279 non-null  str           
+ 10  LarvaFullBodyPhotoUrls    49464 non-null  str           
+ 11  LarvaeCount               49464 non-null  str           
+ 12  LastIdentifyStage         49464 non-null  str           
+ 13  LocationAccuracyM         29746 non-null  str           
+ 14  LocationMethod            29746 non-null  str           
+ 15  MeasuredAt                49464 non-null  datetime64[ms]
+ 16  MeasurementElevation      49447 non-null  str           
+ 17  MeasurementLatitude       49447 non-null  str           
+ 18  MeasurementLongitude      49447 non-null  str           
+ 19  MosquitoAdults            49464 non-null  str           
+ 20  MosquitoEggCount          49464 non-null  str           
+ 21  MosquitoEggs              49464 non-null  str           
+ 22  MosquitoHabitatMapperId   49464 non-null  str           
+ 23  MosquitoPupae             49464 non-null  str           
+ 24  Species                   49464 non-null  str           
+ 25  Userid                    49464 non-null  str           
+ 26  WaterSource               49464 non-null  str           
+ 27  WaterSourcePhotoUrls      49464 non-null  str           
+ 28  WaterSourceType           49464 non-null  str           
+ 29  OrganizationId            49464 non-null  str           
+ 30  OrganizationName          49378 non-null  str           
+ 31  Protocol                  49464 non-null  str           
+ 32  SiteId                    49464 non-null  str           
+ 33  SiteName                  49464 non-null  str           
+ 34  geometry                  49464 non-null  geometry      
+dtypes: datetime64[ms](1), geometry(1), str(33)
+memory usage: 30.5 MB
 </pre></div>
 </div>
 </div>
@@ -1116,48 +1128,48 @@ memory usage: 11.6+ MB
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;geopandas.geodataframe.GeoDataFrame&#39;&gt;
-RangeIndex: 43345 entries, 0 to 43344
+RangeIndex: 49464 entries, 0 to 49463
 Data columns (total 36 columns):
  #   Column                    Non-Null Count  Dtype         
 ---  ------                    --------------  -----         
- 0   CountryCode               43259 non-null  object        
- 1   CountryName               43259 non-null  object        
- 2   Elevation                 43345 non-null  object        
- 3   AbdomenCloseupPhotoUrls   886 non-null    object        
- 4   BreedingGroundEliminated  43284 non-null  object        
- 5   Comments                  4040 non-null   object        
- 6   DataSource                43345 non-null  object        
- 7   ExtraData                 12521 non-null  object        
- 8   Genus                     4402 non-null   object        
- 9   GlobeTeams                16353 non-null  object        
- 10  LarvaFullBodyPhotoUrls    8697 non-null   object        
- 11  LarvaeCount               24897 non-null  object        
- 12  LastIdentifyStage         30148 non-null  object        
- 13  LocationAccuracyM         13877 non-null  object        
- 14  LocationMethod            18313 non-null  object        
- 15  MeasuredAt                43345 non-null  datetime64[ms]
- 16  MeasurementElevation      43328 non-null  object        
- 17  MeasurementLatitude       43328 non-null  float64       
- 18  MeasurementLongitude      43328 non-null  float64       
- 19  MosquitoAdults            16994 non-null  object        
- 20  MosquitoEggs              16999 non-null  object        
- 21  MosquitoHabitatMapperId   43345 non-null  object        
- 22  MosquitoPupae             41529 non-null  object        
- 23  Species                   1170 non-null   object        
- 24  Userid                    43345 non-null  object        
- 25  WaterSource               43345 non-null  object        
- 26  WaterSourcePhotoUrls      34556 non-null  object        
- 27  WaterSourceType           43345 non-null  object        
- 28  OrganizationId            43259 non-null  object        
- 29  OrganizationName          43259 non-null  object        
- 30  Protocol                  43345 non-null  object        
- 31  SiteId                    43345 non-null  object        
- 32  SiteName                  43345 non-null  object        
- 33  geometry                  43345 non-null  geometry      
- 34  MeasuredDate              43345 non-null  object        
- 35  LarvaeCountProcessed      24894 non-null  float64       
-dtypes: datetime64[ms](1), float64(3), geometry(1), object(31)
-memory usage: 11.9+ MB
+ 0   CountryCode               49378 non-null  str           
+ 1   CountryName               49378 non-null  str           
+ 2   Elevation                 49464 non-null  str           
+ 3   AbdomenCloseupPhotoUrls   1005 non-null   str           
+ 4   BreedingGroundEliminated  49403 non-null  str           
+ 5   Comments                  4725 non-null   str           
+ 6   DataSource                49464 non-null  str           
+ 7   ExtraData                 17029 non-null  str           
+ 8   Genus                     4837 non-null   str           
+ 9   GlobeTeams                18279 non-null  str           
+ 10  LarvaFullBodyPhotoUrls    9422 non-null   str           
+ 11  LarvaeCount               29327 non-null  str           
+ 12  LastIdentifyStage         32424 non-null  str           
+ 13  LocationAccuracyM         18008 non-null  str           
+ 14  LocationMethod            23007 non-null  str           
+ 15  MeasuredAt                49464 non-null  datetime64[ms]
+ 16  MeasurementElevation      49447 non-null  str           
+ 17  MeasurementLatitude       49447 non-null  float64       
+ 18  MeasurementLongitude      49447 non-null  float64       
+ 19  MosquitoAdults            18559 non-null  str           
+ 20  MosquitoEggs              18548 non-null  str           
+ 21  MosquitoHabitatMapperId   49464 non-null  str           
+ 22  MosquitoPupae             46678 non-null  str           
+ 23  Species                   1372 non-null   str           
+ 24  Userid                    49464 non-null  str           
+ 25  WaterSource               49464 non-null  str           
+ 26  WaterSourcePhotoUrls      38606 non-null  str           
+ 27  WaterSourceType           49464 non-null  str           
+ 28  OrganizationId            49378 non-null  str           
+ 29  OrganizationName          49378 non-null  str           
+ 30  Protocol                  49464 non-null  str           
+ 31  SiteId                    49464 non-null  str           
+ 32  SiteName                  49464 non-null  str           
+ 33  geometry                  49464 non-null  geometry      
+ 34  MeasuredDate              49464 non-null  object        
+ 35  LarvaeCountProcessed      29324 non-null  float64       
+dtypes: datetime64[ms](1), float64(3), geometry(1), object(1), str(30)
+memory usage: 28.6+ MB
 </pre></div>
 </div>
 </div>
@@ -1174,7 +1186,7 @@ memory usage: 11.9+ MB
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="../../_images/25deabaf4b2d1f3721a1d75ccfa1b17b4ec9e6b639f6875d1fbb9f82fd6d32e0.png" src="../../_images/25deabaf4b2d1f3721a1d75ccfa1b17b4ec9e6b639f6875d1fbb9f82fd6d32e0.png" />
+<img alt="../../_images/b2784545b8b752eab0372a280a0f115261f08c3d309faf6cf6b01599a183325b.png" src="../../_images/b2784545b8b752eab0372a280a0f115261f08c3d309faf6cf6b01599a183325b.png" />
 </div>
 </div>
 <p>We will use a <a class="reference external" href="https://geopandas.org/en/stable/docs/reference/api/geopandas.sjoin.html">spatial join</a> (<code class="docutils literal notranslate"><span class="pre">sjoin</span></code>) to get all of the data that “intersects” the countries layer, meaning it is either within or on the boundary of a country.</p>
@@ -1253,197 +1265,197 @@ memory usage: 11.9+ MB
   <tbody>
     <tr>
       <th>0</th>
-      <td>BRA</td>
-      <td>Brazil</td>
-      <td>6.3</td>
+      <td>THA</td>
+      <td>Thailand</td>
+      <td>27.3</td>
       <td>NaN</td>
-      <td>false</td>
+      <td>true</td>
       <td>NaN</td>
       <td>GLOBE Observer App</td>
       <td>LarvaeVisibleNo</td>
       <td>NaN</td>
-      <td>[COLUNSLZ]</td>
+      <td>[Western GLOBE Community Thailand]</td>
       <td>NaN</td>
       <td>0</td>
       <td>NaN</td>
-      <td>13</td>
+      <td>4</td>
       <td>automatic</td>
-      <td>2024-12-31 17:16:00</td>
+      <td>2026-08-31 02:10:00</td>
       <td>0</td>
-      <td>-2.561700</td>
-      <td>-44.265700</td>
+      <td>13.953700</td>
+      <td>99.687800</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>46287</td>
+      <td>51237</td>
       <td>false</td>
       <td>NaN</td>
-      <td>137422629</td>
-      <td>ovitrap</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
+      <td>183949365</td>
+      <td>cement, metal or plastic tank</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
       <td>container: artificial</td>
-      <td>17459532</td>
-      <td>Brazil Citizen Science</td>
+      <td>106647949</td>
+      <td>Wat Wang Sala School</td>
       <td>mosquito_habitat_mapper</td>
-      <td>371514</td>
-      <td>23MNT816168</td>
-      <td>POINT (-44.26597 -2.56197)</td>
-      <td>2024-12-31</td>
+      <td>424480</td>
+      <td>47PNR742427</td>
+      <td>POINT (99.68694 13.95358)</td>
+      <td>2026-08-31</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>BRA</td>
-      <td>Brazil</td>
-      <td>6.3</td>
+      <td>GTM</td>
+      <td>Guatemala</td>
+      <td>1494.9</td>
       <td>NaN</td>
-      <td>false</td>
+      <td>true</td>
       <td>NaN</td>
       <td>GLOBE Observer App</td>
       <td>LarvaeVisibleNo</td>
       <td>NaN</td>
-      <td>[COLUNSLZ]</td>
+      <td>[CENCAR, dominicana2, EMERGE GEO DI Guatemala,...</td>
       <td>NaN</td>
       <td>0</td>
       <td>NaN</td>
-      <td>13</td>
+      <td>128</td>
       <td>automatic</td>
-      <td>2024-12-31 17:20:00</td>
+      <td>2026-08-29 20:28:00</td>
       <td>0</td>
-      <td>-2.561700</td>
-      <td>-44.265700</td>
+      <td>14.597700</td>
+      <td>-90.558900</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>46290</td>
+      <td>51235</td>
       <td>false</td>
       <td>NaN</td>
-      <td>137422629</td>
-      <td>ovitrap</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>container: artificial</td>
-      <td>17459532</td>
-      <td>Brazil Citizen Science</td>
+      <td>12781123</td>
+      <td>plant clumps (bamboo etc)</td>
+      <td>NaN</td>
+      <td>container: natural</td>
+      <td>112712735</td>
+      <td>STEAM Program Guatemala</td>
       <td>mosquito_habitat_mapper</td>
-      <td>371514</td>
-      <td>23MNT816168</td>
-      <td>POINT (-44.26597 -2.56197)</td>
-      <td>2024-12-31</td>
+      <td>324426</td>
+      <td>15PYS629152</td>
+      <td>POINT (-90.55974 14.59732)</td>
+      <td>2026-08-29</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>BRA</td>
-      <td>Brazil</td>
-      <td>7.4</td>
+      <td>TUR</td>
+      <td>Turkey</td>
+      <td>4.2</td>
       <td>NaN</td>
       <td>true</td>
       <td>NaN</td>
       <td>GLOBE Observer App</td>
       <td>LarvaeVisibleNo</td>
       <td>NaN</td>
-      <td>[COLUNSLZ]</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>0</td>
       <td>NaN</td>
-      <td>51</td>
+      <td>11</td>
       <td>automatic</td>
-      <td>2024-12-31 22:32:00</td>
+      <td>2026-08-29 11:20:00</td>
       <td>0</td>
-      <td>-2.516300</td>
-      <td>-44.302300</td>
+      <td>39.147800</td>
+      <td>26.828400</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>46482</td>
+      <td>51233</td>
       <td>false</td>
       <td>NaN</td>
-      <td>137420190</td>
-      <td>cement, metal or plastic tank</td>
-      <td>NaN</td>
+      <td>193050607</td>
+      <td>discarded: other</td>
+      <td>https://data.globe.gov/system/photos/2026/08/2...</td>
       <td>container: artificial</td>
-      <td>17459532</td>
-      <td>Brazil Citizen Science</td>
+      <td>17542446</td>
+      <td>Turkey Citizen Science</td>
       <td>mosquito_habitat_mapper</td>
-      <td>372864</td>
-      <td>23MNT775218</td>
-      <td>POINT (-44.30288 -2.51676)</td>
-      <td>2024-12-31</td>
+      <td>424761</td>
+      <td>35SMD851331</td>
+      <td>POINT (26.82757 39.14697)</td>
+      <td>2026-08-29</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>BRA</td>
-      <td>Brazil</td>
-      <td>20.6</td>
+      <td>USA</td>
+      <td>United States</td>
+      <td>95.9</td>
       <td>NaN</td>
-      <td>true</td>
-      <td>NaN</td>
+      <td>false</td>
+      <td>Active fish feeding</td>
       <td>GLOBE Observer App</td>
       <td>LarvaeVisibleNo</td>
       <td>NaN</td>
-      <td>[COLUNSLZ]</td>
+      <td>[Midlands Overwatch ]</td>
       <td>NaN</td>
       <td>0</td>
       <td>NaN</td>
-      <td>66</td>
+      <td>3</td>
       <td>automatic</td>
-      <td>2024-12-31 00:05:00</td>
+      <td>2026-08-28 15:29:00</td>
       <td>0</td>
-      <td>-2.863900</td>
-      <td>-44.054900</td>
+      <td>34.142900</td>
+      <td>-80.957900</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>46203</td>
+      <td>51228</td>
       <td>false</td>
       <td>NaN</td>
-      <td>137419937</td>
-      <td>can or bottle</td>
+      <td>161454935</td>
+      <td>puddle or still water next to a creek, stream ...</td>
       <td>NaN</td>
-      <td>container: artificial</td>
-      <td>17459532</td>
-      <td>Brazil Citizen Science</td>
+      <td>flowing: still water found next to river or st...</td>
+      <td>17043304</td>
+      <td>United States of America Citizen Science</td>
       <td>mosquito_habitat_mapper</td>
-      <td>373085</td>
-      <td>23MPS050834</td>
-      <td>POINT (-44.05526 -2.86396)</td>
-      <td>2024-12-31</td>
+      <td>419154</td>
+      <td>17SNT038780</td>
+      <td>POINT (-80.95878 34.14289)</td>
+      <td>2026-08-28</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>BRA</td>
-      <td>Brazil</td>
-      <td>20.6</td>
+      <td>IND</td>
+      <td>India</td>
+      <td>25.4</td>
       <td>NaN</td>
       <td>true</td>
       <td>NaN</td>
       <td>GLOBE Observer App</td>
       <td>LarvaeVisibleNo</td>
       <td>NaN</td>
-      <td>[COLUNSLZ]</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>0</td>
       <td>NaN</td>
-      <td>28</td>
+      <td>38</td>
       <td>automatic</td>
-      <td>2024-12-31 00:23:00</td>
+      <td>2026-08-28 11:26:00</td>
       <td>0</td>
-      <td>-2.863900</td>
-      <td>-44.055000</td>
+      <td>19.203800</td>
+      <td>72.982100</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>46223</td>
+      <td>51225</td>
       <td>false</td>
       <td>NaN</td>
-      <td>137419937</td>
-      <td>lake</td>
+      <td>193290387</td>
+      <td>puddle, vehicle or animal tracks</td>
       <td>NaN</td>
       <td>still: lake/pond/swamp</td>
-      <td>17459532</td>
-      <td>Brazil Citizen Science</td>
+      <td>17179766</td>
+      <td>India Citizen Science</td>
       <td>mosquito_habitat_mapper</td>
-      <td>373085</td>
-      <td>23MPS050834</td>
-      <td>POINT (-44.05526 -2.86396)</td>
-      <td>2024-12-31</td>
+      <td>424695</td>
+      <td>43QBB878246</td>
+      <td>POINT (72.98171 19.20373)</td>
+      <td>2026-08-28</td>
       <td>0.0</td>
     </tr>
     <tr>
@@ -1486,206 +1498,206 @@ memory usage: 11.9+ MB
       <td>...</td>
     </tr>
     <tr>
-      <th>43007</th>
-      <td>ISR</td>
-      <td>Israel</td>
-      <td>714.0</td>
-      <td>NaN</td>
-      <td>false</td>
-      <td>بركة اصطناعية</td>
-      <td>GLOBE Observer App</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>None</td>
-      <td>NaN</td>
-      <td>1-25</td>
-      <td>identify-siphon-pecten</td>
-      <td>None</td>
-      <td>None</td>
-      <td>2018-01-08 12:14:00</td>
-      <td>714</td>
-      <td>33.010806</td>
-      <td>35.331531</td>
-      <td>false</td>
-      <td>false</td>
-      <td>1340</td>
-      <td>true</td>
-      <td>NaN</td>
-      <td>31782720</td>
-      <td>pond</td>
-      <td>https://data.globe.gov/system/photos/2018/01/0...</td>
-      <td>still: lake/pond/swamp</td>
-      <td>2567205</td>
-      <td>Horfish Elementary B  School</td>
-      <td>mosquito_habitat_mapper</td>
-      <td>104220</td>
-      <td>36SYB178549</td>
-      <td>POINT (35.33153 33.01081)</td>
-      <td>2018-01-08</td>
-      <td>13.0</td>
-    </tr>
-    <tr>
-      <th>43008</th>
-      <td>ISR</td>
-      <td>Israel</td>
-      <td>755.0</td>
-      <td>NaN</td>
-      <td>false</td>
-      <td>بركة اصطناعية من مياة الامطار</td>
-      <td>GLOBE Observer App</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>None</td>
-      <td>https://data.globe.gov/system/photos/2018/01/0...</td>
-      <td>1-25</td>
-      <td>identify-analyze-siphon</td>
-      <td>None</td>
-      <td>None</td>
-      <td>2018-01-07 10:53:00</td>
-      <td>755</td>
-      <td>33.013490</td>
-      <td>35.332672</td>
-      <td>false</td>
-      <td>false</td>
-      <td>1339</td>
-      <td>true</td>
-      <td>NaN</td>
-      <td>31782720</td>
-      <td>pond</td>
-      <td>https://data.globe.gov/system/photos/2018/01/0...</td>
-      <td>still: lake/pond/swamp</td>
-      <td>2567205</td>
-      <td>Horfish Elementary B  School</td>
-      <td>mosquito_habitat_mapper</td>
-      <td>100667</td>
-      <td>36SYB179552</td>
-      <td>POINT (35.33267 33.01349)</td>
-      <td>2018-01-07</td>
-      <td>13.0</td>
-    </tr>
-    <tr>
-      <th>43009</th>
-      <td>KOR</td>
-      <td>South Korea</td>
-      <td>287.5</td>
+      <th>49039</th>
+      <td>USA</td>
+      <td>United States</td>
+      <td>485.3</td>
       <td>NaN</td>
       <td>false</td>
       <td>NaN</td>
       <td>GLOBE Observer App</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>None</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>None</td>
-      <td>None</td>
-      <td>2018-01-07 03:00:00</td>
-      <td>287.5</td>
-      <td>44.962525</td>
-      <td>-93.161031</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>1338</td>
+      <td>NaN</td>
+      <td>2017-05-29 19:08:00</td>
+      <td>485.3</td>
+      <td>34.124374</td>
+      <td>-117.749344</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>36916117</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>11114</td>
       <td>fountain or bird bath</td>
-      <td>https://data.globe.gov/system/photos/2018/01/0...</td>
+      <td>https://data.globe.gov/system/photos/2017/05/2...</td>
       <td>container: artificial</td>
-      <td>17479077</td>
-      <td>Republic of Korea Citizen Science</td>
+      <td>12993805</td>
+      <td>Canyon Weather</td>
       <td>mosquito_habitat_mapper</td>
-      <td>104189</td>
-      <td>15TVK873788</td>
-      <td>POINT (-93.16103 44.96252)</td>
-      <td>2018-01-07</td>
+      <td>35802</td>
+      <td>11SMT309762</td>
+      <td>POINT (-117.74934 34.12437)</td>
+      <td>2017-05-29</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>43010</th>
-      <td>KOR</td>
-      <td>South Korea</td>
-      <td>287.5</td>
+      <th>49040</th>
+      <td>USA</td>
+      <td>United States</td>
+      <td>467.6</td>
       <td>NaN</td>
-      <td>false</td>
+      <td>true</td>
       <td>NaN</td>
       <td>GLOBE Observer App</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>0</td>
-      <td>identify-verify-larva</td>
-      <td>None</td>
-      <td>None</td>
-      <td>2018-01-05 03:00:00</td>
-      <td>287.5</td>
-      <td>44.962525</td>
-      <td>-93.161031</td>
+      <td>identify</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2017-05-29 19:12:00</td>
+      <td>467.6</td>
+      <td>34.123473</td>
+      <td>-117.749336</td>
       <td>false</td>
       <td>false</td>
-      <td>1337</td>
+      <td>6</td>
       <td>false</td>
       <td>NaN</td>
-      <td>36916117</td>
-      <td>well or cistern</td>
-      <td>https://data.globe.gov/system/photos/2018/01/0...</td>
+      <td>11114</td>
+      <td>cement, metal or plastic tank</td>
+      <td>https://data.globe.gov/system/photos/2017/05/2...</td>
       <td>container: artificial</td>
-      <td>17479077</td>
-      <td>Republic of Korea Citizen Science</td>
+      <td>12993805</td>
+      <td>Canyon Weather</td>
       <td>mosquito_habitat_mapper</td>
-      <td>104189</td>
-      <td>15TVK873788</td>
-      <td>POINT (-93.16103 44.96252)</td>
-      <td>2018-01-05</td>
+      <td>35822</td>
+      <td>11SMT309761</td>
+      <td>POINT (-117.74934 34.12347)</td>
+      <td>2017-05-29</td>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>43011</th>
-      <td>KOR</td>
-      <td>South Korea</td>
-      <td>287.5</td>
+      <th>49041</th>
+      <td>USA</td>
+      <td>United States</td>
+      <td>467.6</td>
       <td>NaN</td>
       <td>true</td>
       <td>NaN</td>
       <td>GLOBE Observer App</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>None</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>None</td>
-      <td>None</td>
-      <td>2018-01-03 03:00:00</td>
-      <td>287.5</td>
-      <td>44.962525</td>
-      <td>-93.161031</td>
+      <td>0</td>
+      <td>identify-siphon-pecten</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>1336</td>
+      <td>2017-05-29 19:10:00</td>
+      <td>467.6</td>
+      <td>34.123473</td>
+      <td>-117.749336</td>
+      <td>false</td>
+      <td>false</td>
+      <td>5</td>
+      <td>false</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>36916117</td>
-      <td>trash container</td>
-      <td>https://data.globe.gov/system/photos/2018/01/0...</td>
+      <td>11114</td>
+      <td>fountain or bird bath</td>
+      <td>https://data.globe.gov/system/photos/2017/05/2...</td>
       <td>container: artificial</td>
-      <td>17479077</td>
-      <td>Republic of Korea Citizen Science</td>
+      <td>12993805</td>
+      <td>Canyon Weather</td>
       <td>mosquito_habitat_mapper</td>
-      <td>104189</td>
-      <td>15TVK873788</td>
-      <td>POINT (-93.16103 44.96252)</td>
-      <td>2018-01-03</td>
+      <td>35822</td>
+      <td>11SMT309761</td>
+      <td>POINT (-117.74934 34.12347)</td>
+      <td>2017-05-29</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>49042</th>
+      <td>USA</td>
+      <td>United States</td>
+      <td>74.5</td>
       <td>NaN</td>
+      <td>true</td>
+      <td>NaN</td>
+      <td>GLOBE Observer App</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>identify</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2017-05-29 20:30:00</td>
+      <td>74.5</td>
+      <td>38.857788</td>
+      <td>-77.153990</td>
+      <td>true</td>
+      <td>false</td>
+      <td>7</td>
+      <td>false</td>
+      <td>NaN</td>
+      <td>6972382</td>
+      <td>dish or pot</td>
+      <td>https://data.globe.gov/system/photos/2017/05/2...</td>
+      <td>container: artificial</td>
+      <td>22467264</td>
+      <td>Institute for Global Environmental Strategies ...</td>
+      <td>mosquito_habitat_mapper</td>
+      <td>51934</td>
+      <td>18SUJ131032</td>
+      <td>POINT (-77.15399 38.85779)</td>
+      <td>2017-05-29</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>49043</th>
+      <td>BRA</td>
+      <td>Brazil</td>
+      <td>572.9</td>
+      <td>NaN</td>
+      <td>false</td>
+      <td>NaN</td>
+      <td>GLOBE Observer App</td>
+      <td>NaN</td>
+      <td>Anopheles</td>
+      <td>NaN</td>
+      <td>https://data.globe.gov/system/photos/2017/05/2...</td>
+      <td>1-25</td>
+      <td>identify-no-siphon</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2017-05-29 17:27:00</td>
+      <td>572.9</td>
+      <td>-23.174382</td>
+      <td>-45.886155</td>
+      <td>true</td>
+      <td>false</td>
+      <td>230</td>
+      <td>false</td>
+      <td>NaN</td>
+      <td>24709556</td>
+      <td>pond</td>
+      <td>https://data.globe.gov/system/photos/2017/05/2...</td>
+      <td>still: lake/pond/swamp</td>
+      <td>17459532</td>
+      <td>Brazil Citizen Science</td>
+      <td>mosquito_habitat_mapper</td>
+      <td>55704</td>
+      <td>23KMQ093369</td>
+      <td>POINT (-45.88616 -23.17438)</td>
+      <td>2017-05-29</td>
+      <td>13.0</td>
     </tr>
   </tbody>
 </table>
-<p>43012 rows × 36 columns</p>
+<p>49044 rows × 36 columns</p>
 </div></div></div>
 </div>
-<p>A copy of this dataset is <a class="reference external" href="https://github.com/geo-di-lab/emerge-lessons/tree/main/docs/data">on GitHub</a>, and we will use this in future chapters. You do not need to download the dataset to your computer, as we will load the data directly using the link.</p>
+<p>A copy of this dataset is <a class="reference external" href="https://github.com/geo-di-lab/geoemerge/tree/main/data">on GitHub</a>, and we will use this in future chapters. You do not need to download the dataset to your computer, as we will load the data directly using the link.</p>
 <section id="explore-the-data">
 <h3>Explore the Data<a class="headerlink" href="#explore-the-data" title="Link to this heading">#</a></h3>
 <p>Let’s make a simple graph showing the number of contributions submitted by citizen scientists over time!</p>
@@ -1697,13 +1709,13 @@ memory usage: 11.9+ MB
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data_by_day</span><span class="p">[</span><span class="s1">&#39;MeasuredDate&#39;</span><span class="p">],</span> <span class="n">data_by_day</span><span class="p">[</span><span class="s1">&#39;SiteId&#39;</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Date&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Daily Contribution&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Daily Mosquito Habitat Mapper Contributions Over Time (2018-2025)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Daily Mosquito Habitat Mapper Contributions Over Time&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5b8ff0df48a160f3d04f50f9b161dd0dd0ffd935a8ed81bdb44861397299d245.png" src="../../_images/5b8ff0df48a160f3d04f50f9b161dd0dd0ffd935a8ed81bdb44861397299d245.png" />
+<img alt="../../_images/e6f8e6386172adff4247e130b1971d208b9f22fa98641fbcbc48a54ac9b73ede.png" src="../../_images/e6f8e6386172adff4247e130b1971d208b9f22fa98641fbcbc48a54ac9b73ede.png" />
 </div>
 </div>
 <p>Let’s plot the number of contributions by country:</p>
@@ -1714,26 +1726,45 @@ memory usage: 11.9+ MB
 <span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">data_by_county</span><span class="p">[</span><span class="s1">&#39;CountryName&#39;</span><span class="p">],</span> <span class="n">data_by_county</span><span class="p">[</span><span class="s1">&#39;SiteId&#39;</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Total Contributions&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Country&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Mosquito Mapper Contributions by Country (2018-2025)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Mosquito Mapper Contributions by Country&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a360193db19652fb3fddd70c15adf1b31b833b51a73c051eac05f1414d301316.png" src="../../_images/a360193db19652fb3fddd70c15adf1b31b833b51a73c051eac05f1414d301316.png" />
+<img alt="../../_images/9805269869023ef57ce36974c80a826096e523cf84ddaf19d7140b6bc447211f.png" src="../../_images/9805269869023ef57ce36974c80a826096e523cf84ddaf19d7140b6bc447211f.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="land-cover">
 <h2>Land Cover<a class="headerlink" href="#land-cover" title="Link to this heading">#</a></h2>
-<p>Now, we’ll review the Land Cover dataset. In a similar way, we’ll get the data from the GLOBE API using the same date range from the Mosquito dataset.</p>
+<p>Now, we’ll review the Land Cover dataset. We’ll load it in the same way as the Mosquito dataset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;https://api.globe.gov/search/v1/measurement/?protocols=land_covers&amp;datefield=measuredDate&amp;startdate=2018-01-01&amp;enddate=</span><span class="si">{</span><span class="n">end_date</span><span class="si">}</span><span class="s2">&amp;geojson=TRUE&amp;sample=FALSE&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/geo-di-lab/geoemerge/raw/refs/heads/main/data/land_covers_orig.parquet&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">content</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
+</div>
+<p><strong>Optional: get the most recent data</strong></p>
+<p>The file above is a saved copy of the GLOBE database, including data submitted up to August 2026. If you want the newest observations instead, you can download them directly from the GLOBE API.</p>
+<ol class="arabic simple">
+<li><p>Go to the <a class="reference external" href="https://api.globe.gov/search/swagger-ui.html">GLOBE API Interface</a>.</p></li>
+<li><p>Click the second option, <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/v1/measurement/protocol/measureddate/</span> <span class="pre">Find</span> <span class="pre">measurements</span> <span class="pre">by</span> <span class="pre">protocol</span> <span class="pre">and</span> <span class="pre">measured</span> <span class="pre">date</span> <span class="pre">range.</span></code></p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">Try</span> <span class="pre">it</span> <span class="pre">out</span></code> in the expanded section.</p></li>
+<li><p>For “protocols” choose <code class="docutils literal notranslate"><span class="pre">land_covers</span></code>.</p></li>
+<li><p>Enter your desired start and end date in the format Year-Month-Day (like 2026-08-31).</p></li>
+<li><p>Set “geojson” to <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>.</p></li>
+<li><p>Set “sample” to <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>.</p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">Execute</span></code> and wait for it to finish loading.</p></li>
+<li><p>Scroll down to “Response body” and click <code class="docutils literal notranslate"><span class="pre">Download</span></code>.</p></li>
+<li><p>Upload the file to this Google Colab page using the folder icon on the left.</p></li>
+<li><p>Replace the cell above with the name of your file, in quotes like below, and re-run that cell.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
 </div>
 <p>View a list of the columns in the dataset:</p>
 <div class="cell docutils container">
@@ -1744,75 +1775,75 @@ memory usage: 11.9+ MB
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;geopandas.geodataframe.GeoDataFrame&#39;&gt;
-RangeIndex: 52038 entries, 0 to 52037
+RangeIndex: 67936 entries, 0 to 67935
 Data columns (total 63 columns):
  #   Column                          Non-Null Count  Dtype         
 ---  ------                          --------------  -----         
- 0   countryCode                     49631 non-null  object        
- 1   countryName                     49631 non-null  object        
- 2   elevation                       52038 non-null  object        
- 3   landcoversDataSource            52038 non-null  object        
- 4   landcoversDownwardCaption       52038 non-null  object        
- 5   landcoversDownwardExtraData     52038 non-null  object        
- 6   landcoversDownwardPhotoUrl      52038 non-null  object        
- 7   landcoversDryGround             52038 non-null  object        
- 8   landcoversEastCaption           52038 non-null  object        
- 9   landcoversEastClassifications   52038 non-null  object        
- 10  landcoversEastExtraData         52038 non-null  object        
- 11  landcoversEastPhotoUrl          52038 non-null  object        
- 12  landcoversFeature1Caption       52038 non-null  object        
- 13  landcoversFeature1ExtraData     52038 non-null  object        
- 14  landcoversFeature1PhotoUrl      52038 non-null  object        
- 15  landcoversFeature2Caption       52038 non-null  object        
- 16  landcoversFeature2ExtraData     52038 non-null  object        
- 17  landcoversFeature2PhotoUrl      52038 non-null  object        
- 18  landcoversFeature3Caption       52038 non-null  object        
- 19  landcoversFeature3ExtraData     52038 non-null  object        
- 20  landcoversFeature3PhotoUrl      52038 non-null  object        
- 21  landcoversFeature4Caption       52038 non-null  object        
- 22  landcoversFeature4ExtraData     52038 non-null  object        
- 23  landcoversFeature4PhotoUrl      52038 non-null  object        
- 24  landcoversFieldNotes            52038 non-null  object        
- 25  landcoversGlobeTeams            23991 non-null  object        
- 26  landcoversLandCoverId           52038 non-null  object        
- 27  landcoversLeavesOnTrees         52038 non-null  object        
- 28  landcoversLocationAccuracyM     52038 non-null  object        
- 29  landcoversLocationMethod        52038 non-null  object        
- 30  landcoversMeasuredAt            52038 non-null  datetime64[ms]
- 31  landcoversMeasurementElevation  43920 non-null  object        
- 32  landcoversMeasurementLatitude   43920 non-null  object        
- 33  landcoversMeasurementLongitude  43920 non-null  object        
- 34  landcoversMucCode               52038 non-null  object        
- 35  landcoversMucDescription        52038 non-null  object        
- 36  landcoversMucDetails            52038 non-null  object        
- 37  landcoversMuddy                 52038 non-null  object        
- 38  landcoversNorthCaption          52038 non-null  object        
- 39  landcoversNorthClassifications  52038 non-null  object        
- 40  landcoversNorthExtraData        52038 non-null  object        
- 41  landcoversNorthPhotoUrl         52038 non-null  object        
- 42  landcoversRainingSnowing        52038 non-null  object        
- 43  landcoversSnowIce               52038 non-null  object        
- 44  landcoversSouthCaption          52038 non-null  object        
- 45  landcoversSouthClassifications  52038 non-null  object        
- 46  landcoversSouthExtraData        52038 non-null  object        
- 47  landcoversSouthPhotoUrl         52038 non-null  object        
- 48  landcoversStandingWater         52038 non-null  object        
- 49  landcoversUpwardCaption         52038 non-null  object        
- 50  landcoversUpwardExtraData       52038 non-null  object        
- 51  landcoversUpwardPhotoUrl        52038 non-null  object        
- 52  landcoversUserid                52038 non-null  object        
- 53  landcoversWestCaption           52038 non-null  object        
- 54  landcoversWestClassifications   52038 non-null  object        
- 55  landcoversWestExtraData         52038 non-null  object        
- 56  landcoversWestPhotoUrl          52038 non-null  object        
- 57  organizationId                  52038 non-null  object        
- 58  organizationName                49632 non-null  object        
- 59  protocol                        52038 non-null  object        
- 60  siteId                          52038 non-null  object        
- 61  siteName                        52038 non-null  object        
- 62  geometry                        52038 non-null  geometry      
-dtypes: datetime64[ms](1), geometry(1), object(61)
-memory usage: 25.0+ MB
+ 0   countryCode                     67901 non-null  str           
+ 1   countryName                     67901 non-null  str           
+ 2   elevation                       67936 non-null  str           
+ 3   landcoversDataSource            67936 non-null  str           
+ 4   landcoversDownwardCaption       67936 non-null  str           
+ 5   landcoversDownwardExtraData     67936 non-null  str           
+ 6   landcoversDownwardPhotoUrl      67936 non-null  str           
+ 7   landcoversDryGround             67936 non-null  str           
+ 8   landcoversEastCaption           67936 non-null  str           
+ 9   landcoversEastClassifications   67936 non-null  str           
+ 10  landcoversEastExtraData         67936 non-null  str           
+ 11  landcoversEastPhotoUrl          67936 non-null  str           
+ 12  landcoversFeature1Caption       67936 non-null  str           
+ 13  landcoversFeature1ExtraData     67936 non-null  str           
+ 14  landcoversFeature1PhotoUrl      67936 non-null  str           
+ 15  landcoversFeature2Caption       67936 non-null  str           
+ 16  landcoversFeature2ExtraData     67936 non-null  str           
+ 17  landcoversFeature2PhotoUrl      67936 non-null  str           
+ 18  landcoversFeature3Caption       67936 non-null  str           
+ 19  landcoversFeature3ExtraData     67936 non-null  str           
+ 20  landcoversFeature3PhotoUrl      67936 non-null  str           
+ 21  landcoversFeature4Caption       67936 non-null  str           
+ 22  landcoversFeature4ExtraData     67936 non-null  str           
+ 23  landcoversFeature4PhotoUrl      67936 non-null  str           
+ 24  landcoversFieldNotes            67936 non-null  str           
+ 25  landcoversGlobeTeams            33819 non-null  str           
+ 26  landcoversLandCoverId           67936 non-null  str           
+ 27  landcoversLeavesOnTrees         67936 non-null  str           
+ 28  landcoversLocationAccuracyM     67936 non-null  str           
+ 29  landcoversLocationMethod        67936 non-null  str           
+ 30  landcoversMeasuredAt            67936 non-null  datetime64[ms]
+ 31  landcoversMeasurementElevation  59623 non-null  str           
+ 32  landcoversMeasurementLatitude   59623 non-null  str           
+ 33  landcoversMeasurementLongitude  59623 non-null  str           
+ 34  landcoversMucCode               67936 non-null  str           
+ 35  landcoversMucDescription        67936 non-null  str           
+ 36  landcoversMucDetails            67936 non-null  str           
+ 37  landcoversMuddy                 67936 non-null  str           
+ 38  landcoversNorthCaption          67936 non-null  str           
+ 39  landcoversNorthClassifications  67936 non-null  str           
+ 40  landcoversNorthExtraData        67936 non-null  str           
+ 41  landcoversNorthPhotoUrl         67936 non-null  str           
+ 42  landcoversRainingSnowing        67936 non-null  str           
+ 43  landcoversSnowIce               67936 non-null  str           
+ 44  landcoversSouthCaption          67936 non-null  str           
+ 45  landcoversSouthClassifications  67936 non-null  str           
+ 46  landcoversSouthExtraData        67936 non-null  str           
+ 47  landcoversSouthPhotoUrl         67936 non-null  str           
+ 48  landcoversStandingWater         67936 non-null  str           
+ 49  landcoversUpwardCaption         67936 non-null  str           
+ 50  landcoversUpwardExtraData       67936 non-null  str           
+ 51  landcoversUpwardPhotoUrl        67936 non-null  str           
+ 52  landcoversUserid                67936 non-null  str           
+ 53  landcoversWestCaption           67936 non-null  str           
+ 54  landcoversWestClassifications   67936 non-null  str           
+ 55  landcoversWestExtraData         67936 non-null  str           
+ 56  landcoversWestPhotoUrl          67936 non-null  str           
+ 57  organizationId                  67936 non-null  str           
+ 58  organizationName                67902 non-null  str           
+ 59  protocol                        67936 non-null  str           
+ 60  siteId                          67936 non-null  str           
+ 61  siteName                        67936 non-null  str           
+ 62  geometry                        67936 non-null  geometry      
+dtypes: datetime64[ms](1), geometry(1), str(61)
+memory usage: 96.5 MB
 </pre></div>
 </div>
 </div>
@@ -1832,75 +1863,75 @@ memory usage: 25.0+ MB
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;geopandas.geodataframe.GeoDataFrame&#39;&gt;
-RangeIndex: 52038 entries, 0 to 52037
+RangeIndex: 67936 entries, 0 to 67935
 Data columns (total 63 columns):
  #   Column                Non-Null Count  Dtype         
 ---  ------                --------------  -----         
- 0   CountryCode           49631 non-null  object        
- 1   CountryName           49631 non-null  object        
- 2   Elevation             52038 non-null  object        
- 3   DataSource            52038 non-null  object        
- 4   DownwardCaption       52038 non-null  object        
- 5   DownwardExtraData     52038 non-null  object        
- 6   DownwardPhotoUrl      52038 non-null  object        
- 7   DryGround             52038 non-null  object        
- 8   EastCaption           52038 non-null  object        
- 9   EastClassifications   52038 non-null  object        
- 10  EastExtraData         52038 non-null  object        
- 11  EastPhotoUrl          52038 non-null  object        
- 12  Feature1Caption       52038 non-null  object        
- 13  Feature1ExtraData     52038 non-null  object        
- 14  Feature1PhotoUrl      52038 non-null  object        
- 15  Feature2Caption       52038 non-null  object        
- 16  Feature2ExtraData     52038 non-null  object        
- 17  Feature2PhotoUrl      52038 non-null  object        
- 18  Feature3Caption       52038 non-null  object        
- 19  Feature3ExtraData     52038 non-null  object        
- 20  Feature3PhotoUrl      52038 non-null  object        
- 21  Feature4Caption       52038 non-null  object        
- 22  Feature4ExtraData     52038 non-null  object        
- 23  Feature4PhotoUrl      52038 non-null  object        
- 24  FieldNotes            52038 non-null  object        
- 25  GlobeTeams            23991 non-null  object        
- 26  LandCoverId           52038 non-null  object        
- 27  LeavesOnTrees         52038 non-null  object        
- 28  LocationAccuracyM     52038 non-null  object        
- 29  LocationMethod        52038 non-null  object        
- 30  MeasuredAt            52038 non-null  datetime64[ms]
- 31  MeasurementElevation  43920 non-null  object        
- 32  MeasurementLatitude   43920 non-null  object        
- 33  MeasurementLongitude  43920 non-null  object        
- 34  MucCode               52038 non-null  object        
- 35  MucDescription        52038 non-null  object        
- 36  MucDetails            52038 non-null  object        
- 37  Muddy                 52038 non-null  object        
- 38  NorthCaption          52038 non-null  object        
- 39  NorthClassifications  52038 non-null  object        
- 40  NorthExtraData        52038 non-null  object        
- 41  NorthPhotoUrl         52038 non-null  object        
- 42  RainingSnowing        52038 non-null  object        
- 43  SnowIce               52038 non-null  object        
- 44  SouthCaption          52038 non-null  object        
- 45  SouthClassifications  52038 non-null  object        
- 46  SouthExtraData        52038 non-null  object        
- 47  SouthPhotoUrl         52038 non-null  object        
- 48  StandingWater         52038 non-null  object        
- 49  UpwardCaption         52038 non-null  object        
- 50  UpwardExtraData       52038 non-null  object        
- 51  UpwardPhotoUrl        52038 non-null  object        
- 52  Userid                52038 non-null  object        
- 53  WestCaption           52038 non-null  object        
- 54  WestClassifications   52038 non-null  object        
- 55  WestExtraData         52038 non-null  object        
- 56  WestPhotoUrl          52038 non-null  object        
- 57  OrganizationId        52038 non-null  object        
- 58  OrganizationName      49632 non-null  object        
- 59  Protocol              52038 non-null  object        
- 60  SiteId                52038 non-null  object        
- 61  SiteName              52038 non-null  object        
- 62  geometry              52038 non-null  geometry      
-dtypes: datetime64[ms](1), geometry(1), object(61)
-memory usage: 25.0+ MB
+ 0   CountryCode           67901 non-null  str           
+ 1   CountryName           67901 non-null  str           
+ 2   Elevation             67936 non-null  str           
+ 3   DataSource            67936 non-null  str           
+ 4   DownwardCaption       67936 non-null  str           
+ 5   DownwardExtraData     67936 non-null  str           
+ 6   DownwardPhotoUrl      67936 non-null  str           
+ 7   DryGround             67936 non-null  str           
+ 8   EastCaption           67936 non-null  str           
+ 9   EastClassifications   67936 non-null  str           
+ 10  EastExtraData         67936 non-null  str           
+ 11  EastPhotoUrl          67936 non-null  str           
+ 12  Feature1Caption       67936 non-null  str           
+ 13  Feature1ExtraData     67936 non-null  str           
+ 14  Feature1PhotoUrl      67936 non-null  str           
+ 15  Feature2Caption       67936 non-null  str           
+ 16  Feature2ExtraData     67936 non-null  str           
+ 17  Feature2PhotoUrl      67936 non-null  str           
+ 18  Feature3Caption       67936 non-null  str           
+ 19  Feature3ExtraData     67936 non-null  str           
+ 20  Feature3PhotoUrl      67936 non-null  str           
+ 21  Feature4Caption       67936 non-null  str           
+ 22  Feature4ExtraData     67936 non-null  str           
+ 23  Feature4PhotoUrl      67936 non-null  str           
+ 24  FieldNotes            67936 non-null  str           
+ 25  GlobeTeams            33819 non-null  str           
+ 26  LandCoverId           67936 non-null  str           
+ 27  LeavesOnTrees         67936 non-null  str           
+ 28  LocationAccuracyM     67936 non-null  str           
+ 29  LocationMethod        67936 non-null  str           
+ 30  MeasuredAt            67936 non-null  datetime64[ms]
+ 31  MeasurementElevation  59623 non-null  str           
+ 32  MeasurementLatitude   59623 non-null  str           
+ 33  MeasurementLongitude  59623 non-null  str           
+ 34  MucCode               67936 non-null  str           
+ 35  MucDescription        67936 non-null  str           
+ 36  MucDetails            67936 non-null  str           
+ 37  Muddy                 67936 non-null  str           
+ 38  NorthCaption          67936 non-null  str           
+ 39  NorthClassifications  67936 non-null  str           
+ 40  NorthExtraData        67936 non-null  str           
+ 41  NorthPhotoUrl         67936 non-null  str           
+ 42  RainingSnowing        67936 non-null  str           
+ 43  SnowIce               67936 non-null  str           
+ 44  SouthCaption          67936 non-null  str           
+ 45  SouthClassifications  67936 non-null  str           
+ 46  SouthExtraData        67936 non-null  str           
+ 47  SouthPhotoUrl         67936 non-null  str           
+ 48  StandingWater         67936 non-null  str           
+ 49  UpwardCaption         67936 non-null  str           
+ 50  UpwardExtraData       67936 non-null  str           
+ 51  UpwardPhotoUrl        67936 non-null  str           
+ 52  Userid                67936 non-null  str           
+ 53  WestCaption           67936 non-null  str           
+ 54  WestClassifications   67936 non-null  str           
+ 55  WestExtraData         67936 non-null  str           
+ 56  WestPhotoUrl          67936 non-null  str           
+ 57  OrganizationId        67936 non-null  str           
+ 58  OrganizationName      67902 non-null  str           
+ 59  Protocol              67936 non-null  str           
+ 60  SiteId                67936 non-null  str           
+ 61  SiteName              67936 non-null  str           
+ 62  geometry              67936 non-null  geometry      
+dtypes: datetime64[ms](1), geometry(1), str(61)
+memory usage: 96.5 MB
 </pre></div>
 </div>
 </div>
@@ -2002,152 +2033,18 @@ memory usage: 25.0+ MB
   <tbody>
     <tr>
       <th>0</th>
-      <td>ITA</td>
-      <td>Italy</td>
-      <td>489.2</td>
+      <td>USA</td>
+      <td>United States</td>
+      <td>5.1</td>
       <td>GLOBE Observer App</td>
       <td>null</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
       <td>true</td>
       <td>null</td>
       <td>null</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>Snag C. sativa, 40 cm, cl 2, #01 #04 #12</td>
-      <td>((compassData.heading: 182, compassData.horizo...</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>Log 70 cm, C. sativa, cl 2, #04 #01 #12</td>
-      <td>((compassData.heading: 182, compassData.horizo...</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>Stump of C. sativa 230 cm</td>
-      <td>((compassData.heading: null, compassData.horiz...</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
       <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>Old Coppice of Castanea sativa</td>
-      <td>[Conservazione Natura Universita Tuscia]</td>
-      <td>78608</td>
-      <td>false</td>
-      <td>8</td>
-      <td>automatic</td>
-      <td>2024-12-31 15:07:00.000</td>
-      <td>492.4</td>
-      <td>42.1818</td>
-      <td>12.1825</td>
-      <td>null</td>
-      <td>null</td>
-      <td></td>
-      <td>false</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>false</td>
-      <td>false</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>false</td>
-      <td>null</td>
-      <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>128342138</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>17453129</td>
-      <td>Italy Citizen Science</td>
-      <td>land_covers</td>
-      <td>376869</td>
-      <td>33TTG673738</td>
-      <td>POINT (12.18229 42.18175)</td>
-      <td>2024-12-31</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>MDG</td>
-      <td>Madagascar</td>
-      <td>1350.1</td>
-      <td>GLOBE Observer App</td>
-      <td>null</td>
-      <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>true</td>
-      <td>null</td>
-      <td>90% MUC 01 (n) [Trees, Closely Spaced, Evergre...</td>
-      <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>Arbres plantés par l'équipe GLOBE avec la comm...</td>
-      <td>[Africa 2024 Regional Meeting, Coordinating Of...</td>
-      <td>77695</td>
-      <td>true</td>
-      <td>10</td>
-      <td>automatic</td>
-      <td>2024-12-31 11:29:00.000</td>
-      <td>1340.6</td>
-      <td>-18.7576</td>
-      <td>47.5615</td>
-      <td>M01</td>
-      <td>Trees, Closely Spaced, Evergreen - Needle Leaved</td>
-      <td>n</td>
-      <td>false</td>
-      <td>null</td>
-      <td>90% MUC 01 (n) [Trees, Closely Spaced, Evergre...</td>
-      <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>false</td>
-      <td>false</td>
-      <td>null</td>
-      <td>90% MUC 01 (n) [Trees, Closely Spaced, Evergre...</td>
-      <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>false</td>
-      <td>null</td>
-      <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>2538037</td>
-      <td>null</td>
-      <td>90% MUC 01 (n) [Trees, Closely Spaced, Evergre...</td>
-      <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>6508873</td>
-      <td>Madagascar GLOBE v-School</td>
-      <td>land_covers</td>
-      <td>373647</td>
-      <td>38KQE700240</td>
-      <td>POINT (47.56096 -18.75807)</td>
-      <td>2024-12-31</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>MDG</td>
-      <td>Madagascar</td>
-      <td>1324.7</td>
-      <td>GLOBE Observer App</td>
-      <td>null</td>
-      <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>true</td>
-      <td>null</td>
-      <td>60% MUC 93 [Urban, Roads and Parking]</td>
-      <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
       <td>null</td>
       <td>null</td>
       <td>null</td>
@@ -2161,127 +2058,261 @@ memory usage: 25.0+ MB
       <td>null</td>
       <td>null</td>
       <td>(none)</td>
-      <td>[Africa 2024 Regional Meeting, Coordinating Of...</td>
-      <td>77691</td>
+      <td>[IEOPCNP]</td>
+      <td>94653</td>
       <td>true</td>
-      <td>10</td>
+      <td>1414</td>
       <td>automatic</td>
-      <td>2024-12-31 12:07:00.000</td>
-      <td>1324.8</td>
-      <td>-18.7944</td>
-      <td>47.5799</td>
-      <td>M93</td>
-      <td>Urban, Roads and Parking</td>
+      <td>2026-08-31 15:55:00</td>
+      <td>4.9</td>
+      <td>40.0199</td>
+      <td>-75.0422</td>
+      <td>null</td>
+      <td>null</td>
       <td></td>
       <td>false</td>
       <td>null</td>
-      <td>60% MUC 93 [Urban, Roads and Parking]</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
+      <td>null</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
       <td>false</td>
       <td>false</td>
       <td>null</td>
-      <td>60% MUC 93 [Urban, Roads and Parking]</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
+      <td>null</td>
+      <td>null</td>
       <td>false</td>
       <td>null</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>2538037</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>2514462</td>
       <td>null</td>
-      <td>60% MUC 93 [Urban, Roads and Parking]</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>6508873</td>
-      <td>Madagascar GLOBE v-School</td>
+      <td>null</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>2620510</td>
+      <td>Institute for Earth Observations School</td>
       <td>land_covers</td>
-      <td>373642</td>
-      <td>38KQE719199</td>
-      <td>POINT (47.57953 -18.79484)</td>
-      <td>2024-12-31</td>
+      <td>424899</td>
+      <td>18TVK963299</td>
+      <td>POINT (-75.04336 40.0193)</td>
+      <td>2026-08-31</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>USA</td>
+      <td>United States</td>
+      <td>235.5</td>
+      <td>GLOBE Observer App</td>
+      <td>null</td>
+      <td>null</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>false</td>
+      <td>null</td>
+      <td>10% MUC 11 (n) [Trees, Loosely Spaced, Evergre...</td>
+      <td>null</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>(none)</td>
+      <td>NaN</td>
+      <td>94655</td>
+      <td>true</td>
+      <td>8</td>
+      <td>automatic</td>
+      <td>2026-08-31 17:47:00</td>
+      <td>235.9</td>
+      <td>39.1857</td>
+      <td>-86.7783</td>
+      <td>M43</td>
+      <td>Herbaceous/Grassland, Short Grass</td>
+      <td></td>
+      <td>false</td>
+      <td>null</td>
+      <td>80% MUC 02 (b) [Trees, Closely Spaced, Deciduo...</td>
+      <td>null</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>false</td>
+      <td>false</td>
+      <td>null</td>
+      <td>30% MUC 11 (n) [Trees, Loosely Spaced, Evergre...</td>
+      <td>null</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>false</td>
+      <td>null</td>
+      <td>null</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>24905746</td>
+      <td>null</td>
+      <td>10% MUC 11 (n) [Trees, Loosely Spaced, Evergre...</td>
+      <td>null</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>17043304</td>
+      <td>United States of America Citizen Science</td>
+      <td>land_covers</td>
+      <td>52378</td>
+      <td>16SEJ191374</td>
+      <td>POINT (-86.77885 39.18563)</td>
+      <td>2026-08-31</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>USA</td>
+      <td>United States</td>
+      <td>369.3</td>
+      <td>GLOBE Observer App</td>
+      <td>null</td>
+      <td>null</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>true</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>(none)</td>
+      <td>NaN</td>
+      <td>94657</td>
+      <td>true</td>
+      <td>9</td>
+      <td>automatic</td>
+      <td>2026-08-31 20:29:00</td>
+      <td>369.8</td>
+      <td>41.4361</td>
+      <td>-81.4686</td>
+      <td>null</td>
+      <td>null</td>
+      <td></td>
+      <td>false</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>false</td>
+      <td>false</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>false</td>
+      <td>null</td>
+      <td>null</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>148669632</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>17043304</td>
+      <td>United States of America Citizen Science</td>
+      <td>land_covers</td>
+      <td>391652</td>
+      <td>17TMF608872</td>
+      <td>POINT (-81.4692 41.43541)</td>
+      <td>2026-08-31</td>
     </tr>
     <tr>
       <th>3</th>
       <td>USA</td>
       <td>United States</td>
-      <td>182.2</td>
-      <td>GLOBE Data Entry Site Definition</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>None</td>
-      <td>77689</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>2024-12-31 16:12:03.111</td>
-      <td>None</td>
-      <td>None</td>
-      <td>None</td>
-      <td>M4</td>
-      <td>Herbaceous Vegetation</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>52107</td>
-      <td>Crestwood High School</td>
-      <td>land_covers</td>
-      <td>373628</td>
-      <td>Hillcrest Elementary Trail</td>
-      <td>POINT (-83.27705 42.3465)</td>
-      <td>2024-12-31</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>GRC</td>
-      <td>Greece</td>
-      <td>3.0</td>
+      <td>2.3</td>
       <td>GLOBE Observer App</td>
       <td>null</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>false</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>null</td>
+      <td>((compassData.heading: 15, compassData.horizon...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>Delaware River</td>
+      <td>((compassData.heading: 301, compassData.horizo...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>Tacony palmyra bridge nj-pa</td>
+      <td>[IEOPCNP]</td>
+      <td>94652</td>
+      <td>true</td>
+      <td>187</td>
+      <td>automatic</td>
+      <td>2026-08-31 14:57:00</td>
+      <td>2.5</td>
+      <td>40.0088</td>
+      <td>-75.0408</td>
+      <td>null</td>
+      <td>null</td>
+      <td></td>
       <td>true</td>
       <td>null</td>
-      <td>90% MUC 91 [Urban, Residential Property]; 10% ...</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
+      <td>null</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>false</td>
+      <td>false</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>false</td>
+      <td>null</td>
+      <td>null</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>2514462</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>2620510</td>
+      <td>Institute for Earth Observations School</td>
+      <td>land_covers</td>
+      <td>42112</td>
+      <td>18TVK965287</td>
+      <td>POINT (-75.04101 40.00849)</td>
+      <td>2026-08-31</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>USA</td>
+      <td>United States</td>
+      <td>78.2</td>
+      <td>GLOBE Observer App</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>true</td>
+      <td>null</td>
+      <td>10% MUC 12 (b) [Trees, Loosely Spaced, Deciduo...</td>
+      <td>null</td>
+      <td>null</td>
       <td>null</td>
       <td>null</td>
       <td>null</td>
@@ -2295,63 +2326,63 @@ memory usage: 25.0+ MB
       <td>null</td>
       <td>null</td>
       <td>(none)</td>
-      <td>[tinycore lab, tinycorelab]</td>
-      <td>77683</td>
-      <td>false</td>
+      <td>[Oregon State University GEOGRAPHY]</td>
+      <td>94647</td>
+      <td>true</td>
       <td>null</td>
       <td>manual</td>
-      <td>2024-12-31 11:45:00.000</td>
-      <td>3.2</td>
-      <td>37.939</td>
-      <td>23.697</td>
+      <td>2026-08-31 05:12:00</td>
+      <td>78.7</td>
+      <td>53.413</td>
+      <td>-6.8349</td>
       <td>M91</td>
       <td>Urban, Residential Property</td>
       <td></td>
       <td>false</td>
       <td>null</td>
-      <td>90% MUC 91 [Urban, Residential Property]; 10% ...</td>
+      <td>10% MUC 12 (b) [Trees, Loosely Spaced, Deciduo...</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
+      <td>null</td>
       <td>false</td>
       <td>false</td>
       <td>null</td>
-      <td>20% MUC 91 [Urban, Residential Property]; 80% ...</td>
+      <td>10% MUC 12 (b) [Trees, Loosely Spaced, Deciduo...</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
+      <td>null</td>
       <td>false</td>
       <td>null</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>65209921</td>
       <td>null</td>
-      <td>10% MUC 91 [Urban, Residential Property]; 90% ...</td>
+      <td>189554409</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>6508393</td>
-      <td>Greece GLOBE v-School</td>
+      <td>10% MUC 12 (b) [Trees, Loosely Spaced, Deciduo...</td>
+      <td>null</td>
+      <td>null</td>
+      <td>17043304</td>
+      <td>United States of America Citizen Science</td>
       <td>land_covers</td>
-      <td>373613</td>
-      <td>34SGH370024</td>
-      <td>POINT (23.6969 37.9383)</td>
-      <td>2024-12-31</td>
+      <td>424872</td>
+      <td>29UPV439203</td>
+      <td>POINT (-6.83495 53.41212)</td>
+      <td>2026-08-31</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>GRC</td>
-      <td>Greece</td>
-      <td>15.5</td>
+      <td>USA</td>
+      <td>United States</td>
+      <td>10.0</td>
       <td>GLOBE Observer App</td>
       <td>null</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
       <td>true</td>
       <td>null</td>
-      <td>40% MUC 94 [Urban, Other]; 60% MUC 43 [Herbace...</td>
+      <td>20% MUC 11 (n) [Trees, Loosely Spaced, Evergre...</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>Park</td>
-      <td>((compassData.heading: 137, compassData.horizo...</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
       <td>null</td>
       <td>null</td>
       <td>null</td>
@@ -2362,261 +2393,261 @@ memory usage: 25.0+ MB
       <td>null</td>
       <td>null</td>
       <td>(none)</td>
-      <td>[tinycore lab, tinycorelab]</td>
-      <td>77681</td>
-      <td>false</td>
-      <td>null</td>
-      <td>manual</td>
-      <td>2024-12-31 11:01:00.000</td>
-      <td>16.7</td>
-      <td>37.9374</td>
-      <td>23.7051</td>
+      <td>[Oregon State University GEOGRAPHY]</td>
+      <td>94646</td>
+      <td>true</td>
+      <td>4</td>
+      <td>automatic</td>
+      <td>2026-08-31 03:47:00</td>
+      <td>10</td>
+      <td>-43.6444</td>
+      <td>172.4635</td>
       <td>M43</td>
       <td>Herbaceous/Grassland, Short Grass</td>
       <td></td>
       <td>true</td>
       <td>null</td>
-      <td>10% MUC 94 [Urban, Other]; 90% MUC 43 [Herbace...</td>
+      <td>20% MUC 11 (n) [Trees, Loosely Spaced, Evergre...</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>false</td>
-      <td>false</td>
-      <td>null</td>
-      <td>40% MUC 94 [Urban, Other]; 60% MUC 43 [Herbace...</td>
-      <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>true</td>
       <td>false</td>
       <td>null</td>
+      <td>20% MUC 11 (n) [Trees, Loosely Spaced, Evergre...</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>65209921</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>false</td>
       <td>null</td>
-      <td>10% MUC 94 [Urban, Other]; 90% MUC 43 [Herbace...</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>6508393</td>
-      <td>Greece GLOBE v-School</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>189472835</td>
+      <td>null</td>
+      <td>30% MUC 11 (n) [Trees, Loosely Spaced, Evergre...</td>
+      <td>null</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>17043304</td>
+      <td>United States of America Citizen Science</td>
       <td>land_covers</td>
-      <td>373609</td>
-      <td>34SGH377023</td>
-      <td>POINT (23.70482 37.93722)</td>
-      <td>2024-12-31</td>
+      <td>424867</td>
+      <td>59GPM180665</td>
+      <td>POINT (172.4631 -43.64514)</td>
+      <td>2026-08-31</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>MDG</td>
-      <td>Madagascar</td>
-      <td>1303.5</td>
+      <td>USA</td>
+      <td>United States</td>
+      <td>267.9</td>
       <td>GLOBE Observer App</td>
       <td>null</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
       <td>true</td>
       <td>null</td>
       <td>null</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
       <td>null</td>
+      <td>((compassData.heading: 260, compassData.horizo...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
       <td>null</td>
+      <td>((compassData.heading: 336, compassData.horizo...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
       <td>null</td>
+      <td>((compassData.heading: 279, compassData.horizo...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
       <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
+      <td>((compassData.heading: 289, compassData.horizo...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
       <td>(none)</td>
-      <td>[Africa 2024 Regional Meeting, Coordinating Of...</td>
-      <td>77692</td>
+      <td>NaN</td>
+      <td>94654</td>
       <td>true</td>
-      <td>7</td>
+      <td>10</td>
       <td>automatic</td>
-      <td>2024-12-31 11:53:00.000</td>
-      <td>1337.6</td>
-      <td>-18.7639</td>
-      <td>47.5584</td>
-      <td>M01</td>
-      <td>Trees, Closely Spaced, Evergreen - Needle Leaved</td>
-      <td>n</td>
-      <td>false</td>
+      <td>2026-08-31 18:43:00</td>
+      <td>269.7</td>
+      <td>39.8439</td>
+      <td>-86.3833</td>
       <td>null</td>
-      <td>50% MUC 01 (n) [Trees, Closely Spaced, Evergre...</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>false</td>
+      <td></td>
       <td>false</td>
       <td>null</td>
       <td>null</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>false</td>
       <td>false</td>
       <td>null</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>2538037</td>
+      <td>null</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>false</td>
+      <td>null</td>
+      <td>null</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>126092159</td>
       <td>null</td>
       <td>null</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>6508873</td>
-      <td>Madagascar GLOBE v-School</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>17043304</td>
+      <td>United States of America Citizen Science</td>
       <td>land_covers</td>
-      <td>373644</td>
-      <td>38KQE697233</td>
-      <td>POINT (47.55822 -18.76443)</td>
-      <td>2024-12-31</td>
+      <td>361103</td>
+      <td>16SEK527106</td>
+      <td>POINT (-86.38402 39.84378)</td>
+      <td>2026-08-31</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>ITA</td>
-      <td>Italy</td>
-      <td>440.2</td>
+      <td>USA</td>
+      <td>United States</td>
+      <td>176.9</td>
       <td>GLOBE Observer App</td>
       <td>null</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>false</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>null</td>
+      <td>((compassData.heading: null, compassData.horiz...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>null</td>
+      <td>((compassData.heading: null, compassData.horiz...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>null</td>
+      <td>((compassData.heading: null, compassData.horiz...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>null</td>
+      <td>((compassData.heading: null, compassData.horiz...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>(none)</td>
+      <td>[GLOBE New York City, NASA Response Mappers, P...</td>
+      <td>94649</td>
+      <td>true</td>
+      <td>50</td>
+      <td>automatic</td>
+      <td>2026-08-31 04:59:00</td>
+      <td>172.7</td>
+      <td>26.0026</td>
+      <td>79.1663</td>
+      <td>null</td>
+      <td>null</td>
+      <td></td>
       <td>true</td>
       <td>null</td>
       <td>null</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>snag F. sylvatica 140 cm, cl 1, #4 #12</td>
-      <td>((compassData.heading: 174, compassData.horizo...</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>Log F. sylvatica90 cm, cl2, #1 #4 #12 #14</td>
-      <td>((compassData.heading: 174, compassData.horizo...</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>Old high forest of Fagus sylvatica</td>
-      <td>[Conservazione Natura Universita Tuscia]</td>
-      <td>78607</td>
-      <td>false</td>
-      <td>12</td>
-      <td>automatic</td>
-      <td>2024-12-31 14:07:00.000</td>
-      <td>447.3</td>
-      <td>42.1797</td>
-      <td>12.1754</td>
-      <td>null</td>
-      <td>null</td>
-      <td></td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>true</td>
       <td>false</td>
       <td>null</td>
       <td>null</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>false</td>
-      <td>false</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
       <td>false</td>
       <td>null</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>128342138</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>59830782</td>
       <td>null</td>
       <td>null</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>17453129</td>
-      <td>Italy Citizen Science</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>10532858</td>
+      <td>GLOBE Implementation Office GLOBE v-School</td>
       <td>land_covers</td>
-      <td>373629</td>
-      <td>33TTG667735</td>
-      <td>POINT (12.17516 42.17887)</td>
-      <td>2024-12-31</td>
+      <td>378172</td>
+      <td>44RLP164772</td>
+      <td>POINT (79.16559 26.00205)</td>
+      <td>2026-08-31</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>MDG</td>
-      <td>Madagascar</td>
-      <td>1461.9</td>
+      <td>USA</td>
+      <td>United States</td>
+      <td>176.9</td>
       <td>GLOBE Observer App</td>
       <td>null</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>false</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>null</td>
+      <td>((compassData.heading: null, compassData.horiz...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>null</td>
+      <td>((compassData.heading: null, compassData.horiz...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>null</td>
+      <td>((compassData.heading: null, compassData.horiz...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>null</td>
+      <td>((compassData.heading: null, compassData.horiz...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>(none)</td>
+      <td>[GLOBE New York City, NASA Response Mappers, P...</td>
+      <td>94650</td>
+      <td>true</td>
+      <td>11</td>
+      <td>automatic</td>
+      <td>2026-08-31 08:03:00</td>
+      <td>174</td>
+      <td>26.0029</td>
+      <td>79.1665</td>
+      <td>null</td>
+      <td>null</td>
+      <td></td>
       <td>true</td>
       <td>null</td>
-      <td>80% MUC 94 [Urban, Other]</td>
-      <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
       <td>null</td>
       <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>null</td>
-      <td>(none)</td>
-      <td>[Africa 2024 Regional Meeting, Coordinating Of...</td>
-      <td>77686</td>
-      <td>false</td>
-      <td>6</td>
-      <td>automatic</td>
-      <td>2024-12-31 10:57:00.000</td>
-      <td>1463.8</td>
-      <td>-18.7605</td>
-      <td>47.563</td>
-      <td>M94</td>
-      <td>Urban, Other</td>
-      <td></td>
-      <td>false</td>
-      <td>null</td>
-      <td>80% MUC 94 [Urban, Other]</td>
-      <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>false</td>
-      <td>false</td>
-      <td>null</td>
-      <td>80% MUC 94 [Urban, Other]</td>
-      <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>true</td>
       <td>false</td>
       <td>null</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>2538037</td>
       <td>null</td>
-      <td>80% MUC 94 [Urban, Other]</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>false</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>6508873</td>
-      <td>Madagascar GLOBE v-School</td>
+      <td>null</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>59830782</td>
+      <td>null</td>
+      <td>null</td>
+      <td>null</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>10532858</td>
+      <td>GLOBE Implementation Office GLOBE v-School</td>
       <td>land_covers</td>
-      <td>373618</td>
-      <td>38KQE702237</td>
-      <td>POINT (47.5629 -18.76075)</td>
-      <td>2024-12-31</td>
+      <td>378172</td>
+      <td>44RLP164772</td>
+      <td>POINT (79.16559 26.00205)</td>
+      <td>2026-08-31</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>MDG</td>
-      <td>Madagascar</td>
-      <td>1450.3</td>
+      <td>UKR</td>
+      <td>Ukraine</td>
+      <td>250.2</td>
       <td>GLOBE Observer App</td>
       <td>null</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
       <td>true</td>
       <td>null</td>
-      <td>50% MUC 94 [Urban, Other]</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
+      <td>null</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
       <td>null</td>
       <td>null</td>
       <td>null</td>
@@ -2630,45 +2661,45 @@ memory usage: 25.0+ MB
       <td>null</td>
       <td>null</td>
       <td>(none)</td>
-      <td>[Africa 2024 Regional Meeting, Coordinating Of...</td>
-      <td>77696</td>
-      <td>false</td>
-      <td>8</td>
+      <td>[GLOBE Cup Europe Eurasia]</td>
+      <td>94648</td>
+      <td>true</td>
+      <td>10</td>
       <td>automatic</td>
-      <td>2024-12-31 11:13:00.000</td>
-      <td>1455.8</td>
-      <td>-18.7607</td>
-      <td>47.5623</td>
-      <td>M94</td>
-      <td>Urban, Other</td>
+      <td>2026-08-31 06:45:00</td>
+      <td>252.4</td>
+      <td>48.9218</td>
+      <td>24.6934</td>
+      <td>null</td>
+      <td>null</td>
       <td></td>
       <td>false</td>
       <td>null</td>
-      <td>50% MUC 94 [Urban, Other]</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
+      <td>null</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
       <td>false</td>
       <td>false</td>
       <td>null</td>
-      <td>50% MUC 94 [Urban, Other]</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
+      <td>null</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
       <td>false</td>
       <td>null</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>2538037</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>13068171</td>
       <td>null</td>
-      <td>50% MUC 94 [Urban, Other]</td>
       <td>null</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>6508873</td>
-      <td>Madagascar GLOBE v-School</td>
+      <td>null</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>13068008</td>
+      <td>Ivano-Frankivsk City Environmental Station</td>
       <td>land_covers</td>
-      <td>373617</td>
-      <td>38KQE701237</td>
-      <td>POINT (47.56195 -18.76076)</td>
-      <td>2024-12-31</td>
+      <td>160487</td>
+      <td>35ULQ310213</td>
+      <td>POINT (24.69298 48.92155)</td>
+      <td>2026-08-31</td>
     </tr>
   </tbody>
 </table>
@@ -2691,76 +2722,76 @@ memory usage: 25.0+ MB
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;geopandas.geodataframe.GeoDataFrame&#39;&gt;
-RangeIndex: 52038 entries, 0 to 52037
+RangeIndex: 67936 entries, 0 to 67935
 Data columns (total 64 columns):
  #   Column                Non-Null Count  Dtype         
 ---  ------                --------------  -----         
- 0   CountryCode           49631 non-null  object        
- 1   CountryName           49631 non-null  object        
- 2   Elevation             52038 non-null  object        
- 3   DataSource            52038 non-null  object        
- 4   DownwardCaption       22648 non-null  object        
- 5   DownwardExtraData     22644 non-null  object        
- 6   DownwardPhotoUrl      40040 non-null  object        
- 7   DryGround             43973 non-null  object        
- 8   EastCaption           23889 non-null  object        
- 9   EastClassifications   14465 non-null  object        
- 10  EastExtraData         23884 non-null  object        
- 11  EastPhotoUrl          42897 non-null  object        
- 12  Feature1Caption       341 non-null    object        
- 13  Feature1ExtraData     1389 non-null   object        
- 14  Feature1PhotoUrl      1390 non-null   object        
- 15  Feature2Caption       158 non-null    object        
- 16  Feature2ExtraData     694 non-null    object        
- 17  Feature2PhotoUrl      694 non-null    object        
- 18  Feature3Caption       98 non-null     object        
- 19  Feature3ExtraData     463 non-null    object        
- 20  Feature3PhotoUrl      463 non-null    object        
- 21  Feature4Caption       78 non-null     object        
- 22  Feature4ExtraData     347 non-null    object        
- 23  Feature4PhotoUrl      347 non-null    object        
- 24  FieldNotes            21884 non-null  object        
- 25  GlobeTeams            23991 non-null  object        
- 26  LandCoverId           52038 non-null  object        
- 27  LeavesOnTrees         43973 non-null  object        
- 28  LocationAccuracyM     36779 non-null  object        
- 29  LocationMethod        43973 non-null  object        
- 30  MeasuredAt            52038 non-null  datetime64[ms]
- 31  MeasurementElevation  43920 non-null  object        
- 32  MeasurementLatitude   43920 non-null  object        
- 33  MeasurementLongitude  43920 non-null  object        
- 34  MucCode               22725 non-null  object        
- 35  MucDescription        22722 non-null  object        
- 36  MucDetails            43973 non-null  object        
- 37  Muddy                 43973 non-null  object        
- 38  NorthCaption          24182 non-null  object        
- 39  NorthClassifications  14498 non-null  object        
- 40  NorthExtraData        24182 non-null  object        
- 41  NorthPhotoUrl         43276 non-null  object        
- 42  RainingSnowing        43973 non-null  object        
- 43  SnowIce               43973 non-null  object        
- 44  SouthCaption          23750 non-null  object        
- 45  SouthClassifications  14463 non-null  object        
- 46  SouthExtraData        23748 non-null  object        
- 47  SouthPhotoUrl         42782 non-null  object        
- 48  StandingWater         43973 non-null  object        
- 49  UpwardCaption         23150 non-null  object        
- 50  UpwardExtraData       23143 non-null  object        
- 51  UpwardPhotoUrl        40807 non-null  object        
- 52  Userid                43973 non-null  object        
- 53  WestCaption           23718 non-null  object        
- 54  WestClassifications   14438 non-null  object        
- 55  WestExtraData         23728 non-null  object        
- 56  WestPhotoUrl          42689 non-null  object        
- 57  OrganizationId        49632 non-null  object        
- 58  OrganizationName      49632 non-null  object        
- 59  Protocol              52038 non-null  object        
- 60  SiteId                52038 non-null  object        
- 61  SiteName              52038 non-null  object        
- 62  geometry              52038 non-null  geometry      
- 63  MeasuredDate          52038 non-null  object        
-dtypes: datetime64[ms](1), geometry(1), object(62)
-memory usage: 25.4+ MB
+ 0   CountryCode           67901 non-null  str           
+ 1   CountryName           67901 non-null  str           
+ 2   Elevation             67936 non-null  str           
+ 3   DataSource            67936 non-null  str           
+ 4   DownwardCaption       22678 non-null  str           
+ 5   DownwardExtraData     22660 non-null  str           
+ 6   DownwardPhotoUrl      54074 non-null  str           
+ 7   DryGround             59680 non-null  str           
+ 8   EastCaption           24139 non-null  str           
+ 9   EastClassifications   18149 non-null  str           
+ 10  EastExtraData         23904 non-null  str           
+ 11  EastPhotoUrl          58002 non-null  str           
+ 12  Feature1Caption       825 non-null    str           
+ 13  Feature1ExtraData     3772 non-null   str           
+ 14  Feature1PhotoUrl      3775 non-null   str           
+ 15  Feature2Caption       334 non-null    str           
+ 16  Feature2ExtraData     2286 non-null   str           
+ 17  Feature2PhotoUrl      2286 non-null   str           
+ 18  Feature3Caption       184 non-null    str           
+ 19  Feature3ExtraData     1740 non-null   str           
+ 20  Feature3PhotoUrl      1740 non-null   str           
+ 21  Feature4Caption       143 non-null    str           
+ 22  Feature4ExtraData     1510 non-null   str           
+ 23  Feature4PhotoUrl      1510 non-null   str           
+ 24  FieldNotes            23767 non-null  str           
+ 25  GlobeTeams            33819 non-null  str           
+ 26  LandCoverId           67936 non-null  str           
+ 27  LeavesOnTrees         59680 non-null  str           
+ 28  LocationAccuracyM     49496 non-null  str           
+ 29  LocationMethod        59681 non-null  str           
+ 30  MeasuredAt            67936 non-null  datetime64[ms]
+ 31  MeasurementElevation  59623 non-null  str           
+ 32  MeasurementLatitude   59623 non-null  str           
+ 33  MeasurementLongitude  59623 non-null  str           
+ 34  MucCode               26651 non-null  str           
+ 35  MucDescription        26648 non-null  str           
+ 36  MucDetails            59681 non-null  str           
+ 37  Muddy                 59680 non-null  str           
+ 38  NorthCaption          24439 non-null  str           
+ 39  NorthClassifications  18199 non-null  str           
+ 40  NorthExtraData        24204 non-null  str           
+ 41  NorthPhotoUrl         58308 non-null  str           
+ 42  RainingSnowing        59680 non-null  str           
+ 43  SnowIce               59680 non-null  str           
+ 44  SouthCaption          23999 non-null  str           
+ 45  SouthClassifications  18144 non-null  str           
+ 46  SouthExtraData        23774 non-null  str           
+ 47  SouthPhotoUrl         57712 non-null  str           
+ 48  StandingWater         59680 non-null  str           
+ 49  UpwardCaption         23185 non-null  str           
+ 50  UpwardExtraData       23159 non-null  str           
+ 51  UpwardPhotoUrl        54918 non-null  str           
+ 52  Userid                59681 non-null  str           
+ 53  WestCaption           23965 non-null  str           
+ 54  WestClassifications   18118 non-null  str           
+ 55  WestExtraData         23751 non-null  str           
+ 56  WestPhotoUrl          57544 non-null  str           
+ 57  OrganizationId        67903 non-null  str           
+ 58  OrganizationName      67902 non-null  str           
+ 59  Protocol              67936 non-null  str           
+ 60  SiteId                67936 non-null  str           
+ 61  SiteName              67936 non-null  str           
+ 62  geometry              67936 non-null  geometry      
+ 63  MeasuredDate          67936 non-null  object        
+dtypes: datetime64[ms](1), geometry(1), object(1), str(61)
+memory usage: 90.4+ MB
 </pre></div>
 </div>
 </div>
@@ -2869,40 +2900,40 @@ memory usage: 25.4+ MB
   <tbody>
     <tr>
       <th>0</th>
-      <td>ITA</td>
-      <td>Italy</td>
-      <td>489.2</td>
+      <td>USA</td>
+      <td>United States</td>
+      <td>5.1</td>
       <td>GLOBE Observer App</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
       <td>true</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>Snag C. sativa, 40 cm, cl 2, #01 #04 #12</td>
-      <td>((compassData.heading: 182, compassData.horizo...</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>Log 70 cm, C. sativa, cl 2, #04 #01 #12</td>
-      <td>((compassData.heading: 182, compassData.horizo...</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>Stump of C. sativa 230 cm</td>
-      <td>((compassData.heading: null, compassData.horiz...</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>Old Coppice of Castanea sativa</td>
-      <td>[Conservazione Natura Universita Tuscia]</td>
-      <td>78608</td>
-      <td>false</td>
-      <td>8</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>[IEOPCNP]</td>
+      <td>94653</td>
+      <td>true</td>
+      <td>1414</td>
       <td>automatic</td>
-      <td>2024-12-31 15:07:00.000</td>
-      <td>492.4</td>
-      <td>42.1818</td>
-      <td>12.1825</td>
+      <td>2026-08-31 15:55:00</td>
+      <td>4.9</td>
+      <td>40.0199</td>
+      <td>-75.0422</td>
       <td>NaN</td>
       <td>NaN</td>
       <td></td>
@@ -2910,297 +2941,297 @@ memory usage: 25.4+ MB
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
       <td>false</td>
       <td>false</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
+      <td>NaN</td>
       <td>false</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>128342138</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>2514462</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>17453129</td>
-      <td>Italy Citizen Science</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>2620510</td>
+      <td>Institute for Earth Observations School</td>
       <td>land_covers</td>
-      <td>376869</td>
-      <td>33TTG673738</td>
-      <td>POINT (12.18229 42.18175)</td>
-      <td>2024-12-31</td>
+      <td>424899</td>
+      <td>18TVK963299</td>
+      <td>POINT (-75.04336 40.0193)</td>
+      <td>2026-08-31</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>MDG</td>
-      <td>Madagascar</td>
-      <td>1350.1</td>
+      <td>USA</td>
+      <td>United States</td>
+      <td>235.5</td>
       <td>GLOBE Observer App</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>false</td>
+      <td>NaN</td>
+      <td>10% MUC 11 (n) [Trees, Loosely Spaced, Evergre...</td>
+      <td>NaN</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>94655</td>
       <td>true</td>
-      <td>NaN</td>
-      <td>90% MUC 01 (n) [Trees, Closely Spaced, Evergre...</td>
-      <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Arbres plantés par l'équipe GLOBE avec la comm...</td>
-      <td>[Africa 2024 Regional Meeting, Coordinating Of...</td>
-      <td>77695</td>
-      <td>true</td>
-      <td>10</td>
+      <td>8</td>
       <td>automatic</td>
-      <td>2024-12-31 11:29:00.000</td>
-      <td>1340.6</td>
-      <td>-18.7576</td>
-      <td>47.5615</td>
-      <td>M01</td>
-      <td>Trees, Closely Spaced, Evergreen - Needle Leaved</td>
-      <td>n</td>
-      <td>false</td>
-      <td>NaN</td>
-      <td>90% MUC 01 (n) [Trees, Closely Spaced, Evergre...</td>
-      <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>false</td>
-      <td>false</td>
-      <td>NaN</td>
-      <td>90% MUC 01 (n) [Trees, Closely Spaced, Evergre...</td>
-      <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>false</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>2538037</td>
-      <td>NaN</td>
-      <td>90% MUC 01 (n) [Trees, Closely Spaced, Evergre...</td>
-      <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>6508873</td>
-      <td>Madagascar GLOBE v-School</td>
-      <td>land_covers</td>
-      <td>373647</td>
-      <td>38KQE700240</td>
-      <td>POINT (47.56096 -18.75807)</td>
-      <td>2024-12-31</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>MDG</td>
-      <td>Madagascar</td>
-      <td>1324.7</td>
-      <td>GLOBE Observer App</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>true</td>
-      <td>NaN</td>
-      <td>60% MUC 93 [Urban, Roads and Parking]</td>
-      <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>[Africa 2024 Regional Meeting, Coordinating Of...</td>
-      <td>77691</td>
-      <td>true</td>
-      <td>10</td>
-      <td>automatic</td>
-      <td>2024-12-31 12:07:00.000</td>
-      <td>1324.8</td>
-      <td>-18.7944</td>
-      <td>47.5799</td>
-      <td>M93</td>
-      <td>Urban, Roads and Parking</td>
+      <td>2026-08-31 17:47:00</td>
+      <td>235.9</td>
+      <td>39.1857</td>
+      <td>-86.7783</td>
+      <td>M43</td>
+      <td>Herbaceous/Grassland, Short Grass</td>
       <td></td>
       <td>false</td>
       <td>NaN</td>
-      <td>60% MUC 93 [Urban, Roads and Parking]</td>
+      <td>80% MUC 02 (b) [Trees, Closely Spaced, Deciduo...</td>
       <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
       <td>false</td>
       <td>false</td>
       <td>NaN</td>
-      <td>60% MUC 93 [Urban, Roads and Parking]</td>
+      <td>30% MUC 11 (n) [Trees, Loosely Spaced, Evergre...</td>
       <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
       <td>false</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>2538037</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>24905746</td>
       <td>NaN</td>
-      <td>60% MUC 93 [Urban, Roads and Parking]</td>
+      <td>10% MUC 11 (n) [Trees, Loosely Spaced, Evergre...</td>
       <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>6508873</td>
-      <td>Madagascar GLOBE v-School</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>17043304</td>
+      <td>United States of America Citizen Science</td>
       <td>land_covers</td>
-      <td>373642</td>
-      <td>38KQE719199</td>
-      <td>POINT (47.57953 -18.79484)</td>
-      <td>2024-12-31</td>
+      <td>52378</td>
+      <td>16SEJ191374</td>
+      <td>POINT (-86.77885 39.18563)</td>
+      <td>2026-08-31</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>USA</td>
+      <td>United States</td>
+      <td>369.3</td>
+      <td>GLOBE Observer App</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>true</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>94657</td>
+      <td>true</td>
+      <td>9</td>
+      <td>automatic</td>
+      <td>2026-08-31 20:29:00</td>
+      <td>369.8</td>
+      <td>41.4361</td>
+      <td>-81.4686</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td></td>
+      <td>false</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>false</td>
+      <td>false</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>false</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>148669632</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>17043304</td>
+      <td>United States of America Citizen Science</td>
+      <td>land_covers</td>
+      <td>391652</td>
+      <td>17TMF608872</td>
+      <td>POINT (-81.4692 41.43541)</td>
+      <td>2026-08-31</td>
     </tr>
     <tr>
       <th>3</th>
       <td>USA</td>
       <td>United States</td>
-      <td>182.2</td>
-      <td>GLOBE Data Entry Site Definition</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>None</td>
-      <td>77689</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2024-12-31 16:12:03.111</td>
-      <td>None</td>
-      <td>None</td>
-      <td>None</td>
-      <td>M4</td>
-      <td>Herbaceous Vegetation</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>52107</td>
-      <td>Crestwood High School</td>
-      <td>land_covers</td>
-      <td>373628</td>
-      <td>Hillcrest Elementary Trail</td>
-      <td>POINT (-83.27705 42.3465)</td>
-      <td>2024-12-31</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>GRC</td>
-      <td>Greece</td>
-      <td>3.0</td>
+      <td>2.3</td>
       <td>GLOBE Observer App</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>true</td>
-      <td>NaN</td>
-      <td>90% MUC 91 [Urban, Residential Property]; 10% ...</td>
-      <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>[tinycore lab, tinycorelab]</td>
-      <td>77683</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
       <td>false</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>NaN</td>
+      <td>((compassData.heading: 15, compassData.horizon...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>Delaware River</td>
+      <td>((compassData.heading: 301, compassData.horizo...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Tacony palmyra bridge nj-pa</td>
+      <td>[IEOPCNP]</td>
+      <td>94652</td>
+      <td>true</td>
+      <td>187</td>
+      <td>automatic</td>
+      <td>2026-08-31 14:57:00</td>
+      <td>2.5</td>
+      <td>40.0088</td>
+      <td>-75.0408</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td></td>
+      <td>true</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>false</td>
+      <td>false</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>false</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>2514462</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>2620510</td>
+      <td>Institute for Earth Observations School</td>
+      <td>land_covers</td>
+      <td>42112</td>
+      <td>18TVK965287</td>
+      <td>POINT (-75.04101 40.00849)</td>
+      <td>2026-08-31</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>USA</td>
+      <td>United States</td>
+      <td>78.2</td>
+      <td>GLOBE Observer App</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>true</td>
+      <td>NaN</td>
+      <td>10% MUC 12 (b) [Trees, Loosely Spaced, Deciduo...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>[Oregon State University GEOGRAPHY]</td>
+      <td>94647</td>
+      <td>true</td>
+      <td>NaN</td>
       <td>manual</td>
-      <td>2024-12-31 11:45:00.000</td>
-      <td>3.2</td>
-      <td>37.939</td>
-      <td>23.697</td>
+      <td>2026-08-31 05:12:00</td>
+      <td>78.7</td>
+      <td>53.413</td>
+      <td>-6.8349</td>
       <td>M91</td>
       <td>Urban, Residential Property</td>
       <td></td>
       <td>false</td>
       <td>NaN</td>
-      <td>90% MUC 91 [Urban, Residential Property]; 10% ...</td>
+      <td>10% MUC 12 (b) [Trees, Loosely Spaced, Deciduo...</td>
       <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
+      <td>NaN</td>
       <td>false</td>
       <td>false</td>
       <td>NaN</td>
-      <td>20% MUC 91 [Urban, Residential Property]; 80% ...</td>
+      <td>10% MUC 12 (b) [Trees, Loosely Spaced, Deciduo...</td>
       <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
+      <td>NaN</td>
       <td>false</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>65209921</td>
       <td>NaN</td>
-      <td>10% MUC 91 [Urban, Residential Property]; 90% ...</td>
+      <td>189554409</td>
       <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>6508393</td>
-      <td>Greece GLOBE v-School</td>
+      <td>10% MUC 12 (b) [Trees, Loosely Spaced, Deciduo...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>17043304</td>
+      <td>United States of America Citizen Science</td>
       <td>land_covers</td>
-      <td>373613</td>
-      <td>34SGH370024</td>
-      <td>POINT (23.6969 37.9383)</td>
-      <td>2024-12-31</td>
+      <td>424872</td>
+      <td>29UPV439203</td>
+      <td>POINT (-6.83495 53.41212)</td>
+      <td>2026-08-31</td>
     </tr>
     <tr>
       <th>...</th>
@@ -3270,80 +3301,19 @@ memory usage: 25.4+ MB
       <td>...</td>
     </tr>
     <tr>
-      <th>50778</th>
-      <td>OMN</td>
-      <td>Oman</td>
-      <td>584.0</td>
-      <td>GLOBE Data Entry Site Definition</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>None</td>
-      <td>20324</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2018-01-16 12:52:15.524</td>
-      <td>None</td>
-      <td>None</td>
-      <td>None</td>
-      <td>M823</td>
-      <td>Cultivated Land, Non-Agriculture, Cemeteries</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>23062994</td>
-      <td>Elayet feda basic school</td>
-      <td>land_covers</td>
-      <td>104390</td>
-      <td>yanqul park</td>
-      <td>POINT (56.43 23.43)</td>
-      <td>2018-01-16</td>
-    </tr>
-    <tr>
-      <th>50779</th>
+      <th>66366</th>
       <td>HRV</td>
       <td>Croatia</td>
-      <td>153.0</td>
+      <td>10.0</td>
       <td>GLOBE Data Entry Site Definition</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>https://data.globe.gov/system/photos/2015/10/2...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://data.globe.gov/system/photos/2015/10/2...</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3358,59 +3328,59 @@ memory usage: 25.4+ MB
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>19188</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2010-01-23 00:00:00</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>M814</td>
+      <td>Cultivated Land, Agriculture, Other Agriculture</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>None</td>
-      <td>20326</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2018-01-16 20:19:21.378</td>
-      <td>None</td>
-      <td>None</td>
-      <td>None</td>
-      <td>M1211</td>
-      <td>Woodland, Mainly Deciduous, Drought-Deciduous,...</td>
+      <td>https://data.globe.gov/system/photos/2015/10/2...</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>https://data.globe.gov/system/photos/2015/10/2...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://data.globe.gov/system/photos/2015/10/2...</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>177974</td>
-      <td>II. osnovna skola Cakovec</td>
+      <td>https://data.globe.gov/system/photos/2015/10/2...</td>
+      <td>312299</td>
+      <td>Srednja skola Vela Luka</td>
       <td>land_covers</td>
-      <td>104405</td>
-      <td>Žabnik- Sv. Martin</td>
-      <td>POINT (16.377 46.528)</td>
-      <td>2018-01-16</td>
+      <td>5009</td>
+      <td>Vela Luka</td>
+      <td>POINT (16.7186 42.9617)</td>
+      <td>2010-01-23</td>
     </tr>
     <tr>
-      <th>50780</th>
-      <td>OMN</td>
-      <td>Oman</td>
-      <td>27.0</td>
+      <th>66367</th>
+      <td>HRV</td>
+      <td>Croatia</td>
+      <td>10.0</td>
       <td>GLOBE Data Entry Site Definition</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>https://data.globe.gov/system/photos/2015/10/2...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://data.globe.gov/system/photos/2015/10/2...</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3423,61 +3393,61 @@ memory usage: 25.4+ MB
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NO</td>
+      <td>NaN</td>
+      <td>19636</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2010-01-23 00:00:00</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>M814</td>
+      <td>Cultivated Land, Agriculture, Other Agriculture</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>None</td>
-      <td>20321</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2018-01-03 21:57:54.342</td>
-      <td>None</td>
-      <td>None</td>
-      <td>None</td>
-      <td>M812</td>
-      <td>Cultivated Land, Agriculture, Orchard and Hort...</td>
+      <td>https://data.globe.gov/system/photos/2015/10/2...</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>https://data.globe.gov/system/photos/2015/10/2...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://data.globe.gov/system/photos/2015/10/2...</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>23061684</td>
-      <td>Al duqom basic school</td>
+      <td>https://data.globe.gov/system/photos/2015/10/2...</td>
+      <td>312299</td>
+      <td>Srednja skola Vela Luka</td>
       <td>land_covers</td>
-      <td>101771</td>
-      <td>ALduqm shcool</td>
-      <td>POINT (57.37 19.37)</td>
-      <td>2018-01-03</td>
+      <td>5009</td>
+      <td>Vela Luka</td>
+      <td>POINT (16.7186 42.9617)</td>
+      <td>2010-01-23</td>
     </tr>
     <tr>
-      <th>50781</th>
-      <td>OMN</td>
-      <td>Oman</td>
-      <td>27.0</td>
+      <th>66368</th>
+      <td>HRV</td>
+      <td>Croatia</td>
+      <td>10.0</td>
       <td>GLOBE Data Entry Site Definition</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>https://data.globe.gov/system/photos/2015/10/2...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://data.globe.gov/system/photos/2015/10/2...</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3492,56 +3462,117 @@ memory usage: 25.4+ MB
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>19189</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2010-01-23 00:00:00</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>M814</td>
+      <td>Cultivated Land, Agriculture, Other Agriculture</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>None</td>
-      <td>20322</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2018-01-03 22:00:19.250</td>
-      <td>None</td>
-      <td>None</td>
-      <td>None</td>
-      <td>M812</td>
-      <td>Cultivated Land, Agriculture, Orchard and Hort...</td>
+      <td>https://data.globe.gov/system/photos/2015/10/2...</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>https://data.globe.gov/system/photos/2015/10/2...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://data.globe.gov/system/photos/2015/10/2...</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>23061684</td>
-      <td>Al duqom basic school</td>
+      <td>https://data.globe.gov/system/photos/2015/10/2...</td>
+      <td>312299</td>
+      <td>Srednja skola Vela Luka</td>
       <td>land_covers</td>
-      <td>101771</td>
-      <td>ALduqm shcool</td>
-      <td>POINT (57.37 19.37)</td>
-      <td>2018-01-03</td>
+      <td>5009</td>
+      <td>Vela Luka</td>
+      <td>POINT (16.7186 42.9617)</td>
+      <td>2010-01-23</td>
     </tr>
     <tr>
-      <th>50782</th>
-      <td>OMN</td>
-      <td>Oman</td>
-      <td>0.0</td>
+      <th>66369</th>
+      <td>HRV</td>
+      <td>Croatia</td>
+      <td>10.0</td>
+      <td>GLOBE Data Entry Site Definition</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://data.globe.gov/system/photos/2015/10/2...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://data.globe.gov/system/photos/2015/10/2...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>19203</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2010-01-23 00:00:00</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>M814</td>
+      <td>Cultivated Land, Agriculture, Other Agriculture</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://data.globe.gov/system/photos/2015/10/2...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://data.globe.gov/system/photos/2015/10/2...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://data.globe.gov/system/photos/2015/10/2...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://data.globe.gov/system/photos/2015/10/2...</td>
+      <td>312299</td>
+      <td>Srednja skola Vela Luka</td>
+      <td>land_covers</td>
+      <td>5009</td>
+      <td>Vela Luka</td>
+      <td>POINT (16.7186 42.9617)</td>
+      <td>2010-01-23</td>
+    </tr>
+    <tr>
+      <th>66370</th>
+      <td>USA</td>
+      <td>United States</td>
+      <td>1612.0</td>
       <td>GLOBE Data Entry Site Definition</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3563,20 +3594,18 @@ memory usage: 25.4+ MB
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>Closed Forest, Mainly Evergreen, Tropical and ...</td>
       <td>NaN</td>
-      <td>None</td>
-      <td>20320</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2018-01-01 08:47:12.483</td>
-      <td>None</td>
-      <td>None</td>
-      <td>None</td>
-      <td>M8</td>
-      <td>Cultivated Land</td>
+      <td>19079</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>NaN</td>
+      <td>2010-01-01 00:00:00</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>M0131</td>
+      <td>Closed Forest, Mainly Evergreen, Tropical and ...</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -3596,17 +3625,19 @@ memory usage: 25.4+ MB
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>36736232</td>
-      <td>Madira Pasic School</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>37502</td>
+      <td>NCAR Foothills Lab</td>
       <td>land_covers</td>
-      <td>104036</td>
-      <td>MADERA  BASIC SCHOOL</td>
-      <td>POINT (58.167 21.0717)</td>
-      <td>2018-01-01</td>
+      <td>31964</td>
+      <td>Dave and Mike test site:LCS-01</td>
+      <td>POINT (-105.2441 40.0353)</td>
+      <td>2010-01-01</td>
     </tr>
   </tbody>
 </table>
-<p>50783 rows × 64 columns</p>
+<p>66371 rows × 64 columns</p>
 </div></div></div>
 </div>
 <p>Like the mosquito data, a copy of this dataset is <a class="reference external" href="https://github.com/geo-di-lab/emerge-lessons/tree/main/docs/data">on GitHub</a>, and we will use this in future chapters. You do not need to download the dataset to your computer, as we will load the data directly using the link.</p>
@@ -3620,13 +3651,13 @@ memory usage: 25.4+ MB
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data_by_day</span><span class="p">[</span><span class="s1">&#39;MeasuredDate&#39;</span><span class="p">],</span> <span class="n">data_by_day</span><span class="p">[</span><span class="s1">&#39;SiteId&#39;</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Date&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Daily Contribution&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Daily Land Cover Contributions Over Time (2018-2025)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Daily Land Cover Contributions Over Time&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6e48738e2b10351ff8a8abfae98035061da6f6d6a38757bca543e897138f8e0d.png" src="../../_images/6e48738e2b10351ff8a8abfae98035061da6f6d6a38757bca543e897138f8e0d.png" />
+<img alt="../../_images/15105ebbb67721f53976735de2db4d52ab831c765db4f431506bfbd0b578ac56.png" src="../../_images/15105ebbb67721f53976735de2db4d52ab831c765db4f431506bfbd0b578ac56.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3636,13 +3667,13 @@ memory usage: 25.4+ MB
 <span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">data_by_county</span><span class="p">[</span><span class="s1">&#39;CountryName&#39;</span><span class="p">],</span> <span class="n">data_by_county</span><span class="p">[</span><span class="s1">&#39;SiteId&#39;</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Total Contributions&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Country&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Mosquito Mapper Contributions by Country (2018-2025)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Mosquito Mapper Contributions by Country&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4c772d6d3768d963b34afc54d67ab04d8c2a2c6f1f235e7b918cfb716b79ef50.png" src="../../_images/4c772d6d3768d963b34afc54d67ab04d8c2a2c6f1f235e7b918cfb716b79ef50.png" />
+<img alt="../../_images/64fc7d1a5a9e768fb10d6ff34630654cae6fa9c3b95053d23d0a9b637597070f.png" src="../../_images/64fc7d1a5a9e768fb10d6ff34630654cae6fa9c3b95053d23d0a9b637597070f.png" />
 </div>
 </div>
 <p>A powerful feature of the Land Cover dataset is that users submit pictures of the area. Let’s view some of these images.</p>
@@ -3666,16 +3697,16 @@ memory usage: 25.4+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DownwardPhotoUrl: https://data.globe.gov/system/photos/2024/12/31/4325699/original.jpg
-EastPhotoUrl: https://data.globe.gov/system/photos/2024/12/31/4325695/original.jpg
-Feature1PhotoUrl: https://data.globe.gov/system/photos/2024/12/31/4325700/original.jpg
-Feature2PhotoUrl: https://data.globe.gov/system/photos/2024/12/31/4325701/original.jpg
-Feature3PhotoUrl: https://data.globe.gov/system/photos/2024/12/31/4325702/original.jpg
-Feature4PhotoUrl: https://data.globe.gov/system/photos/2024/12/31/4325703/original.jpg
-NorthPhotoUrl: https://data.globe.gov/system/photos/2024/12/31/4325694/original.jpg
-SouthPhotoUrl: https://data.globe.gov/system/photos/2024/12/31/4325696/original.jpg
-UpwardPhotoUrl: https://data.globe.gov/system/photos/2024/12/31/4325698/original.jpg
-WestPhotoUrl: https://data.globe.gov/system/photos/2024/12/31/4325697/original.jpg
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DownwardPhotoUrl: https://data.globe.gov/system/photos/2026/08/31/5139503/original.jpg
+EastPhotoUrl: https://data.globe.gov/system/photos/2026/08/31/5139499/original.jpg
+Feature1PhotoUrl: https://data.globe.gov/system/photos/2026/08/31/5139504/original.jpg
+Feature2PhotoUrl: https://data.globe.gov/system/photos/2026/08/31/5139505/original.jpg
+Feature3PhotoUrl: https://data.globe.gov/system/photos/2026/08/31/5139506/original.jpg
+Feature4PhotoUrl: https://data.globe.gov/system/photos/2026/08/31/5139507/original.jpg
+NorthPhotoUrl: https://data.globe.gov/system/photos/2026/08/31/5139498/original.jpg
+SouthPhotoUrl: https://data.globe.gov/system/photos/2026/08/31/5139500/original.jpg
+UpwardPhotoUrl: https://data.globe.gov/system/photos/2026/08/31/5139502/original.jpg
+WestPhotoUrl: https://data.globe.gov/system/photos/2026/08/31/5139501/original.jpg
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -3764,71 +3795,71 @@ WestPhotoUrl: https://data.globe.gov/system/photos/2024/12/31/4325697/original.j
   </thead>
   <tbody>
     <tr>
-      <th>11</th>
-      <td>ITA</td>
-      <td>Italy</td>
-      <td>1076.2</td>
+      <th>6</th>
+      <td>USA</td>
+      <td>United States</td>
+      <td>267.9</td>
       <td>GLOBE Observer App</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>false</td>
-      <td>NaN</td>
-      <td>90% MUC 12 (b) [Trees, Loosely Spaced, Deciduo...</td>
-      <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>NaN</td>
-      <td>((compassData.heading: 328, compassData.horizo...</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>NaN</td>
-      <td>((compassData.heading: 68, compassData.horizon...</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>NaN</td>
-      <td>((compassData.heading: 80, compassData.horizon...</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>NaN</td>
-      <td>((compassData.heading: 118, compassData.horizo...</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>Buca in fustaia coetanea di faggio a dominanza...</td>
-      <td>[Conservazione Natura Universita Tuscia]</td>
-      <td>78265</td>
-      <td>false</td>
-      <td>4</td>
-      <td>automatic</td>
-      <td>2024-12-31 10:47:00</td>
-      <td>1062.4</td>
-      <td>41.7648</td>
-      <td>14.2258</td>
-      <td>M12</td>
-      <td>Trees, Loosely Spaced, Deciduous - Broad Leaved</td>
-      <td>b</td>
-      <td>false</td>
-      <td>NaN</td>
-      <td>90% MUC 12 (b) [Trees, Loosely Spaced, Deciduo...</td>
-      <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>false</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
       <td>true</td>
       <td>NaN</td>
-      <td>90% MUC 12 (b) [Trees, Loosely Spaced, Deciduo...</td>
       <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
+      <td>NaN</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>NaN</td>
+      <td>((compassData.heading: 260, compassData.horizo...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>NaN</td>
+      <td>((compassData.heading: 336, compassData.horizo...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>NaN</td>
+      <td>((compassData.heading: 279, compassData.horizo...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>NaN</td>
+      <td>((compassData.heading: 289, compassData.horizo...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>94654</td>
+      <td>true</td>
+      <td>10</td>
+      <td>automatic</td>
+      <td>2026-08-31 18:43:00</td>
+      <td>269.7</td>
+      <td>39.8439</td>
+      <td>-86.3833</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td></td>
       <td>false</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>140413632</td>
       <td>NaN</td>
-      <td>90% MUC 12 (b) [Trees, Loosely Spaced, Deciduo...</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>false</td>
+      <td>false</td>
       <td>NaN</td>
-      <td>https://data.globe.gov/system/photos/2024/12/3...</td>
-      <td>17453129</td>
-      <td>Italy Citizen Science</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>false</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>126092159</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://data.globe.gov/system/photos/2026/08/3...</td>
+      <td>17043304</td>
+      <td>United States of America Citizen Science</td>
       <td>land_covers</td>
-      <td>375492</td>
-      <td>33TVG356239</td>
-      <td>POINT (14.22524 41.76432)</td>
-      <td>2024-12-31</td>
+      <td>361103</td>
+      <td>16SEK527106</td>
+      <td>POINT (-86.38402 39.84378)</td>
+      <td>2026-08-31</td>
     </tr>
   </tbody>
 </table>
@@ -3855,7 +3886,7 @@ WestPhotoUrl: https://data.globe.gov/system/photos/2024/12/31/4325697/original.j
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/95449d642dc072ecee3fa8f8b4434d3f37d792a830f82f92de1066812388d889.png" src="../../_images/95449d642dc072ecee3fa8f8b4434d3f37d792a830f82f92de1066812388d889.png" />
+<img alt="../../_images/f8746724114cbe544798605a4e0e2b0cc234550bbe6f3c896a3d70f9c567dd26.png" src="../../_images/f8746724114cbe544798605a4e0e2b0cc234550bbe6f3c896a3d70f9c567dd26.png" />
 </div>
 </div>
 </section>
